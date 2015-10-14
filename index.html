@@ -1,19 +1,61 @@
-<html>
+<!DOCTYPE html>
 <head>
+<style>
+body {
+  background-image: url("ruby_pattern.png");
+  background-repeat: repeat;
+}
+</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-<title>Nikola &#272;uza</title>
+  <title>Nikola &#272;uza</title>
 </head>
 <body>
-  <h2>Nikola &#272;uza</h2>
+  <div class="container">
+    <h1>Nikola &#272;uza</h1>
 
-  <p>Computer science student and intern at Rendered Text</p>
+    <p class="lead">Computer science student and intern at Rendered Text</p>
 
-  <h3>Education:</h3>
+    <h3>Education:</h3>
+    <ul class="list-group">
+      <div class="list-group-item active">
+        <h4 class="list-group-item-heading">Faculty of Technical Sciences, University of Novi Sad</h4>
+        <p class="list-group-item-text">2012 - 2016</p>
+        <p class="list-group-item-text">Bachelor's Degree, Computer Science</p>
+      </div>
 
-  <h3>Work:</h3>
-  <ul>
-    <li><a href="https://rpg-app.herokuapp.com/">RPG App</a></li>
-    <li>//TODO</li>
-  </ul>
+      <div class="list-group-item">
+        <h4 class="list-group-item-heading">"Isidora Sekuli&#263;" High School in Novi Sad</h4>
+        <p class="list-group-item-text">2008 - 2012</p>
+        <p class="list-group-item-text">Natural Sciences</p>
+      </div>
+    </ul>
+
+    <h3>Work:</h3>
+    <ul class="list-group">
+      <div class="list-group-item list-group-item-success">
+        <h4 class="list-group-item-heading">Intern at <a href="http://renderedtext.com/">Rendered Text</a></h4>
+        <p class="list-group-item-text">August 2015 - present</p>
+        <p class="list-group-item-text">Working on <a href="https://semaphoreci.com/">Semaphore</a>, continious integration service.
+                                        Integrating Amazon Web Services into Semaphore.</p>
+      </div>
+
+      <a href="https://github.com/nikolalsvk/maximum_word_frequency" target="_blank" class="list-group-item">
+        <h4 class="list-group-item-heading">Maximum word frequency in a file calculator</h4>
+        <p class="list-group-item-text">September 2015</p>
+        <p class="list-group-item-text">Ruby program for Coursera course</p>
+      </a>
+
+      <a href="https://rpg-app.herokuapp.com/" target="_blank" class="list-group-item">
+        <h4 class="list-group-item-heading">RPG App</h4>
+        <p class="list-group-item-text">May 2015</p>
+        <p class="list-group-item-text">Ruby on Rails web application for adding and editing your Role Play character</p>
+      </a>
+    </ul>
+  </div>
 </body>
 </html>
