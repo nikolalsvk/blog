@@ -37,42 +37,96 @@
   </div>
 
   <div class="container">
-    <h3>Education:</h3>
-    <ul class="list-group">
-      <div class="list-group-item active">
-        <h4 class="list-group-item-heading">Faculty of Technical Sciences, University of Novi Sad</h4>
-        <p class="list-group-item-text">2012 - 2016</p>
-        <p class="list-group-item-text">Bachelor's Degree, Computer Science</p>
-      </div>
-
-      <div class="list-group-item">
-        <h4 class="list-group-item-heading">"Isidora Sekuli&#263;" High School in Novi Sad</h4>
-        <p class="list-group-item-text">2008 - 2012</p>
-        <p class="list-group-item-text">Natural Sciences</p>
+    <h4>Work:</h4>
+    <div class="panel-group" id="work-panel">
+	     <div class="panel panel-info">
+		      <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#work-panel" href="#collapseWork" class="lead"><strong>Intern</strong> at Rendered Text</a>
+            </h4>
+          </div>
+          <div id="collapseWork" class="panel-collapse collapse in">
+            <div class="panel-body">
+              <a href="http://renderedtext.com/">Rendered Text</a>
+              <em class="list-group-item-text">August 2015 - present</em>
+              <p class="list-group-item-text">Working on <a href="https://semaphoreci.com/">Semaphore</a>, continious integration service.
+                                              Integrating Amazon Web Services into Semaphore.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </ul>
 
-    <h3>Work:</h3>
-    <ul class="list-group">
-      <div class="list-group-item list-group-item-info">
-        <h4 class="list-group-item-heading">Intern at <a href="http://renderedtext.com/">Rendered Text</a></h4>
-        <p class="list-group-item-text">August 2015 - present</p>
-        <p class="list-group-item-text">Working on <a href="https://semaphoreci.com/">Semaphore</a>, continious integration service.
-                                        Integrating Amazon Web Services into Semaphore.</p>
+    <h4>Projects:</h4>
+    <div class="panel-group" id="projects-panel">
+      <div class="panel panel-info">
+	      <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#projects-panel" href="#collapseMaxWord" class="lead">Maximum word frequency in a file</a>
+          </h4>
+        </div>
+        <div id="collapseMaxWord" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p class="list-group-item-text">
+              Ruby program for Coursera course.
+            </p>
+
+            <a href="https://github.com/nikolalsvk/maximum_word_frequency" target="_blank">
+              <img src="img/blacktocat.png" alt="GitHub" width="20" height="20" />
+            </a>
+          </div>
+        </div>
       </div>
 
-      <a href="https://github.com/nikolalsvk/maximum_word_frequency" target="_blank" class="list-group-item">
-        <h4 class="list-group-item-heading">Maximum word frequency in a file calculator</h4>
-        <p class="list-group-item-text">September 2015</p>
-        <p class="list-group-item-text">Ruby program for Coursera course</p>
-      </a>
 
-      <a href="https://rpg-app.herokuapp.com/" target="_blank" class="list-group-item">
-        <h4 class="list-group-item-heading">RPG App</h4>
-        <p class="list-group-item-text">May 2015</p>
-        <p class="list-group-item-text">Ruby on Rails web application for adding and editing your Role Play character</p>
-      </a>
-    </ul>
+
+      <div class="panel panel-default">
+	      <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#projects-panel" href="#collapseRpgApp" class="lead">RPG App</a>
+          </h4>
+        </div>
+        <div id="collapseRpgApp" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p class="list-group-item-text">
+              Ruby on Rails web application for adding and editing your Role Play character.
+            </p>
+            <a href="https://rpg-app.herokuapp.com/" target="_blank">RPG App online</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h4>Education:</h4>
+    <div class="panel-group" id="education-panel">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#education-panel" href="#collapseFaculty" class="lead">Faculty of Technical Sciences, University of Novi Sad</a>
+          </h4>
+        </div>
+        <div id="collapseFaculty" class="panel-collapse collapse">
+          <div class="panel-body">
+            <em class="list-group-item-text">2012 - 2016</em>
+            <p class="list-group-item-text">Bachelor's Degree, Computer Science</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#education-panel" href="#collapseHighSchool" class="lead">"Isidora Sekuli&#263;" High School in Novi Sad</a>
+          </h4>
+        </div>
+        <div id="collapseHighSchool" class="panel-collapse collapse">
+          <div class="panel-body">
+            <em class="list-group-item-text">2008 - 2012</em>
+            <p class="list-group-item-text">Natural Sciences</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>
