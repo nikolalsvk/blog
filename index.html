@@ -9,209 +9,164 @@
 .p-icons {
   margin-bottom: 25px;
 }
-</style>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-<title>Nikola &#272;uza</title>
+.demo-card-wide.mdl-card {
+  width: 512px;
+}
+
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
+
+#web-developer-title {
+  background: url('img/card_cover_box.jpg') center / cover;
+  color: white;
+}
+
+.mdl-list__item {
+  padding: 0px !important;
+}
+
+.mdl-list {
+  margin: 0px;
+  padding: 0px !important;
+}
+</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.red-deep_orange.min.css">
+  <script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>
+
+  <title>Nikola &#272;uza</title>
 </head>
 <body>
-  <div class="intro-container">
-    <div class="container">
-      <h1 class="my-name">Nikola &#272;uza</h1>
 
-      <p class="lead">Computer science student and web developer at Rendered Text</p>
-
-      <p class="text-left">Web developer and programmer who likes to tinker and figure out technology that surrounds
-        him in his everyday life. In love with motorcycles and board games. His average day consists
-        of coding, studying and working out. As a kid, he dreamed of becoming an astronaut, and he
-        still thinks there is a way to get up there. As much as he loves to work hard,
-        he manages to find counterweight in reading, hip-hop or just staring into space.</p>
-
-        <p class="p-icons">
-          <a href="https://github.com/nikolalsvk" target="_blank"><img src="img/blacktocat.png" alt="GitHub" width="29" height="29" /></a>
-          <a href="https://www.linkedin.com/in/nikoladjuza" target="_blank"><img src="img/linkedin.png" alt="LinkedIn" width="29" height="29" /></a>
-          <a href="http://nikolalsvk.tumblr.com/" target="_blank"><img src="img/tumblr.png" alt="Tumblr" width="29" height="29" /></a>
-        </p>
-      </div>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-drawer-button">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <a class="mdl-navigation__link" href="mailto:nikolaseap@gmail.com">Say hi!</a>
+        <a class="mdl-navigation__link" href="mailto:nikolaseap@gmail.com">Offer me a job</a>
+      </nav>
     </div>
+  </header>
 
-    <div class="container">
-      <h4>Work:</h4>
-      <div class="panel-group" id="work-panel">
-        <div class="panel panel-info">
-          <div class="panel-heading">
-            <h4 class="panel-title">
-              <a data-toggle="collapse" data-parent="#work-panel" href="#collapseCurrent" class="lead">
-                <strong>Web developer</strong> at Rendered Text</a>
-            </h4>
-          </div>
-          <div id="collapseCurrent" class="panel-collapse collapse in">
-            <div class="panel-body">
-              <a href="http://renderedtext.com/">Rendered Text</a>
-              <em class="list-group-item-text">October 2015 - present</em>
-              <p class="list-group-item-text">
-                Working on <a href="https://semaphoreci.com/">Semaphore</a>, continious integration service.
-                Integrating Amazon Web Services into Semaphore.
+    <main class="mdl-layout__content">
+      <div class="container">
+        <div class="intro-container">
+
+
+          <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--2-col"></div>
+            <div class="mdl-cell mdl-cell--8-col">
+              <h1 class="my-name">Nikola &#272;uza</h1>
+
+              <p class="lead">Computer science student and web developer at Rendered Text</p>
+
+              <p>I'm a student and software developer from Novi Sad, Serbia.
+                 Interested in web development, design, motorcycles and a healthy lifestyle.</p>
+
+              <p class="p-icons">
+                <a href="https://github.com/nikolalsvk" target="_blank"><img src="img/blacktocat.png" alt="GitHub" width="29" height="29" /></a>
+                <a href="https://www.linkedin.com/in/nikoladjuza" target="_blank"><img src="img/linkedin.png" alt="LinkedIn" width="29" height="29" /></a>
+                <a href="http://nikolalsvk.tumblr.com/" target="_blank"><img src="img/tumblr.png" alt="Tumblr" width="29" height="29" /></a>
               </p>
+            </div>
+            <div class="mdl-cell mdl-cell--2-col"></div>
+          </div>
+
+        </div>
+
+        <!-- Web developer -->
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--4-col"></div>
+          <div class="mdl-cell mdl-cell--4-col demo-card-wide mdl-card mdl-shadow--2dp">
+            <div class="mdl-card__title" id="web-developer-title">
+              <h2 class="mdl-card__title-text">Web Developer</h2>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+              <div class="mdl-card__supporting-text">
+                <ul class="demo-list-item mdl-list">
+                  <li class="mdl-list__item">
+                    <h5>at <a href="http://renderedtext.com/">Rendered Text</a></h5>
+                  </li>
+                  <li class="mdl-list__item">
+                    <em>October 2015 - present</em>
+                  </li>
+                  <li class="mdl-list__item">
+                    <p>Making <a href="https://semaphoreci.com/">Semaphore</a>,
+                      a worlds best hosted Continuouns Integration service.</p>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
+          <div class="mdl-cell mdl-cell--4-col"></div>
+        </div>
 
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#work-panel" href="#collapseIntern" class="lead"><strong>Intern</strong> at Rendered Text</a>
-              </h4>
+        <!-- Student -->
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--4-col"></div>
+          <div class="mdl-cell mdl-cell--4-col demo-card-wide mdl-card mdl-shadow--2dp">
+            <div class="mdl-card__title">
+              <h2 class="mdl-card__title-text">Student</h2>
             </div>
-            <div id="collapseIntern" class="panel-collapse collapse">
-              <div class="panel-body">
-                <a href="http://renderedtext.com/">Rendered Text</a>
-                <em class="list-group-item-text">August 2015 - October 2015</em>
-                <p class="list-group-item-text">
-                  Working on <a href="https://semaphoreci.com/">Semaphore</a>, continious integration service.
-                  Integrating Amazon Web Services into Semaphore.
-                </p>
+            <div class="mdl-card__actions mdl-card--border">
+              <div class="mdl-card__supporting-text">
+                <ul class="demo-list-item mdl-list">
+                  <li class="mdl-list__item">
+                    <h5>at <a href="http://www.ftn.uns.ac.rs/n1386094394/faculty-of-technical-sciences">Faculty of Technical Sciences</a></h5>
+                  </li>
+                  <li class="mdl-list__item">
+                    <em>October 2012 - July 2016</em>
+                  </li>
+                  <li class="mdl-list__item">
+                    <p>Studied Computer and Controler Engineering module. Main focus
+                    on web development and security in software.</p>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
+          <div class="mdl-cell mdl-cell--4-col"></div>
         </div>
-      </ul>
 
-      <h4>Projects:</h4>
-      <div class="panel-group" id="projects-panel">
-        <div class="panel panel-info">
-          <div class="panel-heading" data-toggle="collapse" data-parent="#projects-panel" href="#collapseMaxWord">
-            <h4 class="panel-title">
-              <a data-toggle="collapse" data-parent="#projects-panel" href="#collapseMaxWord" class="lead">Maximum word frequency in a file</a>
-            </h4>
-          </div>
-          <div id="collapseMaxWord" class="panel-collapse collapse">
-            <div class="panel-body">
-              <p class="list-group-item-text">
-                Ruby program for Coursera course.
-              </p>
-
-              <a href="https://github.com/nikolalsvk/maximum_word_frequency" target="_blank">
-                <img src="img/blacktocat.png" alt="GitHub" width="20" height="20" />
-              </a>
+        <!-- Intern -->
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--4-col"></div>
+          <div class="mdl-cell mdl-cell--4-col demo-card-wide mdl-card mdl-shadow--2dp">
+            <div class="mdl-card__title">
+              <h2 class="mdl-card__title-text">Internship</h2>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+              <div class="mdl-card__supporting-text">
+                <ul class="demo-list-item mdl-list">
+                  <li class="mdl-list__item">
+                    <h5>at <a href="http://renderedtext.com/">Rendered Text</a></h5>
+                  </li>
+                  <li class="mdl-list__item">
+                    <em>August 2015 - September 2015</em>
+                  </li>
+                  <li class="mdl-list__item">
+                    <p>Worked on <a href="https://semaphoreci.com/">Semaphore</a>,
+                      continious integration service.
+                      Integrated Amazon Web Services into Semaphore. In particular I worked
+                      on AWS Lambda, Elastic Beanstalk and S3 integrations.</p>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
+          <div class="mdl-cell mdl-cell--4-col"></div>
         </div>
 
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title">
-              <a data-toggle="collapse" data-parent="#projects-panel" href="#collapseRpg" class="lead">RPG App</a>
-            </h4>
-          </div>
-          <div id="collapseRpg" class="panel-collapse collapse">
-            <div class="panel-body">
-              <p class="list-group-item-text">
-                Ruby on Rails web application for adding and editing your Role Play character.
-              </p>
-              <a href="https://rpg-app.herokuapp.com/" target="_blank">RPG App online</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title">
-              <a data-toggle="collapse" data-parent="#projects-panel" href="#collapseSalons" class="lead">Furniture salons</a>
-            </h4>
-          </div>
-          <div id="collapseSalons" class="panel-collapse collapse">
-            <div class="panel-body">
-              <p class="list-group-item-text">
-                Java web application for managing your furniture salons.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title">
-              <a data-toggle="collapse" data-parent="#projects-panel" href="#collapseMonuments" class="lead">World monuments record</a>
-            </h4>
-          </div>
-          <div id="collapseMonuments" class="panel-collapse collapse">
-            <div class="panel-body">
-              <p class="list-group-item-text">
-                C# application for managing world monuments through a world map. It has help in every form to help
-                you out while adding and editing world monuments.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title">
-              <a data-toggle="collapse" data-parent="#projects-panel" href="#collapseTumblr" class="lead">Tumblr blogs rank</a>
-            </h4>
-          </div>
-          <div id="collapseTumblr" class="panel-collapse collapse">
-            <div class="panel-body">
-              <p class="list-group-item-text">
-                Matlab application for establishing rank of specified Tumblr blogs. Blogs are inserted
-                in a .txt file and after running the app you will see ranks of those blogs.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title">
-              <a data-toggle="collapse" data-parent="#projects-panel" href="#collapseEditor" class="lead">Free graphic editor</a>
-            </h4>
-          </div>
-          <div id="collapseEditor" class="panel-collapse collapse">
-            <div class="panel-body">
-              <p class="list-group-item-text">
-                Graphic editor done in Java. You can add write and draw an a canvas. All of your work can be saved
-                locally and retrieved when you wish.
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
+    </main>
+  </div>
 
-      <h4>Education:</h4>
-      <div class="panel-group" id="education-panel">
-        <div class="panel panel-info">
-          <div class="panel-heading">
-            <h4 class="panel-title">
-              <a data-toggle="collapse" data-parent="#education-panel" href="#collapseFaculty" class="lead">Faculty of Technical Sciences, University of Novi Sad</a>
-            </h4>
-          </div>
-          <div id="collapseFaculty" class="panel-collapse collapse">
-            <div class="panel-body">
-              <em class="list-group-item-text">2012 - 2016</em>
-              <p class="list-group-item-text">Bachelor's Degree, Computer Science</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title">
-              <a data-toggle="collapse" data-parent="#education-panel" href="#collapseHighSchool" class="lead">"Isidora Sekuli&#263;" High School in Novi Sad</a>
-            </h4>
-          </div>
-          <div id="collapseHighSchool" class="panel-collapse collapse">
-            <div class="panel-body">
-              <em class="list-group-item-text">2008 - 2012</em>
-              <p class="list-group-item-text">Natural Sciences</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
-  </html>
+</body>
+</html>
