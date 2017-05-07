@@ -26,6 +26,11 @@
         <li class="nav-item text-center">
           <a class="nav-link" href="/about.html">About</a>
         </li>
+        <li class="nav-item active text-center">
+          <a class="nav-link" id="computer" href="">
+            <img src="img/favicon.gif">
+          </a>
+        </li>
         <li class="nav-item text-center">
           <a class="nav-link" href="/work.html">Work</a>
         </li>
@@ -37,7 +42,7 @@
 
     <!-- Intro -->
     <div class="jumbotron container-intro">
-      <h1 class="display-3">Random Ramblings</h1>
+      <h1 class="display-3">Random <strong>Ramblings</strong></h1>
     </div>
 
   </div>
@@ -106,5 +111,11 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
           integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
           crossorigin="anonymous"></script>
+  <script>
+    $("#computer").on("click", function(event) {
+      event.preventDefault();
+      $(document.body).css('cursor', 'url(img/favicon.gif), auto');
+    })
+  </script>
 </body>
 </html>
