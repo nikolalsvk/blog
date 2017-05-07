@@ -1,5 +1,5 @@
-.intro-container {
-  background-image: url("img/ruby_pattern.png");
+.container-intro {
+  background-image: url('img/ruby_pattern.png');
   background-repeat: repeat;
 }
 
@@ -7,24 +7,20 @@
   margin-bottom: 25px;
 }
 
-.demo-card-wide.mdl-card {
-  width: 512px;
-}
-
-.demo-card-wide > .mdl-card__menu {
-  color: #fff;
-}
-
 #web-developer-title {
   background: url('img/card_cover_box.jpg') center / cover;
   color: white;
 }
 
-.mdl-list__item {
-  padding: 0px !important;
+.jumbotron {
+  text-align: center;
+
+  border-top: .05rem solid #e5e5e5;
+  border-bottom: .05rem solid #e5e5e5;
+
+  margin-top: 2rem;
 }
 
-.mdl-list {
-  margin: 0px;
-  padding: 0px !important;
+.social {
+  text-align: center;
 }
