@@ -3,6 +3,11 @@
   background-repeat: repeat;
 }
 
+.navbar {
+  background-image: url('img/ruby_pattern.png');
+  background-repeat: repeat;
+}
+
 .p-icons {
   margin-bottom: 25px;
 }
