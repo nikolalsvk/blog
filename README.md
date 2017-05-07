@@ -1,5 +1,5 @@
 # nikolalsvk.github.io
 
-Personal website repo
+Personal website (self-praise) repo
 
-Not finished at all
+Check it out at [nikoladjuza.me](http://nikoladjuza.me/)
