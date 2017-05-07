@@ -2,131 +2,281 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.red-deep_orange.min.css">
-  <link rel="stylesheet" href="styles.css">
+
   <link rel="icon" type="image/gif" href="img/favicon.gif">
-  <script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>
+
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+        integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous">
+
+  <link rel="stylesheet" href="styles.css">
 
   <title>I'm Nikola &#272;uza</title>
 </head>
 <body>
+  <div class="container">
 
-  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-drawer-button">
+    <!-- Navbar -->
+    <nav class="navbar navbar-toggleable-md rounded navbar-light bg-faded justify-content-md-center">
+      <ul class="navbar-nav">
+        <li class="nav-item active text-center">
+          <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item text-center">
+          <a class="nav-link" href="/about.html">About</a>
+        </li>
+        <li class="nav-item active text-center">
+          <a class="nav-link" id="computer" href="">
+            <img src="img/favicon.gif">
+          </a>
+        </li>
+        <li class="nav-item text-center">
+          <a class="nav-link" href="/work.html">Work</a>
+        </li>
+        <li class="nav-item text-center">
+          <a class="nav-link" href="/blog.html">Blog</a>
+        </li>
+      </ul>
+    </nav>
 
-    <main class="mdl-layout__content">
-      <div class="container">
-        <div class="intro-container">
+    <!-- Intro -->
+    <div class="jumbotron container-intro">
+      <h1 class="display-3">Hi, I'm <strong>Nikola &#272;uza</strong></h1>
+      <p class="lead">and I'm a Software Engineer</p>
+      <p>
+        I'm into
 
-          <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell--2-col"></div>
-            <div class="mdl-cell mdl-cell--8-col">
-              <h1 class="my-name">Nikola &#272;uza</h1>
+        <a href="https://github.com/nikolalsvk?tab=repositories">web development</a>,
+        <a href="https://www.instagram.com/nikolalsvk/">photography</a>, yoga and motorcycles.
+        Also, I'm very good at elegant problem solving.
+      </p>
+      <p>
+        <a class="btn btn-lg btn-secondary"
+           href="mailto:nikolaseap@gmail.com"
+           role="button">Shoot me an email</a>
+      </p>
+    </div>
 
-              <p class="lead">Computer science student and web developer at Rendered Text</p>
+  </div>
 
-              <p>I'm a student and software developer from Novi Sad, Serbia.
-                 Interested in web development, design, motorcycles and a healthy lifestyle.</p>
+  <div class="container">
+    <!-- Software Engineer -->
+    <div class="row">
+      <div class="col"></div>
+      <div class="col-sm-6">
 
-              <p class="p-icons">
-                <a href="https://github.com/nikolalsvk" target="_blank"><img src="img/blacktocat.png" alt="GitHub" width="29" height="29" /></a>
-                <a href="https://www.linkedin.com/in/nikoladjuza" target="_blank"><img src="img/linkedin.png" alt="LinkedIn" width="29" height="29" /></a>
-                <a href="http://nikolalsvk.tumblr.com/" target="_blank"><img src="img/tumblr.png" alt="Tumblr" width="29" height="29" /></a>
-              </p>
-            </div>
-            <div class="mdl-cell mdl-cell--2-col"></div>
+        <h2>Experience</h2>
+        <p>Places I've made great work at:</p>
+
+        <div class="card mb-3">
+          <div class="card-block">
+            <h4 class="card-title">Software Engineer</h4>
+            <p class="card-text">at <a href="http://renderedtext.com/">Rendered Text</a></p>
           </div>
-
-        </div>
-
-        <!-- Web developer -->
-        <div class="mdl-grid">
-          <div class="mdl-cell mdl-cell--4-col"></div>
-          <div class="mdl-cell mdl-cell--4-col demo-card-wide mdl-card mdl-shadow--2dp">
-            <div class="mdl-card__title" id="web-developer-title">
-              <h2 class="mdl-card__title-text">Web Developer</h2>
-            </div>
-            <div class="mdl-card__actions mdl-card--border">
-              <div class="mdl-card__supporting-text">
-                <ul class="demo-list-item mdl-list">
-                  <li class="mdl-list__item">
-                    <h5>at <a href="http://renderedtext.com/">Rendered Text</a></h5>
-                  </li>
-                  <li class="mdl-list__item">
-                    <em>October 2015 - present</em>
-                  </li>
-                  <li class="mdl-list__item">
-                    <p>Making <a href="https://semaphoreci.com/">Semaphore</a>,
-                      the world's best hosted Continuous Delivery service.</p>
-                  </li>
-                </ul>
-              </div>
-            </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><em>October 2015 - present</em></li>
+          </ul>
+          <div class="card-block">
+            <p class="card-text">
+              Making <a href="https://semaphoreci.com/">Semaphore</a>,
+              the world's best hosted Continuous Delivery service.
+            </p>
           </div>
-          <div class="mdl-cell mdl-cell--4-col"></div>
-        </div>
-
-        <!-- Student -->
-        <div class="mdl-grid">
-          <div class="mdl-cell mdl-cell--4-col"></div>
-          <div class="mdl-cell mdl-cell--4-col demo-card-wide mdl-card mdl-shadow--2dp">
-            <div class="mdl-card__title">
-              <h2 class="mdl-card__title-text">Student</h2>
-            </div>
-            <div class="mdl-card__actions mdl-card--border">
-              <div class="mdl-card__supporting-text">
-                <ul class="demo-list-item mdl-list">
-                  <li class="mdl-list__item">
-                    <h5>at <a href="http://www.ftn.uns.ac.rs/n1386094394/faculty-of-technical-sciences">Faculty of Technical Sciences</a></h5>
-                  </li>
-                  <li class="mdl-list__item">
-                    <em>October 2012 - July 2016</em>
-                  </li>
-                  <li class="mdl-list__item">
-                    <p>Studied Computer and Controler Engineering module. Main focus
-                    on web development and security in software.</p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="mdl-cell mdl-cell--4-col"></div>
-        </div>
-
-        <!-- Intern -->
-        <div class="mdl-grid">
-          <div class="mdl-cell mdl-cell--4-col"></div>
-          <div class="mdl-cell mdl-cell--4-col demo-card-wide mdl-card mdl-shadow--2dp">
-            <div class="mdl-card__title">
-              <h2 class="mdl-card__title-text">Internship</h2>
-            </div>
-            <div class="mdl-card__actions mdl-card--border">
-              <div class="mdl-card__supporting-text">
-                <ul class="demo-list-item mdl-list">
-                  <li class="mdl-list__item">
-                    <h5>at <a href="http://renderedtext.com/">Rendered Text</a></h5>
-                  </li>
-                  <li class="mdl-list__item">
-                    <em>August 2015 - September 2015</em>
-                  </li>
-                  <li class="mdl-list__item">
-                    <p>Worked on <a href="https://semaphoreci.com/">Semaphore</a>,
-                      continious integration service.
-                      Integrated Amazon Web Services into Semaphore. In particular I worked
-                      on AWS Lambda, Elastic Beanstalk and S3 integrations.</p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="mdl-cell mdl-cell--4-col"></div>
         </div>
 
       </div>
-    </main>
+      <div class="col"></div>
+    </div>
+
+    <!-- Visiting Research Scholar -->
+    <div class="row">
+      <div class="col"></div>
+      <div class="col-sm-6">
+
+        <div class="card mb-3">
+          <div class="card-block">
+            <h4 class="card-title">Visiting Research Scholar</h4>
+            <p class="card-text">at <a href="http://www.rice.edu/">Rice University</a>, Houston TX</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><em>July 2016 - October 2016</em></li>
+          </ul>
+          <div class="card-block">
+            <p class="card-text">
+              Researched AdBlock blocker and websites that block AdBlock.
+              Worked under the mentorship of
+              <a href="https://www.cs.rice.edu/~dwallach/">Dan Wallach</a>,
+              security expert at Rice University.
+            </p>
+          </div>
+        </div>
+
+      </div>
+      <div class="col"></div>
+    </div>
+
+    <!-- Internship -->
+    <div class="row">
+      <div class="col"></div>
+      <div class="col-sm-6">
+
+        <div class="card mb-3">
+          <div class="card-block">
+            <h4 class="card-title">Internship</h4>
+            <p class="card-text">
+              at <a href="http://renderedtext.com/">Rendered Text</a>
+            </p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><em>August 2015 - September 2015</em></li>
+          </ul>
+          <div class="card-block">
+            <p class="card-text">
+              Worked on <a href="https://semaphoreci.com/">Semaphore</a>,
+              continious integration service.
+              Integrated Amazon Web Services into Semaphore. In particular I worked
+              on AWS Lambda, Elastic Beanstalk and S3 integrations.
+            </p>
+
+            <p class="card-text">
+              Helped people to easily deploy their web applications to AWS.
+            </p>
+          </div>
+        </div>
+
+      </div>
+      <div class="col"></div>
+    </div>
+
+
+    <!-- Master's Student -->
+    <div class="row">
+      <div class="col"></div>
+      <div class="col-sm-6">
+
+        <h2>Education</h2>
+        <p>Places I earned my education at:</p>
+
+        <div class="card mb-3">
+          <div class="card-block">
+            <h4 class="card-title">Master's Student</h4>
+            <p class="card-text">
+              at
+              <a href="http://www.ftn.uns.ac.rs/n1386094394/faculty-of-technical-sciences">
+                Faculty of Technical Sciences
+              </a>
+            </p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><em>October 2016 - present</em></li>
+          </ul>
+          <div class="card-block">
+            <p class="card-text">
+              Business Applications and Web Services module.
+            </p>
+          </div>
+        </div>
+
+      </div>
+      <div class="col"></div>
+    </div>
+
+    <!-- Student -->
+    <div class="row">
+      <div class="col"></div>
+      <div class="col-sm-6">
+
+        <div class="card mb-3">
+          <div class="card-block">
+            <h4 class="card-title">Undergraduate Student</h4>
+            <p class="card-text">
+              at
+              <a href="http://www.ftn.uns.ac.rs/n1386094394/faculty-of-technical-sciences">
+                Faculty of Technical Sciences
+              </a>
+            </p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><em>October 2012 - July 2016</em></li>
+          </ul>
+          <div class="card-block">
+            <p class="card-text">
+              Studied Computer and Controler Engineering module.
+            </p>
+
+            <p class="card-text">
+              Learned a lot about:
+              object-oriented languages, compilers, databases, database modeling,
+              Javascript, modeling complex business systems.
+              Main focus was on web development and security in software.
+            </p>
+          </div>
+        </div>
+
+      </div>
+      <div class="col"></div>
+    </div>
+
+    <div class="text-center">
+      <p class="p-icons">
+        <a href="https://github.com/nikolalsvk"
+           target="_blank"
+           role"button">
+          <img src="img/blacktocat.png"
+               alt="GitHub"
+               class="rounded-circle"
+               width="29"
+               height="29" />
+        </a>
+        <a href="https://www.linkedin.com/in/nikoladjuza"
+           target="_blank"
+           role="button">
+          <img src="img/linkedin.png"
+               alt="LinkedIn"
+               class="rounded-circle"
+               width="29"
+               height="29" />
+        </a>
+        <a href="http://nikolalsvk.tumblr.com/"
+           target="_blank"
+           role="button">
+          <img src="img/tumblr.png"
+               alt="Tumblr"
+               class="rounded-circle"
+               width="29"
+               height="29" />
+        </a>
+      </p>
+
+      <!-- Outro -->
+      <div class="jumbotron container-intro">
+        <p class="lead">Interested in what you saw and want to hear more?</p>
+        <p>
+          <a class="btn btn-lg btn-secondary"
+             href="mailto:nikolaseap@gmail.com"
+             role="button">Let's get in touch</a>
+        </p>
+      </div>
+
+      <p>© Nikola &#272;uza 2017.</p>
+    </div>
   </div>
 
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+          integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+          crossorigin="anonymous" ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+          integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+          crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+          integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+          crossorigin="anonymous"></script>
+  <script>
+    $("#computer").on("click", function(event) {
+      event.preventDefault();
+      $(document.body).css('cursor', 'url(img/favicon.gif), auto');
+    })
+  </script>
 </body>
 </html>
