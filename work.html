@@ -51,12 +51,192 @@
 
     <div class="row">
       <div class="col"></div>
-      <div class="col-sm-10">
+      <div class="col-sm-6">
 
-        <p>WIP</p>
+        <h2>Open Source</h2>
+        <p>Contributions to the Open Source world:</p>
+
+        <!-- render_async -->
+        <div class="card mb-3">
+          <div class="card-block">
+            <h4 class="card-title">render_async gem</h4>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <em>Speed up Rails pages with render_async.</em>
+            </li>
+          </ul>
+          <div class="card-block">
+            <p class="card-text">
+              Gem for asynchronously loading partials into your view.
+              <br>
+              <br>
+              <a href="https://github.com/renderedtext/render_async">View on GitHub</a>
+              <br>
+              <br>
+              I wrote
+              <a href="http://semaphoreci.com/blog/2017/06/08/speeding-up-rails-pages-with-render-async.html">
+                a blog post on render_async
+              </a> that explains how to use it and motivation behind it.
+              <br>
+              <br>
+              Biggest motivation was that some slow actions throttle the whole
+              page to loading. There were also some code in actions that was
+              blocking the whole page when it fails and we couldn't do nothing
+              about it failing. By extracting this problematic code to a
+              separate action and rendering it through render_async, you save
+              yourself time to load the page and you become unblocked.
+            </p>
+          </div> </div>
+
+        <!-- ordinare -->
+        <div class="card mb-3">
+          <div class="card-block">
+            <h4 class="card-title">ordinare gem</h4>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <em>Sort your Gemfile with ease</em>
+            </li>
+          </ul>
+          <div class="card-block">
+            <p class="card-text">
+              Ordinare sorts your Gemfile or just checks whether it's sorted.
+              <br>
+              <br>
+              <a href="https://github.com/nikolalsvk/ordinare">View on GitHub</a>
+              <br>
+              <br>
+              I'm the author of this gem. Motivation came from working on a big
+              Rails project with lots of gems inside Gemfile. Going through
+              those was really difficult at some times and I figured why not
+              create a gem that can sort it for you.
+            </p>
+          </div>
+        </div>
+
+        <!-- octokit.rb -->
+        <div class="card mb-3">
+          <div class="card-block">
+            <h4 class="card-title">octokit.rb</h4>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <em>GitHub API wrapper for Ruby</em>
+            </li>
+          </ul>
+          <div class="card-block">
+            <p class="card-text">
+              I've added a new endpoint for listing GitHub Marketplace purchases
+              <br>
+              <br>
+              <a href="https://github.com/octokit/octokit.rb/pull/938">View on GitHub</a>
+              <br>
+              <br>
+              I wanted to add this endpoint because it was missing and at my
+              job we're using this endpoint all the time with the GitHub
+              Marketplace integration.
+            </p>
+          </div>
+        </div>
+
       </div>
       <div class="col"></div>
     </div>
+
+    <div class="row">
+      <div class="col"></div>
+      <div class="col-sm-6">
+
+        <h2>Free time</h2>
+        <p>Projects I made or tinkered around in my free time:</p>
+
+        <!-- LetsMeet -->
+        <div class="card mb-3">
+          <div class="card-block">
+            <h4 class="card-title">LetsMeet</h4>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <em>Create meetings and invite friends from your phone</em>
+            </li>
+          </ul>
+          <div class="card-block">
+            <p class="card-text">
+              Built React Native application for university class.
+              <br>
+              <br>
+              <a href="https://github.com/pineapple-devs/lets-meet">View on GitHub</a>
+              <br>
+              <br>
+              We wanted to simplify meeting routine you're having with your friends by
+              allowing you to invite them through email or app invitation with few clicks.
+              You can view
+              <a href="https://www.youtube.com/watch?v=vOQz4-EOsAQ">
+                application demo
+              </a>
+              to see how it works. It has it's own API written in Rails,
+              you can find it on GitHub, it's
+              <a href="https://github.com/pineapple-devs/lets-meet-api">
+                lets-meet-api.
+              </a>
+            </p>
+          </div>
+        </div>
+
+        <!-- congrats-you-broke-the-build -->
+        <div class="card mb-3">
+          <div class="card-block">
+            <h4 class="card-title">congrats-you-broke-the-build</h4>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <em>Informs user who broke the build on master branch</em>
+            </li>
+          </ul>
+          <div class="card-block">
+            <p class="card-text">
+              Node.js Lambda function for sending SMS to the one who broke the
+              build on Semaphore CI.
+              <br>
+              <br>
+              <a href="https://github.com/nikolalsvk/congrats-you-broke-the-build">
+                View on GitHub
+              </a>
+              <br>
+              <br>
+              It loads users and their phone numbers from a JSON file stored on
+              AWS S3 and tries to send them SMS if they break the build on
+              Semaphore CI. This was an experiment with AWS Lambda and Twilio.
+              Semaphore is hitting Lambda with request each time a build is
+              finished on Semaphore. If the build is red and branch is master,
+              it tries to send SMS to the one who made the build red.
+            </p>
+          </div>
+        </div>
+
+        <!-- More projects -->
+        <div class="card mb-3">
+          <div class="card-block">
+            <h4 class="card-title">There's more</h4>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <em>These are just some notable/recent ones I did</em>
+            </li>
+          </ul>
+          <div class="card-block">
+            <p class="card-text">
+              You can find lots more of my projects on my GitHub account.
+              My GitHub account is <a href="https://github.com/nikolalsvk">nikolalsvk</a>.
+            </p>
+          </div>
+        </div>
+
+      </div>
+      <div class="col"></div>
+    </div>
+
 
     <div class="text-center">
       <p class="p-icons">
