@@ -1,5 +1,7 @@
 # nikolalsvk.github.io
 
-Personal website (self-praise) repo
+Personal website
 
-Check it out at [nikoladjuza.me](http://nikoladjuza.me/)
+Check it out at [http://nikolalsvk.github.io](http://nikolalsvk.github.io)
+
+Inspired by Tim Van Damme's website.
