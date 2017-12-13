@@ -1,3 +1,5 @@
+![Preview](site_preview.png)
+
 # nikolalsvk.github.io
 
 Personal website
