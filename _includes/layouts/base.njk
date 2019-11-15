@@ -8,11 +8,37 @@
     <link rel="stylesheet" href="{{ '/css/index.css' | url }}">
     <link rel="stylesheet" href="{{ '/css/prism-base16-monokai.dark.css' | url }}">
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Nikola Đuza">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@nikolalsvk">
+    <meta name="twitter:creator" content="@nikolalsvk">
+    <meta name="twitter:url" property="og:url" content="http://nikolalsvk.github.io">
+    <meta name="twitter:image:width" content="1362">
+    <meta name="twitter:image:height" content="1362">
+    <meta name="twitter:image" property="og:image" content="http://nikolalsvk.github.io/site_preview.png">
+    <meta name="twitter:title" property="og:title" content="Nikola Đuza">
+    <meta name="twitter:description" property="og:description" content="Personal website of Nikola Đuza, Software Engineer.">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111191498-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-111191498-1');
+    </script>
+
+    <link rel="icon" type="image/gif" href="/img/favicon.gif">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,800" rel="stylesheet">
   </head>
   <body>
-    <header>
-      <h1 class="home"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
-
+    <header class="{{ headerClass }}">
+      <div class="header-box">
       {#- Read more about `eleventy-navigation` at https://github.com/11ty/eleventy-navigation #}
       {{ collections.all | eleventyNavigation | eleventyNavigationToHtml({
         listClass: "nav",
@@ -20,13 +46,28 @@
         activeListItemClass: "nav-item-active",
         activeKey: eleventyNavigation.key
       }) | safe }}
+      </div>
     </header>
 
     <main{% if templateClass %} class="{{ templateClass }}"{% endif %}>
       {{ content | safe }}
     </main>
 
-    <footer></footer>
+    <footer>
+      <div class="social-box">
+        <div class="social-media">
+          <a href="https://github.com/nikolalsvk">
+            <img src="/img/github.svg">
+          </a>
+          <a href="https://twitter.com/nikolalsvk">
+            <img src="/img/twitter.svg">
+          </a>
+          <a href="https://www.linkedin.com/in/nikoladjuza">
+            <img src="/img/linkedin.svg">
+          </a>
+        </div>
+      </div>
+    </footer>
 
     <!-- Current page: {{ page.url | url }} -->
   </body>

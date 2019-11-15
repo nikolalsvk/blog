@@ -15,9 +15,11 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: sans-serif;
-  color: var(--darkgray);
-  background-color: var(--white);
+  font-family: "Open Sans", sans-serif;
+  height: 100%;
+	width: 100%;
+  background-image: url('../img/ahoy.jpg');
+  overflow-x: hidden;
 }
 p:last-child {
   margin-bottom: 0;
@@ -38,13 +40,42 @@ a[href]:visited {
   color: var(--navy);
 }
 main {
-  padding: 1rem;
+  min-height: 100%;
+	width: 100%;
+  margin-bottom: -4rem;
 }
 main :first-child {
   margin-top: 0;
 }
 header {
-  border-bottom: 1px dashed var(--lightgray);
+  display: flex;
+  justify-content: center;
+  color: #F6505D;
+  text-transform: uppercase;
+  top: 2rem;
+  right: 0;
+  left: 0;
+  position: absolute;
+}
+.header-box {
+  background: rgba(255, 255, 255);
+  border-radius: 25px;
+  padding: 0 1.5rem 0 1.5rem;
+}
+.home-header {
+  opacity: 0;
+  animation-name: pulse-casually;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+}
+.home-header:hover {
+  animation-name: light-up;
+  animation-iteration-count: 1;
+  animation-duration: 0.2s;
+  opacity: 1;
+}
+.header-space {
+  height: 6rem;
 }
 header:after {
   content: "";
@@ -178,6 +209,11 @@ pre {
   font-size: 1.1875em; /* 19px /16 */
   font-weight: 700;
 }
+.tmpl-home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 
 /* Tags */
@@ -223,4 +259,191 @@ a[href].direct-link:focus:visited,
 :hover > a[href].direct-link,
 :hover > a[href].direct-link:visited {
   color: #aaa;
+}
+
+@keyframes pulse-casually {
+  from {
+    opacity: .2;
+  }
+  50% {
+    opacity: .0;
+  }
+  to {
+    opacity: .2;
+  }
+}
+
+@keyframes light-up {
+  from {
+    opacity: .2;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hi {
+  0%,
+  80% {
+    transform: rotate(0deg) translate(0, 0);
+  }
+  85% {
+    transform: rotate(24deg) translate(0.33333vw, -0.25vw);
+  }
+  90% {
+    transform: rotate(0deg) translate(0, 0);
+  }
+  95% {
+    transform: rotate(24deg) translate(0.33333vw, -0.25vw);
+  }
+  100% {
+    transform: rotate(0deg) translate(0, 0);
+  }
+}
+
+@keyframes colorchange {
+  0% {
+    color: blue;
+  }
+
+  10% {
+    color: #8e44ad;
+  }
+
+  20% {
+    color: #1abc9c;
+  }
+
+  30% {
+    color: #d35400;
+  }
+
+  40% {
+    color: blue;
+  }
+
+  50% {
+    color: #34495e;
+  }
+
+  60% {
+    color: blue;
+  }
+
+  70% {
+    color: #2980b9;
+  }
+  80% {
+    color: #f1c40f;
+  }
+
+  90% {
+    color: #2980b9;
+  }
+
+  100% {
+    color: pink;
+  }
+}
+
+@keyframes fade {
+  0%,
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes intro {
+  0%,
+  75% {
+    transform: translateX(-100vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes intro-right {
+  0%,
+  75% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.center {
+  min-height: calc(100% - 10rem);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 2rem 6rem 2rem;
+  padding: 1rem 0;
+  background-color: white;
+  border-radius: 20px;
+  animation: intro-right 1.5s cubic-bezier(0.5, 0, 0.25, 1.1) -0.8s 1;
+}
+
+.name-box {
+  height: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.name {
+	padding: 1rem 1.5rem 1.2rem 1.5rem;
+  background: rgba(255, 255, 255);
+  border-radius: 20px;
+  width: 19rem;
+  font-size: 25px;
+  animation: intro 1.5s cubic-bezier(0.5, 0, 0.25, 1.1) -0.8s 1;
+}
+
+.job-description {
+  font-size: 18px;
+}
+
+.wave {
+  font-size: 24px;
+  animation: hi 2.5s linear 0s infinite;
+}
+
+.social-box {
+	display: flex;
+	justify-content: center;
+  width: 100%;
+  animation: fade 2s ease-out 0s;
+}
+
+.social-media {
+	height: 2.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1.5rem 1.5rem;
+  background: rgba(255, 255, 255);
+  border-radius: 20px;
+}
+
+.social-media img {
+	max-width: 100%;
+	height: auto;
+  border-radius: 10px;
+}
+
+.social-media a {
+  text-decoration: none;
+	max-height: 2rem;
+	max-width: 2rem;
+}
+
+.social-media a:not(:first-child) {
+	margin-left: 0.6rem;
 }
