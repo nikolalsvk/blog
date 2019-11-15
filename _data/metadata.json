@@ -1,0 +1,16 @@
+{
+  "title": "Nikola Đuza",
+  "url": "https://nikolalsvk.github.io/",
+  "description": "I am writing about my experiences as a naval navel-gazer.",
+  "feed": {
+    "subtitle": "I am writing about my experiences as a naval navel-gazer.",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "url": "https://nikolalsvk.github.io/feed/feed.xml",
+    "id": "https://nikolalsvk.github.io/"
+  },
+  "author": {
+    "name": "Nikola Đuza",
+    "email": "nikolaseap@gmail.com"
+  }
+}
