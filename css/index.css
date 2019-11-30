@@ -8,9 +8,6 @@
   --blue: #082840;
   --white: #fff;
 }
-* {
-  box-sizing: border-box;
-}
 html,
 body {
   padding: 0;
@@ -19,7 +16,6 @@ body {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
-  background-image: url("../img/ahoy.jpg");
 }
 p:last-child {
   margin-bottom: 0;
@@ -27,7 +23,8 @@ p:last-child {
 p,
 .tmpl-post li,
 img {
-  max-width: 40em; /* 640px /16 */
+  width: 100%;
+  height: auto;
 }
 img + p {
   color: gray
@@ -43,32 +40,28 @@ a[href]:visited {
   color: var(--navy);
 }
 main {
-  min-height: 100%;
+  min-height: calc(100% - (82px + 88px));
   width: 100%;
-  margin-bottom: -4rem;
 }
 header {
   display: flex;
   justify-content: center;
   color: #f6505d;
   text-transform: uppercase;
-  top: 2rem;
-  right: 0;
-  left: 0;
-  position: fixed;
+  margin-top: 2rem;
 }
 .header-box {
   background: rgba(255, 255, 255);
   border-radius: 25px;
   padding: 0 1.5rem 0 1.5rem;
 }
-.header-space {
-  height: 6rem;
-}
 header:after {
   content: "";
   display: table;
   clear: both;
+}
+.footer {
+  display: flex;
 }
 table {
   margin: 1em 0;
@@ -207,7 +200,7 @@ pre {
 }
 
 /* Tags */
-.tag {
+.post-tag {
   display: inline-block;
   vertical-align: text-top;
   text-transform: uppercase;
@@ -219,8 +212,8 @@ pre {
   border-radius: 0.25em; /* 3px /12 */
   text-decoration: none;
 }
-a[href].tag,
-a[href].tag:visited {
+a[href].post-tag,
+a[href].post-tag:visited {
   color: #fff;
 }
 
@@ -293,6 +286,7 @@ a[href].direct-link:focus:visited,
 .center-box {
   display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 
 .center {
@@ -304,7 +298,17 @@ a[href].direct-link:focus:visited,
   padding: 1rem 1rem;
   background-color: white;
   border-radius: 20px;
-  width: 700px;
+  max-width: 700px;
+}
+
+.center-post {
+  min-height: calc(100% - 10rem);
+  margin: 0 2rem 0 2rem;
+  padding: 1rem 1rem;
+  background-color: white;
+  border-radius: 20px;
+  max-width: 700px;
+  min-width: 300px;
 }
 
 .name-box {
@@ -320,7 +324,7 @@ a[href].direct-link:focus:visited,
   padding: 1rem 1.5rem 1.2rem 1.5rem;
   background: rgba(255, 255, 255, 0.9);
   border-radius: 20px;
-  width: 19rem;
+  max-width: 19rem;
   font-size: 25px;
   animation: intro 1.5s cubic-bezier(0.5, 0, 0.25, 1.1) -1s 1;
 }
@@ -331,7 +335,7 @@ a[href].direct-link:focus:visited,
 
 .wave {
   font-size: 24px;
-  animation: hi 2.5s linear 0s infinite;
+  animation: hi 2.5s linear -0.8s infinite;
 }
 
 .social-box {
@@ -365,4 +369,11 @@ a[href].direct-link:focus:visited,
 
 .social-media a:not(:first-child) {
   margin-left: 0.6rem;
+}
+
+.photo-caption {
+  width: 100%;
+  text-align: center;
+  margin-top: -15px;
+  color: var(--gray);
 }
