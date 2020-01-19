@@ -1,6 +1,9 @@
 ---
-layout: layouts/home.njk
+layout: layouts/blog.njk
 eleventyNavigation:
-  key: Home
+  key: Blog
   order: 1
 ---
+
+{% set postslist = collections.posts %}
+{% include "postslist.njk" %}
