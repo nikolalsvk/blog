@@ -40,7 +40,7 @@ a[href]:visited {
   color: var(--navy);
 }
 main {
-  min-height: calc(100% - (82px + 88px));
+  min-height: calc(100% - (82px + 96px));
   width: 100%;
 }
 header {
