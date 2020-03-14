@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import { Helmet } from "react-helmet"
 import styled, { createGlobalStyle } from "styled-components"
 
 import { rhythm, scale } from "../utils/typography"
@@ -19,7 +20,19 @@ const GlobalStyle = createGlobalStyle`
     color: #E06D06;
   }
   h1, h2, h3 {
+    font-family: 'Josefin Sans', sans-serif;
     color: #B26700;
+  }
+  p {
+    font-family: 'Roboto', sans-serif;
+  }
+  .photo-caption {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
   }
 `
 
@@ -41,7 +54,6 @@ const Layout = ({ location, title, children }) => {
           ...scale(1.5),
           marginBottom: rhythm(1.5),
           marginTop: 0,
-          textAlign: 'center'
         }}
       >
         <Link
@@ -79,6 +91,9 @@ const Layout = ({ location, title, children }) => {
   }
   return (
     <Container>
+      <Helmet>
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i|Roboto&display=swap" rel="stylesheet" />
+      </Helmet>
       <GlobalStyle theme="white" />
       <header>{header}</header>
       <main>{children}</main>
