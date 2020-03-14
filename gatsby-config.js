@@ -1,14 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Pragmatic Pineapple 🍍`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Nikola Đuza`,
+      summary: `who lives and works in Novi Sad building awesome things with mostly JavaScript and Ruby.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `Yeah, well, you know, these are just, like, my opionions, man.`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `nikolalsvk`,
     },
   },
   plugins: [
@@ -60,13 +60,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Pragmatic Pineapple Blog`,
+        short_name: `Pragmatic Pineapple`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        theme_color: `#ffffff`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/pineapple-emoji.png`,
       },
     },
     `gatsby-plugin-react-helmet`,
@@ -79,5 +79,6 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    `gatsby-plugin-styled-components`
   ],
 }
