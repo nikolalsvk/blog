@@ -23,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Josefin Sans', sans-serif;
     color: #B26700;
   }
-  p {
+  p, a {
     font-family: 'Roboto', sans-serif;
   }
   .photo-caption {
