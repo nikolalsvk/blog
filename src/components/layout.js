@@ -19,11 +19,11 @@ const GlobalStyle = createGlobalStyle`
   a {
     color: #E06D06;
   }
-  h1, h2, h3 {
+  h1, h2, h3, h1 > a, h2 > a, h3 > a {
     font-family: 'Josefin Sans', sans-serif;
     color: #B26700;
   }
-  p, a {
+  p, a, footer {
     font-family: 'Roboto', sans-serif;
   }
   .photo-caption {
