@@ -33,8 +33,9 @@ But also, I’d say why not? Svelte promises high performance, and Rails is fast
 Before we dive into how to get two of them working, here are some requirements that you’re supposed to have:
 
 - Rails 6 and Ruby 2.5.1 ([GoRails guide to installing these](https://gorails.com/setup))
-- NodeJS and Yarn ([Yarn installation guide that will also install NodeJS](https://yarnpkg.com/lang/en/docs/install/)
-  Ensure that you have these available in your environment and continue.
+- NodeJS and Yarn ([Yarn installation guide that will also install NodeJS](https://yarnpkg.com/lang/en/docs/install/))
+
+Ensure that you have these available in your environment and continue.
 
 ![A few moments later](./a-few-moments-later.jpg)
 
