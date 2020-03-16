@@ -5,7 +5,7 @@ slug: rails-html-polling-without-writing-javascript
 date: 2019-05-14
 canonical: https://medium.com/@nikolalsvk/rails-html-polling-without-javascript-dc28200d2a71
 canonicalName: Medium
-image: ./cover.jpg
+coverImage: ./cover.jpg
 tags:
   - rails
   - javascript
