@@ -1,6 +1,7 @@
 ---
 title: Losing .bind(this) in React
 description: Getting rid of .bind(this) in React component.
+slug: losing-bind-this-in-react
 date: 2018-01-13
 canonical: https://medium.com/@nikolalsvk/loosing-bind-this-in-react-8637ebf372cf
 canonicalName: Medium

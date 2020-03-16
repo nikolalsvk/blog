@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Josefin Sans', sans-serif;
     color: #B26700;
   }
-  p, a, footer {
+  * {
     font-family: 'Roboto', sans-serif;
   }
   .photo-caption {
