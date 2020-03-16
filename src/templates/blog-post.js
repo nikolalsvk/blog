@@ -18,6 +18,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
         canonical={canonical}
+        coverImage={post.frontmatter.coverImage.publicURL}
       />
       <article>
         <header>
@@ -117,6 +118,9 @@ export const pageQuery = graphql`
         description
         canonical
         canonicalName
+        coverImage {
+          publicURL
+        }
       }
     }
   }

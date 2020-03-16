@@ -9,8 +9,9 @@ import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import defaultOgImage from "../../content/assets/pineapple-emoji.png"
 
-const SEO = ({ description, lang, meta, title, canonical }) => {
+const SEO = ({ description, lang, meta, title, canonical, coverImage }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -19,6 +20,7 @@ const SEO = ({ description, lang, meta, title, canonical }) => {
             title
             description
             social { twitter }
+            siteUrl
           }
         }
       }
@@ -26,6 +28,8 @@ const SEO = ({ description, lang, meta, title, canonical }) => {
   )
 
   const metaDescription = description || site.siteMetadata.description
+  const ogImage = coverImage || defaultOgImage
+  const ogImageUrl = `${site.siteMetadata.siteUrl}${ogImage}`
 
   return (
     <Helmet
@@ -52,6 +56,10 @@ const SEO = ({ description, lang, meta, title, canonical }) => {
           content: `website`,
         },
         {
+          property: `og:image`,
+          content: ogImageUrl,
+        },
+        {
           name: `twitter:card`,
           content: `summary`,
         },
@@ -67,6 +75,10 @@ const SEO = ({ description, lang, meta, title, canonical }) => {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name: `twitter:image`,
+          content: ogImageUrl
+        }
       ].concat(meta)}
     >
       {canonical && <link rel="canonical" href={canonical} />}

@@ -4,7 +4,7 @@ description: If you’re interested in how to get started with Rails and Svelte,
 date: 2019-10-27
 canonical: https://blog.usejournal.com/getting-started-with-svelte-and-rails-6-d8384c80ad6c
 canonicalName: Journal
-image: ./cover.jpg
+coverImage: ./cover.jpg
 tags: javascript
 ---
 

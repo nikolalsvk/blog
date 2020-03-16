@@ -10,7 +10,7 @@ module.exports = {
     siteUrl: `https://pragmaticpineapple.com/`,
     social: {
       twitter: `nikolalsvk`,
-    },
+    }
   },
   plugins: [
     {
