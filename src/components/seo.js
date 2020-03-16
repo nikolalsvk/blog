@@ -20,6 +20,7 @@ const SEO = ({ description, lang, meta, title, canonical, coverImage }) => {
             title
             description
             social { twitter }
+            siteUrl
           }
         }
       }
@@ -28,6 +29,7 @@ const SEO = ({ description, lang, meta, title, canonical, coverImage }) => {
 
   const metaDescription = description || site.siteMetadata.description
   const ogImage = coverImage || defaultOgImage
+  const ogImageUrl = `${site.siteMetadata.siteUrl}${ogImage}`
 
   return (
     <Helmet
@@ -55,7 +57,7 @@ const SEO = ({ description, lang, meta, title, canonical, coverImage }) => {
         },
         {
           property: `og:image`,
-          content: ogImage,
+          content: ogImageUrl,
         },
         {
           name: `twitter:card`,
@@ -75,7 +77,7 @@ const SEO = ({ description, lang, meta, title, canonical, coverImage }) => {
         },
         {
           name: `twitter:image`,
-          content: ogImage
+          content: ogImageUrl
         }
       ].concat(meta)}
     >
