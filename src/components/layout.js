@@ -116,7 +116,7 @@ const Layout = ({ location, title, children }) => {
         {children}
       </Main>
       <Footer>
-        © {new Date().getFullYear()} Nikola Đuza. All Rights Reserved.
+        © {new Date().getFullYear()} Nikola Đuza
       </Footer>
     </Container>
   )
