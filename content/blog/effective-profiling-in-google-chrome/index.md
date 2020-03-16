@@ -5,7 +5,7 @@ slug: effective-profiling-in-google-chrome
 date: 2020-02-20
 canonical: https://blog.appsignal.com/2020/02/20/effective-profiling-in-google-chrome.html
 canonicalName: AppSignal
-image: ./cover.jpg
+coverImage: ./cover.jpg
 tags:
   - javascript
   - profiling
