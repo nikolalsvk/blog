@@ -16,6 +16,9 @@ const GlobalStyle = createGlobalStyle`
   #___gatsby {
     height: 100%;
   }
+  #gatsby-focus-wrapper {
+    height: 100%;
+  }
   a {
     color: #E06D06;
   }
@@ -37,10 +40,21 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Container = styled.div`
+  min-height: 100%;
   margin-left: auto;
   margin-right: auto;
   max-width: ${rhythm(24)};
   padding: ${rhythm(1.5)} ${rhythm(3 / 4)};
+  display: flex;
+  flex-direction: column;
+`
+
+const Main = styled.header`
+  flex: 1 0 auto;
+`
+
+const Footer = styled.footer`
+  flex-shrink: 0;
 `
 
 const Layout = ({ location, title, children }) => {
@@ -72,7 +86,6 @@ const Layout = ({ location, title, children }) => {
     header = (
       <h3
         style={{
-          fontFamily: `Montserrat, sans-serif`,
           marginTop: 0,
         }}
       >
@@ -92,16 +105,19 @@ const Layout = ({ location, title, children }) => {
   return (
     <Container>
       <Helmet>
-        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i|Roboto&display=swap" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/css?family=Josefin+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i|Roboto&display=swap"
+          rel="stylesheet"
+        />
       </Helmet>
       <GlobalStyle theme="white" />
-      <header>{header}</header>
-      <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
+      <Main>
+        <header>{header}</header>
+        {children}
+      </Main>
+      <Footer>
+        © {new Date().getFullYear()} Nikola Đuza. All Rights Reserved.
+      </Footer>
     </Container>
   )
 }

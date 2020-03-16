@@ -4,6 +4,7 @@ module.exports = {
     author: {
       name: `Nikola Đuza`,
       summary: `who lives and works in Novi Sad, building awesome things with JavaScript and Ruby.`,
+      landingPage: 'https://nikolalsvk.github.io'
     },
     description: `Yeah, well, you know, these are just, like, my opionions, man.`,
     siteUrl: `https://pragmaticpineapple.com/`,

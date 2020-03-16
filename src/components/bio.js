@@ -26,6 +26,7 @@ const Bio = () => {
           author {
             name
             summary
+            landingPage
           }
           social {
             twitter
@@ -57,7 +58,7 @@ const Bio = () => {
         }}
       />
       <p>
-        Written by <strong>{author.name}</strong> {author.summary}
+        Written by <strong><a href={author.landingPage}>{author.name}</a></strong> {author.summary}
         {` `}
         <br />
         <a href={`https://twitter.com/${social.twitter}`}>

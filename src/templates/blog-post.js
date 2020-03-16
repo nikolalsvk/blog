@@ -10,12 +10,14 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
+  const { canonical, canonicalName } = post.frontmatter;
 
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
+        canonical={canonical}
       />
       <article>
         <header>
@@ -34,10 +36,28 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               marginBottom: rhythm(1),
             }}
           >
-            {post.frontmatter.date}
+            Published on {post.frontmatter.date}
           </p>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
+
+        {canonical && (
+          <>
+            <hr
+              style={{
+                marginBottom: rhythm(1),
+              }}
+            />
+            <section style={{ marginLeft: rhythm(1) }}>
+              <p>
+                <i>
+                  This article was originally posted on{" "}
+                  <a href={canonical}>{canonicalName}</a>
+                </i>
+              </p>
+            </section>
+          </>
+        )}
         <hr
           style={{
             marginBottom: rhythm(1),
@@ -95,6 +115,8 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        canonical
+        canonicalName
       }
     }
   }
