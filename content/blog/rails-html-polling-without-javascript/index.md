@@ -138,7 +138,7 @@ If you liked what you saw, please 👏 and spread the word. Also, check out [my 
 Also, retweeting this is an awesome way to help spread the word with your friends:
 
 <div class="center-box">
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I just published “Rails HTML Polling Without JavaScript” <a href="https://twitter.com/hashtag/rails?src=hash&amp;ref_src=twsrc%5Etfw">#rails</a> <a href="https://twitter.com/hashtag/javascript?src=hash&amp;ref_src=twsrc%5Etfw">#javascript</a> <a href="https://t.co/vbO9CgStV8">https://t.co/vbO9CgStV8</a></p>&mdash; Nikola Đuza (@nikolalsvk) <a href="https://twitter.com/nikolalsvk/status/1128302853079089153?ref_src=twsrc%5Etfw">May 14, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">I just published “Rails HTML Polling Without JavaScript” <a href="https://twitter.com/hashtag/rails?src=hash&amp;ref_src=twsrc%5Etfw">#rails</a> <a href="https://twitter.com/hashtag/javascript?src=hash&amp;ref_src=twsrc%5Etfw">#javascript</a> <a href="https://t.co/vbO9CgStV8">https://t.co/vbO9CgStV8</a></p>&mdash; Nikola Đuza (@nikolalsvk) <a href="https://twitter.com/nikolalsvk/status/1128302853079089153?ref_src=twsrc%5Etfw">May 14, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
 
 Cheers! 🍻

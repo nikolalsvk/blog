@@ -224,7 +224,7 @@ If you liked what you saw, please 👏 and spread the word. Also, check out [my 
 Also, retweeting this is a great way to help spread the word with your friends:
 
 <div class="center-box">
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I just published “Losing .bind(this) in React” <a href="https://t.co/Wr5tNQRXpG">https://t.co/Wr5tNQRXpG</a></p>&mdash; Nikola Đuza (@nikolalsvk) <a href="https://twitter.com/nikolalsvk/status/952250266346315776?ref_src=twsrc%5Etfw">January 13, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">I just published “Losing .bind(this) in React” <a href="https://t.co/Wr5tNQRXpG">https://t.co/Wr5tNQRXpG</a></p>&mdash; Nikola Đuza (@nikolalsvk) <a href="https://twitter.com/nikolalsvk/status/952250266346315776?ref_src=twsrc%5Etfw">January 13, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
 
 Good luck! 🍻
