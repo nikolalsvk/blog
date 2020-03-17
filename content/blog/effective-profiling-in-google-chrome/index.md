@@ -213,3 +213,5 @@ If you liked the blog post, feel free to share it with your friends on
 Twitter:
 
 <blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">Is your website getting slow? Or you just want to see how it performs? Then check out the blog post I wrote for <a href="https://twitter.com/AppSignal?ref_src=twsrc%5Etfw">@appsignal</a> about profiling your website in <a href="https://twitter.com/hashtag/Chrome?src=hash&amp;ref_src=twsrc%5Etfw">#Chrome</a> 👇<a href="https://t.co/CBM4OvOES4">https://t.co/CBM4OvOES4</a></p>&mdash; Nikola Đuza (@nikolalsvk) <a href="https://twitter.com/nikolalsvk/status/1230789032793268224?ref_src=twsrc%5Etfw">February 21, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+Cheers! 🍻
