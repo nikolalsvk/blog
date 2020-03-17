@@ -201,7 +201,7 @@ If you find the post interesting and informative, please 👏 and spread the wor
 Also, retweeting this is a great way to help spread the word with your friends:
 
 <div class="center-box">
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I just published Getting Started with Svelte and Rails 6 <a href="https://t.co/W3ktjrjZ9O">https://t.co/W3ktjrjZ9O</a></p>&mdash; Nikola Đuza (@nikolalsvk) <a href="https://twitter.com/nikolalsvk/status/1188476716882235393?ref_src=twsrc%5Etfw">October 27, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">I just published Getting Started with Svelte and Rails 6 <a href="https://t.co/W3ktjrjZ9O">https://t.co/W3ktjrjZ9O</a></p>&mdash; Nikola Đuza (@nikolalsvk) <a href="https://twitter.com/nikolalsvk/status/1188476716882235393?ref_src=twsrc%5Etfw">October 27, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
 
 Good luck! 🍻
