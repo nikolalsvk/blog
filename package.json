@@ -60,6 +60,6 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "build-view-counter": "cd functions/view-counter && npm install && cd ../../"
+    "build-view-counter": "cd functions/view-counter && npm install"
   }
 }
