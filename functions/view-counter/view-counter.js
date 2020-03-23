@@ -10,7 +10,9 @@ exports.handler = async (event, context, callback) => {
     body: "Error occured: Missing `slug` parameter"
   })
 
+  console.log(`Started incrementing view counter for ${slug}`)
   const { snapshot } = await increment(slug)
+  console.log(`Finished incrementing view counter for ${slug}`)
 
   return callback(null, {
     statusCode: 200,
