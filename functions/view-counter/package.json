@@ -1,0 +1,11 @@
+{
+  "name": "view-counter",
+  "version": "0.0.1",
+  "description": "Simple view counter for counting all the pineapples",
+  "main": "view-counter.js",
+  "scripts": {},
+  "author": "Nikola Đuza",
+  "dependencies": {
+    "firebase-admin": "^8.10.0"
+  }
+}

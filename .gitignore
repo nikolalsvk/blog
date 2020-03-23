@@ -65,5 +65,12 @@ public
 yarn-error.log
 .pnp/
 .pnp.js
+
 # Yarn Integrity file
 .yarn-integrity
+
+# Firebase key
+*firebase*.json
+
+# Local Netlify folder
+.netlify
