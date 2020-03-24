@@ -5,6 +5,7 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
+import ViewCounter from "../components/view-counter"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
@@ -37,7 +38,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               marginBottom: rhythm(1),
             }}
           >
-            Published on {post.frontmatter.date}
+            Published on {post.frontmatter.date} | <ViewCounter slug={post.frontmatter.slug} />
           </p>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -121,6 +122,7 @@ export const pageQuery = graphql`
         coverImage {
           publicURL
         }
+        slug
       }
     }
   }

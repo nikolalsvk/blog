@@ -16,10 +16,18 @@ exports.handler = async (event, context) => {
   const { snapshot } = await increment(slug)
   console.log(`Finished incrementing view counter for ${slug}`)
 
-  return {
+  const responseObject = {
     statusCode: 200,
     body: JSON.stringify({
       total: snapshot.val()
     })
   }
+
+  if (process.env.ENABLE_CORS)
+    responseObject.headers = {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
+    }
+
+  return responseObject
 }
