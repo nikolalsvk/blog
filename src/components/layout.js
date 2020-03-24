@@ -61,7 +61,7 @@ const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   let header
 
-  if (location.pathname === rootPath) {
+  if ([rootPath, '/thank-you', '/confirm-subscription'].includes(location.pathname)) {
     header = (
       <h1
         style={{

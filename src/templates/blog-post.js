@@ -4,6 +4,7 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import SubscribeForm from "../components/subscribe-form"
 import { rhythm, scale } from "../utils/typography"
 import ViewCounter from "../components/view-counter"
 
@@ -68,6 +69,9 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         <footer>
           <Bio />
         </footer>
+        <script async data-uid="68e763b631" src="https://expert-hustler-8440.ck.page/68e763b631/index.js"></script>
+
+        <SubscribeForm />
       </article>
 
       <nav>
