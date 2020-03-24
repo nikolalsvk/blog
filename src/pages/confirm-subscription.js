@@ -8,7 +8,7 @@ const ConfirmSubscriptionPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location} title={siteTitle} showLargeHeader>
       <SEO title="Thank you for subscribing" />
       
       <article>
@@ -19,7 +19,7 @@ const ConfirmSubscriptionPage = ({ data, location }) => {
           You are oficially on the list! I will send you any new content as
           soon as it gets released.
         </h3>
-        <Link style={{ boxShadow: `none` }} to="/">Head back to the blog</Link>
+        For now, you can <Link style={{ boxShadow: `none` }} to="/">head back to the blog</Link>.
       </article>
     </Layout>
   )

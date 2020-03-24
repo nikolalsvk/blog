@@ -8,7 +8,7 @@ const ThankYouPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location} title={siteTitle} showLargeHeader>
       <SEO title="Thank you for subscribing" />
       
       <article>
@@ -18,7 +18,6 @@ const ThankYouPage = ({ data, location }) => {
         <h3>
           Please check your inbox to confirm the subscription.
         </h3>
-        <Link style={{ boxShadow: `none` }} to="/">Head back to the blog</Link>
       </article>
     </Layout>
   )

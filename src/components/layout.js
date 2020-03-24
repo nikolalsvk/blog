@@ -57,11 +57,11 @@ const Footer = styled.footer`
   flex-shrink: 0;
 `
 
-const Layout = ({ location, title, children }) => {
+const Layout = ({ location, title, showLargeHeader, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   let header
 
-  if ([rootPath, '/thank-you', '/confirm-subscription'].includes(location.pathname)) {
+  if (location.pathname === rootPath || showLargeHeader) {
     header = (
       <h1
         style={{
