@@ -5,6 +5,7 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
+import ViewCounter from "../components/view-counter"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -40,6 +41,7 @@ const BlogIndex = ({ data, location }) => {
           </article>
         )
       })}
+      <ViewCounter slug="home" hideText />
     </Layout>
   )
 }
