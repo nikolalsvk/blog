@@ -69,7 +69,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         <footer>
           <Bio />
         </footer>
-        <script async data-uid="68e763b631" src="https://expert-hustler-8440.ck.page/68e763b631/index.js"></script>
 
         <SubscribeForm />
       </article>

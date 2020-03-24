@@ -12,9 +12,9 @@ const ThankYouPage = ({ data, location }) => {
       <SEO title="Thank you for subscribing" />
       
       <article>
-        <h1>
+        <h2>
           Thank you for subscribing! 🙇
-        </h1>
+        </h2>
         <h3>
           Please check your inbox to confirm the subscription.
         </h3>
