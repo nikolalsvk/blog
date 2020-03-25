@@ -26,7 +26,8 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Josefin Sans', sans-serif;
     color: #B26700;
   }
-  * {
+  body:not(.gatsby-highlight) {
+    // Use Roboto font everywhere except in code inserts
     font-family: 'Roboto', sans-serif;
   }
   .photo-caption {
@@ -36,6 +37,18 @@ const GlobalStyle = createGlobalStyle`
     font-size: 0.9rem;
     margin-top: -1rem;
     margin-bottom: 1rem;
+  }
+
+  // Code theme fixes
+  .gatsby-highlight {
+    margin-bottom: ${rhythm(1)};
+    font-size: 0.9rem;
+  }
+  .language-text {
+    font-size: 0.9rem !important;
+  }
+  .token.operator {
+    background: inherit;
   }
 `
 

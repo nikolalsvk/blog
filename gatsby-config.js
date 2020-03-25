@@ -30,6 +30,7 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
+        pedantic: false,
         plugins: [
           {
             resolve: `gatsby-remark-images`,
