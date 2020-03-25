@@ -14,6 +14,27 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        serialize: ({ site, allSitePage }) =>
+          allSitePage.edges.map(({ node }) => {
+            console.log(node)
+            sitemapObject = {
+              url: `${site.siteMetadata.siteUrl}${node.path}`,
+              changefreq: `daily`,
+              priority: 1.0,
+            }
+
+            if (node.path === "/") sitemapObject.priority = 0.9
+
+            if (["/thank-you/", "/confirm-subscription/"].includes(node.path))
+              sitemapObject.priority = 0.5
+
+            return sitemapObject
+          }),
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,
