@@ -35,31 +35,31 @@ Luckily, there are some proposed features of JavaScript that can make _.bind(thi
 Before I explain how to lose _.bind(this)_, I’ll show you a short example of where this can be used. Let’s say we want to render a button which changes its text when you click it. In order to do that, we would write a component similar to the one below 🔽.
 
 ```javascript
-import React, { Component } from "react";
+import React, { Component } from "react"
 
 class ButtonWithBind extends Component {
   constructor() {
-    super();
+    super()
 
-    this.state = { toggle: false };
+    this.state = { toggle: false }
   }
 
   toggleButton() {
-    this.setState(prevState => ({ toggle: !prevState.toggle }));
+    this.setState(prevState => ({ toggle: !prevState.toggle }))
   }
 
   render() {
-    const toggle = this.state.toggle;
+    const toggle = this.state.toggle
 
     return (
       <div>
         <button onClick={this.toggleButton}>{toggle ? "ON" : "OFF"}</button>
       </div>
-    );
+    )
   }
 }
 
-export default ButtonWithBind;
+export default ButtonWithBind
 ```
 
 We set the _toggle_ switch in the state to _false_ in our constructor.
@@ -83,39 +83,39 @@ We’re getting an error because this is not defined when _onClick_ calls our _t
 Usually, you would fix this by binding this to the _toggleButton_ function so it always stays the same. Let’s go ahead and bind this to our function in the constructor with:
 
 ```javascript
-this.toggleButton = this.toggleButton.bind(this);
+this.toggleButton = this.toggleButton.bind(this)
 ```
 
 After adding it, our button component should look like this:
 
 ```javascript
-import React, { Component } from "react";
+import React, { Component } from "react"
 
 class ButtonWithBind extends Component {
   constructor() {
-    super();
+    super()
 
-    this.state = { toggle: false };
+    this.state = { toggle: false }
 
-    this.toggleButton = this.toggleButton.bind(this);
+    this.toggleButton = this.toggleButton.bind(this)
   }
 
   toggleButton() {
-    this.setState(prevState => ({ toggle: !prevState.toggle }));
+    this.setState(prevState => ({ toggle: !prevState.toggle }))
   }
 
   render() {
-    const toggle = this.state.toggle;
+    const toggle = this.state.toggle
 
     return (
       <div>
         <button onClick={this.toggleButton}>{toggle ? "ON" : "OFF"}</button>
       </div>
-    );
+    )
   }
 }
 
-export default ButtonWithBind;
+export default ButtonWithBind
 ```
 
 Try it out, it should do it’s work:
@@ -132,8 +132,8 @@ Now, let’s get rid of that annoying _.bind(this)_. In order to do that, we’l
 
 ```javascript
 toggleButton = () => {
-  this.setState(prevState => ({ toggle: !prevState.toggle }));
-};
+  this.setState(prevState => ({ toggle: !prevState.toggle }))
+}
 ```
 
 An arrow function **does not have** its own this, but it has the this value of the enclosing execution context. Arrow Functions **lexically** bind their context so `this` actually refers to the originating context. That’s called [Lexical Scoping](http://whatis.techtarget.com/definition/lexical-scoping-static-scoping) if you’re into naming things. Basically, it saves us from doing .bind(this) in our code.
@@ -149,8 +149,8 @@ Keep in mind that this can affect two things. First thing is **memory and perfor
 Second thing that can be affected by using public class field is how you write your unit tests. You won’t be able to use component prototype to stub on function calls like this:
 
 ```javascript
-const spy = jest.spyOn(ButtonWithoutBind.prototype, "toggleButton");
-expect(spy).toHaveBeenCalled();
+const spy = jest.spyOn(ButtonWithoutBind.prototype, "toggleButton")
+expect(spy).toHaveBeenCalled()
 ```
 
 You will have to find another way to stub the method, either by _passing the spy in props_ or _checking the state changes_.
@@ -160,31 +160,31 @@ You will have to find another way to stub the method, either by _passing the spy
 Now, let’s jump right in how we can use public class field in our component and change our _toggleButton_ function in order to lose _.bind(this)_:
 
 ```javascript
-import React, { Component } from "react";
+import React, { Component } from "react"
 
 class ButtonWithoutBind extends Component {
   constructor() {
-    super();
+    super()
 
-    this.state = { toggle: false };
+    this.state = { toggle: false }
   }
 
   toggleButton = () => {
-    this.setState(prevState => ({ toggle: !prevState.toggle }));
-  };
+    this.setState(prevState => ({ toggle: !prevState.toggle }))
+  }
 
   render() {
-    const toggle = this.state.toggle;
+    const toggle = this.state.toggle
 
     return (
       <div>
         <button onClick={this.toggleButton}>{toggle ? "ON" : "OFF"}</button>
       </div>
-    );
+    )
   }
 }
 
-export default ButtonWithoutBind;
+export default ButtonWithoutBind
 ```
 
 > Every React developer ever: _looks at line 22–24_ “WOW, so pretty 💅. **No more** of that pesky little .bind(this).”
@@ -192,27 +192,27 @@ export default ButtonWithoutBind;
 What’s also great about public class fields is that we can define state right out of the constructor, and slim down our component:
 
 ```javascript
-import React, { Component } from "react";
+import React, { Component } from "react"
 
 class ButtonWithoutBind extends Component {
-  state = { toggle: false };
+  state = { toggle: false }
 
   toggleButton = () => {
-    this.setState(prevState => ({ toggle: !prevState.toggle }));
-  };
+    this.setState(prevState => ({ toggle: !prevState.toggle }))
+  }
 
   render() {
-    const toggle = this.state.toggle;
+    const toggle = this.state.toggle
 
     return (
       <div>
         <button onClick={this.toggleButton}>{toggle ? "ON" : "OFF"}</button>
       </div>
-    );
+    )
   }
 }
 
-export default ButtonWithoutBind;
+export default ButtonWithoutBind
 ```
 
 And voilà, we’ve lost _.bind(this)_, and we’ve slimmed down our component a bit, I call this a victory 🏁! We deserve some kind of an award. Feel free to stroll down the fridge and grab yourself a cold one 🍺, or a chocolate 🍫, or whatever you fancy, cus you just learned a whole new thing you can do in React 🎉.

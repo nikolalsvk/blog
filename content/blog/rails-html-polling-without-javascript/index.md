@@ -78,10 +78,10 @@ Movie rating: <%= @rating %>
     fetch("<%= movie_rating_path(@movie) %>")
       .then(response => response.text())
       .then(response => {
-        document.getElementById("rating").innerHTML = response;
-      });
-  };
-  setInterval(checkRating, 2000);
+        document.getElementById("rating").innerHTML = response
+      })
+  }
+  setInterval(checkRating, 2000)
 </script>
 ```
 

@@ -12,7 +12,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
-  const { canonical, canonicalName } = post.frontmatter;
+  const { canonical, canonicalName } = post.frontmatter
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -39,7 +39,8 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               marginBottom: rhythm(1),
             }}
           >
-            Published on {post.frontmatter.date} | <ViewCounter slug={post.frontmatter.slug} />
+            Published on {post.frontmatter.date} |{" "}
+            <ViewCounter slug={post.frontmatter.slug} />
           </p>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />

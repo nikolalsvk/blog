@@ -27,10 +27,13 @@ function ViewCounter({ slug, hideText }) {
   // Asynchronously log a view
   useEffect(() => {
     const registerView = () => {
-      return fetch(`${process.env.GATSBY_FUNCTION_HOST}/.netlify/functions/view-counter`, {
-        method: "POST",
-        body: JSON.stringify({ slug: slug }),
-      })
+      return fetch(
+        `${process.env.GATSBY_FUNCTION_HOST}/.netlify/functions/view-counter`,
+        {
+          method: "POST",
+          body: JSON.stringify({ slug: slug }),
+        }
+      )
     }
 
     registerView()

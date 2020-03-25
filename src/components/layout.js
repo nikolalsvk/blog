@@ -115,9 +115,7 @@ const Layout = ({ location, title, showLargeHeader, children }) => {
         <header>{header}</header>
         {children}
       </Main>
-      <Footer>
-        © {new Date().getFullYear()} Nikola Đuza
-      </Footer>
+      <Footer>© {new Date().getFullYear()} Nikola Đuza</Footer>
     </Container>
   )
 }

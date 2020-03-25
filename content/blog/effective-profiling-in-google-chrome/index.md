@@ -22,16 +22,15 @@ you can deal with performance pain points.
 
 We’ll go through the two most used tools in Google Chrome for profiling:
 
-*   The Performance tab in Google Chrome DevTools Lighthouse—an open-source tool
-*   for improving the quality of web pages
+- The Performance tab in Google Chrome DevTools Lighthouse—an open-source tool
+- for improving the quality of web pages
 
 Imagine that you optimized your backend and everything is running smoothly.
 However, for some reason, the load time of your pages is still unreasonably
 high. Your users might be experiencing sluggish UI and long load times. This
 post will help you sort these issues out.
 
-Importance of Profiling Your Website
-------------------------------------
+## Importance of Profiling Your Website
 
 When you get a greenfield project and you start building frontend from
 scratch, chances are that your website won’t have poor performance. In
@@ -49,8 +48,7 @@ when your application slows down, you’ll need to start looking into those
 deep corners of your codebase. Luckily, Google Chrome DevTools has a couple
 of tools that can help you.
 
-Profiling Your Pages
---------------------
+## Profiling Your Pages
 
 Let’s say your page is slow and you want to optimize it. To understand
 **why** it is slow, you have to measure **what** is slowing it down and
@@ -62,18 +60,17 @@ What Chrome offers you for profiling is Performance profiling inside the
 Performance tab and Lighthouse inside the Audits tab in the Google Chrome
 DevTools (let’s just call them DevTools from now on).
 
-Using the Performance Tab in DevTools
--------------------------------------
+## Using the Performance Tab in DevTools
 
 The easiest way to do this is to open DevTools. There are a couple of ways to
 open them:
 
-1.  Use the Inspect option by right-clicking somewhere on your page and selecting Inspect 
+1.  Use the Inspect option by right-clicking somewhere on your page and selecting Inspect
     ![click-inspect](./click-inspect.png)
 2.  Or press Command+Option+C (Mac) or Control+Shift+C (Windows, Linux, Chrome OS).
 3.  Press Command+Option+J (Mac) or Control+Shift+J (Windows, Linux, Chrome OS) to jump straight into the Console panel.
 4.  Press Command+Option+I (Mac) or Control+Shift+I.
-5.  Click Customize and control Google Chrome Customize and control Google Chrome and then select More Tools > Developer Tools. 
+5.  Click Customize and control Google Chrome Customize and control Google Chrome and then select More Tools > Developer Tools.
     ![through-main-menu](./through-main-menu.png)
 
 ### Recording Performance
@@ -117,7 +114,7 @@ If this is not enough, there is a great article about how to [optimize JavaScrip
 Another thing that might slow down your website directly is complex CSS which will show up in the Timeline as a lot of purple sections—**Rendering**. One scenario where this can happen is if you have complex CSS selectors like
 
 ```css
-.box:nth-child(n+1) a.button.submit {
+.box:nth-child(n + 1) a.button.submit {
   /* styles */
 }
 ```
@@ -130,8 +127,7 @@ Some tips on reducing **Rendering** as a bottleneck: - Try not to have a lot of 
 
 You can find more great tips on solving performance problems in an article from Google Developers about [analyzing runtime performance](https://developers.google.com/web/tools/chrome-devtools/rendering-tools). Also, check out this detailed guide on [performance analysis](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference) that explains everything that happens inside the Performance tab.
 
-Using Lighthouse in DevTools
-----------------------------
+## Using Lighthouse in DevTools
 
 Sometimes, performance drops are not affected by your code. Or, maybe the SEO score of your website is not that good and it’s being ranked poorly in searches. What do you do in that case? Well, there is a tool called Lighthouse that measures some crucial points of your app so that you can get a well-rounded website.
 
@@ -147,11 +143,11 @@ The first thing you need to do is to open DevTools (we covered this part above) 
 
 To conduct an audit, click **Perform and audit** and wait for the Lighthouse to finish profiling. It assesses your website using 5 categories, where you can score between 0 and 100 points for each category. Lighthouse measures:
 
-*   Performance — how fast is your website?
-*   Accessibility — how accessible is your website to others?
-*   Best Practices — are you following the web’s best practices?
-*   SEO — is your website SEO friendly?
-*   Progressive Web App — is your website a PWA?
+- Performance — how fast is your website?
+- Accessibility — how accessible is your website to others?
+- Best Practices — are you following the web’s best practices?
+- SEO — is your website SEO friendly?
+- Progressive Web App — is your website a PWA?
 
 These metrics are important to have a versatile website that will stand out when a user visits it. This can increase your standing in the searches performed by users interested in your website’s topics. You can’t go wrong with trying to score as much as you can on the Lighthouse audit.
 
@@ -165,18 +161,17 @@ As you can see, our Performance score is not perfect, it’s in the orange range
 
 When you click on the **Learn more** links, you’ll be taken to a page that deals with potential solutions that address those problems. Most common solutions that make Lighthouse and users happy are to:
 
-*   Optimize the size of images on your website. Use tools such as [ImageOptim](https://imageoptim.com/) or [JPEGmini](https://www.jpegmini.com/).
-*   Remove unused CSS. You can identify unused CSS rules by using [Coverage tab in DevTools](https://developers.google.com/web/tools/chrome-devtools/css/reference#coverage)
-*   Minify and compress your files
-*   Use a [Content Delivery Network (CDN)](https://css-tricks.com/adding-a-cdn-to-your-website/) to manage your assets
-*   Only run the code needed to render that page. Maybe you don’t need `lodash.js` on your homepage after all.
+- Optimize the size of images on your website. Use tools such as [ImageOptim](https://imageoptim.com/) or [JPEGmini](https://www.jpegmini.com/).
+- Remove unused CSS. You can identify unused CSS rules by using [Coverage tab in DevTools](https://developers.google.com/web/tools/chrome-devtools/css/reference#coverage)
+- Minify and compress your files
+- Use a [Content Delivery Network (CDN)](https://css-tricks.com/adding-a-cdn-to-your-website/) to manage your assets
+- Only run the code needed to render that page. Maybe you don’t need `lodash.js` on your homepage after all.
 
 You can also configure Lighthouse to simulate being on a mobile device or having a slow CPU. This can be useful if you are interested in users who are visiting your website from slow mobile devices, for example. You can also change **Throttling** where you can simulate slow internet speeds that can occur most often on mobile devices.
 
 Once you’re done with measuring and profiling from your browser locally, it would be a good thing to know what is happening with your website online. AppSignal has great [support for catching errors from your front-end](https://docs.appsignal.com/front-end/) that allows you to catch errors before your users do. Make sure to check it out if you run Node, Ruby or Elixir on your back-end.
 
-Automating Performance Checks
------------------------------
+## Automating Performance Checks
 
 After figuring out what was slowing your app down and dealing with it, the
 app is now similar to the time when it was brand new and lightning-fast. I’m
@@ -185,14 +180,13 @@ stays fast is to measure it through time. One way you can do that is by
 setting up automated checks that will keep your website performance at bay.
 
 You can set up Lighthouse to run in your continuous integration (CI) by
-following the instructions on its 
+following the instructions on its
 [GitHub repo](https://github.com/GoogleChrome/lighthouse-ci/blob/master/docs/getting-started.md).
 Then, you can set it up to show up in GitHub’s pull request as a status check
 and block any future changes that might jeopardize the performance of your
 website.
 
-Always Measure the Performance
-------------------------------
+## Always Measure the Performance
 
 No matter how cool and beautiful your website is, nobody will get over the
 fact that is slow, inaccessible or dangerous. To keep these adjectives out of
@@ -207,7 +201,6 @@ path.
 
 I hope this blog post helped you to better grasp how you can measure your
 website in Chrome.
-
 
 If you liked the blog post, feel free to share it with your friends on
 Twitter:
