@@ -8,7 +8,7 @@ exports.handler = async (event, context) => {
   if (!slug) {
     return {
       statusCode: 500,
-      body: "Error occured: Missing `slug` parameter"
+      body: "Error occured: Missing `slug` parameter",
     }
   }
 
@@ -19,14 +19,15 @@ exports.handler = async (event, context) => {
   const responseObject = {
     statusCode: 200,
     body: JSON.stringify({
-      total: snapshot.val()
-    })
+      total: snapshot.val(),
+    }),
   }
 
   if (process.env.ENABLE_CORS)
     responseObject.headers = {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Headers":
+        "Origin, X-Requested-With, Content-Type, Accept",
     }
 
   return responseObject

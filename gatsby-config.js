@@ -4,13 +4,13 @@ module.exports = {
     author: {
       name: `Nikola Đuza`,
       summary: `who lives and works in Novi Sad, building awesome things with JavaScript and Ruby.`,
-      landingPage: 'https://nikolalsvk.github.io'
+      landingPage: "https://nikolalsvk.github.io",
     },
     description: `Yeah, well, you know, these are just, like, my opionions, man.`,
     siteUrl: `https://pragmaticpineapple.com/`,
     social: {
       twitter: `nikolalsvk`,
-    }
+    },
   },
   plugins: [
     {
@@ -87,5 +87,5 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
     `gatsby-plugin-styled-components`,
-  ]
+  ],
 }

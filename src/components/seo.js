@@ -19,7 +19,9 @@ const SEO = ({ description, lang, meta, title, canonical, coverImage }) => {
           siteMetadata {
             title
             description
-            social { twitter }
+            social {
+              twitter
+            }
             siteUrl
           }
         }
@@ -77,8 +79,8 @@ const SEO = ({ description, lang, meta, title, canonical, coverImage }) => {
         },
         {
           name: `twitter:image`,
-          content: ogImageUrl
-        }
+          content: ogImageUrl,
+        },
       ].concat(meta)}
     >
       {canonical && <link rel="canonical" href={canonical} />}

@@ -34,19 +34,11 @@ function Views({ views }) {
     }, 2000)
   }, [views])
 
-  if (!views) return (
-    <StyledViews>
-       loading views
-    </StyledViews>
-  )
+  if (!views) return <StyledViews>loading views</StyledViews>
 
   const formattedViews = `${views} views`
 
-  return (
-    <StyledViews highlight={highlight}>
-      👁{formattedViews}
-    </StyledViews>
-  )
+  return <StyledViews highlight={highlight}>👁{formattedViews}</StyledViews>
 }
 
 export default Views
