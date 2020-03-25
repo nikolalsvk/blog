@@ -6,6 +6,7 @@ date: 2019-10-27
 canonical: https://blog.usejournal.com/getting-started-with-svelte-and-rails-6-d8384c80ad6c
 canonicalName: Journal
 coverImage: ./cover.jpg
+blogOgImage: ./cover.jpg
 tags: javascript
 ---
 

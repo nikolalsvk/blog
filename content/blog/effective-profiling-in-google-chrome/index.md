@@ -6,6 +6,7 @@ date: 2020-02-20
 canonical: https://blog.appsignal.com/2020/02/20/effective-profiling-in-google-chrome.html
 canonicalName: AppSignal
 coverImage: ./cover.jpg
+blogOgImage: ./cover.jpg
 tags:
   - javascript
   - profiling

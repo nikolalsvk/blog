@@ -6,6 +6,7 @@ date: 2018-01-13
 canonical: https://medium.com/@nikolalsvk/loosing-bind-this-in-react-8637ebf372cf
 canonicalName: Medium
 coverImage: ./cover.jpg
+blogOgImage: ./cover.jpg
 tags:
   - javascript
   - react

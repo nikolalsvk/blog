@@ -11,7 +11,7 @@ import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 import defaultOgImage from "../../content/assets/pineapple-emoji.png"
 
-const SEO = ({ description, lang, meta, title, canonical, coverImage }) => {
+const SEO = ({ description, lang, meta, title, canonical, blogOgImage, coverImage }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -28,7 +28,7 @@ const SEO = ({ description, lang, meta, title, canonical, coverImage }) => {
   )
 
   const metaDescription = description || site.siteMetadata.description
-  const ogImage = coverImage || defaultOgImage
+  const ogImage = blogOgImage || coverImage || defaultOgImage
   const ogImageUrl = `${site.siteMetadata.siteUrl}${ogImage}`
 
   return (
