@@ -11,7 +11,15 @@ import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 import defaultOgImage from "../../content/assets/pineapple-emoji.png"
 
-const SEO = ({ description, lang, meta, title, canonical, blogOgImage, coverImage }) => {
+const SEO = ({
+  description,
+  lang,
+  meta,
+  title,
+  canonical,
+  blogOgImage,
+  coverImage,
+}) => {
   const { site } = useStaticQuery(
     graphql`
       query {

@@ -25,8 +25,8 @@ href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=
 ## Explicit way to fire events on load
 
 Before this feature got introduced, the only way to register when
-render_async finishes is to 
-[give it an event name](https://github.com/renderedtext/render_async#passing-in-an-event-name) 
+render_async finishes is to
+[give it an event name](https://github.com/renderedtext/render_async#passing-in-an-event-name)
 like so:
 
 ```ruby
@@ -39,10 +39,10 @@ And then in your JavaScript code, you could do something like this:
 document.addEventListener("users-loaded", function(event) {
   console.log("Users have loaded!")
   console.log(event)
-});
+})
 ```
 
-Let's say you wanted to catch an error when it happens. 
+Let's say you wanted to catch an error when it happens.
 You had to [pass in `error_event_name` parameter](https://github.com/renderedtext/render_async#handling-errors):
 
 ```ruby
@@ -52,7 +52,7 @@ You had to [pass in `error_event_name` parameter](https://github.com/renderedtex
 Later, you can catch it like so:
 
 ```javascript
-document.addEventListener('users-error-event', function(event) {
+document.addEventListener("users-error-event", function(event) {
   // I'm on it
   console.log("Loading users failed!")
   console.log(event)
@@ -79,12 +79,12 @@ Now all you have to do is call render_async:
 And write JavaScript to catch potential events:
 
 ```javascript
-document.addEventListener('render_async_load', function(event) {
-  console.log('Async partial loaded!', event);
-});
-document.addEventListener('render_async_error', function(event) {
-  console.log('Async partial could not load!', event);
-});
+document.addEventListener("render_async_load", function(event) {
+  console.log("Async partial loaded!", event)
+})
+document.addEventListener("render_async_error", function(event) {
+  console.log("Async partial could not load!", event)
+})
 ```
 
 ## 👁 Making DOM element available in events
@@ -96,12 +96,15 @@ request loads easily.
 We'll take previous example with event loading:
 
 ```javascript
-document.addEventListener('render_async_load', function(event) {
-  console.log('Async partial loaded in this container:', event.container);
-});
-document.addEventListener('render_async_error', function(event) {
-  console.log('Async partial could not load in this container:', event.container);
-});
+document.addEventListener("render_async_load", function(event) {
+  console.log("Async partial loaded in this container:", event.container)
+})
+document.addEventListener("render_async_error", function(event) {
+  console.log(
+    "Async partial could not load in this container:",
+    event.container
+  )
+})
 ```
 
 ## Bugfix for toggle event handlers
