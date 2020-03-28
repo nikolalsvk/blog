@@ -12,7 +12,8 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
-  const { canonical, canonicalName } = post.frontmatter
+  const { canonical, canonicalName, date, slug } = post.frontmatter
+  const { timeToRead } = post
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -38,10 +39,14 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               ...scale(-1 / 5),
               display: `block`,
               marginBottom: rhythm(1),
+              textTransform: "uppercase",
             }}
           >
-            Published on {post.frontmatter.date} |{" "}
-            <ViewCounter slug={post.frontmatter.slug} />
+            Published on <b>{date}</b> | <ViewCounter slug={slug} /> | 📚 about{" "}
+            <b>
+              {timeToRead} {timeToRead === 1 ? "minute" : "minutes"}
+            </b>{" "}
+            to read
           </p>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -132,6 +137,7 @@ export const pageQuery = graphql`
         }
         slug
       }
+      timeToRead
     }
   }
 `

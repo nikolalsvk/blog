@@ -38,7 +38,7 @@ function Views({ views }) {
 
   const formattedViews = `${views} views`
 
-  return <StyledViews highlight={highlight}>👁{formattedViews}</StyledViews>
+  return <StyledViews highlight={highlight}>👁 {formattedViews}</StyledViews>
 }
 
 export default Views
