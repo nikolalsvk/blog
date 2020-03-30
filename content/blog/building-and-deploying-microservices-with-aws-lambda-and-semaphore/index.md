@@ -249,10 +249,7 @@ exports.handler = function(event, context) {
     // Send SMS
     client.sendSms(
       {
-        to:
-          numbersnumbersnumbersnumbers\[
-            blame_mailblame_mailblame_mailblame_mail\
-          ],
+        to: numbers[blame_mail],
         from: twilio_number,
         body: message,
       },
@@ -260,14 +257,7 @@ exports.handler = function(event, context) {
         // this function is executed when a response is received from Twilio
         if (!err) {
           console.log(responseData)
-          context.done(
-            null,
-            "Message sent to " +
-              numbersnumbersnumbersnumbers\[
-                blame_mailblame_mailblame_mailblame_mail\
-              ] +
-              "!"
-          )
+          context.done(null, "Message sent to " + numbers[blame_mail] + "!")
         } else {
           console.log(err)
           context.done(null, "There was an error, message not sent!")
