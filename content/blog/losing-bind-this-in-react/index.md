@@ -7,9 +7,7 @@ canonical: https://medium.com/@nikolalsvk/loosing-bind-this-in-react-8637ebf372c
 canonicalName: Medium
 coverImage: ./cover.jpg
 blogOgImage: ./cover.jpg
-tags:
-  - javascript
-  - react
+tags: ["javascript", "react"]
 ---
 
 Getting rid of .bind(this) in React component.

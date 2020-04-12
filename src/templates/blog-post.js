@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import { kebabCase } from "lodash"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -12,7 +13,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
-  const { canonical, canonicalName, date, slug } = post.frontmatter
+  const { canonical, canonicalName, date, slug, tags } = post.frontmatter
   const { timeToRead } = post
 
   return (
@@ -46,7 +47,15 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             <b>
               {timeToRead} {timeToRead === 1 ? "minute" : "minutes"}
             </b>{" "}
-            to read
+            to read{" "}
+            <span className="tags" style={{ display: `block` }}>
+              Tags:{" "}
+              {tags.map(tag => (
+                <span>
+                  <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                </span>
+              ))}
+            </span>
           </p>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -136,6 +145,7 @@ export const pageQuery = graphql`
           publicURL
         }
         slug
+        tags
       }
       timeToRead
     }

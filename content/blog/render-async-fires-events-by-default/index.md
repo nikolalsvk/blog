@@ -5,10 +5,7 @@ slug: render-async-fires-events-by-default
 date: 2020-03-25
 coverImage: ./cover.jpg
 blogOgImage: ./og-image.png
-tags:
-  - rails
-  - javascript
-  - render_async
+tags: ["rails", "javascript", "render_async"]
 ---
 
 The new version brings a couple of good news in these rough times.

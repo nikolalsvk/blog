@@ -7,10 +7,7 @@ canonical: https://semaphoreci.com/community/tutorials/building-and-deploying-mi
 canonicalName: Semaphore Blog
 coverImage: ./cover.png
 blogOgImage: ./cover.png
-tags:
-  - javascript
-  - serverless
-  - aws
+tags: ["javascript", "serverless", "aws"]
 ---
 
 [AWS Lambda](https://us-west-2.console.aws.amazon.com/lambda/) is a service from the [Amazon Web Services](https://aws.amazon.com/) family which runs your code based on various events. When you create a _Lambda function_ and deploy your code to it, AWS Lambda takes care of provisioning and managing servers that run your code.
@@ -249,10 +246,7 @@ exports.handler = function(event, context) {
     // Send SMS
     client.sendSms(
       {
-        to:
-          numbersnumbersnumbersnumbers\[
-            blame_mailblame_mailblame_mailblame_mail\
-          ],
+        to: numbers[blame_mail],
         from: twilio_number,
         body: message,
       },
@@ -260,14 +254,7 @@ exports.handler = function(event, context) {
         // this function is executed when a response is received from Twilio
         if (!err) {
           console.log(responseData)
-          context.done(
-            null,
-            "Message sent to " +
-              numbersnumbersnumbersnumbers\[
-                blame_mailblame_mailblame_mailblame_mail\
-              ] +
-              "!"
-          )
+          context.done(null, "Message sent to " + numbers[blame_mail] + "!")
         } else {
           console.log(err)
           context.done(null, "There was an error, message not sent!")
