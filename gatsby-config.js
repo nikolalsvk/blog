@@ -27,6 +27,9 @@ module.exports = {
 
             if (node.path === "/") sitemapObject.priority = 0.9
 
+            console.log("AY")
+            if (node.path.includes("/tags/")) sitemapObject.priority = 0.6
+
             if (["/thank-you/", "/confirm-subscription/"].includes(node.path))
               sitemapObject.priority = 0.5
 
