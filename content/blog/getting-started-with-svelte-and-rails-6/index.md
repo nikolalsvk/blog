@@ -138,7 +138,7 @@ Notice the comment on the second line of the file. In order to have this show up
 Notice how on the line 10, we’ve added the JavaScript pack tag. This line will get picked up by webpacker gem and it will transpile Svelte code so it renders properly when we go to our website. Imagine this as a \<script\> tag that will include all our Svelte code.
 If we go ahead and load http://localhost:3000, we will still see “Yay! You’re on Rails!” page which we don’t want. In order to get our Svelte app to render, we need to create Rails controller and an action. Don’t worry, this is not hard. We will use Rails’ generate command which will help us a lot.
 
-```
+```bash
 rails generate controller welcome index
 ```
 

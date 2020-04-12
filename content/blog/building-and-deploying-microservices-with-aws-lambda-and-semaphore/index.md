@@ -315,7 +315,7 @@ $ grunt lambda_invoke
 
 The output should look similar to this:
 
-```
+```bash
 Success!  Message:
 ------------------
 Message sent to +2222222!

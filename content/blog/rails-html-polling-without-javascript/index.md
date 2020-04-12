@@ -91,7 +91,7 @@ And voilà 🎉, if you go to your movie page and open the [Network tab](https:/
 
 Hold your horses 🎠, we are getting there. You can do simple polling with the new version of the [render_async](https://github.com/renderedtext/render_async) gem! In order to do this, you’ll need to install the gem inside your Rails application and put this snippet in your application.html.erb file.
 
-```
+```erb
 <%= content_for :render_async %>
 ```
 

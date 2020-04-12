@@ -39,7 +39,7 @@ Next, click on “Create New Application” and choose a name for your Elastic B
 
 You can also do this from the command line:
 
-```
+```bash
 $ aws elasticbeanstalk create-application --application-name nodejs-application
 ```
 
@@ -89,13 +89,13 @@ The final step is to review the information and confirm it. Once you’ve clicke
 
 You can also create an Elastic Beanstalk environment from your command line using the following commands:
 
-```
+```bash
 $ aws elasticbeanstalk create-environment --application-name nodejs-application --environment-name nodejs-application-env --version-label version-1 --solution-stack-name "64bit Amazon Linux 2015.03 v2.0.1 running Node.js"
 ```
 
 The solution stack name determines your server configuration. We are using `"64bit Amazon Linux 2015.03 v2.0.1 running Node.js"`, but you can explore other options that can be listed using the following command:
 
-```
+```bash
 $ aws elasticbeanstalk list-available-solution-stacks
 ```
 
