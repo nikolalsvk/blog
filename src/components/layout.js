@@ -50,6 +50,10 @@ const GlobalStyle = createGlobalStyle`
   .token.operator {
     background: inherit;
   }
+
+  .tags > span:not(:last-child)::after {
+    content: ' | ';
+  }
 `
 
 const Container = styled.div`
