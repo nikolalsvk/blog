@@ -9,7 +9,7 @@ function ViewCounter({ slug, hideText }) {
 
   // Subscribe to view count updates
   useEffect(() => {
-    const onViews = newViews => setViews(newViews.val())
+    const onViews = (newViews) => setViews(newViews.val())
     let db
 
     const fetchData = async () => {

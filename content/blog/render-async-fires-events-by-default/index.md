@@ -33,7 +33,7 @@ like so:
 And then in your JavaScript code, you could do something like this:
 
 ```javascript
-document.addEventListener("users-loaded", function(event) {
+document.addEventListener("users-loaded", function (event) {
   console.log("Users have loaded!")
   console.log(event)
 })
@@ -49,7 +49,7 @@ You had to [pass in `error_event_name` parameter](https://github.com/renderedtex
 Later, you can catch it like so:
 
 ```javascript
-document.addEventListener("users-error-event", function(event) {
+document.addEventListener("users-error-event", function (event) {
   // I'm on it
   console.log("Loading users failed!")
   console.log(event)
@@ -76,10 +76,10 @@ Now all you have to do is call render_async:
 And write JavaScript to catch potential events:
 
 ```javascript
-document.addEventListener("render_async_load", function(event) {
+document.addEventListener("render_async_load", function (event) {
   console.log("Async partial loaded!", event)
 })
-document.addEventListener("render_async_error", function(event) {
+document.addEventListener("render_async_error", function (event) {
   console.log("Async partial could not load!", event)
 })
 ```
@@ -93,10 +93,10 @@ request loads easily.
 We'll take previous example with event loading:
 
 ```javascript
-document.addEventListener("render_async_load", function(event) {
+document.addEventListener("render_async_load", function (event) {
   console.log("Async partial loaded in this container:", event.container)
 })
-document.addEventListener("render_async_error", function(event) {
+document.addEventListener("render_async_error", function (event) {
   console.log(
     "Async partial could not load in this container:",
     event.container

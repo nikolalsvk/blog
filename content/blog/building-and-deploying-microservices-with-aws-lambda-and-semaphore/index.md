@@ -126,7 +126,7 @@ We need to create a file named `index.js` to hold our Lambda function logic. Fir
 ```javascript
 var AWS = require("aws-sdk")
 
-exports.handler = function(event, context) {
+exports.handler = function (event, context) {
   console.log("JSON API from Semaphore: %j", event)
 
   AWS.config.apiVersions = {
@@ -138,7 +138,7 @@ exports.handler = function(event, context) {
   // This is where you define bucket and a file for S3 to get
   var params = { Bucket: "congrats-you-broke-the-build", Key: "numbers.json" }
 
-  s3.getObject(params, function(err, data) {
+  s3.getObject(params, function (err, data) {
     if (err) console.log(err, err.stack) // an error has happened on AWS
 
     // Parse JSON file and put it in numbers variable
@@ -152,7 +152,7 @@ Now that we have parsed our JSON file, it’s time do something with those numbe
 ```javascript
 var AWS = require("aws-sdk")
 
-exports.handler = function(event, context) {
+exports.handler = function (event, context) {
   console.log("JSON API from Semaphore: %j", event)
 
   AWS.config.apiVersions = {
@@ -164,7 +164,7 @@ exports.handler = function(event, context) {
   // This is where you define the location of the bucket and the file S3 needs to retrieve
   var params = { Bucket: "congrats-you-broke-the-build", Key: "numbers.json" }
 
-  s3.getObject(params, function(err, data) {
+  s3.getObject(params, function (err, data) {
     if (err) console.log(err, err.stack) // an error has happened on AWS
 
     // Parse JSON file and put it in numbers variable
@@ -197,7 +197,7 @@ We now have the message we will send to the user, but we still need to write the
 var AWS = require("aws-sdk")
 var twilio = require("twilio")
 
-exports.handler = function(event, context) {
+exports.handler = function (event, context) {
   console.log("JSON API from Semaphore: %j", event)
 
   AWS.config.apiVersions = {
@@ -209,7 +209,7 @@ exports.handler = function(event, context) {
   // This is where you define the location of the bucket and the file S3 needs to retrieve
   var params = { Bucket: "congrats-you-broke-the-build", Key: "numbers.json" }
 
-  s3.getObject(params, function(err, data) {
+  s3.getObject(params, function (err, data) {
     if (err) console.log(err, err.stack) // an error has happened on AWS
 
     // Parse JSON file and put it in numbers variable
@@ -250,7 +250,7 @@ exports.handler = function(event, context) {
         from: twilio_number,
         body: message,
       },
-      function(err, responseData) {
+      function (err, responseData) {
         // this function is executed when a response is received from Twilio
         if (!err) {
           console.log(responseData)

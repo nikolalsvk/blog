@@ -74,8 +74,8 @@ Movie rating: <%= @rating %>
 <script>
   const checkRating = () => {
     fetch("<%= movie_rating_path(@movie) %>")
-      .then(response => response.text())
-      .then(response => {
+      .then((response) => response.text())
+      .then((response) => {
         document.getElementById("rating").innerHTML = response
       })
   }

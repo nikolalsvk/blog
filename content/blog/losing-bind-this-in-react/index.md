@@ -44,7 +44,7 @@ class ButtonWithBind extends Component {
   }
 
   toggleButton() {
-    this.setState(prevState => ({ toggle: !prevState.toggle }))
+    this.setState((prevState) => ({ toggle: !prevState.toggle }))
   }
 
   render() {
@@ -100,7 +100,7 @@ class ButtonWithBind extends Component {
   }
 
   toggleButton() {
-    this.setState(prevState => ({ toggle: !prevState.toggle }))
+    this.setState((prevState) => ({ toggle: !prevState.toggle }))
   }
 
   render() {
@@ -131,7 +131,7 @@ Now, let’s get rid of that annoying _.bind(this)_. In order to do that, we’l
 
 ```javascript
 toggleButton = () => {
-  this.setState(prevState => ({ toggle: !prevState.toggle }))
+  this.setState((prevState) => ({ toggle: !prevState.toggle }))
 }
 ```
 
@@ -169,7 +169,7 @@ class ButtonWithoutBind extends Component {
   }
 
   toggleButton = () => {
-    this.setState(prevState => ({ toggle: !prevState.toggle }))
+    this.setState((prevState) => ({ toggle: !prevState.toggle }))
   }
 
   render() {
@@ -197,7 +197,7 @@ class ButtonWithoutBind extends Component {
   state = { toggle: false }
 
   toggleButton = () => {
-    this.setState(prevState => ({ toggle: !prevState.toggle }))
+    this.setState((prevState) => ({ toggle: !prevState.toggle }))
   }
 
   render() {
