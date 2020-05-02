@@ -33,7 +33,7 @@
     "prismjs": "^1.20.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-helmet": "^5.2.1",
+    "react-helmet": "^6.0.0",
     "react-typography": "^0.16.19",
     "styled-components": "^5.1.0",
     "typeface-merriweather": "0.0.72",
@@ -44,7 +44,7 @@
   "devDependencies": {
     "husky": "^4.2.5",
     "lint-staged": "^10.2.2",
-    "prettier": "^1.19.1"
+    "prettier": "^2.0.0"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
   "keywords": [
