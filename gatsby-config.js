@@ -18,7 +18,6 @@ module.exports = {
       options: {
         serialize: ({ site, allSitePage }) =>
           allSitePage.edges.map(({ node }) => {
-            console.log(node)
             sitemapObject = {
               url: `${site.siteMetadata.siteUrl}${node.path}`,
               changefreq: `daily`,
@@ -27,7 +26,6 @@ module.exports = {
 
             if (node.path === "/") sitemapObject.priority = 0.9
 
-            console.log("AY")
             if (node.path.includes("/tags/")) sitemapObject.priority = 0.6
 
             if (["/thank-you/", "/confirm-subscription/"].includes(node.path))
