@@ -270,3 +270,10 @@ By reading this far into the post, you should be able to better understand the
 JavaScript dependency tree. Whether you are adding a library that is too big or
 just exploring how complex your project’s dependencies are, you can always come
 back here and use this guide to analyze how complex the new dependency will be.
+
+If you liked the blog post, feel free to comment or share it with your friends
+on Twitter:
+
+<blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">Have you ever wondered what happens when you do &#39;npm install some-lib&#39;? 🤔<br><br>You can find out more in the new <a href="https://twitter.com/AppSignal?ref_src=twsrc%5Etfw">@AppSignal</a> blog post I wrote below ⤵️<a href="https://t.co/gTfol838d7">https://t.co/gTfol838d7</a></p>&mdash; Nikola Đuza (@nikolalsvk) <a href="https://twitter.com/nikolalsvk/status/1248250896162549761?ref_src=twsrc%5Etfw">April 9, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+Cheers! 🍻
