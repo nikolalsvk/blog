@@ -50,7 +50,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             to read{" "}
             <span className="tags" style={{ display: `block` }}>
               Tags:{" "}
-              {tags.map(tag => (
+              {tags.map((tag) => (
                 <span>
                   <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
                 </span>

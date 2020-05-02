@@ -13,7 +13,7 @@ const highlightBackgound = keyframes`
 const StyledViews = styled.span`
   text-transform: uppercase;
 
-  ${props =>
+  ${(props) =>
     props.highlight &&
     css`
       animation-name: ${highlightBackgound};

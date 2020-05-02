@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
   }
   body {
-    color: ${props => (props.theme === "purple" ? "purple" : "#161032")};
+    color: ${(props) => (props.theme === "purple" ? "purple" : "#161032")};
     height: 100%;
   }
   #___gatsby {
