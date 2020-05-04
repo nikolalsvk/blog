@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SubscribeForm from "../components/subscribe-form"
+import SEO from "../components/seo"
 
 const NewsletterPage = ({
   data: {
@@ -12,6 +13,8 @@ const NewsletterPage = ({
   location,
 }) => (
   <Layout location={location} title={title}>
+    <SEO title="💌 Newsletter" />
+
     <div>
       <h1>Get Blog Updates</h1>
 
