@@ -105,38 +105,52 @@ const Layout = ({ location, title, showLargeHeader, children }) => {
     )
   } else {
     header = (
-      <h3
+      <div
         style={{
           marginTop: 0,
           display: `flex`,
           justifyContent: `space-between`,
         }}
       >
-        <Link
+        <h3
           style={{
-            boxShadow: `none`,
-            color: `inherit`,
+            marginTop: 0,
+            marginBottom: 0,
           }}
-          to={`/`}
         >
-          {title}
-        </Link>
+          <Link
+            style={{
+              boxShadow: `none`,
+              color: `inherit`,
+            }}
+            to={`/`}
+          >
+            {title}
+          </Link>
+        </h3>
 
-        <Link
+        <h3
           style={{
-            boxShadow: `none`,
-            color: `inherit`,
-            textAlign: `right`,
-            fontSize: `1.1rem`,
+            marginTop: 0,
+            marginBottom: 0,
           }}
-          to={`/newsletter`}
         >
-          Newsletter{" "}
-          <span role="img" aria-label="letter">
-            💌
-          </span>
-        </Link>
-      </h3>
+          <Link
+            style={{
+              boxShadow: `none`,
+              color: `inherit`,
+              textAlign: `right`,
+              fontSize: `1.1rem`,
+            }}
+            to={`/newsletter`}
+          >
+            Newsletter{" "}
+            <span role="img" aria-label="letter">
+              💌
+            </span>
+          </Link>
+        </h3>
+      </div>
     )
   }
   return (
