@@ -135,8 +135,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Having plugin by itself will not be enough for a full-on VSCode-like experience
 with TypeScript. To have code completion show up for TypeScript, you need to install
 [coc-tsserver](https://github.com/neoclide/coc-tsserver). The reason for this is that CoC
-works with extensions. There are many extensions which you can use, and more on why
-extensions are need is [in CoC Wiki](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions).
+works with extensions. There are many extensions that you can use, and more on why
+extensions are needed is [in CoC Wiki](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions).
 
 In our case, we will use `coc-tsserver` extension that we can install with `:CocInstall coc-tsserver`. Or, you can put
 this line in your `.vimrc` which I find better:
@@ -168,7 +168,7 @@ styled.
 I took some of the tricks from [example Vim configuration from the coc.nvim repo](https://github.com/neoclide/coc.nvim#example-vim-configuration)
 which you should definitely check out!
 
-One of the shortcut I used in the GIF above is leader key + ac:
+One of the shortcuts I used in the GIF above is leader key + ac:
 
 ```vim
 " Remap keys for applying codeAction to the current line.
@@ -195,7 +195,7 @@ nmap <silent> gr <Plug>(coc-references)
 The `gd`, `gy`, `gi`, `gr` it useful when jumping around the code trying to
 figure out where code is being defined and referenced from. This is why I love
 Vim and it lets me be fast with writing and reading code! To better illustrate,
-here is a GIF of jumping between definition of the SEO component and where
+here is a GIF of jumping between the definition of the SEO component and where
 it is referenced.
 
 ![Code jumping in Vim](./code-jumping.gif)
