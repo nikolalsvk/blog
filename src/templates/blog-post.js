@@ -43,7 +43,8 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               textTransform: "uppercase",
             }}
           >
-            Published on <b>{date}</b> | <ViewCounter slug={slug} /> | 📚 about{" "}
+            Published on <b>{date}</b> | <ViewCounter hideText slug={slug} />
+            📚about{" "}
             <b>
               {timeToRead} {timeToRead === 1 ? "minute" : "minutes"}
             </b>{" "}
