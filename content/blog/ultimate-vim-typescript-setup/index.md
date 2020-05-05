@@ -207,4 +207,6 @@ Also, my `.vimrc` are available inside my [dotfiles repo](https://github.com/nik
 Also, sharing this with friends is an excellent way of spreading knowledge and
 making me earn internet points:
 
+<blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">Vim setup for TypeScript that your government doesn&#39;t want you to know 👇<a href="https://t.co/FbkNIYXPvx">https://t.co/FbkNIYXPvx</a></p>&mdash; Nikola Đuza (@nikolalsvk) <a href="https://twitter.com/nikolalsvk/status/1257611712909500424?ref_src=twsrc%5Etfw">May 5, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 Cheers!
