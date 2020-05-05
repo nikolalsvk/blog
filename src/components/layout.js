@@ -54,6 +54,10 @@ const GlobalStyle = createGlobalStyle`
   .tags > span:not(:last-child)::after {
     content: ' | ';
   }
+
+  .markdown-header-link {
+    box-shadow: none;
+  }
 `
 
 const Container = styled.div`
@@ -104,17 +108,33 @@ const Layout = ({ location, title, showLargeHeader, children }) => {
       <h3
         style={{
           marginTop: 0,
+          display: `flex`,
+          justifyContent: `space-between`,
         }}
       >
         <Link
           style={{
             boxShadow: `none`,
-            textDecoration: `none`,
             color: `inherit`,
           }}
           to={`/`}
         >
           {title}
+        </Link>
+
+        <Link
+          style={{
+            boxShadow: `none`,
+            color: `inherit`,
+            textAlign: `right`,
+            fontSize: `1.1rem`,
+          }}
+          to={`/newsletter`}
+        >
+          Newsletter{" "}
+          <span role="img" aria-label="letter">
+            💌
+          </span>
         </Link>
       </h3>
     )
