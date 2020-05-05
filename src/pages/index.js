@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 import ViewCounter from "../components/view-counter"
+import SubscribeForm from "../components/subscribe-form"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -42,6 +43,8 @@ const BlogIndex = ({ data, location }) => {
         )
       })}
       <ViewCounter slug="home" hideText />
+
+      <SubscribeForm />
     </Layout>
   )
 }
