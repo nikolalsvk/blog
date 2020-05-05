@@ -4,7 +4,7 @@ description: How and why to use Vim for TypeScript development in 2020?
 slug: ultimate-vim-typescript-setup
 date: 2020-05-05
 coverImage: ./cover.jpg
-blogOgImage: ./cover.jpg
+blogOgImage: ./og-image.jpg
 tags:
   - vim
   - javascript
@@ -14,7 +14,7 @@ tags:
 ![Modern art](./cover.jpg)
 
 <div class="photo-caption">
-Photo by <a href="https://unsplash.com/@steve_j?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Steve Johnson</a> on <a href="https://unsplash.com/s/photos/modern-vim?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+Photo by <a href="https://unsplash.com/@pawel_czerwinski?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Paweł Czerwiński</a> on <a href="https://unsplash.com/s/photos/modern-vim?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 </div>
 
 Vim is great. I have been using different text editors and IDEs through years,
@@ -35,7 +35,7 @@ proclaims you can learn Vim 30 minutes!
 
 One of the main reasons why I use Vim as my editor is speed. And I do not mean
 the speed of writing code, which is also excellent. I am thinking of the reading speed
-of the code. Did you know that the [ratio of reading versus writing code is 10 to 1](https://www.goodreads.com/quotes/835238-indeed-the-ratio-of-time-spent-reading-versus-writing-is)
+of the code. Did you know that the [ratio of reading versus writing code is 10 to 1](https://www.goodreads.com/quotes/835238-indeed-the-ratio-of-time-spent-reading-versus-writing-is).
 That means that you are regularly reading old code to write new code.
 And with Vim, **reading** and **finding** old code has been the easiest and
 fastest for me!
