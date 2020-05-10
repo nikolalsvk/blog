@@ -37,6 +37,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 0.9rem;
     margin-top: -1rem;
     margin-bottom: 1rem;
+    color: #b3b3b3;
   }
 
   // Code theme fixes

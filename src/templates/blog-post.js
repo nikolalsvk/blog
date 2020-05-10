@@ -40,15 +40,11 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               ...scale(-1 / 5),
               display: `block`,
               marginBottom: rhythm(1),
-              color: `gray`,
+              color: `#b3b3b3`,
             }}
           >
-            <b>{date}</b> | <ViewCounter hideText slug={slug} />
-            about{" "}
-            <b>
-              {timeToRead} {timeToRead === 1 ? "minute" : "minutes"}
-            </b>{" "}
-            to read{" "}
+            {date} | <ViewCounter hideText slug={slug} />
+            about {timeToRead} {timeToRead === 1 ? "minute" : "minutes"} to read{" "}
           </p>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
