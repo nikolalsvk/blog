@@ -40,23 +40,11 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               ...scale(-1 / 5),
               display: `block`,
               marginBottom: rhythm(1),
-              textTransform: "uppercase",
+              color: `#b3b3b3`,
             }}
           >
-            Published on <b>{date}</b> | <ViewCounter hideText slug={slug} />
-            📚about{" "}
-            <b>
-              {timeToRead} {timeToRead === 1 ? "minute" : "minutes"}
-            </b>{" "}
-            to read{" "}
-            <span className="tags" style={{ display: `block` }}>
-              Tags:{" "}
-              {tags.map((tag) => (
-                <span>
-                  <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                </span>
-              ))}
-            </span>
+            {date} | <ViewCounter hideText slug={slug} />
+            about {timeToRead} {timeToRead === 1 ? "minute" : "minutes"} to read{" "}
           </p>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -83,6 +71,16 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             marginBottom: rhythm(1),
           }}
         />
+
+        <p className="tags" style={{ display: `block` }}>
+          Tagged as:{" "}
+          {tags.map((tag) => (
+            <span key={tag}>
+              <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+            </span>
+          ))}
+        </p>
+
         <footer>
           <Bio />
         </footer>

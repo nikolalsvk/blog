@@ -7,7 +7,8 @@ canonical: https://blog.usejournal.com/getting-started-with-svelte-and-rails-6-d
 canonicalName: Journal
 coverImage: ./cover.jpg
 blogOgImage: ./cover.jpg
-tags: ["javascript"]
+tags:
+  - JavaScript
 ---
 
 Svelte is slowly rising to fame these days and it’s getting more and more traction with new version 3 being released in April. If you’re interested in how to get started with Rails and Svelte, this is the right post for you! We’ll go through the whats, the whys, and the hows between the two.
@@ -91,7 +92,7 @@ As you see in your console, previous command generated and modified couple of fi
 
 If we go to `app/javascript/packs/hello_svelte.js` we will see same code as in the file below:
 
-```js
+```javascript
 /* eslint no-console: 0 */
 // Run this example by adding <%= javascript_pack_tag 'hello_svelte' %> (and
 // <%= stylesheet_pack_tag 'hello_svelte' %> if you have styles in your component)
@@ -171,7 +172,7 @@ Now we’re talking!
 
 The actual Svelte code that’s responsible for this is inside `app/javascript/app.svelte` and it looks like this:
 
-```js
+```javascript
 <script>
   export let name;
 </script>

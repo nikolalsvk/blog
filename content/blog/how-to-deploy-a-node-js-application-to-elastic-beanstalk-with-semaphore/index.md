@@ -7,7 +7,10 @@ canonical: https://semaphoreci.com/community/tutorials/how-to-deploy-a-node-js-a
 canonicalName: Semaphore Blog
 coverImage: ./cover.png
 blogOgImage: ./cover.png
-tags: ["javascript", "node-js", "elastic-beanstalk", "aws"]
+tags:
+  - JavaScript
+  - Node.js
+  - AWS
 ---
 
 ## Introduction

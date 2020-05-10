@@ -8,8 +8,8 @@ canonicalName: Semaphore Blog
 coverImage: ./cover.png
 blogOgImage: ./cover.png
 tags:
-  - rails
-  - javascript
+  - Rails
+  - JavaScript
   - render_async
 ---
 

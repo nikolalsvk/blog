@@ -8,7 +8,7 @@ canonicalName: AppSignal
 coverImage: ./cover.jpg
 blogOgImage: ./cover.jpg
 tags:
-  - javascript
+  - JavaScript
 ---
 
 ![Dark Skies](./cover.jpg)

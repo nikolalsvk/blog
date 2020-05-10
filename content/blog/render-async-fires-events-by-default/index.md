@@ -5,7 +5,10 @@ slug: render-async-fires-events-by-default
 date: 2020-03-25
 coverImage: ./cover.jpg
 blogOgImage: ./og-image.png
-tags: ["rails", "javascript", "render_async"]
+tags:
+  - Rails
+  - JavaScript
+  - render_async
 ---
 
 The new version brings a couple of good news in these rough times.
@@ -126,4 +129,4 @@ That's, it folks, download the gem and try it out. Show some love and
 
 P.S. If you like my work on this gem so far, consider sponsoring me on
 [GitHub Sponsors](https://github.com/sponsors/nikolalsvk) or through
-[PayPal](https://www.paypal.me/nikolalsvk)
+[PayPal](https://www.paypal.me/nikolalsvk).

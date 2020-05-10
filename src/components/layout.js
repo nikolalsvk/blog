@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
   }
   a {
-    color: #E06D06;
+    color: #bd5b04;
   }
   h1, h2, h3, h1 > a, h2 > a, h3 > a {
     font-family: 'Josefin Sans', sans-serif;
@@ -37,6 +37,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 0.9rem;
     margin-top: -1rem;
     margin-bottom: 1rem;
+    color: #b3b3b3;
   }
 
   // Code theme fixes
