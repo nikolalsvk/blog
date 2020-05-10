@@ -1,6 +1,6 @@
 ---
 title: render_async 2.1.6 released
-description: Detailed walkthrough all the new changes.
+description: Read a detailed dive into all the new changes inside the 2.1.6 version.
 slug: render-async-2-1-6-released
 date: 2020-05-10
 coverImage: ./cover.jpg
