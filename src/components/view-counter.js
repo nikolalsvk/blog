@@ -33,6 +33,8 @@ function ViewCounter({ slug, hideText }) {
           method: "POST",
           body: JSON.stringify({ slug: slug }),
         }
+      ).catch((error) =>
+        console.log("Failed to fetch page views with error:", error)
       )
     }
 
