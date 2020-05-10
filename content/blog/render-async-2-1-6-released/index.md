@@ -48,7 +48,7 @@ is no more!
 There is no more polling issue because we now call `clearInterval` if the
 `turbolinks:visit` event happens:
 
-```js
+```javascript
 $(document).one("turbolinks:visit", function () {
   if (typeof _interval === "number") {
     clearInterval(_interval)
@@ -69,7 +69,7 @@ header can be found in
 
 Fix was this was pretty easy and straightforward:
 
-```js
+```javascript
 request.setRequestHeader("X-Requested-With", "XMLHttpRequest")
 ```
 
@@ -110,7 +110,7 @@ render_async call. But, if you have a nested call, it will wait for
 In order to have nested calls render, I added a piece of logic which checks whether the document
 state is either 'complete' or 'interactive':
 
-```js
+```javascript
 if (
   document.readyState === "complete" ||
   document.readyState === "interactive"

@@ -92,7 +92,7 @@ As you see in your console, previous command generated and modified couple of fi
 
 If we go to `app/javascript/packs/hello_svelte.js` we will see same code as in the file below:
 
-```js
+```javascript
 /* eslint no-console: 0 */
 // Run this example by adding <%= javascript_pack_tag 'hello_svelte' %> (and
 // <%= stylesheet_pack_tag 'hello_svelte' %> if you have styles in your component)
@@ -172,7 +172,7 @@ Now we’re talking!
 
 The actual Svelte code that’s responsible for this is inside `app/javascript/app.svelte` and it looks like this:
 
-```js
+```javascript
 <script>
   export let name;
 </script>
