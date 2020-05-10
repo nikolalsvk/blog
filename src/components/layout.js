@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
   }
   a {
-    color: #E06D06;
+    color: #bd5b04;
   }
   h1, h2, h3, h1 > a, h2 > a, h3 > a {
     font-family: 'Josefin Sans', sans-serif;

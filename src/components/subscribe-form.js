@@ -68,6 +68,7 @@ const SubscribeForm = () => (
         <div className="formkit-field">
           <input
             className="formkit-input"
+            aria-label="Your email address"
             name="email_address"
             placeholder="Your email address"
             required
