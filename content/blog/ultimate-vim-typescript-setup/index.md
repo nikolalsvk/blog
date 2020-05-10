@@ -6,9 +6,9 @@ date: 2020-05-05
 coverImage: ./cover.jpg
 blogOgImage: ./og-image.jpg
 tags:
-  - vim
-  - javascript
-  - typescript
+  - Vim
+  - JavaScript
+  - TypeScript
 ---
 
 ![Modern art](./cover.jpg)

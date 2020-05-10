@@ -7,7 +7,10 @@ canonical: https://semaphoreci.com/community/tutorials/building-and-deploying-mi
 canonicalName: Semaphore Blog
 coverImage: ./cover.png
 blogOgImage: ./cover.png
-tags: ["javascript", "serverless", "aws"]
+tags:
+  - JavaScript
+  - Serverless
+  - AWS
 ---
 
 [AWS Lambda](https://us-west-2.console.aws.amazon.com/lambda/) is a service from the [Amazon Web Services](https://aws.amazon.com/) family which runs your code based on various events. When you create a _Lambda function_ and deploy your code to it, AWS Lambda takes care of provisioning and managing servers that run your code.

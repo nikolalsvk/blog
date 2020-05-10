@@ -8,7 +8,7 @@ const Tag = ({ pageContext, data, location }) => {
   const { edges, totalCount } = data.allMarkdownRemark
   const tagHeader = `${totalCount} post${
     totalCount === 1 ? "" : "s"
-  } tagged with '${tag.toUpperCase()}'`
+  } tagged as ${tag}`
   return (
     <Layout location={location} title={data.site.siteMetadata.title}>
       <h1>{tagHeader}</h1>

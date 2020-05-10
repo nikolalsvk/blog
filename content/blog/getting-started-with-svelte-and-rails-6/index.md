@@ -7,7 +7,8 @@ canonical: https://blog.usejournal.com/getting-started-with-svelte-and-rails-6-d
 canonicalName: Journal
 coverImage: ./cover.jpg
 blogOgImage: ./cover.jpg
-tags: ["javascript"]
+tags:
+  - JavaScript
 ---
 
 Svelte is slowly rising to fame these days and it’s getting more and more traction with new version 3 being released in April. If you’re interested in how to get started with Rails and Svelte, this is the right post for you! We’ll go through the whats, the whys, and the hows between the two.

@@ -7,7 +7,10 @@ canonical: https://medium.com/@nikolalsvk/rails-html-polling-without-javascript-
 canonicalName: Medium
 coverImage: ./cover.jpg
 blogOgImage: ./cover.jpg
-tags: ["rails", "javascript", "render_async"]
+tags:
+  - Rails
+  - JavaScript
+  - render_async
 ---
 
 Write simple HTML polling by writing Ruby on Rails **ONLY**.
