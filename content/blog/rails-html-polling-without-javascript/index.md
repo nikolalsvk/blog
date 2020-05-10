@@ -69,7 +69,7 @@ Movie rating: <%= @rating %>
 
 **Second** part can be a little annoying sometimes. We need to write JavaScript on our frontend that will continuously query the server action we defined. But, it also needs to update the page so the changes can be reflected.
 
-```html
+```erb
 <!-- app/views/movies/show.html.erb -->
 
 <div id="rating">Loading rating...</div>
@@ -114,7 +114,7 @@ Wait, **that** is it? **Yep**, that’s it, congrats 🎉! This piece of code wi
 
 That’s not all you can do with it. You can throw in some error handling in there too, also without any JS code to be written:
 
-```html
+```erb
 <!-- app/views/movies/show.html.erb -->
 <%= render_async movie_rating_path(@movie), interval: 2000, error_message:
 "Couldn't load rating :(" %>
