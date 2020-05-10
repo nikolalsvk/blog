@@ -11,39 +11,42 @@ tags:
   - render_async
 ---
 
+In this post, we will go through all the changes that are in the new
+[2.1.6 version](https://github.com/renderedtext/render_async/releases/tag/2.1.6).
+
 ![Skiatos](./cover.jpg)
 
 <div class="photo-caption">
 Photo by <a href="https://unsplash.com/@nickkarvounis?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Nick Karvounis</a> on <a href="https://unsplash.com/s/photos/greece?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 </div>
 
-Here we will go through all the changes that are released in new
-[2.1.6 version](https://github.com/renderedtext/render_async/releases/tag/2.1.6).
-Some of them are pretty tricky and I wanted to write a blog post to have a
-detailed hows and whys of how I fixed them.
+Some of the new changes and bug fixes were pretty tricky to solve. I wanted to
+write a blog post to have detailed hows and whys of how I fixed them.
 
-The new version mainly brought bug fixes (I am so glad that some of them were fixed!):
+The new version mainly brought bug fixes:
 
-- [Polling is now stopped when page navigates using Turbolinks](#polling-is-now-stopped-when-page-navigates-using-turbolinks)
-- [Default header `X-Requested-With` is not removed anymore in Vanilla JS part of the gem](#default-header-x-requested-with-is-now-set)
-- [No more of `event.preventDefault()` when triggering toggling](#event-delegation-now-works-when-toggling)
-- [Nested partials now load if you're using Turbolinks](#nested-partials-now-load-with-turbolinks)
+- [Polling now stops when page navigates using Turbolinks](#polling-now-stops-when-page-navigates-using-turbolinks)
+- [Default header `X-Requested-With` is now set](#default-header-x-requested-with-is-now-set)
+- [Events delegate now works when toggling](#event-delegation-now-works-when-toggling)
+- [Nested partials now load with Turbolinks](#nested-partials-now-load-with-turbolinks)
 
 Let us dive into details of how each was fixed:
 
-## Polling is now stopped when page navigates using Turbolinks
+## Polling now stops when page navigates using Turbolinks
 
 If you have not heard about [Turbolinks](https://github.com/turbolinks/turbolinks) before,
-it is a great gimmick for your Rails application that makes it behave like a single-page
-application. It gracefully avoids full page loads when you click a link by fetching a page
-, swapping in its `<body>` tag, and merges its `<head`>. When you do `rails new my-awesome-app`, it comes equipped with Turbolinks.
+it is an excellent gimmick for your Rails application that makes it behave like a single-page
+application. It gracefully avoids full page loads when you click a link by fetching a page,
+swapping in its `<body>` tag, and merges its `<head`>. When you do `rails new my-awesome-app`, it comes equipped with Turbolinks.
 
 Before 2.1.6 version, if you used [render_async's polling feature](https://github.com/renderedtext/render_async#polling),
-render_async did not handle navigation changes with Turbolinks. This meant that
+render_async did not handle navigation changes with Turbolinks. For example,
 if your page started polling and you clicked a link, it wouldn't stop polling.
-This sucked big time! Fortunately, in new version, this is no more!
+The issue with polling sucked big time! Fortunately, in the new version, this
+is no more!
 
-This was fixed by calling `clearInterval` if the `turbolinks:visit` event happes:
+There is no more polling issue because we now call `clearInterval` if the
+`turbolinks:visit` event happens:
 
 ```js
 $(document).one("turbolinks:visit", function () {
@@ -56,9 +59,9 @@ $(document).one("turbolinks:visit", function () {
 
 ## Default header `X-Requested-With` is now set
 
-If you are using Vanilla JS part of the gem (you don't have jQuery in your
-project or you want Vanilla JS for some reason), each request was missing
-`X-Requested-With` header. This header is important and is set by jQuery be
+If you are using Vanilla JavaScript part of the gem (you don't have jQuery in your
+project, or you want Vanilla JS for some reason), each request was missing
+`X-Requested-With` header. This header is important and is set by jQuery by
 default. It is set by default because some servers check this header as a
 precaution from CSRF attacks. More about CSRF attack and `X-Requested-With`
 header can be found in
@@ -72,8 +75,8 @@ request.setRequestHeader("X-Requested-With", "XMLHttpRequest")
 
 ## Event delegation now works when toggling
 
-If you wanted to [trigger loading of render_async](https://github.com/renderedtext/render_async#toggle-event), you could use any element to do so. For example, you wanted to load comments
-on your blog with render_async, you would so something like this:
+If you wanted to [trigger the loading of render_async](https://github.com/renderedtext/render_async#toggle-event), you could use any element to do so. For example, you wanted to load comments
+on your blog with render_async you would so something like this:
 
 ```erb
 <!-- app/views/posts/show.html.erb -->
@@ -84,23 +87,25 @@ on your blog with render_async, you would so something like this:
 <% end %>
 ```
 
-This worked fine, you probably did not have any other events depending on that
+The method above worked fine if you did not have any other events depending on that
 link click. But issue occurred to one user when he tried
 [toggle feature on tabs](https://github.com/renderedtext/render_async/issues/109)
-in his UI. Basically, he wanted to load content when user was changing tabs in
-his app. Line `event.preventDefault()` inside toggle logic was stopping changing of
-tabs. Events did not delegate to the tab-changing logic and the tab was never
+in his UI. He wanted to load content when the user was changing tabs in
+his app. Line `event.preventDefault()` inside toggle logic was stopping the changing of
+tabs. Events did not delegate to the tab-changing logic, and the tab was never
 changed. Fortunately, in the new 2.1.6 version, this is not happening anymore!
 
 ## Nested partials now load with Turbolinks
 
-This was a last moment discovery by [ye-ling-aung in his comment](https://github.com/renderedtext/render_async/issues/70#issuecomment-626219698).
+Problem with nested partials was the last moment discovery by [ye-ling-aung in his comment](https://github.com/renderedtext/render_async/issues/70#issuecomment-626219698).
 Nested partials did not load with Turbolinks. If, for some reason, you needed to
-[nest render_async calls into one another](https://github.com/renderedtext/render_async#nested-async-renders)
-, you could do it easily. Problem occurred when page loaded with Turbolinks. The top level
-render_async call got rendered, but the nested calls below did not. This was because render_async
-loading logic is triggered when `turbolinks:load` event gets triggered. This is fine for the
-top level (initial) render_async call. But, if you have a nested call, it will wait for `turbolinks:load` which will not happen, because the page already loaded.
+[nest render_async calls into one another](https://github.com/renderedtext/render_async#nested-async-renders),
+you could do it quickly. The problem occurred when the page loaded with Turbolinks. The top-level
+render_async call got rendered, but the nested calls below did not. It was because render_async
+loading logic is triggered when `turbolinks:load` event gets triggered.
+Triggering loading on `turbolinks:load` is fine for the top-level (initial)
+render_async call. But, if you have a nested call, it will wait for
+`turbolinks:load`, which will not happen, because the page already loaded.
 
 In order to have nested calls render, I added a piece of logic which checks whether the document
 state is either 'complete' or 'interactive':
@@ -117,7 +122,7 @@ if (
 This way, when initial render_async calls loads and renders nested calls, they
 are sure to be performed.
 
-## Final toughts
+## Final thoughts
 
 Fixing and shipping these fixes was such a relief! I am thankful and glad for
 everyone that kept using render_async that were having these issues. I also
