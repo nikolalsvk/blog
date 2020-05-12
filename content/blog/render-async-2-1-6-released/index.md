@@ -36,8 +36,11 @@ Let us dive into details of how each was fixed:
 
 If you have not heard about [Turbolinks](https://github.com/turbolinks/turbolinks) before,
 it is an excellent gimmick for your Rails application that makes it behave like a single-page
-application. It gracefully avoids full page loads when you click a link by fetching a page,
-swapping in its `<body>` tag, and merges its `<head`>. When you do `rails new my-awesome-app`, it comes equipped with Turbolinks.
+application. It gracefully avoids full page loads when you click a link, for
+example. Turbolinks does this by fetching a page, swapping in its `<body>` tag,
+and merging its `<head>` with existing content on the page. The gem has been well
+adopted in the Rails world, and when you do `rails new my-awesome-app`, it comes
+equipped with Turbolinks gem from the start.
 
 Before 2.1.6 version, if you used [render_async's polling feature](https://github.com/renderedtext/render_async#polling),
 render_async did not handle navigation changes with Turbolinks. For example,
