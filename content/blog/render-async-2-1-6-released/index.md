@@ -135,4 +135,4 @@ problems!
 P.S. If you like my work on this gem so far, and you want me to keep improving
 and maintaining it, consider sponsoring me on
 [GitHub Sponsors](https://github.com/sponsors/nikolalsvk) or through
-[PayPal](https://www.paypal.me/nikolalsvk).
+[PayPal](https://www.paypal.me/nikolalsvk/9.99).
