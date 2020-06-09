@@ -7,6 +7,7 @@ canonical: https://medium.com/@nikolalsvk/loosing-bind-this-in-react-8637ebf372c
 canonicalName: Medium
 coverImage: ./cover.jpg
 blogOgImage: ./cover.jpg
+published: true
 tags:
   - JavaScript
   - React

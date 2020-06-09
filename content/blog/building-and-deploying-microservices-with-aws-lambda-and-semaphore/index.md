@@ -7,6 +7,7 @@ canonical: https://semaphoreci.com/community/tutorials/building-and-deploying-mi
 canonicalName: Semaphore Blog
 coverImage: ./cover.png
 blogOgImage: ./cover.png
+published: true
 tags:
   - JavaScript
   - Serverless

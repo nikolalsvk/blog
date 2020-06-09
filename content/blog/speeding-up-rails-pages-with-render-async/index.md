@@ -7,6 +7,7 @@ canonical: https://semaphoreci.com/blog/2017/06/08/speeding-up-rails-pages-with-
 canonicalName: Semaphore Blog
 coverImage: ./cover.png
 blogOgImage: ./cover.png
+published: true
 tags:
   - Rails
   - JavaScript
