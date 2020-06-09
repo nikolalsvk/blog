@@ -7,6 +7,7 @@ canonical: https://blog.appsignal.com/2020/02/20/effective-profiling-in-google-c
 canonicalName: AppSignal
 coverImage: ./cover.jpg
 blogOgImage: ./cover.jpg
+published: true
 tags:
   - JavaScript
   - Profiling

@@ -7,6 +7,7 @@ canonical: https://blog.appsignal.com/2020/04/09/ride-down-the-javascript-depend
 canonicalName: AppSignal
 coverImage: ./cover.jpg
 blogOgImage: ./cover.jpg
+published: true
 tags:
   - JavaScript
 ---

@@ -5,6 +5,7 @@ slug: ultimate-vim-typescript-setup
 date: 2020-05-05
 coverImage: ./cover.jpg
 blogOgImage: ./og-image.jpg
+published: true
 tags:
   - Vim
   - JavaScript

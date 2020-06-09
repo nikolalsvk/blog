@@ -7,6 +7,7 @@ canonical: https://medium.com/@nikolalsvk/rails-html-polling-without-javascript-
 canonicalName: Medium
 coverImage: ./cover.jpg
 blogOgImage: ./cover.jpg
+published: true
 tags:
   - Rails
   - JavaScript

@@ -7,6 +7,7 @@ canonical: https://blog.usejournal.com/getting-started-with-svelte-and-rails-6-d
 canonicalName: Journal
 coverImage: ./cover.jpg
 blogOgImage: ./cover.jpg
+published: true
 tags:
   - JavaScript
 ---

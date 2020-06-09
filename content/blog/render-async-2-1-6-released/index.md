@@ -5,6 +5,7 @@ slug: render-async-2-1-6-released
 date: 2020-05-10
 coverImage: ./cover.jpg
 blogOgImage: ./og-image.jpg
+published: true
 tags:
   - Rails
   - JavaScript
