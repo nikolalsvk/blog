@@ -5,7 +5,7 @@ slug: do-not-follow-javascript-trends
 date: 2020-06-09
 coverImage: ./cover.jpg
 blogOgImage: ./cover.jpg
-published: false
+published: true
 tags:
   - JavaScript
 ---
