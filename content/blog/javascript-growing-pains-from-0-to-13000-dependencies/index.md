@@ -12,6 +12,13 @@ tags:
   - JavaScript
 ---
 
+![Cables](./cover.jpg)
+
+<div class="photo-caption">
+Photo from <a href="https://blog.appsignal.com/2020/05/14/javascript-growing-pains-from-0-to-13000-dependencies.html
+">AppSignal's Blog</a>
+</div>
+
 In today’s post, we’re going to demystify how the number of JavaScript dependencies grows while we’re working on a relatively simple project. Should you be worried about the number of dependencies?
 
 Keep in mind that this blog post is related to the [Ride Down The JavaScript Dependency Hell](https://blog.appsignal.com/2020/04/09/ride-down-the-javascript-dependency-hell.html) blog post that was released a while back. We’ll show a “real-world” example of how a project’s dependencies can grow from zero to 13K.
