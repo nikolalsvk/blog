@@ -17,10 +17,10 @@ Photo by <a href="https://unsplash.com/@eepeng?utm_source=unsplash&utm_medium=re
 </div>
 
 It is one of those days. You typed in [twitter.com](https://twitter.com/) in
-your browser, and you saw a new tweet from someone on how to use React Hooks.
+your browser and you saw a new tweet from someone on how to use React Hooks.
 But, for some reason, your company or a team hasn't switched to using Hooks.
 Or, maybe you are using them, but not in a new "trendy" way. Perhaps you are
-using Vue.js or Angular, but this React Hooks is popping up everywhere, almost
+using Vue.js or Angular, but these React Hooks are popping up everywhere, almost
 starting to show up on your microwave when you are heating your dinner.
 
 Since it is one of those days, you start questioning whether what you have in
@@ -37,7 +37,7 @@ suggest that you start using it.
 ![Rewriting your frontend every six weeks](./rewriting-frontend.jpg)
 
 Some time ago, a cover for an imaginary book surfaced on the [@ThePracticalDev](https://twitter.com/ThePracticalDev/status/715623065078644738/photo/1) Twitter account.
-Back in 2016, it was popular to make fun of the ever-changing world of
+Back in 2016, it was fashionable to make fun of the ever-changing world of
 JavaScript in a bit of a different manner than folks do today.
 
 ![Interest in frameworks over time](./framework-interest.png)
@@ -56,7 +56,7 @@ Knowing all this, what would you do? Which path would you choose and why? The
 answer might seem obvious now that you come from the future - React. But if you
 decided about Angular.js, a couple of years down the road, you will get tempted to use new
 Angular versions and rewrite your code. If you chose to use React, you'd be a lucky
-winner since everyone is riding the React train nowadays. But, you now
+winner since everyone is riding the React train nowadays. Now, you
 get tempted to drop class components and use functional components with those
 sweet, sweet hooks, right? Well, at least it is not a whole new API to learn as
 with Angular.js - Angular 2 change, right?
@@ -108,7 +108,7 @@ you, posts do that pretty well on its own. I can help you with the basic
 decision making. Are you happy with axios right now? If the answer is yes, it
 is probably best to leave alone this idea of replacing it. Is axios proving
 difficult for you or your team? If the answer is yes, then try to do what the
-post is telling you and see how that works out.
+post tells you and see how that works out.
 
 In short: do not fall for the hype. Try to "feel" what works for you and go
 with that. Try not to succumb to flashy new tweets, blog posts, Hacker News top
@@ -135,7 +135,7 @@ Recall this slope when going for a recent JS trend, where does it fit in?
 
 ## Dealing with hype
 
-Hype and excitement are sometimes good in life. Without it, life would be bland
+Hype and excitement are sometimes useful in life. Without it, life would be bland
 and boring. It can come as a refreshment to follow the hype and ride the
 bandwagon from time to time, but you should always do your research first.
 
@@ -145,7 +145,7 @@ Ask these questions to yourself and your team:
 ### Research and test out before making a decision
 
 Reading blog posts, tweets, and announcements are helpful, but to best
-experience whether something is for you is by getting experience in it. Try
+experience, whether something is for you is by getting experience in it. Try
 building a prototype for what you are planning to use it. See how it 'dances'
 with the rest of what you are doing.
 
