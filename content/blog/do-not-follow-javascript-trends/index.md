@@ -4,7 +4,7 @@ description: What to do before adopting every little trend you come across
 slug: do-not-follow-javascript-trends
 date: 2020-06-16
 coverImage: ./cover.jpg
-blogOgImage: ./cover.jpg
+blogOgImage: ./og-image.jpg
 published: true
 tags:
   - JavaScript
