@@ -182,5 +182,7 @@ In conclusion, try not to make a hasty decision over something you just saw.
 If you liked the blog post, consider subscribing to the
 [newsletter](/newsletter) or share it with your friends and coworkers:
 
+<blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">I just released a new post on how to deal with JavaScript trends and hype. What are your thoughts on this topic?<a href="https://t.co/LH11oINZl2">https://t.co/LH11oINZl2</a></p>&mdash; Nikola Đuza (@nikolalsvk) <a href="https://twitter.com/nikolalsvk/status/1272820262833135616?ref_src=twsrc%5Etfw">June 16, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 Until the next one,
 Cheers 🍻
