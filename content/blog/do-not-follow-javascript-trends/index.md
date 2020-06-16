@@ -2,7 +2,7 @@
 title: Do Not Follow JavaScript Trends
 description: What to do before adopting every little trend you come across
 slug: do-not-follow-javascript-trends
-date: 2020-06-09
+date: 2020-06-16
 coverImage: ./cover.jpg
 blogOgImage: ./cover.jpg
 published: true
