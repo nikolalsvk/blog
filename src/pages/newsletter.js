@@ -21,7 +21,10 @@ const NewsletterPage = ({
       <p>
         Why should you subscribe? Well, why not? If you like some of my blog
         posts or talks, I will send you an email when I release a new one. That
-        means <b>FREE</b> knowledge, tips, and pineapples 🍍.
+        means <b>FREE</b> knowledge, tips, and pineapples 🍍. Besides that,
+        having people interested in what I write / post motivates and inspires
+        me to keep going with it. There are no hidden motives, I'm not selling
+        you anything.
       </p>
 
       <p>
