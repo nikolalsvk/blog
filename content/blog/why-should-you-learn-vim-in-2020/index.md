@@ -2,13 +2,15 @@
 title: Why Should You Learn Vim in 2020
 description: Short walk through Vim's origins and why is Vim still relevant today
 slug: why-should-you-learn-vim-in-2020
-date: 2020-06-19
+date: 2020-06-30
 published: true
 coverImage: ./cover.jpg
-blogOgImage: ./cover.jpg
+blogOgImage: ./og-image.jpg
 tags:
   - Vim
 ---
+
+![Old cash register](./cover.jpg)
 
 You probably heard of Vim, the almighty text-editor that is everywhere and
 a place where [people get trapped from time to time](https://stackoverflow.com/questions/11828270/how-do-i-exit-the-vim-editor).
