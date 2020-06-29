@@ -2,7 +2,7 @@
 title: How Did Vim Become So Popular
 description: "Short walk through Vim's origins and why is Vim so popular today"
 slug: how-did-vim-become-so-popular
-date: 2020-06-30
+date: 2020-06-29
 published: true
 coverImage: ./cover.jpg
 blogOgImage: ./og-image.jpg
