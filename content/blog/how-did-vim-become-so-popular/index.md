@@ -25,14 +25,12 @@ place, with around 25% of Web Developers using it. Fifth place is pretty neat
 considering the first Vim release happened almost 30 years ago (yeah, you read
 that right, Vim got first released in 1991).
 
-## Brief history of Vim
-
 To better understand why and how Vim got (and is) so popular, it is best to
 look into the roots of how it all started. Before `vim`, there was `vi`, before
 `vi` there was `ed`. What are all these two or three letter words, and
 what is the story behind it? Let us dive in and figure out.
 
-### Punch cards and line editors
+## Punch cards and line editors
 
 It might be apparent today why we have text editors and fully-fledged IDE
 (Integrated Development Environment), but what did we have before that?
@@ -55,7 +53,7 @@ there came the era of "line editors." One great example of this is an
 mention [QED editor](https://www.bell-labs.com/usr/dmr/www/qedman.html),
 `ed`'s predecessor.
 
-### Using a line editor
+## Using a line editor
 
 If you are on Linux or Mac OS, open your terminal and type `ed`. You
 will get a simple line editor, which will greet you with silence.
@@ -80,7 +78,7 @@ As you may notice, there are similarities between working with `ed` and with
 today's `vim`. If you use Vim, you can say you would get the hang of `ed` pretty
 quickly.
 
-### Vim's dad - The Vi
+## Vim's dad - The Vi
 
 After `ed`, then came the `em` - [the "editor for mortals"](http://www.eecs.qmul.ac.uk/~gc/history/).
 It could do similar things as `ed`, but it is 'less cryptic' and built for
@@ -100,7 +98,7 @@ introduced in operating systems, but you can still access `ex` commands by
 typing `:` in `vi`/`vim`. The `ex` got released in 1976, and the `vi`
 executable got released in 1979. 40-something years ago! But, how did `vim` came to life?
 
-### The Imitation Game
+## The Imitation Game
 
 A couple of years later, many `vi` clones emerged (my favorite one is
 [Elvis](<https://en.wikipedia.org/wiki/Elvis_(text_editor)>)). One of them was "Vi
@@ -114,7 +112,7 @@ stayed like that until the present day. But how did `vim` achieve fame? It had a
 [bunch of excellent features](<https://en.wikipedia.org/wiki/Vim_(text_editor)#Features_and_improvements_over_vi>)
 at that time, and it was compatible with `vi`. Features and compatibility attracted a lot of folks to use it.
 
-### Half a century of contributions
+## Half a century of contributions
 
 If you take a look at the essential commands to move around in Vim: `h`, `j`,
 `k`, and `l`, these all pull roots from the old `vi` days. Bill Joy's
@@ -141,7 +139,7 @@ still, there are a couple of reasons why it might be valuable to you. I am formi
 a new blog post explaining why you should learn Vim in 2020. If you are interested
 in this, consider subscribing to the [newsletter](/newsletter).
 
-### Final thoughts
+## Final thoughts
 
 Thanks for reading this far, I appreciate it. I hope this blog post shed some
 light on how Vim became what it is today. I also hope the post inspired you to
