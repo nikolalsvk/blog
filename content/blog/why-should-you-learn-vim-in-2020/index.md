@@ -3,7 +3,7 @@ title: Why Should You Learn Vim in 2020
 description: Short walk through Vim's origins and why is Vim still relevant today
 slug: why-should-you-learn-vim-in-2020
 date: 2020-06-30
-published: true
+published: false
 coverImage: ./cover.jpg
 blogOgImage: ./og-image.jpg
 tags:
