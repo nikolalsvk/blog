@@ -156,4 +156,6 @@ At the end of the day, it's the matter of finding the proper editor
 
 If you liked the blog post, you can share it with your friends and coworkers below:
 
+<blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">I just published a new blog post on the history of Vim and why it became popular. Also, there&#39;s an origin story on why you can use h, j, k, and l to move around in Vim. Check it out ⏬<a href="https://t.co/S3p50cgYPW">https://t.co/S3p50cgYPW</a></p>&mdash; Nikola Đuza (@nikolalsvk) <a href="https://twitter.com/nikolalsvk/status/1277888730414669825?ref_src=twsrc%5Etfw">June 30, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 Thanks for reading, catch you in the next one, cheers 🍻
