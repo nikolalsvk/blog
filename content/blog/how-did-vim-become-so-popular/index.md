@@ -57,8 +57,8 @@ mention [QED editor](https://www.bell-labs.com/usr/dmr/www/qedman.html),
 
 If you are on Linux or Mac OS, open your terminal and type `ed`. You
 will get a simple line editor, which will greet you with silence.
-If you are amazed by this finding (as I was), you try playing with it for a while. To write
-a file, start typing `a` and pressing enter, then write your text. Typing `.`
+If you are amazed by this finding (as I was), you can try playing with it for a while. To write
+a file, start typing `a` and press enter, then write your text. Typing `.`
 following an enter will exit the append (insert) mode. Then, to write a file, you can
 type `w myfile.txt` and press enter and lastly write `q` and enter to exit.
 
@@ -107,7 +107,7 @@ try to open `vim` in your terminal. In the large pool of different `vi` clones,
 `vim` managed to stand out. Bram used a clone of `vi` called `STEVIE` (nice
 name, BTW), and noticed that it lacks many of `vi`'s commands. He added
 some new features and made it compatible with `vi` and released it under
-the name "Vi Improved". The name `vim` came in version 2.0 in 1993 and
+the name "Vi Imitation" (this later changed to "Vi Improved"). The name `vim` came in version 2.0 in 1993 and
 stayed like that until the present day. But how did `vim` achieve fame? It had a
 [bunch of excellent features](<https://en.wikipedia.org/wiki/Vim_(text_editor)#Features_and_improvements_over_vi>)
 at that time, and it was compatible with `vi`. Features and compatibility attracted a lot of folks to use it.
