@@ -7,13 +7,15 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
   const tagTemplate = path.resolve(`./src/templates/tag.js`)
+  const newsletterTemplate = path.resolve(`./src/templates/newsletter.js`)
 
   const result = await graphql(
     `
       {
-        allMarkdownRemark(
+        posts: allMarkdownRemark(
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
+          filter: { frontmatter: { newsletter: { ne: true } } }
         ) {
           edges {
             node {
@@ -33,6 +35,24 @@ exports.createPages = async ({ graphql, actions }) => {
             fieldValue
           }
         }
+        issues: allMarkdownRemark(
+          sort: { fields: [frontmatter___date], order: DESC }
+          limit: 1000
+          filter: { frontmatter: { newsletter: { eq: true } } }
+        ) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+              frontmatter {
+                title
+                tags
+                published
+              }
+            }
+          }
+        }
       }
     `
   )
@@ -42,7 +62,7 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   // Create blog posts pages.
-  const posts = result.data.allMarkdownRemark.edges
+  const posts = result.data.posts.edges
   const publishedPosts = posts.filter((edge) => edge.node.frontmatter.published)
   const unpublishedPosts = posts.filter(
     (edge) => !edge.node.frontmatter.published
@@ -66,7 +86,7 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  unpublishedPosts.forEach((post, index) => {
+  unpublishedPosts.forEach((post) => {
     createPage({
       path: post.node.fields.slug,
       component: blogPost,
@@ -86,6 +106,20 @@ exports.createPages = async ({ graphql, actions }) => {
       component: tagTemplate,
       context: {
         tag: tag.fieldValue,
+      },
+    })
+  })
+
+  // Create newsletter archive
+  const issues = result.data.issues.edges
+
+  issues.forEach((issue) => {
+    console.log(issue.node.fields.slug)
+    createPage({
+      path: `/newsletter${issue.node.fields.slug}`,
+      component: newsletterTemplate,
+      context: {
+        slug: issue.node.fields.slug,
       },
     })
   })
