@@ -12,6 +12,10 @@ tags:
 
 ![Old cash register](./cover.jpg)
 
+<div class="photo-caption">
+  Photo by <a href="https://unsplash.com/@alvarordesign?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Alvaro Reyes</a> on <a href="https://unsplash.com/s/photos/old?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>
+</div>
+
 You probably heard of Vim, the almighty text-editor that is everywhere and
 a place where [people get trapped from time to time](https://stackoverflow.com/questions/11828270/how-do-i-exit-the-vim-editor).
 If you are hearing from your local DevOps engineer how Vim is excellent and
