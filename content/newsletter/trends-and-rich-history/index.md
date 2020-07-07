@@ -1,6 +1,6 @@
 ---
-title: "Newsletter #1 🍍"
-description: First newsletter with many to come!
+title: "Trends and Rich History | Newsletter #1 🍍"
+description: How to deal with the hype, and from where do modern editors draw roots?
 date: 2020-07-07
 newsletter: true
 ---
