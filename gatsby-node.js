@@ -114,7 +114,6 @@ exports.createPages = async ({ graphql, actions }) => {
   const issues = result.data.issues.edges
 
   issues.forEach((issue) => {
-    console.log(issue.node.fields.slug)
     createPage({
       path: `/newsletter${issue.node.fields.slug}`,
       component: newsletterTemplate,
