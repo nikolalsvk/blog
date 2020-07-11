@@ -186,3 +186,7 @@ If you liked the blog post, consider subscribing to the
 
 Until the next one,
 Cheers 🍻
+
+You can read this in [Russian language](https://habr.com/ru/company/ruvds/blog/507518/).
+Also, there is a translation to [Chinese language](https://www.ershicimi.com/p/ea39bac245503ac65867c91aabb01741).
+There is an interesting [HackerNews discussion](https://news.ycombinator.com/item?id=23538473) as well.
