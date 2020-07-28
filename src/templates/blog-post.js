@@ -22,6 +22,8 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
         canonical={canonical}
+        blogOgImage={post.frontmatter.blogOgImage.publicURL}
+        coverImage={post.frontmatter.coverImage.publicURL}
       />
       <article>
         <header>
