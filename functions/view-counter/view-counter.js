@@ -1,4 +1,3 @@
-const { parse } = require("url")
 const increment = require("./increment-views")
 
 exports.handler = async (event, context) => {

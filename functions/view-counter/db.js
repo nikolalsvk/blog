@@ -6,6 +6,9 @@ admin.initializeApp({
     JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT)
   ),
   databaseURL: `https://${process.env.FIREBASE_DB}.firebaseio.com`,
+  databaseAuthVariableOverride: {
+    uid: "view-counter-function",
+  },
 })
 
 module.exports = admin.database()
