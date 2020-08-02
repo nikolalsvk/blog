@@ -51,6 +51,10 @@ const GlobalStyle = createGlobalStyle`
   .token.operator {
     background: inherit;
   }
+  blockquote {
+    border-left-color: #B26700;
+    font-style: normal;
+  }
 
   .tags > span:not(:last-child)::after {
     content: ' | ';
