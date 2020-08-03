@@ -1,7 +1,7 @@
 ---
 title: render_async 2.1.7 Lets You Retry Requests With Delay
 description: Read about all new changes in 2.1.7 version of render_async.
-slug: render-async-2-1-6-released
+slug: render-async-2-1-7-lets-you-retry-requests-with-delay
 date: 2020-08-03
 coverImage: ./cover.jpg
 blogOgImage: ./og-image.jpg
