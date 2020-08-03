@@ -22,7 +22,7 @@ latest [2.1.7 version](https://github.com/renderedtext/render_async/releases/tag
 </div>
 
 Hey, thanks for reading about the new release, I truly appreciate it! Before we jump
-into details, I'd like to mention that there is not a [render_async Discord server](https://discord.gg/SPfbeRm).
+into details, I'd like to mention that I created a [render_async Discord server](https://discord.gg/SPfbeRm).
 Please join us there, we are just starting! Let's make this gem even better.
 
 The new version has a couple of new features you can try out:
