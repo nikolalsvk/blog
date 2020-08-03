@@ -220,4 +220,6 @@ and motivation to keep improving and maintaining it, consider sponsoring me on
 
 Also, feel free to share this on Twitter with friends and coworkers below:
 
+<blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">I released a new 2.1.7 version of render_async over the weekend.<br><br>There&#39;s a bunch of new features, check out what you can do now 👇<a href="https://t.co/VhmaROL2Gl">https://t.co/VhmaROL2Gl</a></p>&mdash; Nikola Đuza (@nikolalsvk) <a href="https://twitter.com/nikolalsvk/status/1290229827572649998?ref_src=twsrc%5Etfw">August 3, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 Until the next one, cheers!
