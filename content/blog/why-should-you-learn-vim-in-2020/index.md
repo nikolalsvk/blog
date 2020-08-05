@@ -22,7 +22,7 @@ might have considered learning or trying it. But why do it now? It’s 2020,
 doesn’t everyone use VSCode already? Let's dive in and figure why someone would
 still learn Vim.
 
-## From mode to mode
+## From Mode to Mode
 
 What Vim is excellent at is navigating, making some changes, and repeating the
 process. The process most call editing (not to be confused with writing). Most
@@ -55,7 +55,7 @@ There are [other modes](<https://en.wikipedia.org/wiki/Vim_(text_editor)#Modes>)
 Six of them are a variation of other 6, but I won't get into details about them here.
 You can [read them here](http://vimdoc.sourceforge.net/htmldoc/intro.html#vim-modes-intro).
 
-### But should I care about modes?
+### But Should I Care About Modes?
 
 I'd say you shouldn't care about all six modes and their variants, the essential
 thing as someone who is figuring out whether to use Vim in 2020 is the NORMAL
@@ -71,7 +71,8 @@ know if there is a way to do this as quickly and painlessly in other editors.
 To do this in Vim, press `CTRL+v` - now you can select columns. The following
 command is `8j`, letting Vim know that I want to go eight lines down. Then, I press
 `s` to substitute a character, and I type in the character `t`, which I want to
-put there. Finally, I press `Esc` twice, and the whole column is changed.
+put there. Finally, I press `Esc` twice, and the whole column is changed. You can see
+that I then press `u` to undo my changes.
 
 I didn't know this initially, nor did I learn it in the first two years. I
 learned it when I needed it. So don't get bothered if you feel overwhelmed by this
@@ -112,7 +113,7 @@ but combining commands is where Vim shines when you get the hang of it.
 Combining is a great addition to already speedy commands you can use. But, of
 course, there is a more pragmatic reason to learn it. Read on to find out.
 
-## Getting closer to the metal
+## Getting Closer to the Metal
 
 Learning Vim also means learning about what is in your Terminal and your
 machine. To better paint the picture of what I mean, I’ll approach it from the
@@ -143,7 +144,7 @@ IDE's marketplace.
 If you want to get a glance an what it takes to have
 [Vim and TypeScript together, check out this blog post](/ultimate-vim-typescript-setup).
 
-## Some cons to all of this
+## Some Cons to All of This
 
 One of the biggest con is the learning curve, I'd say. Many people get put off
 by it, and it seems it is not easy to handle. Instead of switching to Vim entirely,
@@ -166,7 +167,7 @@ Having such freedom of what to add to Vim is a pro for me, but I understand
 that most folks see this as a con. I just find it fun to play around and
 configure the primary tool I use every day.
 
-## Final thoughts
+## Final Thoughts
 
 Thanks for reading this far, I appreciate it. If you are still wondering
 whether to start learning Vim or not, I'd say give it a try. You never know
