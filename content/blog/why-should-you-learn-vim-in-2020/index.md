@@ -178,6 +178,8 @@ At the end of the day, it's the matter of finding the proper editor
 
 If you like the blog post, you can share it with your friends and coworkers below:
 
+<blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">I published a new blog post about Vim 🎉<br><br>Check out why should you still learn Vim below 👇<a href="https://t.co/p6OhsB5AeZ">https://t.co/p6OhsB5AeZ</a></p>&mdash; Nikola Đuza (@nikolalsvk) <a href="https://twitter.com/nikolalsvk/status/1290954571318165504?ref_src=twsrc%5Etfw">August 5, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 Consider subscribing to my [newsletter](/newsletter), where you will get
 similar blog posts like this one when they get out, for free.
 
