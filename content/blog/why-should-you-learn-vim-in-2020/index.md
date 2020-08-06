@@ -28,13 +28,13 @@ What Vim is excellent at is navigating, making some changes, and repeating the
 process. The process most call editing (not to be confused with writing). Most
 developers tend to overlook this fact, but this is one of the strong selling
 points of Vim. Developers are more prone to reading code, jumping from file to
-file, making small incisions in the code, and writing code all the time.
+file, making small incisions in the code, and not just writing it all the time.
 
 Most of the editors work in one mode. You don’t explicitly switch from one to
 another. For example, you might jump to a file, then select some lines, edit or
 copy some of them while being in the “same” mode. Vim is different, and it
 strongly differentiates modes. Maybe this is why most
-[people get stuck in it from time to time](https://stackoverflow.com/questions/11828270/how-do-i-exit-the-vim-editor)
+[people get stuck in it from time to time](https://stackoverflow.com/questions/11828270/how-do-i-exit-the-vim-editor).
 
 Vim achieves all of this because it supports different modes:
 
@@ -44,10 +44,10 @@ Vim achieves all of this because it supports different modes:
 - **INSERT** mode
   - _How to get there?_ Press `i` (insert), `a` (append), or other keys from the Normal mode.
   - _What is it about?_ Change and insert characters, similar to most editors nowadays.
-- **VISUAL** mode -
+- **VISUAL** mode
   - _How to get there?_ Press `v`, `V`, or `<Ctrl-V>` or other keys from the Normal mode.
   - _What is it about?_ Highlight areas of text, indent large pieces of code,
-- Command-line mode
+- **COMMAND-LINE** mode
   - _How to get there?_ Starts by typing `:` in Normal or Visual mode
   - _What is it about?_ A door to a Vim and outside world
 
@@ -94,7 +94,7 @@ that let you jump around the file with ease. For example:
 
 - `gg` - jump at the top of the file
 - `G` - jump at the bottom of the file
-- `{` - move up between empty space or code blocks in your file
+- `{` - move up between empty space or code blocks (paragraphs) in your file
 - `}` - move down between empty space or code blocks in your file
 - `(` - move back onto the previous sentence
 - `)` - move forward onto the next sentence
@@ -151,6 +151,12 @@ by it, and it seems it is not easy to handle. Instead of switching to Vim entire
 try doing it bit by bit. A great way to do this is to install Vim mode in your
 favorite editor and start with simple commands as I showed you in
 [the navigation part](#the-need-for-speed).
+
+Another way to reduce the slope of the learning curve is to try out
+[vimtutor](https://superuser.com/questions/246487/how-to-use-vimtutor). If you
+have a Unix OS, just type vimtutor in your terminal. Or, if you are a more visual
+person, try out [Vim Adventures](https://vim-adventures.com/), where you can
+learn Vim by playing a game in your browser.
 
 Keeping your favorite editor close to you is an excellent way to overcome Vim’s
 learning curve slowly. Imagine it as swimming lessons where you swim close to
