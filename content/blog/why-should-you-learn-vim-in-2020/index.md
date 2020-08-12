@@ -166,8 +166,9 @@ can grab the edge - or in your case, your editor of choice.
 A con can be that Vim is not an IDE. It can’t do all the fancy stuff your IDE
 can do out of the box. You can try to configure Vim to behave like that, but
 that’s not Vim anymore. There’s no debugger, no plugin marketplace, no
-auto-complete. If you want some of the things, you are encouraged to search for
-a plugin or write your own.
+auto-complete (there is auto-complete actually, press `Ctrl+P` while typing).
+If you want some of the things, you are encouraged to search for a plugin or
+write your own.
 
 Having such freedom of what to add to Vim is a pro for me, but I understand
 that most folks see this as a con. I just find it fun to play around and
