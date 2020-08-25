@@ -189,6 +189,9 @@ If you like the blog post, you can share it with your friends and coworkers belo
 Consider subscribing to my [newsletter](/newsletter), where you will get
 similar blog posts like this one when they get out, for free.
 
+> 💡 Are you curious to learn Vim in the most effective way possible? Then check out
+> the [Mastering Vim Quickly](https://jovicailic.org/mastering-vim-quickly/) book. Get 10% off using the unique promo code `ppineapple`.
+
 If you are interested in my Vim configuration, check out [my dotfiles](https://github.com/nikolalsvk/dotfiles).
 
 Catch you in the next one, cheers 🍻
