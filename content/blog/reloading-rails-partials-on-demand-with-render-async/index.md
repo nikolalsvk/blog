@@ -150,3 +150,5 @@ and motivation to keep improving and maintaining it, consider sponsoring me on
 [PayPal](https://www.paypal.me/nikolalsvk/9.99).
 
 Also, feel free to share this on Twitter with friends and coworkers below:
+
+<blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">I just released a new version of render_async with a cool feature. Read all about it below ⏬<a href="https://t.co/crECfBrtn4">https://t.co/crECfBrtn4</a></p>&mdash; Nikola Đuza (@nikolalsvk) <a href="https://twitter.com/nikolalsvk/status/1321087060854378497?ref_src=twsrc%5Etfw">October 27, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
