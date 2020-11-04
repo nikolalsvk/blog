@@ -1,7 +1,7 @@
 ---
 title: "Introduction to Ruby on Rails Patterns and Anti-patterns"
 description: Dig into the basics of design patterns and anti-patterns.
-slug: javascript-growing-pains-from-0-to-13000-dependencies
+slug: introduction-to-ruby-on-rails-patterns-and-anti-patterns/
 date: 2020-08-05
 canonical: https://blog.appsignal.com/2020/08/05/introduction-to-ruby-on-rails-patterns-and-anti-patterns.html
 canonicalName: AppSignal Blog
