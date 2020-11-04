@@ -1,6 +1,6 @@
 ---
 title: "Rails Concerns: To Concern Or Not To Concern"
-description:
+description: Should you be concerned about Rails concerns?
 slug: rails-concers-to-concern-or-not-to-concern
 date: 2020-09-16
 canonical: https://blog.appsignal.com/2020/09/16/rails-concers-to-concern-or-not-to-concern.html
@@ -16,7 +16,7 @@ tags:
 ![Concerns](./cover.jpg)
 
 <div class="photo-caption">
-Photo from <a href="https://blog.appsignal.com/2020/08/05/introduction-to-ruby-on-rails-patterns-and-anti-patterns.html">AppSignal's Blog</a>
+Photo from <a href="https://blog.appsignal.com/2020/08/05/introduction-to-ruby-on-rails-patterns-and-anti-patterns.html" target="_blank">AppSignal's Blog</a>
 </div>
 
 If you’ve ever used Ruby on Rails, you’ve probably come across the concept of concerns. Whenever you jumpstart a new Rails project, you get a directory `app/controllers/concerns` and `app/models/concerns`. But what are concerns? And why do people from the Rails community sometimes talk badly about them?
