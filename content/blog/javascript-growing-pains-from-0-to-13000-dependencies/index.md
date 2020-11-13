@@ -278,5 +278,4 @@ In the end, there’s not much you can do except be aware of what you add to you
 
 I hope this blog post added even more insight into what is going on when you add dependencies to your JavaScript project. I also hope it raised some awareness for open-source security and that it will make you more careful when running that `npm install` command.
 
-You can read this blog post in [Russian](https://softdroid.net/problemy-s-rostom-javascript).
 There is an interesting [HackerNews discussion](https://news.ycombinator.com/item?id=23517595) as well.
