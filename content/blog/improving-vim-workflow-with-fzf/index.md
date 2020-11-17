@@ -4,7 +4,7 @@ description: Get more productive at using Vim with the fzf plugin in this short 
 slug: improving-vim-workflow-with-fzf
 date: 2020-11-17
 coverImage: ./cover.jpg
-blogOgImage: ./cover.jpg
+blogOgImage: ./og-image.jpg
 published: true
 tags:
   - Vim
