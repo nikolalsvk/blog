@@ -166,10 +166,10 @@ between open files. I hope that helps. Let's see how it looks:
 ## ASCII art (kind of)
 
 If you are a fan of drawing inside the terminal, then you are going to love this one.
-Try typing `:Commands` if you are using the [vim-fugitive](https://github.com/tpope/vim-fugitive) plugin.
+Try typing `:Commits` if you are using the [vim-fugitive](https://github.com/tpope/vim-fugitive) plugin.
 The plugin by itself is a pretty awesome wrapper around Git, just if you
 never want to leave the warmth of your Vim session. Anyways, if you type
-`:Commands` you should get a tree of your project commits like so:
+`:Commits` you should get a tree of your project commits like so:
 
 ![Commit art](./commits-art.png)
 
