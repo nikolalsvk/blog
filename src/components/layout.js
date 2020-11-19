@@ -1,16 +1,27 @@
 import React from "react"
-import { Link } from "gatsby"
 import { Helmet } from "react-helmet"
 import styled, { createGlobalStyle } from "styled-components"
+import Header from "./header"
 
-import { rhythm, scale } from "../utils/typography"
+import { rhythm } from "../utils/typography"
+import { useTheme } from "../contexts/theme"
 
 const GlobalStyle = createGlobalStyle`
   html {
     height: 100%;
   }
   body {
-    color: ${(props) => (props.theme === "purple" ? "purple" : "#161032")};
+    --main-color: ${(props) =>
+      props.theme === "purple" ? "#BD5B04" : "#B26700"};
+    --secondary-color: ${(props) =>
+      props.theme === "purple" ? "#E0D3DE" : "#BD5B04"};
+    --text-color: ${(props) =>
+      props.theme === "purple" ? "white" : "#161032"};
+    --background-color: ${(props) =>
+      props.theme === "purple" ? "#161032" : "white"};
+
+    background-color: var(--background-color);
+    color: var(--text-color);
     height: 100%;
   }
   #___gatsby {
@@ -20,15 +31,16 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
   }
   a {
-    color: #bd5b04;
+    color: var(--secondary-color);
   }
   h1, h2, h3, h1 > a, h2 > a, h3 > a {
     font-family: 'Josefin Sans', sans-serif;
-    color: #B26700;
+    color: var(--main-color);
   }
   body:not(.gatsby-highlight) {
     // Use Roboto font everywhere except in code inserts
     font-family: 'Roboto', sans-serif;
+    transition: .1s cubic-bezier(0.62, -0.52, 0.43, 1.02);
   }
   .photo-caption {
     font-family: 'Roboto', sans-serif;
@@ -52,8 +64,9 @@ const GlobalStyle = createGlobalStyle`
     background: inherit;
   }
   blockquote {
-    border-left-color: #B26700;
+    border-left-color: var(--main-color);
     font-style: normal;
+    color: var(--text-color);
   }
 
   .tags > span:not(:last-child)::after {
@@ -75,7 +88,7 @@ const Container = styled.div`
   flex-direction: column;
 `
 
-const Main = styled.header`
+const Main = styled.div`
   flex: 1 0 auto;
 `
 
@@ -84,80 +97,8 @@ const Footer = styled.footer`
 `
 
 const Layout = ({ location, title, showLargeHeader, children }) => {
-  const rootPath = `${__PATH_PREFIX__}/`
-  let header
+  const { theme } = useTheme()
 
-  if (location.pathname === rootPath || showLargeHeader) {
-    header = (
-      <h1
-        style={{
-          ...scale(1.5),
-          marginBottom: rhythm(1),
-          marginTop: 0,
-        }}
-      >
-        <Link
-          style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h1>
-    )
-  } else {
-    header = (
-      <div
-        style={{
-          marginTop: 0,
-          display: `flex`,
-          justifyContent: `space-between`,
-        }}
-      >
-        <h3
-          style={{
-            marginTop: 0,
-            marginBottom: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: `none`,
-              color: `inherit`,
-            }}
-            to={`/`}
-          >
-            {title}
-          </Link>
-        </h3>
-
-        <h3
-          style={{
-            marginTop: 0,
-            marginBottom: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: `none`,
-              color: `inherit`,
-              textAlign: `right`,
-              fontSize: `1.1rem`,
-            }}
-            to={`/newsletter`}
-          >
-            Newsletter{" "}
-            <span role="img" aria-label="letter">
-              💌
-            </span>
-          </Link>
-        </h3>
-      </div>
-    )
-  }
   return (
     <Container>
       <Helmet>
@@ -167,9 +108,15 @@ const Layout = ({ location, title, showLargeHeader, children }) => {
           rel="stylesheet"
         />
       </Helmet>
-      <GlobalStyle theme="white" />
+      <GlobalStyle theme={theme} />
       <Main>
-        <header>{header}</header>
+        <header>
+          <Header
+            location={location}
+            title={title}
+            showLargeHeader={showLargeHeader}
+          />
+        </header>
         {children}
       </Main>
       <Footer>© {new Date().getFullYear()} Nikola Đuza</Footer>
