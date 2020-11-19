@@ -211,6 +211,6 @@ making me earn internet points:
 <blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">Vim setup for TypeScript that your government doesn&#39;t want you to know 👇<a href="https://t.co/FbkNIYXPvx">https://t.co/FbkNIYXPvx</a></p>&mdash; Nikola Đuza (@nikolalsvk) <a href="https://twitter.com/nikolalsvk/status/1257611712909500424?ref_src=twsrc%5Etfw">May 5, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 > 💡 Want to learn Vim quickly and effectively? Then check out
-> the [Mastering Vim Quickly](https://jovicailic.org/mastering-vim-quickly/) book. Get 10% off using the unique promo code `ppineapple`.
+> the [Mastering Vim Quickly](https://gumroad.com/a/561247347) book.
 
 Cheers!

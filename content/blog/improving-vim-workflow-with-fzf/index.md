@@ -195,4 +195,7 @@ your friends and coworkers:
 
 <blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">I just released a new blog post about using the fzf plugin with Vim. Check it out 👇<a href="https://t.co/fmybAXNNnx">https://t.co/fmybAXNNnx</a></p>&mdash; Nikola Đuza (@nikolalsvk) <a href="https://twitter.com/nikolalsvk/status/1328670506803924992?ref_src=twsrc%5Etfw">November 17, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+> 💡 Are you curious to learn Vim in the most effective way possible? Then check out
+> the [Mastering Vim Quickly](https://gumroad.com/a/561247347) book.
+
 Until the next one, cheers!

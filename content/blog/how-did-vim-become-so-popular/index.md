@@ -165,7 +165,7 @@ If you liked the blog post, you can share it with your friends and coworkers bel
 Thanks for reading, catch you in the next one, cheers 🍻
 
 > 💡 Are you eager to learn Vim or get to the next level with it? Then check out
-> the [Mastering Vim Quickly](https://jovicailic.org/mastering-vim-quickly/) book. Get 10% off using the unique promo code `ppineapple`.
+> the [Mastering Vim Quickly](https://gumroad.com/a/561247347) book.
 
 There is a translation in [Japanese](https://article.auone.jp/detail/1/3/7/48_7_r_20200704_1593864043058056) and
 [Chinese](https://www.eet-china.com/mp/a21872.html).

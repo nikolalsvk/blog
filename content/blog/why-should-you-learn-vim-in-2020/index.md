@@ -191,7 +191,7 @@ Consider subscribing to my [newsletter](/newsletter), where you will get
 similar blog posts like this one when they get out, for free.
 
 > 💡 Are you curious to learn Vim in the most effective way possible? Then check out
-> the [Mastering Vim Quickly](https://jovicailic.org/mastering-vim-quickly/) book. Get 10% off using the unique promo code `ppineapple`.
+> the [Mastering Vim Quickly](https://gumroad.com/a/561247347) book.
 
 If you are interested in my Vim configuration, check out [my dotfiles](https://github.com/nikolalsvk/dotfiles).
 
