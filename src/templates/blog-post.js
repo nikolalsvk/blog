@@ -72,7 +72,10 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           }}
         />
 
-        <p className="tags" style={{ display: `block` }}>
+        <p
+          className="tags"
+          style={{ display: `block`, marginBottom: rhythm(1) }}
+        >
           Tagged as:{" "}
           {tags.map((tag) => (
             <span key={tag}>
@@ -81,7 +84,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           ))}
         </p>
 
-        <footer>
+        <footer style={{ marginBottom: rhythm(1) }}>
           <Bio />
         </footer>
 

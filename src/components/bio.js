@@ -14,6 +14,20 @@ import { rhythm } from "../utils/typography"
 
 const BioContainer = styled.div`
   display: flex;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`
+
+const ImageContainer = styled.div`
+  margin-right: ${rhythm(1 / 2)};
+
+  @media (max-width: 768px) {
+    margin-right: 0;
+    margin-bottom: ${rhythm(1 / 2)};
+  }
 `
 
 const Bio = () => {
@@ -21,8 +35,8 @@ const Bio = () => {
     query BioQuery {
       avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
         childImageSharp {
-          fixed(width: 180, height: 180) {
-            ...GatsbyImageSharpFixed
+          fluid(maxWidth: 200, maxHeight: 200) {
+            ...GatsbyImageSharpFluid
           }
         }
       }
@@ -44,20 +58,18 @@ const Bio = () => {
   const { author, social } = data.site.siteMetadata
   return (
     <BioContainer>
-      <Image
-        fixed={data.avatar.childImageSharp.fixed}
-        alt={author.name}
-        style={{
-          marginRight: rhythm(1 / 2),
-          marginBottom: 0,
-          height: 80,
-          borderRadius: `100%`,
-        }}
-        imgStyle={{
-          borderRadius: `50%`,
-        }}
-      />
-      <p>
+      <ImageContainer>
+        <Image
+          fluid={data.avatar.childImageSharp.fluid}
+          alt={author.name}
+          style={{
+            height: 90,
+            width: 90,
+            borderRadius: `100%`,
+          }}
+        />
+      </ImageContainer>
+      <p style={{ marginBottom: 0 }}>
         Written by{" "}
         <strong>
           <a href={author.landingPage}>{author.name}</a>

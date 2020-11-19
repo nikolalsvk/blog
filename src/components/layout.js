@@ -92,7 +92,7 @@ const Layout = ({ location, title, showLargeHeader, children }) => {
       <h1
         style={{
           ...scale(1.5),
-          marginBottom: rhythm(1.5),
+          marginBottom: rhythm(1),
           marginTop: 0,
         }}
       >

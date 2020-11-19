@@ -3,7 +3,7 @@ module.exports = {
     title: `Pragmatic Pineapple 🍍`,
     author: {
       name: `Nikola Đuza`,
-      summary: `who lives and works in Novi Sad, spreading knowledge to folks through blogging and talking. He likes to build awesome things with mostly JavaScript and Ruby.`,
+      summary: `who helps developers improve their productivity by sharing pragmatic advice & applicable knowledge on JavaScript and Ruby.`,
       landingPage: "https://nikolalsvk.github.io",
     },
     description: `A blog by Nikola Đuza that aims to spread knowledge and give practical tips on technology and life in general.`,
