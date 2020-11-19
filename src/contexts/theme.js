@@ -1,16 +1,12 @@
 import React, { createContext, useContext, useState, useEffect } from "react"
 
-const ThemeContext = createContext(undefined)
+const ThemeContext = createContext({ theme: "white", setTheme: () => {} })
 
 const supportsDarkMode = () =>
   window.matchMedia("(prefers-color-scheme: dark)").matches === true
 
 export const useTheme = () => {
   const context = useContext(ThemeContext)
-
-  if (context === undefined) {
-    throw new Error("useTheme must be used within a ThemeContext")
-  }
 
   return context
 }
