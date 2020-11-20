@@ -40,7 +40,7 @@ const GlobalStyle = createGlobalStyle`
   body:not(.gatsby-highlight) {
     // Use Roboto font everywhere except in code inserts
     font-family: 'Roboto', sans-serif;
-    transition: .1s cubic-bezier(0.62, -0.52, 0.43, 1.02);
+    transition: .3s cubic-bezier(0.62, -0.52, 0.43, 1.02);
   }
   .photo-caption {
     font-family: 'Roboto', sans-serif;
