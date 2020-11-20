@@ -40,7 +40,9 @@ const GlobalStyle = createGlobalStyle`
   body:not(.gatsby-highlight) {
     // Use Roboto font everywhere except in code inserts
     font-family: 'Roboto', sans-serif;
-    transition: .3s cubic-bezier(0.62, -0.52, 0.43, 1.02);
+  }
+  .animate-switch {
+    transition: 0.3s cubic-bezier(0.62, -0.52, 0.43, 1.02);
   }
   .photo-caption {
     font-family: 'Roboto', sans-serif;
@@ -101,6 +103,7 @@ const Layout = ({ location, title, showLargeHeader, children }) => {
 
   return (
     <Container>
+      <GlobalStyle theme={theme} />
       <Helmet>
         <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
         <link
@@ -108,7 +111,6 @@ const Layout = ({ location, title, showLargeHeader, children }) => {
           rel="stylesheet"
         />
       </Helmet>
-      <GlobalStyle theme={theme} />
       <Main>
         <header>
           <Header

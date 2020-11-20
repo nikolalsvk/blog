@@ -53,7 +53,9 @@ const ThemeSwitch = () => {
   return (
     <ThemeContainer
       onClick={() => {
+        document.body.classList.add("animate-switch")
         setTheme(theme === "white" ? "purple" : "white")
+        setTimeout(() => document.body.classList.remove("animate-switch"), 500)
       }}
     >
       <StyledImage
