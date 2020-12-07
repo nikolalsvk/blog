@@ -9,7 +9,46 @@ Wordpress2016.overrideThemeStyles = () => {
   }
 }
 
-delete Wordpress2016.googleFonts
+Wordpress2016.googleFonts = [
+  {
+    name: "Josefin Sans",
+    styles: [
+      "100",
+      "100i",
+      "200",
+      "200i",
+      "300",
+      "300i",
+      "400",
+      "400i",
+      "500",
+      "500i",
+      "600",
+      "600i",
+      "700",
+      "700i",
+    ],
+  },
+  {
+    name: "Roboto",
+    styles: [
+      "100",
+      "100i",
+      "200",
+      "200i",
+      "300",
+      "300i",
+      "400",
+      "400i",
+      "500",
+      "500i",
+      "600",
+      "600i",
+      "700",
+      "700i",
+    ],
+  },
+]
 
 const typography = new Typography(Wordpress2016)
 

@@ -1,5 +1,4 @@
 import React from "react"
-import { Helmet } from "react-helmet"
 import styled, { createGlobalStyle } from "styled-components"
 import Header from "./header"
 
@@ -104,13 +103,6 @@ const Layout = ({ location, title, showLargeHeader, children }) => {
   return (
     <Container>
       <GlobalStyle theme={theme} />
-      <Helmet>
-        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-        <link
-          href="https://fonts.googleapis.com/css?family=Josefin+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i|Roboto&display=swap"
-          rel="stylesheet"
-        />
-      </Helmet>
       <Main>
         <header>
           <Header
