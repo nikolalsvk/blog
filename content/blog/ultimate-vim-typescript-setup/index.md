@@ -182,10 +182,6 @@ The last one will apply a quick fix immediately by pressing leader + qf.
 Besides that, my configuration is pretty simple. I also use the following:
 
 ```vim
-" Show autocomplete when Tab is pressed
-inoremap <silent><expr> <Tab> coc#refresh()
-
-
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
