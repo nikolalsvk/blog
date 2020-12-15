@@ -162,4 +162,6 @@ consider [subscribing to the newsletter](/newsletter).
 
 Also, you can discuss and share this post on Twitter with friends and coworkers:
 
+<blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">A new blog post about ethics 🧑‍⚕️<br><br>Were you ever asked to do something unethical at your work?<a href="https://t.co/XzicHONt1A">https://t.co/XzicHONt1A</a></p>&mdash; Nikola Đuza (@nikolalsvk) <a href="https://twitter.com/nikolalsvk/status/1338783494118518784?ref_src=twsrc%5Etfw">December 15, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 Until the next one, cheers!
