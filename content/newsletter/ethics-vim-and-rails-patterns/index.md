@@ -5,7 +5,7 @@ date: 2020-12-16
 newsletter: true
 ---
 
-# Newsletter #2 🍍
+# Newsletter #3 🍍
 
 Hello, fellow pineapples,
 
