@@ -6,6 +6,7 @@ import SEO from "../components/seo"
 import Bio from "../components/bio"
 import SubscribeForm from "../components/subscribe-form"
 import ViewCounter from "../components/view-counter"
+import { rhythm } from "../utils/typography"
 
 const NewsletterTemplate = ({ data, location }) => {
   const issue = data.markdownRemark
@@ -21,7 +22,7 @@ const NewsletterTemplate = ({ data, location }) => {
       <ViewCounter hideText slug={`/newsletter${slug}`} />
       <section dangerouslySetInnerHTML={{ __html: issue.html }} />
 
-      <footer>
+      <footer style={{ marginBottom: rhythm(1) }}>
         <Bio />
       </footer>
 
