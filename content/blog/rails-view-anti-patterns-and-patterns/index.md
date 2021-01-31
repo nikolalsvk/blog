@@ -1,0 +1,416 @@
+---
+title: Ruby on Rails View Anti-patterns and Patterns
+description: TODO
+slug: rails-model-anti-patterns-and-patterns
+date: 2021-01-31
+coverImage: ./cover.jpeg
+blogOgImage: ./cover.jpeg
+# canonical: https://blog.appsignal.com/2020/11/18/rails-model-patterns-and-anti-patterns.html
+canonicalName: AppSignal Blog
+published: true
+tags:
+  - Rails
+  - Patterns
+---
+
+Welcome back to the third installment of the Ruby on Rails Patterns and
+Anti-Patterns series. In the previous blog posts we have covered patterns and
+anti-patterns in general as well as Rails Model ones. In this blog posts, we
+are going to go over some of the patterns and anti-patterns inside Rails views.
+
+Usually Rails views either work well and quick, or they are causing troubles
+everywhere. If you feel a little bit insecure about your view code or you just
+want to check if what you have is fine and makes sense, this blog post if
+exactly for you.
+
+As you probably know, Rails framework follows convention over configuration.
+And since Rails is big on Model-View-Controller (MVC) pattern, this motto is
+naturally applies onto the View code as well. This involves your markup (ERb or
+Slim files), JavaScript and CSS files. You might think at first that View layer
+should be pretty straightforward and easy, but you should take in mind that these
+days there is a mix of technologies living in the View layer.
+
+So much so that there is JavaScript, HTML, and CSS in the view. These three can
+often lead to confusion and disorganization of code, leading to implementations
+that don't make much sense in the long run. Luckily, today we are going to go
+through some of the common problems and solutions with Rails View layer.
+
+## Powerlifting Views
+
+A mistake that does not happen that often, but when it does it, it is an
+eyesore. Sometimes people tend to put the domain logic or querying directly
+inside the View. This makes the View layer do the heavy-lifting or
+powerlifting. What is interesting is that Rails actually allows this to happen
+easily. There is no 'safety net' when it comes to this, you are allowed to do
+whatever you want in the View layer.
+
+By definition, the View layer of the MVC pattern should contain presentation
+logic. It should be bothered by domain logic or with querying data. In Rails,
+you get ERb files (Embedded Ruby) files where you are allowed to write Ruby
+which will then get evaluated into HTML. If we come up with an example of a
+website that lists song on the index page, then the view logic would be in
+the `app/views/songs/index.html.erb`.
+
+To illustrate what "powerlifting" means and what not do to, let us take a look
+at the following example:
+
+```erb
+# app/views/songs/index.html.erb
+
+<div class="songs">
+  <% Song.where(published: true).order(:title) do |song| %>
+    <section id="song_<%= song.id %>">
+      <span><%= song.title %></span>
+
+      <span><%= song.description %></span>
+
+      <a href="<%= song.download_url %>">Download</a>
+    </section>
+  <% end %>
+</div>
+```
+
+A huge anti-pattern here is the fetching of songs right in the markup. The
+responsibility of fetching the data should be delegated to the controller or a
+service that is being called from the controller. I saw that people prepare
+some data in the controller and later fetch some more data in the views. This
+is bad by design and you are making your website slower because you are
+stressing your database with queries more often.
+
+What you should do instead is expose a `@songs` instance variable from the
+controller action and call that in the markup like so:
+
+```rb
+class SongsController < ApplicationController
+  ...
+
+  def index
+    @songs = Song.where(published: true).order(:title)
+  end
+
+  ...
+end
+```
+
+```erb
+# app/views/songs/index.html.erb
+
+<div class="songs">
+  <% @songs do |song| %>
+    <section id="song_<%= song.id %>">
+      <span><%= song.title %></span>
+
+      <span><%= song.description %></span>
+
+      <a href="<%= song.download_url %>">Download</a>
+    </section>
+  <% end %>
+</div>
+```
+
+These examples are far from perfect. If you want to keep your controller code
+more readable and avoid SQL Pasta, I urge you to check out the
+[previous blog post](https://blog.appsignal.com/2020/11/18/rails-model-patterns-and-anti-patterns.html)
+about this. Also, by leaving out the logic in the View layer, there are high
+chances that other people will try to build their solutions off of it.
+
+## Make use of what Rails gives you
+
+We will keep it short here. Ruby on Rails as a framework comes with a lot of
+neat helpers, especially inside the view. These nifty little helpers allow you
+to build your View layer quickly and effortlessly. As a beginner user of Rails,
+you might be tempted to write the full HTML inside your ERb files like so:
+
+```erb
+# app/views/songs/new.html.erb
+
+<form action="/songs" method="post">
+  <div class="field">
+    <label for="song_title">Title</label>
+    <input type="text" name="song[title]" id="song_title">
+  </div>
+
+  <div class="field">
+    <label for="song_description">Description</label>
+    <textarea name="song[description]" id="song_description"></textarea>
+  </div>
+
+  <div class="field">
+    <label for="song_download_url">Download URL</label>
+    <textarea name="song[download_url]" id="song_download_url"></textarea>
+  </div>
+
+  <input type="submit" name="commit" value="Create Song">
+</form>
+```
+
+With this HTML, you should get a nice form for a new song like in the screenshot below:
+
+![New song form](./new-song-form.png)
+
+But, with Rails, you don't need and you shouldn't write plain HTML like that
+since Rails has your back right there. You can use `form_with` view helper that
+will generate this HTML for you. `form_with` was introduced in Rails 5.1 and it
+is there to replace `form_tag` and `form_for` that might be familiar to some
+folks. Let us see how can `form_with` relieve us from extra code writing:
+
+```erb
+<%= form_with(model: song, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :download_url do %>
+      Download URL
+    <% end %>
+    <%= form.text_area :download_url %>
+  </div>
+
+  <%= form.submit %>
+<% end %>
+```
+
+Besides generating HTML for us, `form_with` also generates an authenticity
+token which prevents CSRF attacks. So in almost all cases, you are better off
+using designated helpers since they might play well with the Rails framework.
+If you tried to submit a plain HTML form, it will fail because there was no
+valid authenticity token submitted with the request.
+
+Besides `form_with` and `label` `text_area`, and `submit` helpers, there are a
+bunch more of these view helpers that come out-of-the-box with Rails. They are
+there to make your lives easier and you should get to know them better. One of the "all-stars" is definitely `link_to`:
+
+```erb
+<%= link_to "Songs", songs_path %>
+```
+
+Which will generate the following HTML:
+
+```HTML
+<a href="/songs">Songs</a>
+```
+
+I won't go much into details about each helper, because this post will be too
+long and going through all of them is not the today's topic. I suggest you go
+through
+[Rails Action View helpers guide](https://guides.rubyonrails.org/action_view_helpers.html)
+and pick what you would need on your website.
+
+## Reusing and organizing view code
+
+Let us imagine the perfect web application. In the perfect use-case, there is
+no if-else statements, just pure code that takes data from the controller and
+puts it between HTML tags. That kind of application exists maybe on hackathons
+and in dreams, but real-world applications have bunch of branches and
+conditions when rendering views.
+
+What to do when logic for showing parts of a page gets too complex? Where to go
+then? A broader answer to this would be to maybe reach for a modern JavaScript
+library or a framework and build something complex there. But, since this post
+is about Rails Views, let's look at our options inside of them.
+
+### After-market (custom) helpers
+
+Let's say you want to show a call-to-action (CTA) button below a song. But,
+there is a catch. Song can have a download URL or it can be missing for some
+reasons. We might be tempted to code something similar to following:
+
+```erb
+app/views/songs/show.html.erb
+
+...
+
+<div class="song-cta">
+  <% if @song.download_url %>
+    <%= link_to "Download", download_url %>
+  <% else %>
+    <%= link_to "Subscribe to artists updates",
+                artist_updates_path(@song.artist) %>
+  <% end %>
+</div>
+
+...
+```
+
+If we look at the example above as an isolated presentational logic, it doesn't
+look too bad, right? Well, if there are a couple of more of these conditional
+renders, then the code becomes less readable. It also increases the chances
+that something, somewhere doesn't get rendered properly, especially if there
+are more conditions.
+
+One way to fight these is to extract them to a separate helper. Luckily, Rails
+provides us with a way to write custom helpers easily. In the `app/helpers` we can create a `SongsHelper` like so:
+
+```rb
+module SongsHelper
+  def song_cta_link
+    content_tag(:div, class: 'song-cta') do
+      if @song.download_url
+        link_to "Download", @song.download_url
+      else
+        link_to "Subscribe to artists updates",
+                artist_updates_path(@song.artist)
+      end
+    end
+  end
+end
+```
+
+If we open up the show page of a song, we will still get the same results.
+Also, we can make this example a bit better. In the example above we used an
+instance variable `@song`. This might not be available if we decide to use this
+helper in a place where `@song` is `nil`. So to cut off an external dependency in the form of an instance variable, we can pass in an argument to the helper like so:
+
+```rb
+module SongsHelper
+  def song_cta_link(song)
+    content_tag(:div, class: 'song-cta') do
+      if song.download_url
+        link_to "Download", song.download_url
+      else
+        link_to "Subscribe to artists updates",
+                artist_updates_path(song.artist)
+      end
+    end
+  end
+end
+```
+
+Then, in the view, we can call the helper like below:
+
+```erb
+app/views/songs/show.html.erb
+
+...
+
+<%= song_cta_link(@song) %>
+
+...
+```
+
+And we should get the same results in the view as we had before. Good thing
+about using helpers is that you can write tests for them and make sure that no
+regressions happen regarding them in the future. A con to them is that they are
+globally defined and you have to make sure that helper names are unique across
+your app.
+
+If you are not a big fan of writing Rails custom helpers, you can always opt in
+for a View Model pattern with the
+[Draper gem](https://github.com/drapergem/draper).
+Or you can roll your own View Model pattern here, it shouldn't be that
+complicated. If you are just starting out with your web app, I suggest starting
+slowly by writing custom helpers and if that brings pain, turn to other
+solutions.
+
+### DRY up your views
+
+What I really liked when I started with Rails is the ability to DRY up your
+markup so easily that it was almost unbelievable to me. Rails gives you an ability
+to create partials, a reusable code pieces you can include anywhere else. For
+example, if you are rendering songs in multiple places, and you have the same
+code across multiple files, it make sense to create a song partial.
+
+Let's say you show your song like in the example below:
+
+```erb
+# app/views/songs/show.html.erb
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @song.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @song.description %>
+</p>
+
+<%= song_cta_link %>
+
+<%= link_to 'Edit', edit_song_path(@song) %> |
+<%= link_to 'Back', songs_path %>
+```
+
+But, you also want to show it on another page with the same markup. Then you can
+create a new file with an underscore prefix like `app/views/songs/_song.html.erb`.
+
+```erb
+# app/views/songs/_song.html.erb
+
+<p>
+  <strong>Title:</strong>
+  <%= @song.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @song.description %>
+</p>
+
+<%= song_cta_link(@song) %>
+```
+
+And then wherever you want to include the song partial, you just do the following:
+
+```erb
+...
+
+<%= render "song" %>
+
+...
+```
+
+Rails will do an auto-lookup of whether the `_song` partial exists and it will
+render it. Similar to an example with custom helpers, it is best if we get rid of the instance variable `@song` in our partial.
+
+```erb
+
+# app/views/songs/_song.html.erb
+<p>
+  <strong>Title:</strong>
+  <%= song.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= song.description %>
+</p>
+
+<%= song_cta_link(song) %>
+```
+
+Then, we will need to pass in the song variable to the partial, making it more
+resilient to be included in other places.
+
+```erb
+...
+
+<%= render "song", song: @song %>
+
+...
+```
+
+## Final thoughts
+
+That's all folks for this post. To summarize, we went through couple of
+patterns and anti-patterns you can come across in the Rails View realm. Couple
+of takeaways are:
+
+- Avoid complex logic in the UI (do not make the View do lots of powerlifting)
+- Learn what Rails gives you out-of-the-box in terms of the View helpers.
+- Structure and reuse your code with custom helpers and partials
+- Do not depend on instance variable too much.
+
+In the next post we will cover Rails Controller patterns and anti-patterns
+where things can get pretty messy. Stay tuned for that.
+
+Until the next one, cheers!
