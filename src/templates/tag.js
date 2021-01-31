@@ -1,7 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link, graphql } from "gatsby"
+
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 const Tag = ({ pageContext, data, location }) => {
   const { tag } = pageContext
@@ -11,6 +13,7 @@ const Tag = ({ pageContext, data, location }) => {
   } tagged as ${tag}`
   return (
     <Layout location={location} title={data.site.siteMetadata.title}>
+      <SEO title={`${tag} posts`} />
       <h1>{tagHeader}</h1>
       <ul>
         {edges.map(({ node }) => {

@@ -2,7 +2,9 @@ import React from "react"
 import PropTypes from "prop-types"
 import { kebabCase } from "lodash"
 import { Link, graphql } from "gatsby"
+
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 const TagsPage = ({
   data: {
@@ -14,6 +16,7 @@ const TagsPage = ({
   location,
 }) => (
   <Layout location={location} title={title}>
+    <SEO title="Blog Tags" />
     <div>
       <h1>Tags</h1>
       <ul>
