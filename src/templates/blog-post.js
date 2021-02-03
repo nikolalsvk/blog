@@ -44,10 +44,20 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               color: `#b3b3b3`,
             }}
           >
-            Published <time itemProp="datePublished">{date}</time> | Last
-            updated <time itemProp="dateModified">{updatedAt}</time> |{" "}
-            <ViewCounter hideText slug={slug} />
-            About {timeToRead} {timeToRead === 1 ? "minute" : "minutes"} to read{" "}
+            Published{" "}
+            <b>
+              <time itemProp="datePublished">{date}</time>
+            </b>{" "}
+            | Last updated{" "}
+            <b>
+              <time itemProp="dateModified">{updatedAt}</time>
+            </b>{" "}
+            | <ViewCounter hideText slug={slug} />
+            About{" "}
+            <b>
+              {timeToRead} {timeToRead === 1 ? "minute" : "minutes"}
+            </b>{" "}
+            to read{" "}
           </p>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
