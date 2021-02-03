@@ -51,6 +51,7 @@ const Header = ({ location, title, showLargeHeader }) => {
         marginTop: 0,
         display: `flex`,
         justifyContent: `space-between`,
+        alignItems: `center`,
       }}
     >
       <h3
@@ -90,6 +91,15 @@ const Header = ({ location, title, showLargeHeader }) => {
             💌
           </span>
         </Link>
+      </h3>
+
+      <h3
+        style={{
+          marginTop: 0,
+          marginBottom: 0,
+        }}
+      >
+        <ThemeSwitch />
       </h3>
     </div>
   )
