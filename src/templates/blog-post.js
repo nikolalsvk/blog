@@ -11,6 +11,7 @@ import ViewCounter from "../components/view-counter"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
+  const updatedAt = post.parent.fields.gitLogLatestDate
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
   const { canonical, canonicalName, date, slug, tags } = post.frontmatter
@@ -43,8 +44,20 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               color: `#b3b3b3`,
             }}
           >
-            {date} | <ViewCounter hideText slug={slug} />
-            about {timeToRead} {timeToRead === 1 ? "minute" : "minutes"} to read{" "}
+            Published{" "}
+            <b>
+              <time itemProp="datePublished">{date}</time>
+            </b>{" "}
+            | Last updated{" "}
+            <b>
+              <time itemProp="dateModified">{updatedAt}</time>
+            </b>{" "}
+            | <ViewCounter hideText slug={slug} />
+            About{" "}
+            <b>
+              {timeToRead} {timeToRead === 1 ? "minute" : "minutes"}
+            </b>{" "}
+            to read{" "}
           </p>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -150,6 +163,13 @@ export const pageQuery = graphql`
         tags
       }
       timeToRead
+      parent {
+        ... on File {
+          fields {
+            gitLogLatestDate(formatString: "MMMM DD, YYYY")
+          }
+        }
+      }
     }
   }
 `
