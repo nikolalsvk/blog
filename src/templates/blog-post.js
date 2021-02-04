@@ -11,10 +11,17 @@ import ViewCounter from "../components/view-counter"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
-  const updatedAt = post.parent.fields.gitLogLatestDate
+  const { updatedAt, updatedAtDateTime } = post.parent.fields
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
-  const { canonical, canonicalName, date, slug, tags } = post.frontmatter
+  const {
+    canonical,
+    canonicalName,
+    publishedAt,
+    publishedAtDateTime,
+    slug,
+    tags,
+  } = post.frontmatter
   const { timeToRead } = post
 
   return (
@@ -46,11 +53,15 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           >
             Published{" "}
             <b>
-              <time itemProp="datePublished">{date}</time>
+              <time dateTime={publishedAtDateTime} itemProp="datePublished">
+                {publishedAt}
+              </time>
             </b>{" "}
             | Last updated{" "}
             <b>
-              <time itemProp="dateModified">{updatedAt}</time>
+              <time dateTime={updatedAtDateTime} itemProp="dateModified">
+                {updatedAt}
+              </time>
             </b>{" "}
             | <ViewCounter hideText slug={slug} />
             About{" "}
@@ -149,7 +160,8 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        publishedAt: date(formatString: "MMMM DD, YYYY")
+        publisedAtDateTime: date(formatString: "YYYY-MM-DD")
         description
         canonical
         canonicalName
@@ -166,7 +178,8 @@ export const pageQuery = graphql`
       parent {
         ... on File {
           fields {
-            gitLogLatestDate(formatString: "MMMM DD, YYYY")
+            updatedAt: gitLogLatestDate(formatString: "MMMM DD, YYYY")
+            updatedAtDateTime: gitLogLatestDate(formatString: "YYYY-MM-DD")
           }
         }
       }
