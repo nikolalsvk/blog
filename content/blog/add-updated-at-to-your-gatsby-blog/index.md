@@ -5,7 +5,7 @@ slug: add-updated-at-to-your-gatsby-blog
 date: 2021-02-09
 coverImage: ./cover.jpg
 blogOgImage: ./cover.jpg
-published: true
+published: false
 tags:
   - Gatsby
   - JavaScript
