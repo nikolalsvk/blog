@@ -30,6 +30,8 @@ showing the time post got updated can be useful. So not only are you
 informing users of how relevant the post is, but you are also improving
 your post's SEO.
 
+![SEO stocks going up](./seo-stonks.jpg)
+
 If you are writing covering topics that change often (JavaScript _khm-khm_),
 you probably want to keep those posts fresh. Besides keeping them fresh, you
 want other people to know that it is fresh and not from back in the day. Of
