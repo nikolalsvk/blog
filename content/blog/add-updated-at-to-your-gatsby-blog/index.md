@@ -2,10 +2,10 @@
 title: Add Updated At To Your Gatsby Blog
 description: Improve your blog post SEO with showing the date when each post got updated.
 slug: add-updated-at-to-your-gatsby-blog
-date: 2021-02-09
+date: 2021-02-08
 coverImage: ./cover.jpg
-blogOgImage: ./cover.jpg
-published: false
+blogOgImage: ./og-image.jpg
+published: true
 tags:
   - Gatsby
   - JavaScript
@@ -203,8 +203,8 @@ export default BlogPost
 ## Closing Off
 
 Hopefully, you managed to successfully set up your blog post's modified /
-updated time after this post. I am plan to release another related blog
-post soon, explaining how you can improve your blog's SEO further. If you
+updated time after this post. I plan to release another related blog
+post soon, explaining how you can further improve your blog's SEO. If you
 are interested in content like that, consider subscribing to the
 [newsletter](/newsletter).
 
