@@ -11,7 +11,8 @@ import ViewCounter from "../components/view-counter"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
-  const { updatedAt, updatedAtDateTime } = post.parent.fields
+  const updatedAt = post.parent.fields?.updatedAt
+  const updatedAtDateTime = post.parent.fields?.updatedAtDateTime
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
   const {
