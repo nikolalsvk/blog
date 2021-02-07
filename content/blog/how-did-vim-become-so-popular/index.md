@@ -66,16 +66,9 @@ a file, start typing `a` and press enter, then write your text. Typing `.`
 following an enter will exit the append (insert) mode. Then, to write a file, you can
 type `w myfile.txt` and press enter and lastly write `q` and enter to exit.
 
-```
-# ed
-a
-Hey there!
-I am using ed right now, how cool.
-OK, that's enough.
-.
-w myfile.txt
-64
-q
+```html
+# ed a Hey there! I am using ed right now, how cool. OK, that's enough. . w
+myfile.txt 64 q
 ```
 
 As you may notice, there are similarities between working with `ed` and with

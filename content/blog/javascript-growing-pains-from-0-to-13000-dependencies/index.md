@@ -117,7 +117,7 @@ To get this right, we will follow the recommended way of [setting up React in a 
 
 Let’s remove the old Babel dependencies that we used:
 
-```
+```bash
 $ npm uninstall babel-cli babel-preset-react-app --save-dev
 ```
 
