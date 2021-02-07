@@ -124,27 +124,27 @@ render_async will poll the `comments_path` every 3 seconds, and it will put the 
 container with `controlalble-interval` ID. We will see in a second why this matters. Then,
 in your view, you can put two buttons - one to stop polling, another to start it.
 
-```markup
-<button id='stop-polling'>Stop polling</button>
-<button id='start-polling'>Start polling</button>
+```html
+<button id="stop-polling">Stop polling</button>
+<button id="start-polling">Start polling</button>
 
 <script>
-  var container = document.getElementById('controllable-interval')
-  var stopPolling = document.getElementById('stop-polling')
-  var startPolling = document.getElementById('start-polling')
+  var container = document.getElementById("controllable-interval")
+  var stopPolling = document.getElementById("stop-polling")
+  var startPolling = document.getElementById("start-polling")
 
-  var triggerEventOnContainer = function(eventName) {
-    var event = new Event(eventName);
+  var triggerEventOnContainer = function (eventName) {
+    var event = new Event(eventName)
 
     container.dispatchEvent(event)
   }
 
-  stopPolling.addEventListener('click', function() {
-    container.innerHTML = '<p>Polling stopped</p>'
-    triggerEventOnContainer('async-stop')
+  stopPolling.addEventListener("click", function () {
+    container.innerHTML = "<p>Polling stopped</p>"
+    triggerEventOnContainer("async-stop")
   })
-  startPolling.addEventListener('click', function() {
-    triggerEventOnContainer('async-start')
+  startPolling.addEventListener("click", function () {
+    triggerEventOnContainer("async-start")
   })
 </script>
 ```
@@ -176,7 +176,7 @@ in its response. You can get into more details in [the README](https://github.co
 The new version allows you to differentiate the place where the logic for the
 nested render_async will reside.
 
-```
+```erb
 <%= render_async comment_stats_path, content_for_name: :render_async_comment_stats %>
 
 <%= content_for :render_async_comment_stats %>
