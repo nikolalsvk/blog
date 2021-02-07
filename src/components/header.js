@@ -77,28 +77,6 @@ const Header = ({ location, title, showLargeHeader }) => {
           marginBottom: 0,
         }}
       >
-        <Link
-          style={{
-            boxShadow: `none`,
-            color: `inherit`,
-            textAlign: `right`,
-            fontSize: `1.1rem`,
-          }}
-          to={`/newsletter`}
-        >
-          Newsletter{" "}
-          <span role="img" aria-label="letter">
-            💌
-          </span>
-        </Link>
-      </h3>
-
-      <h3
-        style={{
-          marginTop: 0,
-          marginBottom: 0,
-        }}
-      >
         <ThemeSwitch />
       </h3>
     </div>
