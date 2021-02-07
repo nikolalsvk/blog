@@ -171,12 +171,6 @@ module.exports = {
         devMode: true,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `content/`,
-      },
-    },
     `gatsby-transformer-gitinfo`,
   ],
 }
