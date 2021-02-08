@@ -1,6 +1,6 @@
 ---
 title: Add Updated At To Your Gatsby Blog
-description: Improve your blog post SEO with showing the date when each post got updated.
+description: Improve your blog post SEO by showing the date when each post got updated.
 slug: add-updated-at-to-your-gatsby-blog
 date: 2021-02-08
 coverImage: ./cover.jpg
