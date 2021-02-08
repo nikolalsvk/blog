@@ -210,4 +210,6 @@ are interested in content like that, consider subscribing to the
 
 Also, share this with your friends and coworkers on Twitter below:
 
+<blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">Just dropped a new blog post about adding a modified date on your <a href="https://twitter.com/GatsbyJS?ref_src=twsrc%5Etfw">@GatsbyJS</a> blog.<br><br>Would you add such kind of a feature?<a href="https://t.co/uszHgPEjAg">https://t.co/uszHgPEjAg</a></p>&mdash; Nikola Đuza (@nikolalsvk) <a href="https://twitter.com/nikolalsvk/status/1358665782134263810?ref_src=twsrc%5Etfw">February 8, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 Until the next one, cheers.
