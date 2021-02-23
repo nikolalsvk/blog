@@ -115,4 +115,6 @@ that way, we can make it even better.
 
 Also, feel free to share this on Twitter with friends and coworkers below:
 
+<blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">I released the 2.1.9 version of render_async today. Check out what&#39;s new below 👇<a href="https://t.co/aLpAKd9f44">https://t.co/aLpAKd9f44</a></p>&mdash; Nikola Đuza (@nikolalsvk) <a href="https://twitter.com/nikolalsvk/status/1364196876350853128?ref_src=twsrc%5Etfw">February 23, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 I will see you in the next one, cheers.
