@@ -4,7 +4,7 @@ description: Read about changes in the new version and how Turbo is supported.
 slug: render-async-adds-support-for-rails-turbo
 date: 2021-02-23
 coverImage: ./cover.jpg
-blogOgImage: ./cover.jpg
+blogOgImage: ./og-image.jpg
 published: true
 tags:
   - Rails
