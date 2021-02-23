@@ -12,8 +12,7 @@ tags:
   - render_async
 ---
 
-In this blog post, we will explain all new features and how they came to be in the
-latest [2.1.7 version](https://github.com/renderedtext/render_async/releases/tag/2.1.7).
+This blog post will explain all new features and how they came to be in the latest [2.1.7 version](https://github.com/renderedtext/render_async/releases/tag/2.1.7).
 
 ![Delay](./cover.jpg)
 
