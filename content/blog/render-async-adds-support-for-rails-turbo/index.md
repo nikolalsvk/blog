@@ -67,7 +67,7 @@ it will replace it with the preview version.
 To handle these effects and make render_async work, we first suggested to put
 `data-turbolinks-track="reload"` or now `data-turbo-track="reload"` to the
 render_async calls. These data attributes stop Turbo from doing its magic, which
-is not something every user wants. Then, a clever contribution from [_eclemens_](https://github.com/eclemens)
+is not something every user wants. Then, a clever contribution from [Mbuckley0](https://github.com/Mbuckley0)
 made it possible to have the Turbo functionality and have render_async working.
 
 The idea is to have render_async work after `turbo:load` happens - or in plain
