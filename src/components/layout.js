@@ -10,17 +10,8 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
   }
   body {
-    --main-color: ${(props) =>
-      props.theme === "purple" ? "#BD5B04" : "#B26700"};
-    --secondary-color: ${(props) =>
-      props.theme === "purple" ? "#E0D3DE" : "#BD5B04"};
-    --text-color: ${(props) =>
-      props.theme === "purple" ? "white" : "#161032"};
-    --background-color: ${(props) =>
-      props.theme === "purple" ? "#161032" : "white"};
-
-    background-color: var(--background-color);
-    color: var(--text-color);
+    background-color: var(--color-background);
+    color: var(--color-text);
     height: 100%;
   }
   #___gatsby {
@@ -30,11 +21,11 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
   }
   a {
-    color: var(--secondary-color);
+    color: var(--color-secondary);
   }
   h1, h2, h3, h1 > a, h2 > a, h3 > a {
     font-family: 'Josefin Sans', sans-serif;
-    color: var(--main-color);
+    color: var(--color-primary);
   }
   body:not(.gatsby-highlight) {
     // Use Roboto font everywhere except in code inserts
@@ -65,9 +56,9 @@ const GlobalStyle = createGlobalStyle`
     background: inherit;
   }
   blockquote {
-    border-left-color: var(--main-color);
+    border-left-color: var(--color-primary);
     font-style: normal;
-    color: var(--text-color);
+    color: var(--color-text);
   }
 
   .tags > span:not(:last-child)::after {
