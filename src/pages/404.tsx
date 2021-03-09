@@ -5,7 +5,18 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import IceCream from "../../content/assets/ice-cream.svg"
 
-const NotFoundPage = ({ data, location }) => {
+interface Props {
+  data: {
+    site: {
+      siteMetadata: {
+        title: string
+      }
+    }
+  }
+  location: Location
+}
+
+const NotFoundPage = ({ data, location }: Props) => {
   const siteTitle = data.site.siteMetadata.title
 
   return (

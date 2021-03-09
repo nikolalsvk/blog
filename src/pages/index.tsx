@@ -8,7 +8,33 @@ import { rhythm } from "../utils/typography"
 import ViewCounter from "../components/view-counter"
 import SubscribeForm from "../components/subscribe-form"
 
-const BlogIndex = ({ data, location }) => {
+interface Props {
+  data: {
+    site: {
+      siteMetadata: {
+        title: string
+      }
+    }
+    allMarkdownRemark: {
+      edges: {
+        node: {
+          excerpt: string
+          fields: {
+            slug: string
+          }
+          frontmatter: {
+            date: string
+            title: string
+            description: string
+          }
+        }
+      }[]
+    }
+  }
+  location: Location
+}
+
+const BlogIndex = ({ data, location }: Props) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
 

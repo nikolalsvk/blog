@@ -4,7 +4,18 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const ConfirmSubscriptionPage = ({ data, location }) => {
+interface Props {
+  data: {
+    site: {
+      siteMetadata: {
+        title: string
+      }
+    }
+  }
+  location: Location
+}
+
+const ConfirmSubscriptionPage = ({ data, location }: Props) => {
   const siteTitle = data.site.siteMetadata.title
 
   return (

@@ -4,13 +4,19 @@ import loadDb from "../utils/firebase-db"
 
 import Views from "./views"
 
-function ViewCounter({ slug, hideText }) {
+interface Props {
+  slug: string
+  hideText?: boolean
+}
+
+function ViewCounter({ slug, hideText }: Props) {
   const [views, setViews] = useState("")
 
   // Subscribe to view count updates
   useEffect(() => {
-    const onViews = (newViews) => setViews(newViews.val())
-    let db
+    const onViews = (newViews: { val: () => string }) =>
+      setViews(newViews.val())
+    let db: firebase.database.Reference
 
     const fetchData = async () => {
       db = await loadDb()

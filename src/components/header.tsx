@@ -14,7 +14,13 @@ const BigHeaderText = styled.h1`
   }
 `
 
-const Header = ({ location, title, showLargeHeader }) => {
+interface Props {
+  location: Location
+  title: string
+  showLargeHeader?: boolean
+}
+
+const Header = ({ location, title, showLargeHeader }: Props) => {
   const rootPath = `${__PATH_PREFIX__}/`
 
   if (location.pathname === rootPath || showLargeHeader) {
