@@ -88,7 +88,14 @@ const Footer = styled.footer`
   flex-shrink: 0;
 `
 
-const Layout = ({ location, title, showLargeHeader, children }) => {
+interface Props {
+  location: Location
+  title: string
+  showLargeHeader?: boolean
+  children: React.ReactNode
+}
+
+const Layout = ({ location, title, showLargeHeader, children }: Props) => {
   const { theme } = useTheme()
 
   return (

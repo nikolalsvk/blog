@@ -6,15 +6,32 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+interface Props {
+  data: {
+    site: {
+      siteMetadata: {
+        title: string
+      }
+    }
+    allMarkdownRemark: {
+      group: {
+        fieldValue: string
+        totalCount: number
+      }[]
+    }
+  }
+  location: Location
+}
+
 const TagsPage = ({
   data: {
-    allMarkdownRemark: { group },
     site: {
       siteMetadata: { title },
     },
+    allMarkdownRemark: { group },
   },
   location,
-}) => (
+}: Props) => (
   <Layout location={location} title={title}>
     <SEO title="Blog Tags" />
     <div>

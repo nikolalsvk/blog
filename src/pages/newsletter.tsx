@@ -11,6 +11,32 @@ const SeeMoreButton = styled.div`
   cursor: pointer;
 `
 
+interface Props {
+  data: {
+    site: {
+      siteMetadata: {
+        title: string
+      }
+    }
+    allMarkdownRemark: {
+      edges: {
+        node: {
+          excerpt: string
+          fields: {
+            slug: string
+          }
+          frontmatter: {
+            date: string
+            title: string
+            description: string
+          }
+        }
+      }[]
+    }
+  }
+  location: Location
+}
+
 const NewsletterPage = ({
   data: {
     site: {
@@ -19,7 +45,7 @@ const NewsletterPage = ({
     allMarkdownRemark: { edges: issues },
   },
   location,
-}) => {
+}: Props) => {
   const [showIssues, setShowIssues] = useState(false)
 
   return (

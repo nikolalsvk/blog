@@ -184,5 +184,6 @@ module.exports = {
       },
     },
     `gatsby-transformer-gitinfo`,
+    `gatsby-plugin-typescript`,
   ],
 }

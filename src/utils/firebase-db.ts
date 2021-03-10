@@ -3,7 +3,7 @@ export default async function loadDb() {
 
   await import("firebase/database")
 
-  const firebaseConfig = JSON.parse(process.env.GATSBY_FIREBASE_CONFIG)
+  const firebaseConfig = JSON.parse(process.env.GATSBY_FIREBASE_CONFIG || "{}")
 
   try {
     firebase.initializeApp(firebaseConfig)

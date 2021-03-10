@@ -15,7 +15,10 @@ export const COLORS = {
   },
 }
 
-const ThemeContext = createContext({ theme: "white", setTheme: () => {} })
+const ThemeContext = createContext({
+  theme: "white",
+  setTheme: (_: string) => {},
+})
 
 export const getInitialColorMode = () => {
   const persistedColorPreference = window.localStorage.getItem("theme")
@@ -46,10 +49,14 @@ export const useTheme = () => {
   return context
 }
 
-export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState("white")
+interface ThemeProviderProps {
+  children: React.ReactNode
+}
 
-  const saveToLocalStorage = (value) => {
+export const ThemeProvider = ({ children }: ThemeProviderProps) => {
+  const [theme, setTheme] = useState<string>("white")
+
+  const saveToLocalStorage = (value: string) => {
     const root = window.document.documentElement
     // 1. Update React color-mode state
     setTheme(value)

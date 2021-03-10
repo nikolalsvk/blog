@@ -13,7 +13,7 @@ const highlightBackgound = keyframes`
 const StyledViews = styled.span`
   text-transform: uppercase;
 
-  ${(props) =>
+  ${(props: { highlight?: boolean }) =>
     props.highlight &&
     css`
       animation-name: ${highlightBackgound};
@@ -21,7 +21,7 @@ const StyledViews = styled.span`
     `}
 `
 
-function Views({ views }) {
+function Views({ views }: { views: string }) {
   const [highlight, setHighlight] = useState(false)
 
   useEffect(() => {
