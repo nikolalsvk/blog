@@ -61,5 +61,5 @@ const MagicScriptTag = () => {
 }
 
 export const onRenderBody = ({ setPreBodyComponents }) => {
-  setPreBodyComponents(<MagicScriptTag />)
+  setPreBodyComponents(<MagicScriptTag key="theme-magic-script" />)
 }
