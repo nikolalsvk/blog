@@ -37,6 +37,8 @@ wrapped in some other library, or uses some extra configuration to get it
 started. If that is the case with you, let's dive in and find out different
 ways to debug and inspect our tests.
 
+> 💡 Leave the dedicated DevTools for Node window open as we follow through other ways of debugging
+
 ## 2. Without an Initial Break
 
 If you take a look, most of the magic here is done by the Node Inspector.
@@ -63,7 +65,7 @@ make it agnostic and use `yarn bin` or `npm bin`. In my case, I will use `npm bi
 $ node --inspect $(npm bin)/jest --runInBand
 ```
 
-## 3. Debugging TypeScript tests
+## 3. Debugging TypeScript Tests
 
 If you are using TypeScript these days, if you try to run:
 
@@ -135,7 +137,7 @@ Now, whenever you run `npm run test:debug`, the Jest will run in watch mode and
 stop in the place where you put `debugger`. Of course, you need to have a
 dedicated DevTools for Node.js open, as we described in the first section.
 
-## 6. Debugging from the command-line
+## 6. Debugging From the Command-Line
 
 OK, so you got the initial debugger working with Chromium-based browser and
 DevTools. But, if you are a command-line aficionado, you probably are thinking
@@ -223,7 +225,7 @@ developer experience (DX) might not be as great as the one with DevTools open,
 where you can get values of variables by hovering over them, but it's still a
 nice alternative.
 
-## 7. All-in-one solution - ndb
+## 7. All-In-One solution - ndb
 
 ndb is a library for improving the debugging experience for Node.js. You can
 install it globally with `npm install -g ndb` or locally with `npm install -D ndb`. I tried it on my [Abacus repo](https://github.com/nikolalsvk/abacus) with
