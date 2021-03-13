@@ -1,6 +1,6 @@
 ---
 title: Ruby on Rails View Anti-patterns and Patterns
-description: TODO
+description: Rails views are sometimes amazing and fast, and at other times, they can have all sorts of issues. If you want to increase confidence over how you handle your views, then this blog post is for you.
 slug: ruby-on-rails-view-patterns-and-anti-patterns
 date: 2021-02-10
 coverImage: ./cover.jpg
