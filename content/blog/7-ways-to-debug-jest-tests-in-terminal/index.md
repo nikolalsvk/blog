@@ -18,6 +18,12 @@ inside your terminal. Everybody knows that you can do it easily with an IDE
 like VSCode or WebStorm, but what if you are not using them? How do you go about
 debugging them? Spoiler alert - it is not with `console.log()`.
 
+![Insects](./cover.jpg)
+
+<div class='photo-caption'>
+Photo by <a href="https://unsplash.com/@nikolalsvk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Nikola Đuza</a> on <a href="/s/photos/bugs?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+</div>
+
 ## 1. The Standard Way
 
 If you search Jest docs for a way to do it, it will tell you the following:
