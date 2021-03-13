@@ -52,6 +52,7 @@ export default createGlobalStyle`
     background: inherit;
   }
   blockquote {
+		font-size: 1em;
     border-left-color: var(--color-primary);
     font-style: normal;
     color: var(--color-text);
