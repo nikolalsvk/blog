@@ -4,7 +4,7 @@ description: (Almost) all the ways you can debug a Jest test in the command line
 slug: TODO
 date: 2021-03-16
 coverImage: ./cover.jpg
-blogOgImage: ./cover.jpg
+blogOgImage: ./og-image.jpg
 published: true
 tags:
   - JavaScript
