@@ -1,7 +1,7 @@
 ---
 title: 7 Ways to Debug Jest Tests in Terminal
 description: (Almost) all the ways you can debug a Jest test in the command line.
-slug: TODO
+slug: 7-ways-to-debug-jest-tests-in-terminal
 date: 2021-03-15
 coverImage: ./cover.jpg
 blogOgImage: ./og-image.jpg
