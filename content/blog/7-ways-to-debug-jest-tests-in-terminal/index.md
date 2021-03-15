@@ -2,7 +2,7 @@
 title: 7 Ways to Debug Jest Tests in Terminal
 description: (Almost) all the ways you can debug a Jest test in the command line.
 slug: TODO
-date: 2021-03-16
+date: 2021-03-15
 coverImage: ./cover.jpg
 blogOgImage: ./og-image.jpg
 published: true
@@ -43,7 +43,7 @@ wrapped in some other library, or uses some extra configuration to get it
 started. If that is the case with you, let's dive in and find out different
 ways to debug and inspect our tests.
 
-> 💡 Leave the dedicated DevTools for Node window open as we follow through other ways of debugging
+> 💡 _Leave the dedicated DevTools for Node window open as we follow through other ways of debugging._
 
 ## 2. Without an Initial Break
 
@@ -229,7 +229,8 @@ Press Ctrl + C to leave debug repl
 And those are the basis of inspecting your code from the command-line. The
 developer experience (DX) might not be as great as the one with DevTools open,
 where you can get values of variables by hovering over them, but it's still a
-nice alternative.
+nice alternative. Let's see how we can open DevTools from the command line in
+the next section.
 
 ## 7. All-In-One solution - ndb
 
@@ -254,7 +255,15 @@ to open DevTools for Node.js. The ndb does it for you.
 
 ## Final Thoughts
 
-That's it for now, folks. Thanks for tuning in, and be sure to subscribe to the
-[newsletter](/newsletter) and follow me on [Twitter](https://twitter.com/nikolalsvk) for new blog posts and tips. If you find the post useful, consider sharing it on Twitter with your friend and co-workers:
+That's it for now, folks. You should be able to pick and choose a way to debug
+your Jest tests. The idea of debugging tests in Jest was "bugging" me for quite
+some time, and I am happy I found various solutions and that I get to share
+them with y'all.
 
-Until next one, cheers.
+Thanks for tuning in, and be sure to subscribe to the
+[newsletter](/newsletter) and follow me on
+[Twitter](https://twitter.com/nikolalsvk) for new blog posts and tips. If you
+find the post useful, consider sharing it on Twitter with your friend and
+co-workers:
+
+Until the next one, cheers.
