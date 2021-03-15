@@ -266,4 +266,6 @@ Thanks for tuning in, and be sure to subscribe to the
 find the post useful, consider sharing it on Twitter with your friend and
 co-workers:
 
+<blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">Tired of using an IDE to debug Jest tests? Find out new ways you do it from the command line 👇<a href="https://t.co/MZA14ogsm7">https://t.co/MZA14ogsm7</a></p>&mdash; Nikola Đuza (@nikolalsvk) <a href="https://twitter.com/nikolalsvk/status/1371383015960612871?ref_src=twsrc%5Etfw">March 15, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 Until the next one, cheers.
