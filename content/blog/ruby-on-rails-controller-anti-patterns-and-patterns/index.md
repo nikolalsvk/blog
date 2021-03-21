@@ -49,7 +49,7 @@ starting to violate the Single Responsibility Principle (SRP). This means that
 we are doing too much work inside the controller. Often, this leads to a lot of
 code and responsibilities to pile up there. The adjective 'fat' relates to the
 both sheer line number of the controller files, but as well as the logic it
-supports.
+supports. It is often considered as an anti-pattern.
 
 There are a lot of opinions on what a controller should do. A common ground for
 what responsibilities a controller should have are the following:
