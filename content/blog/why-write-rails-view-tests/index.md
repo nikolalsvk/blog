@@ -1,7 +1,7 @@
 ---
-title: Rails View Testing
-description: TODO
-slug: rails-view-testing
+title: Why Write Rails View Tests
+description: Find out how and why to write Rails view specs with RSpec.
+slug: why-write-rails-view-tests
 date: 2021-03-30
 coverImage: ./cover.jpg
 blogOgImage: ./cover.jpg
@@ -10,6 +10,8 @@ tags:
   - Rails
   - Testing
 ---
+
+![](./cover.jpg)
 
 There is a lot of ways to test a Ruby on Rails application, but there is one
 way that is not so often talked about. That is the way of testing Rails views.
@@ -155,3 +157,77 @@ ability to check whether the actual content is inside a certain HTML tag.
 There's more options you can pass to `assert_select` in
 [its docs](https://api.rubyonrails.org/v4.1/classes/ActionDispatch/Assertions/SelectorAssertions.html#method-i-assert_select).
 I suggest you choose the option you feel gives you more control.
+
+## Utilizing Capybara
+
+If you have Capybara installed, you can utilize its selectors like so:
+
+```rb
+require "rails_helper"
+
+RSpec.describe "books/index", type: :view do
+  before(:each) do
+    assign(:books, [
+      Book.create!(
+        title: "Rails Testing",
+        description: "How to test Ruby on Rails applications.",
+        download_url: nil,
+        status: "draft"
+      ),
+      Book.create!(
+        title: "Rails Patterns",
+        description: "A book about patterns and anti-patterns in Ruby on Rails.",
+        download_url: "rails-patterns.com/download",
+        status: "published"
+      )
+    ])
+  end
+
+  it "renders a list of books" do
+    render
+
+    expect(rendered).to have_selector("tr>td", text: "Rails Testing")
+    expect(rendered).to have_selector("tr>td", text: "Rails Patterns")
+
+    expect(rendered).to have_selector("tr>td", text: "How to test Ruby on Rails applications")
+    expect(rendered).to have_selector("tr>td", text: "A book about patterns and anti-patterns in Ruby on Rails.")
+
+    expect(rendered).to have_selector("tr>td", text: "rails-patterns.com/download")
+
+    expect(rendered).to have_selector("tr>td", text: "published")
+  end
+end
+```
+
+Now, you get the both RSpec `expect(...).to` and you get the granularity of
+asserting that text is inside a table row. But why would you use any of these?
+Let's discuss below.
+
+## Why View Specs
+
+We skimmed over a couple of reasons why you would write a view spec. The idea
+is to test some conditional logic you have in your views or partials. To write
+an integration test that covers all the branches inside your views can be slow
+to run and pain to write. The view specs bring the great balance between:
+
+- 💸 cost of development,
+- 🏍 speed of execution, and
+- 🔀 conditional rendering coverage.
+
+Of course, you might not need view specs at all if you have decorators and view
+models, form objects and all other goodies that can move the logic out of the
+view for you. But, sometimes, in the real-world, not every code base is
+perfectly designed and you have to cut corners from time to time.
+
+Whether it is the some kind of stakeholder breathing down your neck. Or it's
+the complicated legacy partial that can't be so easily extracted to a design of
+your choice. Whatever the reason is, you might opt-in for the view spec to move
+fast and have the logic tested.
+
+And when that day comes (or it already came), you can resort back to this blog
+post and use it to your liking.
+
+If you liked the post, [you can share it on Twitter](TODO). Consider
+subscribing to the [newsletter](/newsletter) to get new articles like this one.
+
+Catch you in the next one, cheers.
