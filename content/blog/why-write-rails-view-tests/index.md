@@ -4,7 +4,7 @@ description: Find out how and why to write Rails view specs with RSpec.
 slug: why-write-rails-view-tests
 date: 2021-03-30
 coverImage: ./cover.jpg
-blogOgImage: ./cover.jpg
+blogOgImage: ./og-image.jpg
 published: true
 tags:
   - Rails
