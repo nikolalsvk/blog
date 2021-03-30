@@ -232,7 +232,7 @@ fast and have the logic tested.
 And when that day comes (or it already came), you can resort back to this blog
 post and use it to your liking.
 
-If you liked the post, [you can share it on Twitter](TODO). Consider
+If you liked the post, [you can share it on Twitter](https://twitter.com/nikolalsvk/status/1376861179377807363). Consider
 subscribing to the [newsletter](/newsletter) to get new articles like this one.
 
 Catch you in the next one, cheers.
