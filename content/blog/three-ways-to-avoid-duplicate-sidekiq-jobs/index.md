@@ -145,4 +145,5 @@ dependencies and it will alleviate the queue numbers a bit.
 
 ### Traversing The Queue
 
-One thing you can do is create your own
+One thing you can do is create a custom locking mechanism to prevent same jobs
+enqueueing.
