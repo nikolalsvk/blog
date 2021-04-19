@@ -9,7 +9,7 @@ tags:
   - Sidekiq
 ---
 
-Chances are that if you are writing some sort of a Ruby code, you are using
+The chances are that if you are writing some Ruby code, you are using
 Sidekiq to handle background processing. If you are coming from the `ActiveJob`
 or some other background, stay tuned, some of the tips can be applied there as
 well.
@@ -17,7 +17,7 @@ well.
 Folks utilize (Sidekiq) background jobs for many different cases. Some crunch
 numbers, some dispatch welcome emails to users, and some even schedule data
 syncing. Whatever your case may be, you might eventually come to a request to
-avoid duplicate jobs. By duplicate jobs I envision two jobs that do the exactly
+avoid duplicate jobs. By duplicate jobs, I envision two jobs that do the exact
 same thing. Let us dive in on that a bit.
 
 ## Why De-Duplicate Jobs?
@@ -39,28 +39,28 @@ end
 ```
 
 The `BookSalesWorker` always does the same thing, queries the DB for a book
-based on the `book_id` and fetches the latest sales data to calculate some
+based on the `book_id`, and fetches the latest sales data to calculate some
 numbers. Then, it uploads them to a storage service. And imagine every time a
 book is sold on your website, you will have this job enqueued.
 
-Now what if you got 100 sales at one moment, you'd have 100 of these jobs doing
-exactly the same thing. Maybe you are fine with that, you don't care about S3
-writes that much and your queues are not as congested so you can handle that
+Now, what if you got 100 sales at one moment? You'd have 100 of these jobs doing
+exactly the same thing. Maybe you are fine with that. You don't care about S3
+writes that much, and your queues are not as congested, so you can handle that
 load. But, "does it scale?"™️
 
 Well, definitely not. If you start receiving even more sales on even more
-books, your queue would pile up so fast with unnecessary work. If you have 100
-jobs that does the same thing for a single book, and you 10 books selling in
+books, your queue will pile up so fast with unnecessary work. If you have 100
+jobs that do the same thing for a single book, and you 10 books selling in
 parallel, you are now 1000 jobs deep in your queue, where in reality, you could
 have just 10 jobs for each book.
 
-Now, let's go through couple of options on how you can prevent duplicate jobs
+Now, let's go through a couple of options on how you can prevent duplicate jobs
 from piling up your queues.
 
 ## 1. DIY Way
 
 If you are not a fan of external dependencies and complex logic, you can go
-ahead and add some kind of a custom solution to your codebase. I created a
+ahead and add some custom solutions to your codebase. I created a
 sample repo to try out our examples first-hand. There will be a link in each
 approach to the example.
 
@@ -138,23 +138,23 @@ Now we control a portion of time between job is enqueued and finished. In that
 portion of time, no job can be enqueued. While the job is running, the
 `sales_enqueued_at` will be larger than `sales_calculated_at`. When the job
 finishes running, the `sales_calculated_at` will be larger (more recent) than
-the `sales_enqueued_at` and new job will get enqueued.
+the `sales_enqueued_at`, and a new job will get enqueued.
 
-Using two flags might be interesting so you could show when was the last time
+Using two flags might be interesting, so you could show when was the last time
 those sales numbers got updated in the UI. Then the users that read those
-numbers can have an idea on how recent is the data. A win-win situation.
+numbers can have an idea of how recent the data is. A win-win situation.
 
 ### Flag Sum Up
 
 It might be tempting to do solutions like these in the time of need, but to me,
-they look a bit clumsy and they add some overhead. I would recommend using
+they look a bit clumsy, and they add some overhead. I would recommend using
 this if your use case is simple, but as soon as it proves complex or not
 enough, I'd urge you to try out other options.
 
-A huge con with the flag approach approach is that you will lose all the jobs
-that tried to enqueue during that 10 minute period or the period where the no
-other jobs could be scheduled. A huge pro is that you are not bringing in
-dependencies and it will alleviate the job number in queues pretty quickly.
+A huge con with the flag approach is that you will lose all the jobs
+that tried to enqueue during those 10 minutes. A huge pro is that you are not
+bringing in dependencies, and it will alleviate the job number in queues
+pretty quickly.
 
 ### 1.3 Traversing The Queue
 
@@ -190,13 +190,13 @@ class BookSalesWorker
 end
 ```
 
-What we are doing in the example above is that we are checking whether the
+In the example above we are checking whether the
 `'default'` queue has a job with the class name `BookSalesWorker`. We are also
 checking if the job arguments match the book ID. If the `BookSalesWorker` job
-with the same Book ID is in the queue, we will return early not not schedule
+with the same Book ID is in the queue, we will return early and not schedule
 another one.
 
-Do note that if you schedule jobs too fast, some of them might get scheduled
+Do note that some of them might get scheduled if you schedule jobs too fast
 because the queue is empty. The exact thing happened to me when testing it
 locally with:
 
@@ -206,7 +206,7 @@ locally with:
 
 You can try it out in the [example repo here](https://github.com/nikolalsvk/duplicate-sidekiq-jobs#3-traverse-sidekiq-queue-approach).
 
-Good thing about this approach is that you can traverse all queues to search
+The good thing about this approach is that you can traverse all queues to search
 for an existing job if you need it. The con is that you can still have
 duplicate jobs if your queue is empty and you schedule a lot of them at once.
 Also, you are traversing potentially through all the jobs in the queue before
@@ -214,8 +214,8 @@ you schedule it, so that might be costly depending on the size of your queue.
 
 ## 2. Upgrading to Sidekiq Enterprise
 
-If you or your organization has some money laying around, you can upgrade to
-the Enterprise version of Sidekiq. It start at 179\$ per month and it has a cool
+If you or your organization has some money lying around, you can upgrade to
+the Enterprise version of Sidekiq. It starts at 179\$ per month, and it has a cool
 feature to avoid duplicate jobs. Unfortunately, I don't have a Sidekiq
 Enterprise, but I believe [their documentation](https://github.com/mperham/sidekiq/wiki/Ent-Unique-Jobs).
 You can easily have unique (non-duplicated) jobs with the following code:
@@ -235,20 +235,20 @@ class BookSalesWorker
 end
 ```
 
-And that is it. You just have a similar implementation to what we described in
+And that is it. You have a similar job implementation to what we described in
 the 'One Flag Approach' section. The job will be unique for 10 minutes, meaning
 no other job with the same arguments can be scheduled in that time period.
 
-Pretty cool one liner, huh? Well, if you have Enterprise Sidekiq and you just
-found out about this feature - I am truly glad I helped. But, most of us are
+Pretty cool one-liner, huh? Well, if you have Enterprise Sidekiq and you just
+found out about this feature - I am truly glad I helped. Most of us are
 not going to use it, so let us jump into the next solution.
 
 ## 3. sidekiq-unique-jobs To The Rescue
 
-Yes, I know we are about to mention a gem. And yes, it has some Lua files in it
+Yes, I know we are about to mention a gem. And yes, it has some Lua files in it,
 which might put someone off. But bear with me, it is a really sweet deal you
 are getting with it. The [sidekiq-unique-job](https://github.com/mhenrixon/sidekiq-unique-jobs)
-gem comes with a lot of locking and other configuration options. Probably more
+gem comes with a lot of locking and other configuration options - probably more
 than you need.
 
 To get started quickly, put `sidekiq-unique-jobs` gem into your Gemfile, do
@@ -281,19 +281,19 @@ sidekiq_options lock: :until_executed, on_conflict: :reject
 ```
 
 The `lock: :until_executed` will lock the first `UniqueBookSalesWorker` job
-until it is executed. With `on_conflict: :reject` we are saying that we want
+until it is executed. With `on_conflict: :reject`, we are saying that we want
 all other jobs that try to perform to be rejected into the dead queue. What we
 achieved here is similar to what we did in our DIY examples in the topics above.
 
-A slight improvement over those DIY examples is that the we have some kind of a log
+A slight improvement over those DIY examples is that we have some kind of a log
 of what happened. To get a sense of how it looks, let's try to do:
 
 ```rb
 5.times { UniqueBookSalesWorker.perform_async(Book.last.id) }
 ```
 
-Only one job will actually perform, and other four jobs will be sent off to the
-dead queue, where you can retry them. This differs from our examples where
+Only one job will fully perform, and the other four jobs will be sent off to the
+dead queue, where you can retry them. This approach differs from our examples where
 duplicate jobs were just ignored.
 
 ![Dead queue](./dead-queue.png)
@@ -304,7 +304,7 @@ for your specific use case.
 
 ### Great Insights
 
-Great thing about this gem is that you can view the locks and the history of what went down in your queues.
+The great thing about this gem is that you can view the locks and the history of what went down in your queues.
 All you need to do is add the following lines in your `config/routes.rb`:
 
 ```
@@ -316,12 +316,12 @@ Rails.application.routes.draw do
 end
 ```
 
-It will include the original Sidekiq client but it will also give you two more
+It will include the original Sidekiq client, but it will also give you two more
 pages - for job locks and the changelog. This is how it looks:
 
 ![New Sidekiq Client pages](./new-pages.png)
 
-Notice how we have two new pages "Locks" and "Changelogs". Pretty cool feature.
+Notice how we have two new pages, "Locks" and "Changelogs". Pretty cool feature.
 
 You can try all of this in [the example
 project](https://github.com/nikolalsvk/duplicate-sidekiq-jobs#4-using-sidekiq-unique-jobs-gem)
@@ -330,16 +330,16 @@ where the gem is installed and ready to go.
 ### Why Lua?
 
 First of all, I am not the author of the gem, so I am just assuming things
-here. The first time I saw the gem I asked - why use Lua inside a Ruby gem? It
+here. The first time I saw the gem, I asked - why use Lua inside a Ruby gem? It
 might appear odd at first, but Redis supports running Lua scripts. I guess the
 author of the gem had this in mind and wanted to do more nimble logic in Lua.
 
-If you take a look at the
+If you look at the
 [Lua files in the gem's repo](https://github.com/mhenrixon/sidekiq-unique-jobs/tree/master/lib/sidekiq_unique_jobs/lua),
 they aren't that complicated. All of those Lua scripts later get called from
 the Ruby code in the
 [`SidekiqUniqueJobs::Script::Caller` here](https://github.com/mhenrixon/sidekiq-unique-jobs/blob/master/lib/sidekiq_unique_jobs/script/caller.rb).
-Take a look at the source code, it is interesting to read and figure out how things work there.
+Please take a look at the source code, it is interesting to read and figure out how things work there.
 
 ### Alternative gem
 
@@ -359,14 +359,14 @@ class BookSalesJob < ActiveJob::Base
 end
 ```
 
-The syntax is a bit less verbose, but very similar to the `sidekiq-unique-jobs`
+The syntax is a bit less verbose but very similar to the `sidekiq-unique-jobs`
 gem. It might solve your case if you highly rely on `ActiveJob`.
 
 ## Final Thoughts
 
 I hope you gained some knowledge in how to deal with duplicate jobs in your
 app. I definitely had fun researching and playing around with different
-solution. If you still didn't find what you looked for, I do hope that some of
+solutions. If you still didn't find what you looked for, I do hope that some of
 the examples inspired you to create something on your own.
 
 Consider starring the [example project](https://github.com/nikolalsvk/duplicate-sidekiq-jobs) and sharing the
