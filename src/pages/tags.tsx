@@ -20,7 +20,6 @@ interface Props {
       }[]
     }
   }
-  location: Location
 }
 
 const TagsPage = ({
@@ -30,9 +29,8 @@ const TagsPage = ({
     },
     allMarkdownRemark: { group },
   },
-  location,
 }: Props) => (
-  <Layout location={location} title={title}>
+  <Layout title={title}>
     <SEO title="Blog Tags" />
     <div>
       <h1>Tags</h1>

@@ -5,14 +5,14 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const Tag = ({ pageContext, data, location }) => {
+const Tag = ({ pageContext, data }) => {
   const { tag } = pageContext
   const { edges, totalCount } = data.allMarkdownRemark
   const tagHeader = `${totalCount} post${
     totalCount === 1 ? "" : "s"
   } tagged as ${tag}`
   return (
-    <Layout location={location} title={data.site.siteMetadata.title}>
+    <Layout title={data.site.siteMetadata.title}>
       <SEO title={`${tag} posts`} />
       <h1>{tagHeader}</h1>
       <ul>

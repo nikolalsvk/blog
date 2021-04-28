@@ -31,15 +31,14 @@ interface Props {
       }[]
     }
   }
-  location: Location
 }
 
-const BlogIndex = ({ data, location }: Props) => {
+const BlogIndex = ({ data }: Props) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout title={siteTitle} showLargeHeader>
       <SEO title="Welcome" />
       <Bio />
       {posts.map(({ node }) => {

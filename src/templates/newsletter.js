@@ -8,13 +8,13 @@ import SubscribeForm from "../components/subscribe-form"
 import ViewCounter from "../components/view-counter"
 import { rhythm } from "../utils/typography"
 
-const NewsletterTemplate = ({ data, location }) => {
+const NewsletterTemplate = ({ data }) => {
   const issue = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const slug = issue.fields.slug
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout title={siteTitle}>
       <SEO
         title={issue.frontmatter.title}
         description={issue.frontmatter.description}

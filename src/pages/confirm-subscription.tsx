@@ -12,14 +12,13 @@ interface Props {
       }
     }
   }
-  location: Location
 }
 
-const ConfirmSubscriptionPage = ({ data, location }: Props) => {
+const ConfirmSubscriptionPage = ({ data }: Props) => {
   const siteTitle = data.site.siteMetadata.title
 
   return (
-    <Layout location={location} title={siteTitle} showLargeHeader>
+    <Layout title={siteTitle} showLargeHeader>
       <SEO title="Thank you for subscribing" />
 
       <article>
