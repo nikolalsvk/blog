@@ -10,6 +10,7 @@ blogOgImage: ./cover.jpg
 published: true
 tags:
   - Rails
+  - Ruby
   - Patterns
 ---
 

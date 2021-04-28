@@ -8,6 +8,7 @@ blogOgImage: ./og-image.png
 published: true
 tags:
   - Rails
+  - Ruby
   - JavaScript
   - render_async
 ---

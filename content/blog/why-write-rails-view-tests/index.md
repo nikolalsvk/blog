@@ -8,6 +8,7 @@ blogOgImage: ./og-image.jpg
 published: true
 tags:
   - Rails
+  - Ruby
   - Testing
 ---
 

@@ -10,6 +10,7 @@ canonicalName: AppSignal Blog
 published: true
 tags:
   - Rails
+  - Ruby
   - Patterns
 ---
 
