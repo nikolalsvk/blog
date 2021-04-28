@@ -5,24 +5,35 @@ import ThemeSwitch from "./themeSwitch"
 
 import styled from "styled-components"
 
-const BigHeader = styled.header`
-  margin-bottom: ${rhythm(1)};
-  margin-top: 0;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
+const BigHeader = {
+  Wrapper: styled.header`
+    margin-bottom: ${rhythm(1)};
+    margin-top: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 
-  a {
-    box-shadow: none;
-    color: inherit;
-  }
-`
+    a {
+      box-shadow: none;
+      color: inherit;
+    }
+  `,
+  TopPart: styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  `,
+  Text: styled.h1`
+    margin-top: ${rhythm(1.5)};
 
-const BigHeaderTopPart = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`
+    font-size: ${rhythm(2.3)};
+
+    @media (max-width: 768px) {
+      font-size: ${rhythm(1.5)};
+      margin-top: ${rhythm(1)};
+    }
+  `,
+}
 
 const SmallHeader = styled.header`
   margin-top: 0;
@@ -38,17 +49,6 @@ const SmallHeader = styled.header`
   a {
     box-shadow: none;
     color: inherit;
-  }
-`
-
-const BigHeaderText = styled.h1`
-  margin-top: ${rhythm(1.5)};
-
-  font-size: ${rhythm(2.3)};
-
-  @media (max-width: 768px) {
-    font-size: ${rhythm(1.5)};
-    margin-top: ${rhythm(1)};
   }
 `
 
@@ -72,38 +72,22 @@ interface Props {
 }
 
 const Header = ({ title, showLargeHeader }: Props) => {
-  const [windowDimension, setWindowDimension] = useState(window.innerWidth)
-
-  useEffect(() => {
-    setWindowDimension(window.innerWidth)
-  }, [])
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowDimension(window.innerWidth)
-    }
-
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
-
-  const isMobile = windowDimension <= 640
-
   if (showLargeHeader) {
     return (
-      <BigHeader>
-        <BigHeaderTopPart>
+      <BigHeader.Wrapper>
+        <BigHeader.TopPart>
           <Navigation>
             <Link to="/about">About</Link>
             <Link to="/talks">Talks</Link>
             <Link to="/newsletter">Newsletter</Link>
           </Navigation>
           <ThemeSwitch />
-        </BigHeaderTopPart>
-        <BigHeaderText>
+        </BigHeader.TopPart>
+
+        <BigHeader.Text>
           <Link to={`/`}>{title}</Link>
-        </BigHeaderText>
-      </BigHeader>
+        </BigHeader.Text>
+      </BigHeader.Wrapper>
     )
   }
 
