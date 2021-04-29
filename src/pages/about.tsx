@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import ViewCounter from "../components/view-counter"
 
 interface Props {
   data: {
@@ -20,6 +21,7 @@ const AboutPage = ({ data }: Props) => {
   return (
     <Layout title={siteTitle}>
       <SEO title="About" />
+      <ViewCounter hideText slug="/about" />
       <h1>About Nikola</h1>
       <p>
         Hi{" "}
