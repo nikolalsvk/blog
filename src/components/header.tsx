@@ -149,8 +149,6 @@ interface Props {
 const Header = ({ title, showLargeHeader }: Props) => {
   const [open, setOpen] = useState(false)
 
-  console.log(open)
-
   const toggleMobileMenu = () => setOpen((value) => !value)
 
   if (showLargeHeader) {
