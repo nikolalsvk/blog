@@ -2,16 +2,16 @@ import React, { createContext, useContext, useState, useEffect } from "react"
 
 export const COLORS = {
   purple: {
-    primary: "#BD5B04",
-    secondary: "#E0D3DE",
-    text: "white",
-    background: "#161032",
+    primary: "hsl(28, 96%, 38%, 1)",
+    secondary: "hsl(309, 17%, 85%, 1)",
+    text: "hsla(0, 0%, 100%, 1)",
+    background: "hsla(251, 52%, 13%, 1)",
   },
   normal: {
-    primary: "#B26700",
-    secondary: "#BD5B04",
-    text: "#161032",
-    background: "white",
+    primary: "hsla(35, 100%, 35%, 1)",
+    secondary: "hsla(28, 96%, 38%, 1)",
+    text: "hsla(251, 52%, 13%, 1)",
+    background: "hsla(0, 0%, 100%, 1)",
   },
 }
 
