@@ -21,7 +21,7 @@ const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
   max-width: ${rhythm(24)};
-  padding: ${rhythm(1.5)} ${rhythm(3 / 4)};
+  padding: ${rhythm(0.5)} ${rhythm(3 / 4)} ${rhythm(1.5)} ${rhythm(3 / 4)};
   display: flex;
   flex-direction: column;
 `
@@ -35,26 +35,19 @@ const Footer = styled.footer`
 `
 
 interface Props {
-  location: Location
   title: string
   showLargeHeader?: boolean
   children: React.ReactNode
 }
 
-const Layout = ({ location, title, showLargeHeader, children }: Props) => {
+const Layout = ({ title, showLargeHeader, children }: Props) => {
   const { theme } = useTheme()
 
   return (
     <Container>
       <AllStyles theme={theme} />
       <Main>
-        <header>
-          <Header
-            location={location}
-            title={title}
-            showLargeHeader={showLargeHeader}
-          />
-        </header>
+        <Header title={title} showLargeHeader={showLargeHeader} />
         {children}
       </Main>
       <Footer>© {new Date().getFullYear()} Nikola Đuza</Footer>

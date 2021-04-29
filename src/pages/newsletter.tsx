@@ -34,7 +34,6 @@ interface Props {
       }[]
     }
   }
-  location: Location
 }
 
 const NewsletterPage = ({
@@ -44,12 +43,11 @@ const NewsletterPage = ({
     },
     allMarkdownRemark: { edges: issues },
   },
-  location,
 }: Props) => {
   const [showIssues, setShowIssues] = useState(false)
 
   return (
-    <Layout location={location} title={title}>
+    <Layout title={title}>
       <SEO title="💌 Newsletter" />
 
       <div>

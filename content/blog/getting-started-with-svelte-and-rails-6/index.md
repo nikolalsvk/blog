@@ -9,6 +9,8 @@ coverImage: ./cover.jpg
 blogOgImage: ./cover.jpg
 published: true
 tags:
+  - Rails
+  - Ruby
   - JavaScript
 ---
 

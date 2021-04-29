@@ -9,7 +9,7 @@ import SubscribeForm from "../components/subscribe-form"
 import { rhythm, scale } from "../utils/typography"
 import ViewCounter from "../components/view-counter"
 
-const BlogPostTemplate = ({ data, pageContext, location }) => {
+const BlogPostTemplate = ({ data, pageContext }) => {
   const post = data.markdownRemark
   const updatedAt = post.parent.fields?.updatedAt
   const updatedAtDateTime = post.parent.fields?.updatedAtDateTime
@@ -26,7 +26,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const { timeToRead } = post
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout title={siteTitle}>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
