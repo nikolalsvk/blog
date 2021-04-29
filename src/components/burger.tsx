@@ -57,7 +57,7 @@ interface Props {
 
 const Burger = ({ open, handleClick }: Props) => {
   return (
-    <StyledBurger open={open} onClick={handleClick}>
+    <StyledBurger open={open} onClick={handleClick} aria-label="Menu">
       <div />
       <div />
       <div />
