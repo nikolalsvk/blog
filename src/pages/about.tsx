@@ -21,7 +21,6 @@ const AboutPage = ({ data }: Props) => {
     <Layout title={siteTitle}>
       <SEO title="About" />
       <h1>About Nikola</h1>
-      <p>Welcome, glad you ended up on this page.</p>
       <p>
         Hi{" "}
         <span role="img" aria-label="Wave">
@@ -44,7 +43,32 @@ const AboutPage = ({ data }: Props) => {
       <p>
         All that explained in simple words to make both languages easy to apply.
         My articles have appeared on the first page of HackerNews, and blogs
-        like LogRocket, AppSignal and Semaphore.
+        like{" "}
+        <Link
+          target="_blank"
+          to="https://blog.logrocket.com/author/nikola-duza/"
+        >
+          LogRocket
+        </Link>
+        ,{" "}
+        <Link target="_blank" to="https://blog.appsignal.com/">
+          AppSignal
+        </Link>
+        , and{" "}
+        <Link target="_blank" to="https://semaphoreci.com/author/nikola">
+          Semaphore
+        </Link>
+        .
+      </p>
+
+      <p>
+        Thanks for visiting this page. If you want to connect further, feel free
+        to reach out on{" "}
+        <Link target="_blank" to="https://twitter.com/nikolalsvk">
+          Twitter
+        </Link>{" "}
+        or just{" "}
+        <a href="mailto:nikola@pragmaticpineapple.com">send me an email</a>.
       </p>
     </Layout>
   )
