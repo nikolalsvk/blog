@@ -8,6 +8,7 @@ import SEO from "../components/seo"
 import SubscribeForm from "../components/subscribe-form"
 import { rhythm, scale } from "../utils/typography"
 import ViewCounter from "../components/view-counter"
+import Spacer from "../components/spacer"
 
 interface PageContextPage {
   fields: {
@@ -166,6 +167,8 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
 
         <SubscribeForm />
       </article>
+
+      <Spacer />
 
       <nav>
         <ul
