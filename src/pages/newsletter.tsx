@@ -6,9 +6,20 @@ import SubscribeForm from "../components/subscribe-form"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 
-const SeeMoreButton = styled.div`
-  border: none;
+const SeeMoreButton = styled.span`
+  box-shadow: 0 1px 0 0 currentColor;
   cursor: pointer;
+`
+
+interface NewsletterIssuesProps {
+  open: boolean
+}
+
+const NewsletterIssues = styled.div<NewsletterIssuesProps>`
+  h3 {
+    margin-top: ${rhythm(1.5)};
+    margin-bottom: ${rhythm(1 / 4)};
+  }
 `
 
 interface Props {
@@ -70,47 +81,45 @@ const NewsletterPage = ({
 
         <p>
           {showIssues ? (
-            <SeeMoreButton onClick={() => setShowIssues(false)}>
+            <SeeMoreButton role="button" onClick={() => setShowIssues(false)}>
               Hide previous issues.
             </SeeMoreButton>
           ) : (
-            <SeeMoreButton onClick={() => setShowIssues(true)}>
+            <SeeMoreButton role="button" onClick={() => setShowIssues(true)}>
               You can see previous issues by clicking here.
             </SeeMoreButton>
           )}
         </p>
 
-        {showIssues &&
-          issues.map(({ node }) => {
-            const title = node.frontmatter.title || node.fields.slug
+        <NewsletterIssues open={showIssues}>
+          {showIssues &&
+            issues.map(({ node }) => {
+              const title = node.frontmatter.title || node.fields.slug
 
-            return (
-              <article key={node.fields.slug}>
-                <header>
-                  <h3
-                    style={{
-                      marginBottom: rhythm(1 / 4),
-                    }}
-                  >
-                    <Link
-                      style={{ boxShadow: `none` }}
-                      to={`newsletter/${node.fields.slug}`}
-                    >
-                      {title}
-                    </Link>
-                  </h3>
-                  <small>{node.frontmatter.date}</small>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: node.frontmatter.description || node.excerpt,
-                    }}
-                  />
-                </section>
-              </article>
-            )
-          })}
+              return (
+                <article key={node.fields.slug}>
+                  <header>
+                    <h3>
+                      <Link
+                        style={{ boxShadow: `none` }}
+                        to={`/newsletter${node.fields.slug}`}
+                      >
+                        {title}
+                      </Link>
+                    </h3>
+                    <small>{node.frontmatter.date}</small>
+                  </header>
+                  <section>
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: node.frontmatter.description || node.excerpt,
+                      }}
+                    />
+                  </section>
+                </article>
+              )
+            })}
+        </NewsletterIssues>
 
         <SubscribeForm />
       </div>

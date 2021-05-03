@@ -8,7 +8,31 @@ import SubscribeForm from "../components/subscribe-form"
 import ViewCounter from "../components/view-counter"
 import { rhythm } from "../utils/typography"
 
-const NewsletterTemplate = ({ data }) => {
+interface Props {
+  data: {
+    site: {
+      siteMetadata: {
+        title: string
+      }
+    }
+    markdownRemark: {
+      id: string
+      excerpt: string
+      html: string
+      fields: {
+        slug: string
+      }
+      frontmatter: {
+        title: string
+        date: string
+        description: string
+      }
+      timeToRead: number
+    }
+  }
+}
+
+const NewsletterTemplate = ({ data }: Props) => {
   const issue = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const slug = issue.fields.slug
