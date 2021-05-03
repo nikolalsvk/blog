@@ -5,6 +5,8 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import SubscribeForm from "../components/subscribe-form"
+import Spacer from "../components/spacer"
 
 interface Props {
   data: {
@@ -34,6 +36,10 @@ const TagsPage = ({
     <SEO title="Blog Tags" />
     <div>
       <h1>Tags</h1>
+      <p>
+        Here are all the tags (topics) on the blog. Click any of them to show
+        blog posts related to that topic.
+      </p>
       <ul>
         {group.map((tag) => (
           <li key={tag.fieldValue}>
@@ -44,6 +50,9 @@ const TagsPage = ({
         ))}
       </ul>
     </div>
+
+    <SubscribeForm />
+    <Spacer />
   </Layout>
 )
 

@@ -27,6 +27,9 @@ export default createGlobalStyle`
     // Use Roboto font everywhere except in code inserts
     font-family: 'Roboto', sans-serif;
   }
+  hr {
+    border: 1px solid var(--color-primary);
+  }
   .animate-switch {
     transition: 0.3s cubic-bezier(0.62, -0.52, 0.43, 1.02);
   }

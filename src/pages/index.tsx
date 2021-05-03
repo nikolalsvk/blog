@@ -7,6 +7,7 @@ import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 import ViewCounter from "../components/view-counter"
 import SubscribeForm from "../components/subscribe-form"
+import Spacer from "../components/spacer"
 
 interface Props {
   data: {
@@ -72,6 +73,8 @@ const BlogIndex = ({ data }: Props) => {
       <ViewCounter slug="home" hideText />
 
       <SubscribeForm />
+
+      <Spacer />
     </Layout>
   )
 }

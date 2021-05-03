@@ -4,6 +4,8 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ViewCounter from "../components/view-counter"
+import Spacer from "../components/spacer"
+import SubscribeForm from "../components/subscribe-form"
 
 interface Props {
   data: {
@@ -72,6 +74,10 @@ const AboutPage = ({ data }: Props) => {
         or just{" "}
         <a href="mailto:nikola@pragmaticpineapple.com">send me an email</a>.
       </p>
+
+      <SubscribeForm />
+
+      <Spacer />
     </Layout>
   )
 }

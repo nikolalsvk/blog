@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import SubscribeForm from "../components/subscribe-form"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
+import Spacer from "../components/spacer"
 
 const SeeMoreButton = styled.span`
   box-shadow: 0 1px 0 0 currentColor;
@@ -123,6 +124,7 @@ const NewsletterPage = ({
 
         <SubscribeForm />
       </div>
+      <Spacer />
     </Layout>
   )
 }
