@@ -9,7 +9,63 @@ import SubscribeForm from "../components/subscribe-form"
 import { rhythm, scale } from "../utils/typography"
 import ViewCounter from "../components/view-counter"
 
-const BlogPostTemplate = ({ data, pageContext }) => {
+interface Props {
+  data: {
+    site: {
+      siteMetadata: {
+        title: string
+      }
+    }
+    markdownRemark: {
+      id: string
+      excerpt: string
+      html: string
+      frontmatter: {
+        title: string
+        publishedAt: string
+        publishedAtDateTime: string
+        description: string
+        canonical: string
+        canonicalName: string
+        coverImage?: {
+          publicURL: string
+        }
+        blogOgImage?: {
+          publicURL: string
+        }
+        slug: string
+        tags: string[]
+      }
+      timeToRead: number
+      parent: {
+        fields: {
+          updatedAt: string
+          updatedAtDateTime: string
+        }
+      }
+    }
+  }
+  pageContext: {
+    next: {
+      fields: {
+        slug: string
+      }
+      frontmatter: {
+        title: string
+      }
+    }
+    previous: {
+      fields: {
+        slug: string
+      }
+      frontmatter: {
+        title: string
+      }
+    }
+  }
+}
+
+const BlogPostTemplate = ({ data, pageContext }: Props) => {
   const post = data.markdownRemark
   const updatedAt = post.parent.fields?.updatedAt
   const updatedAtDateTime = post.parent.fields?.updatedAtDateTime
@@ -31,8 +87,8 @@ const BlogPostTemplate = ({ data, pageContext }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
         canonical={canonical}
-        blogOgImage={post.frontmatter.blogOgImage.publicURL}
-        coverImage={post.frontmatter.coverImage.publicURL}
+        blogOgImage={post.frontmatter.blogOgImage?.publicURL}
+        coverImage={post.frontmatter.coverImage?.publicURL}
       />
       <article>
         <header>
@@ -162,7 +218,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         publishedAt: date(formatString: "MMMM DD, YYYY")
-        publisedAtDateTime: date(formatString: "YYYY-MM-DD")
+        publishedAtDateTime: date(formatString: "YYYY-MM-DD")
         description
         canonical
         canonicalName
