@@ -58,6 +58,12 @@ const Submit = styled.button`
   border: none;
   padding: 12px;
   cursor: pointer;
+  transition: 0.5s;
+  background-size: 200% auto;
+
+  &:hover {
+    background-position: right center;
+  }
 `
 
 const TryAgain = styled.button`

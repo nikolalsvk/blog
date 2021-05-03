@@ -4,6 +4,8 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import SubscribeForm from "../components/subscribe-form"
+import Spacer from "../components/spacer"
 
 interface Props {
   data: {
@@ -54,6 +56,12 @@ const Tag = ({ pageContext, data }: Props) => {
       </ul>
 
       <Link to="/tags">All tags</Link>
+
+      <Spacer />
+
+      <SubscribeForm />
+
+      <Spacer />
     </Layout>
   )
 }
