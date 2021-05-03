@@ -1,6 +1,6 @@
 ---
 title: Ruby on Rails Controller Anti-patterns and Patterns
-description: TODO
+description: In this part of the series on Rails patterns and anti-patterns, we are going to analyze the final part of the MVC (Model-View-Controller) design pattern — the Controller.
 slug: ruby-on-rails-controller-patterns-and-anti-patterns
 date: 2021-04-14
 coverImage: ./cover.jpg
