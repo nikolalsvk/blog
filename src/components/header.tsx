@@ -135,6 +135,7 @@ const MobileMenu = ({ open }: MobileMenuProps) => {
       <Mobile.Navigation>
         <Link to="/about">About</Link>
         <Link to="/newsletter">Newsletter</Link>
+        <Link to="/tags">Tags</Link>
       </Mobile.Navigation>
       <ThemeSwitch />
     </Mobile.Wrapper>
@@ -158,6 +159,7 @@ const Header = ({ title, showLargeHeader }: Props) => {
           <Navigation>
             <Link to="/about">About</Link>
             <Link to="/newsletter">Newsletter</Link>
+            <Link to="/tags">Tags</Link>
           </Navigation>
           <ThemeSwitch />
         </BigHeader.TopPart>
@@ -186,6 +188,7 @@ const Header = ({ title, showLargeHeader }: Props) => {
         <Navigation>
           <Link to="/about">About</Link>
           <Link to="/newsletter">Newsletter</Link>
+          <Link to="/tags">Tags</Link>
         </Navigation>
 
         <ThemeSwitch />
