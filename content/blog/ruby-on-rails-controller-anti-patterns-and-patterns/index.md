@@ -2,7 +2,7 @@
 title: Ruby on Rails Controller Anti-patterns and Patterns
 description: TODO
 slug: ruby-on-rails-controller-patterns-and-anti-patterns
-date: 2021-03-20
+date: 2021-04-14
 coverImage: ./cover.jpg
 blogOgImage: ./cover.jpg
 canonical: https://blog.appsignal.com/2021/04/14/ruby-on-rails-controller-patterns-and-anti-patterns.html
