@@ -94,7 +94,7 @@ const NewsletterPage = ({
                   >
                     <Link
                       style={{ boxShadow: `none` }}
-                      to={`newsletter/${node.fields.slug}`}
+                      to={`/newsletter${node.fields.slug}`}
                     >
                       {title}
                     </Link>
