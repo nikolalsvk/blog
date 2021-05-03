@@ -9,6 +9,15 @@ import SubscribeForm from "../components/subscribe-form"
 import { rhythm, scale } from "../utils/typography"
 import ViewCounter from "../components/view-counter"
 
+interface PageContextPage {
+  fields: {
+    slug: string
+  }
+  frontmatter: {
+    title: string
+  }
+}
+
 interface Props {
   data: {
     site: {
@@ -46,22 +55,8 @@ interface Props {
     }
   }
   pageContext: {
-    next: {
-      fields: {
-        slug: string
-      }
-      frontmatter: {
-        title: string
-      }
-    }
-    previous: {
-      fields: {
-        slug: string
-      }
-      frontmatter: {
-        title: string
-      }
-    }
+    next: PageContextPage
+    previous: PageContextPage
   }
 }
 
