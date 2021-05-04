@@ -18,6 +18,14 @@ $ npm install
 $ npm start
 ```
 
+If you want to test out view-counter function, you will need [Netlify CLI](https://www.netlify.com/products/dev/)
+
+Then, you can run
+
+```bash
+$ netlify dev
+```
+
 ## Ingredients
 
 This blog is built using Gatsby!
