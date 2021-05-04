@@ -48,29 +48,38 @@ const AboutPage = ({ data }: Props) => {
         All that explained in simple words to make both languages easy to apply.
         My articles have appeared on the first page of HackerNews, and blogs
         like{" "}
-        <Link
+        <a
           target="_blank"
-          to="https://blog.logrocket.com/author/nikola-duza/"
+          rel="noreferrer"
+          href="https://blog.logrocket.com/author/nikola-duza/"
         >
           LogRocket
-        </Link>
+        </a>
         ,{" "}
-        <Link target="_blank" to="https://blog.appsignal.com/">
+        <a target="_blank" rel="noreferrer" href="https://blog.appsignal.com/">
           AppSignal
-        </Link>
+        </a>
         , and{" "}
-        <Link target="_blank" to="https://semaphoreci.com/author/nikola">
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://semaphoreci.com/author/nikola"
+        >
           Semaphore
-        </Link>
+        </a>
         .
       </p>
 
       <p>
         Thanks for visiting this page. If you want to connect further, feel free
         to reach out on{" "}
-        <Link target="_blank" to="https://twitter.com/nikolalsvk">
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://twitter.com/nikolalsvk"
+        >
           Twitter
-        </Link>{" "}
+        </a>{" "}
         or just{" "}
         <a href="mailto:nikola@pragmaticpineapple.com">send me an email</a>.
       </p>
