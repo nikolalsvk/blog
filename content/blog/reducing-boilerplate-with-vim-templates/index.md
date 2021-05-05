@@ -3,10 +3,10 @@ title: Reducing Boilerplate With Vim Templates
 description: Jump-start React TypeScript classes, or plain HTML files with a simple Vim template. No plugins needed.
 slug: reducing-boilerplate-with-vim-templates
 date: 2021-05-05
-canonical: TODO
-canonicalName: TODO
-coverImage: TODO
-blogOgImage: TODO
+canonical: https://medium.com/@nikolalsvk/reducing-boilerplate-with-vim-templates-83831f8ced12
+canonicalName: Medium
+coverImage: ./cover.jpg
+blogOgImage: ./og-image.jpg
 published: true
 tags:
   - Vim
