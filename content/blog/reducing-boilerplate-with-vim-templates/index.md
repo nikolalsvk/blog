@@ -78,7 +78,7 @@ The most common template people suggest is the one for Bash scripts. It can look
 ```sh
 #!/usr/bin/env bash
 
-set -o pipefail
+set -eou pipefail
 ```
 
 You also need the following line in your `.vimrc`:
