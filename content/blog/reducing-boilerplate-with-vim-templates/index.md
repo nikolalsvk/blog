@@ -17,11 +17,17 @@ Today we are going to explain how you can avoid writing boilerplate code
 without any plugins. The feature we are about to explore is called
 templates or skeletons in Vim.
 
+![Fast lights](./cover.jpg)
+
+<div class="photo-caption">
+  Photo by <a href="https://unsplash.com/@jakegivens?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Jake Givens</a> on <a href="https://unsplash.com/s/photos/fast?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+</div>
+
 ## Skeletons and Vim
 
 Don't get scared, skeleton files (or templates) are just normal files. They are
 called that because they will be used as a skeleton when you try to create a
-specific file. In the case of creating a JSX TypeScript `.tsx` file, the Vim
+specific file. In the case of creating a JSX TypeScript `.tsx` file, Vim
 can use a predefined template (skeleton) file and add a React class. How does
 that look - you must be asking. Let's see below.
 
@@ -67,7 +73,7 @@ Help yourself there and use what you like. I will also share them below.
 
 ### Bash Script Skeleton
 
-Most common template people suggest is the one for Bash scripts. It can look like this:
+The most common template people suggest is the one for Bash scripts. It can look like this:
 
 ```sh
 #!/usr/bin/env bash
@@ -120,7 +126,7 @@ I picked this one up from the [HTML boilerplate in 2021](https://www.matuzo.at/b
 </html>
 ```
 
-You can add the next line in the `.vimrc` to apply HTML boilerplate on creation of new HTML files:
+You can add the next line in the `.vimrc` to apply HTML boilerplate on the creation of new HTML files:
 
 ```vim
 autocmd BufNewFile *.html 0r ~/.vim/skeletons/skeletons/page.html
@@ -151,11 +157,11 @@ autocmd BufNewFile *content/blog*.md 0r ~/.vim/skeletons/skeletons/blog-post.md
 
 ## Where To Keep Skeletons
 
-If current section was taken out of context, we could have been in trouble. But, jokes aside,
+If the current section was taken out of context, we could have been in trouble. But, jokes aside,
 where can you store template files? It doesn't really matter. I keep them inside my dotfiles
-which I have version controlled. They are inside `~/Documents/dotfiles/skeletons`. Some folks
+which I have in version control. They are inside `~/Documents/dotfiles/skeletons`. Some folks
 like them in `~/.vim/templates` or `~/.vim/skeletons`. I like mine in a [dotfiles git repo](https://github.com/nikolalsvk/dotfiles/)
-where they I can change and push them to GitHub easily.
+where I can change and push them to GitHub easily.
 
 ## Manual Usage
 
@@ -172,12 +178,12 @@ The contents of `~/.vim/skeletons/react-typescript.tsx` will show below your cur
 ## Final Thoughts
 
 That's all for now. Thanks for tuning in. Consider subscribing to my
-[newsletter](/newsletter) where we will explore a possibility of adding some
+[newsletter](/newsletter) where we will explore the possibility of adding some
 dynamic templates in one of the next blog posts.
 
 Also, don't forget to share with your friends and coworkers on Twitter if you found
 the post useful.
 
-TODO
+<blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">Brand new post on Vim skeletons 💀<br><br>Check it out below ⬇️<a href="https://t.co/2PGeASFAH3">https://t.co/2PGeASFAH3</a></p>&mdash; Nikola Đuza (@nikolalsvk) <a href="https://twitter.com/nikolalsvk/status/1390007450586206208?ref_src=twsrc%5Etfw">May 5, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Until the next one, cheers.
