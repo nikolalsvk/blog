@@ -41,11 +41,11 @@ const AboutPage = ({ data }: Props) => {
         How? I break down complicated and overlooked JS & Ruby problems into
         actionable take-aways for beginners and advanced coders. That includes
         multiple perspectives which encourage my readers to reflect, evaluate
-        and choose a solution that fits.
+        and choose a solution that fits. All that explained in simple words to
+        make both languages easy to apply.
       </p>
 
       <p>
-        All that explained in simple words to make both languages easy to apply.
         My articles have appeared on the first page of HackerNews, and blogs
         like{" "}
         <a
@@ -67,7 +67,8 @@ const AboutPage = ({ data }: Props) => {
         >
           Semaphore
         </a>
-        .
+        . I've also been featured on newsletters like Ruby Weekly, JavaScript
+        Weekly, and Node Weekly.
       </p>
 
       <p>
