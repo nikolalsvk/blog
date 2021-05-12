@@ -26,8 +26,8 @@ templates or skeletons in Vim.
 ## Skeletons and Vim
 
 Don't get scared, skeleton files (or templates) are just normal files. They are
-called that because they will be used as a skeleton when you try to create a
-specific file. In the case of creating a JSX TypeScript `.tsx` file, Vim
+called that because they will be used as a skeleton when creating a
+specific file. To create a JSX TypeScript `.tsx` file, Vim
 can use a predefined template (skeleton) file and add a React class. How does
 that look - you must be asking. Let's see below.
 
@@ -64,7 +64,7 @@ Let's break it down a bit:
 
 And, that is it. Every time you create a new React TypeScript file, there will
 be sitting a new functional component. Let's see what other useful templates
-can we use.
+we can use.
 
 ## Useful Skeletons
 
@@ -178,8 +178,10 @@ The contents of `~/.vim/skeletons/react-typescript.tsx` will show below your cur
 ## Final Thoughts
 
 That's all for now. Thanks for tuning in. Consider subscribing to my
-[newsletter](/newsletter) where we will explore the possibility of adding some
+[newsletter](/newsletter), where we will explore the possibility of adding some
 dynamic templates in one of the next blog posts.
+
+I got the idea to write this blog post from [VimTricks in their post](https://vimtricks.com/p/automated-file-templates/), shout out to them.
 
 Also, don't forget to share with your friends and coworkers on Twitter if you found
 the post useful.
