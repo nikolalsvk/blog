@@ -116,7 +116,7 @@ const Mobile = {
     justify-content: center;
 
     a {
-      font-size: ${rhythm(0.8)};
+      font-size: ${rhythm(1)};
       margin-right: 0px;
       margin-bottom: ${rhythm(0.5)};
 
