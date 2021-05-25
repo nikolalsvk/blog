@@ -2,8 +2,8 @@ import React from "react"
 import styled, { createGlobalStyle } from "styled-components"
 import Header from "./header"
 
-import "@fontsource/josefin-sans/variable.css"
-import "@fontsource/roboto/variable.css"
+import "@fontsource/josefin-sans/700.css"
+import "@fontsource/roboto/400.css"
 
 import { rhythm } from "../utils/typography"
 import { useTheme } from "../contexts/theme"
