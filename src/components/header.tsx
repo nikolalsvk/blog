@@ -37,7 +37,7 @@ const BigHeader = {
       align-items: center;
       justify-content: space-between;
 
-      font-size: ${rhythm(1.5)};
+      font-size: ${rhythm(1.8)};
       margin-top: ${rhythm(1)};
     }
   `,
