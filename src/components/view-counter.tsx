@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react"
+import React, { useEffect } from "react"
 
-import loadDb from "../utils/firebase-db"
+// import loadDb from "../utils/firebase-db"
 
 import Views from "./views"
 
@@ -10,6 +10,7 @@ interface Props {
 }
 
 function ViewCounter({ slug, hideText }: Props) {
+  /*
   const [views, setViews] = useState("")
 
   // Subscribe to view count updates
@@ -29,6 +30,7 @@ function ViewCounter({ slug, hideText }: Props) {
       db.child(slug).off("value", onViews)
     }
   }, [slug])
+  */
 
   // Asynchronously log a view
   useEffect(() => {
@@ -47,7 +49,8 @@ function ViewCounter({ slug, hideText }: Props) {
     registerView()
   }, [slug])
 
-  return hideText ? null : <Views views={views} />
+  // Returning 0 until I decide to show views on blog posts again
+  return hideText ? null : <Views views="0" />
 }
 
 export default ViewCounter

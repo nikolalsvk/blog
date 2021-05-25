@@ -30,14 +30,14 @@ const BigHeader = {
   `,
   Text: styled.h1`
     margin-top: ${rhythm(1.5)};
-    font-size: ${rhythm(2.3)};
+    font-size: ${rhythm(2.8)};
 
     @media (max-width: 768px) {
       display: flex;
       align-items: center;
       justify-content: space-between;
 
-      font-size: ${rhythm(1.5)};
+      font-size: ${rhythm(1.8)};
       margin-top: ${rhythm(1)};
     }
   `,
@@ -116,7 +116,7 @@ const Mobile = {
     justify-content: center;
 
     a {
-      font-size: ${rhythm(0.8)};
+      font-size: ${rhythm(1)};
       margin-right: 0px;
       margin-bottom: ${rhythm(0.5)};
 
