@@ -30,7 +30,7 @@ const BigHeader = {
   `,
   Text: styled.h1`
     margin-top: ${rhythm(1.5)};
-    font-size: ${rhythm(2.3)};
+    font-size: ${rhythm(2.8)};
 
     @media (max-width: 768px) {
       display: flex;

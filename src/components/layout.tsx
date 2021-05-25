@@ -37,7 +37,7 @@ const Container = styled.div`
   min-height: 100%;
   margin-left: auto;
   margin-right: auto;
-  max-width: ${rhythm(24)};
+  max-width: ${rhythm(28.5)};
   padding: ${rhythm(0.5)} ${rhythm(3 / 4)} ${rhythm(1.5)} ${rhythm(3 / 4)};
   display: flex;
   flex-direction: column;
