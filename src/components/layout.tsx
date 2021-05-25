@@ -1,16 +1,33 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { createGlobalStyle } from "styled-components"
 import Header from "./header"
+
+import "@fontsource/josefin-sans/200.css"
+import "@fontsource/josefin-sans/400.css"
+import "@fontsource/josefin-sans/500.css"
+import "@fontsource/josefin-sans/600.css"
+import "@fontsource/josefin-sans/700.css"
+import "@fontsource/roboto/100.css"
+import "@fontsource/roboto/300.css"
+import "@fontsource/roboto/400.css"
+import "@fontsource/roboto/400-italic.css"
+import "@fontsource/roboto/500.css"
+import "@fontsource/roboto/700.css"
 
 import { rhythm } from "../utils/typography"
 import { useTheme } from "../contexts/theme"
 
-import { GlobalStyles, PrismDark, PrismLight } from "../styles"
+import { GlobalStyles, PrismDark, PrismLight, TypographyTheme } from "../styles"
+
+const Styles = createGlobalStyle`
+  ${TypographyTheme}
+  ${GlobalStyles}
+`
 
 const AllStyles = ({ theme }: { theme: string }) => {
   return (
     <>
-      <GlobalStyles />
+      <Styles />
       {theme === "white" ? <PrismLight /> : <PrismDark />}
     </>
   )

@@ -1,7 +1,6 @@
-import { createGlobalStyle } from "styled-components"
 import { rhythm } from "../utils/typography"
 
-export default createGlobalStyle`
+export const GlobalStyles = `
   html {
     height: 100%;
   }
