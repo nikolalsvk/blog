@@ -12,7 +12,7 @@ const Container = styled.div`
   background-color: hsla(19, 76%, 97%, 1);
   border-radius: 5px;
   border: 1px solid var(--color-primary);
-  padding: ${rhythm(1.5)} ${rhythm(1)};
+  padding: ${rhythm(1.9)} ${rhythm(1.3)};
 
   h2 {
     margin: 0;
