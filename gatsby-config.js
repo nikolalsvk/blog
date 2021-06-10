@@ -164,12 +164,56 @@ module.exports = {
         theme_color: `#ffffff`,
         display: `minimal-ui`,
         icon: `content/assets/pineapple-emoji.png`,
+        icons: [
+          {
+            src: `content/assets/icons/maskable_icon_x48.png`,
+            sizes: `48x48`,
+            type: `image/png`,
+            purpose: `any maskable`,
+          },
+          {
+            src: `content/assets/icons/maskable_icon_x72.png`,
+            sizes: `72x72`,
+            type: `image/png`,
+            purpose: `any maskable`,
+          },
+          {
+            src: `content/assets/icons/maskable_icon_x96.png`,
+            sizes: `96x96`,
+            type: `image/png`,
+            purpose: `any maskable`,
+          },
+          {
+            src: `content/assets/icons/maskable_icon_x128.png`,
+            sizes: `128x128`,
+            type: `image/png`,
+            purpose: `any maskable`,
+          },
+          {
+            src: `content/assets/icons/maskable_icon_x192.png`,
+            sizes: `192x192`,
+            type: `image/png`,
+            purpose: `any maskable`,
+          },
+          {
+            src: `content/assets/icons/maskable_icon_x384.png`,
+            sizes: `384x384`,
+            type: `image/png`,
+            purpose: `any maskable`,
+          },
+          {
+            src: `content/assets/icons/maskable_icon_x512.png`,
+            sizes: `512x512`,
+            type: `image/png`,
+            purpose: `any maskable`,
+          },
+        ],
       },
     },
     `gatsby-plugin-react-helmet`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`,
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-webpack-bundle-analyser-v2`,
