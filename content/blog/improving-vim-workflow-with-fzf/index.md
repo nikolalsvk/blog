@@ -8,13 +8,14 @@ blogOgImage: ./og-image.jpg
 published: true
 tags:
   - Vim
+  - fzf
 ---
 
 ![Pineapple on a beach](./cover.jpg)
 
-<div class="photo-caption">
+<figcaption class="photo-caption">
 <span>Photo by <a href="https://unsplash.com/@pineapple?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Pineapple Supply Co.</a> on <a href="https://unsplash.com/s/photos/improve-pineapple?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
-</div>
+</figcaption>
 
 If you never heard of [fzf](https://github.com/junegunn/fzf), it is a very
 handy general-purpose command-line fuzzy finder. Besides command-line, it is
