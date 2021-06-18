@@ -1,10 +1,10 @@
 ---
 title: 4 Useful fzf Tricks for Your Terminal
 description: Improve the workflow inside the terminal with handy fzf tricks up your sleeve.
-slug: TODO
+slug: four-useful-fzf-tricks-for-your-terminal
 date: 2021-06-21
 coverImage: ./wheelie.jpg
-blogOgImage: TODO
+blogOgImage: ./og-image.jpg
 published: true
 tags:
   - fzf
