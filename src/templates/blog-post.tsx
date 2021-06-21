@@ -47,7 +47,7 @@ interface Props {
         tags: string[]
       }
       timeToRead: number
-      parent: {
+      parent?: {
         fields: {
           updatedAt: string
           updatedAtDateTime: string
@@ -63,8 +63,8 @@ interface Props {
 
 const BlogPostTemplate = ({ data, pageContext }: Props) => {
   const post = data.markdownRemark
-  const updatedAt = post.parent.fields?.updatedAt
-  const updatedAtDateTime = post.parent.fields?.updatedAtDateTime
+  const updatedAt = post.parent?.fields?.updatedAt
+  const updatedAtDateTime = post.parent?.fields?.updatedAtDateTime
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
   const {
