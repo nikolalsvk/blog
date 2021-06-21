@@ -10,7 +10,7 @@ tags:
   - fzf
 ---
 
-Welcome, you are probably interested in using one of the best tools for command-line - fzf. Fzf is a command-line tool for fuzzy searching. Well, at first, it might sound not attractive. But, bear with me, it is very sexy, and it will make your life easier leaping through your shell.
+Welcome, you are probably interested in using one of the best tools for command-line - fzf. fzf is a command-line tool for fuzzy searching. Well, at first, it might sound that not attractive. But, bear with me, it is very sexy, and it will make your life easier while leaping through your shell.
 
 I prepared four tricks that you can keep up your sleeve whenever you are inside the terminal. But first, let's go over how we can set up fzf.
 
@@ -30,7 +30,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 ```
 
-Or, if you are on macOS and want to skip all the fuss, you can use the following command:
+I found it the most straightforward. Or, if you are on macOS and want to skip all the fuss, you can use the following command:
 
 ```bash
 brew install fzf
@@ -47,7 +47,7 @@ After installing, let's go and try the basic fzf functionality. You can try to r
 
 ![Basic usage of the fzf command](./basic-fzf-command.gif)
 
-The fuzzy finder launches across your terminal window, and you can search for whatever file you want. The cool thing is that fzf if indexing files as you type. If your directory doesn't have much complexity regarding files and dirs, you won't notice the indexings at the bottom.
+The fuzzy finder launches across your terminal window, and you can search for whatever file you want. The cool thing is that fzf if indexing files as you type. If your directory doesn't have much complexity regarding files and dirs, you won't notice the indexing at the bottom.
 
 ## 1. Fuzzyily Change Directories
 
