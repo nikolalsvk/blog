@@ -143,4 +143,6 @@ fzf is a great tool to have in your toolbelt, especially if you're dwelling insi
 
 If you liked what you read, consider subscribing to my [newsletter](/newsletter) to get updated when a new post comes up. Also, you can comment, like, or share this with your friends on Twitter below:
 
+<blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">You can never get enough of command-line tricks up your sleeve<br><br>Check out some of the fzf tricks in the new blog post 👇<a href="https://t.co/RRuiH0BZpB">https://t.co/RRuiH0BZpB</a></p>&mdash; Nikola Đuza (@nikolalsvk) <a href="https://twitter.com/nikolalsvk/status/1407265629040676864?ref_src=twsrc%5Etfw">June 22, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 Catch you in the next one, cheers.
