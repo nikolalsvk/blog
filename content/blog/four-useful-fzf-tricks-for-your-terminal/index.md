@@ -135,7 +135,7 @@ You can add more cases with more commands if you'd like because you might want t
 
 If you're already using Vim (or you're planning), I must tell you that fzf fits with Vim perfectly. The fuzzy search, preview windows, and customization options are so lovely you'd going to wish to have it in every other situation.
 
-If you're interested in setting up Vim and fzf, check out my blog post about [improving Vim workflow with fzf](https://pragmaticpineapple.com/improving-vim-workflow-with-fzf/).
+If you're interested in setting up Vim and fzf, check out my blog post about [improving Vim workflow with fzf](https://pragmaticpineapple.com/improving-vim-workflow-with-fzf/). Also, I maintain and add new features to my [dotfiles on GitHub](https://github.com/nikolalsvk/dotfiles) if you're interested in my setup.
 
 ## Sum Up
 
