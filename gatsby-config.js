@@ -18,7 +18,7 @@ module.exports = {
       options: {
         serialize: ({ site, allSitePage }) =>
           allSitePage.edges.map(({ node }) => {
-            sitemapObject = {
+            const sitemapObject = {
               url: `${site.siteMetadata.siteUrl}${node.path}`,
               changefreq: `daily`,
               priority: 1.0,
