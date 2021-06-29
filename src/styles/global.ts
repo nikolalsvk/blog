@@ -66,5 +66,6 @@ export const GlobalStyles = `
 
   .markdown-header-link {
     box-shadow: none;
+    fill: var(--color-text);
   }
 `
