@@ -54,7 +54,16 @@ When adding features and increasing the LOC, I found out that folks often reach 
 
 Back in the day when Rails was the hot topic, there was a boom in open-source collaboration, and new Ruby gems popped up at every corner. So it was like nowadays with JavaScript libraries emerging into the world but at a much smaller scale. Anyways, a common thing to do was to try to find an already existing gem that solves your problem.
 
-![NPM vs RubyGems](./npm-vs-rubygems.png)
+<figure>
+<p>
+<img alt="NPM vs RubyGems" src="./npm-vs-rubygems.png" />
+</p>
+<figcaption class='photo-caption'>
+<span>
+Information from <a href="http://www.modulecounts.com/">Module Counts</a>
+</span>
+</figcaption>
+</figure>
 
 There is nothing wrong with that idea, but I'd like to share some bits of advice before you decide to install that gem you set your eyes on. First, I'd usually ask myself a couple of questions:
 
@@ -81,3 +90,69 @@ The topic is quite tricky, and if I ever get caught in such a situation, I'd ask
 - Furthermore, can we become the maintainers of the open-source solution and possibly improve lots of developers' lives?
 
 But, sometimes, you just have to go your way and create it yourself. Sometimes, your organization doesn't like the licensing of the open-source library, so you are forced to build your own. But, whatever you do, I'd say to try to avoid reinventing the wheel.
+
+## Lifeguard on Duty (Over-rescuing Exceptions)
+
+This topic is a bit more related to the code than the previous ones. It might be common sense to some, but it can be seen in the code from time to time. What people tend to do is try to rescue more exceptions that they aim for or want to. For example:
+
+```ruby
+begin
+  song.upload_lyrics
+rescue
+  puts 'Lyrics upload failed'
+end
+```
+
+If we don't specify the exception we want to rescue, we will catch some of the exceptions we didn't plan to catch. In this case, the problem might be that the `song` object is `nil`. When that exception gets reported to the error tracker, you might think that something is off with the upload process, where actually, you might be experiencing something totally different.
+
+So to be safe when rescuing, make sure to get the list of all the exceptions that might occur. If you can't obtain every exception for some reason, it's better to under-rescue than to over-rescue, which means that you should rescue exceptions you know and handle the ones that occur later.
+
+## You Ask Too Much (Too Many SQL Queries)
+
+In this section, we are going to go through another web development, relation-database problem. You bomb the webserver with too many SQL queries in one request. How does that problem arise? Well, it can happen if you try to fetch multiple records from multiple tables in one request. But, what most often happens is the infamous N+1 query problem.
+
+Imagine the following models:
+
+```ruby
+class Song < ApplicationRecord
+  belongs_to :artist
+end
+
+class Artist < ApplicationRecord
+  has_many :songs
+end
+```
+
+If we want to show a couple of songs in a genre and their artists:
+
+```ruby
+songs = Song.where(genre: genre).limit(10)
+
+songs.each do |song|
+  puts "#{song.title} by #{song.artist.name}"
+end
+```
+
+This piece of code will trigger one SQL query to get ten songs. After that, one more extra SQL query for each song will be performed to fetch the artist for each song. That's eleven (11) queries total. Imagine the scenario if we load more songs, we will put the database under a heavier load trying to get all the artists. A faster way to do this is to use `includes` from Rails.
+
+```ruby
+songs = Song.includes(:artists).where(genre: genre).limit(10)
+
+songs.each do |song|
+  puts "#{song.title} by #{song.artist.name}"
+end
+```
+
+After the `includes`, we now get only two SQL queries, no matter how many songs we decide to show. How neat. One way you can diagnose this is in development. If you see a group of similar SQL queries fetching data from the same table, then something fishy is going on there. That's why I strongly encourage you to turn on the SQL logging for your development environment. Also, Rails supports [verbose query logs](https://guides.rubyonrails.org/debugging_rails_applications.html#verbose-query-logs) that show from where in the code the query is called.
+
+If looking at looks is not your thing, or you want something more serious, try out the [bullet gem](https://github.com/flyerhzm/bullet). It should quickly help you locate the troubling N+1 queries.
+
+## Sum Up
+
+Thanks for reading this far in this blog post and in this series. I am glad you joined for the interesting ride where we went from introducing patterns and anti-patterns in Rails, explored what they are inside the Rails' MVC pattern, and finally concluded the series with this blog post.
+
+I hope you learned a lot or at least revised and established what you already know. Do not stress about memorizing all of it. You can always consult this series if you are having trouble in any of the areas.
+
+You will surely encounter both patterns and anti-patterns because this world (and software engineering especially) is not ideal. That shouldn't worry you either. What makes you a great software engineer is mastering patterns and anti-patterns. But what makes you even better is knowing when to break those patterns and molds because there is no perfect solution.
+
+Thanks again for joining and reading. See you in the next one, cheers.
