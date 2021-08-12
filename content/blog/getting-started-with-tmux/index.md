@@ -175,6 +175,8 @@ And that should be it for getting started with tmux. I want to mention one thing
   <figcaption class='photo-caption'>tmux help screen</figcaption>
 </figure>
 
+Also, another great thing to check out if you're using iTerm2 is its integration with tmux. More to read in [iTerm2 docs](https://gitlab.com/gnachman/iterm2/-/wikis/TmuxIntegration).
+
 I plan to write a follow-up blog post with some advanced usages of tmux. If you liked this one and want to see another blog post, consider joining the [newsletter](./newsletter), it will get you notified when it's out.
 
 As always, don't forget to share it with your friends or coworkers. Here's a tweet you can message, like, retweet, ignore, or whatever you please:
