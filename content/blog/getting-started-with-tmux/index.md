@@ -1,16 +1,23 @@
 ---
 title: Getting Started With tmux
-description: TODO
+description: Get right into tmux with a gentle learning curve. We go through managing panes, windows, and sessions in this blog post.
 slug: getting-started-with-tmux
 date: 2021-08-12
-coverImage: TODO
+coverImage: ./cover.jpg
 blogOgImage: TODO
 published: true
 tags:
-  - TODO
+  - tmux
 ---
 
-You ended up here probably because you are looking to level up your command line skills. And that's fine, and I respect that. That's the same reason I started writing this blog post. Since I began learning how to program, I've been a terminal dweller, and it's been great. I always feel at home when I log into my shell. Today, our terminal experience will feel even better. We will level up our knowledge and our toolbelt with a great tool called tmux.
+You ended up here probably because you are looking to level up your command line skills. And that's fine, it is the exact same reason I am writing this blog post. Since I began learning how to program, I've been a terminal dweller, and it's been great. I always feel at home when I log into my shell. Today, our terminal experience will feel even better. We will level up our knowledge and our toolbelt with a great tool called tmux.
+
+</figure>
+  <img alt="Let's get started" src="/cover.jpg" />
+  <figcaption class='photo-caption'>
+  Photo by <a href="https://unsplash.com/@diskander?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">David Iskander</a> on <a href="https://unsplash.com/s/photos/get-started?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  </figcaption>
+</figure>
 
 ## What is tmux?
 
@@ -173,4 +180,5 @@ I plan to write a follow-up blog post with some advanced usages of tmux. If you 
 As always, don't forget to share it with your friends or coworkers. Here's a tweet you can message, like, retweet, ignore, or whatever you please:
 
 Thanks for joining, and I'm looking forward to seeing you in the next one.
+
 Cheers.
