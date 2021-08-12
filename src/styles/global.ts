@@ -32,6 +32,9 @@ export const GlobalStyles = `
   .animate-switch {
     transition: 0.3s cubic-bezier(0.62, -0.52, 0.43, 1.02);
   }
+  .gatsby-resp-image-wrapper {
+    margin-bottom: 1.75rem;
+  }
   .photo-caption {
     font-family: 'Roboto', sans-serif;
     text-align: center;
