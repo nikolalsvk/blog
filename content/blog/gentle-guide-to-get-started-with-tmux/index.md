@@ -181,6 +181,8 @@ I plan to write a follow-up blog post with some advanced usages of tmux. If you 
 
 As always, don't forget to share it with your friends or coworkers. Here's a tweet you can message, like, retweet, ignore, or whatever you please:
 
+<blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">Ever wanted to learn tmux? Here&#39;s your chance now.<br><br>I wrote a simple getting started guide 👇<a href="https://t.co/YdRNXQzGBu">https://t.co/YdRNXQzGBu</a></p>&mdash; Nikola Đuza (@nikolalsvk) <a href="https://twitter.com/nikolalsvk/status/1427245178792955905?ref_src=twsrc%5Etfw">August 16, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 Thanks for joining, and I'm looking forward to seeing you in the next one.
 
 Cheers.
