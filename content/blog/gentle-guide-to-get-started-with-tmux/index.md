@@ -1,10 +1,10 @@
 ---
-title: Getting Started With tmux
+title: Gentle Guide to Get Started With tmux
 description: Get right into tmux with a gentle learning curve. We go through managing panes, windows, and sessions in this blog post.
-slug: getting-started-with-tmux
+slug: gentle-guide-to-get-started-with-tmux
 date: 2021-08-12
 coverImage: ./cover.jpg
-blogOgImage: TODO
+blogOgImage: ./og-image.jpg
 published: true
 tags:
   - tmux
