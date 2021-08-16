@@ -1,12 +1,12 @@
 ---
 title: General Ruby on Rails Problems and Takeaways
-description: TODO
-slug: TODO
+description: In this last part of the Rails Patterns and Anti-patterns series, I'll be going over the most common problems I've encountered while building and shipping Ruby on Rails applications.
+slug: general-ruby-on-rails-problems-and-takeaways
 date: 2021-06-28
-canonical: TODO
-canonicalName: AppSignal
-coverImage: TODO
-blogOgImage: TODO
+canonical: https://blog.appsignal.com/2021/07/07/general-ruby-on-rails-problems-and-takeaways.html
+canonicalName: AppSignal Blog
+coverImage: ./cover.jpg
+blogOgImage: ./cover.jpg
 published: true
 tags:
   - Rails
@@ -14,7 +14,7 @@ tags:
   - Patterns
 ---
 
-Welcome to the last part of the Rails Patterns and Anti-patterns series. It's been quite a ride writing and researching all of these topics. In this blog post, we will go over the most common problems I've encountered while building and shipping Ruby on Rails applications throughout the years.
+Welcome to the last part of my Ruby on Rails Patterns and Anti-Patterns series. It’s been quite a ride writing and researching all of these topics. In this blog post, we’ll go over the most common problems I’ve encountered when building and shipping Ruby on Rails applications through the years.
 
 The ideas we will go through here apply in almost any place in the code. So consider them as general ideas, not something related to the Model-View-Controller pattern. If you are interested in patterns and anti-patterns related to the Rails' MVC, you can check out the [Model](https://blog.appsignal.com/2020/11/18/rails-model-patterns-and-anti-patterns.html), [View](https://blog.appsignal.com/2021/02/10/ruby-on-rails-view-patterns-and-anti-patterns.html), and [Controller](https://blog.appsignal.com/2021/04/14/ruby-on-rails-controller-patterns-and-anti-patterns.html) blog posts. So let's jump into general problems and takeaways.
 
