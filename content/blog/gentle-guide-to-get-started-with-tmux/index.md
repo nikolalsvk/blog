@@ -60,7 +60,7 @@ You're good to go.
 
 ## Starting tmux
 
-We can start tmux by using the `tmux` command in our terminal to see what its all about. After that, you can see that everything stayed the same, except the green line at the bottom. What happened here is that we
+We can start tmux by using the `tmux` command in our terminal to see what it's all about. After that, you can see that everything stayed the same, except the green line at the bottom. What happened here is that we
 connected to a tmux server as a client. tmux runs a server on a specific PID in the background, and when we type `tmux` we run the server automatically.
 
 So we are connected to the tmux server from a session named 0, as you can see in the `[0]` portion of the screen. So tmux acts as sort of a layover of the standard terminal session. Let's have a look at what you get when you enter a tmux session:
@@ -70,7 +70,7 @@ So we are connected to the tmux server from a session named 0, as you can see in
   <figcaption class='photo-caption'>start of a tmux session</figcaption>
 </figure>
 
-At the bottom left, you see the [0], which represents the session. Right next to it is the `0:zsh` showing which window is open and what program is running there. We just started this session, so we only have one window open, and zsh is running there.
+At the bottom left, you see the `[0]`, which represents the session. Right next to it is the `0:zsh` showing which window is open and what program is running there. We just started this session, so we only have one window open, and zsh is running there.
 
 You can go on and use the terminal as you usually use it, but that would be just plain boring, right? Let's learn a thing or two we can do as beginners in tmux. I'd like us to go through the process of creating and moving through panes in tmux.
 
