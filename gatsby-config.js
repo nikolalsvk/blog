@@ -6,7 +6,7 @@ module.exports = {
       summary: `who helps developers improve their productivity by sharing pragmatic advice & applicable knowledge on JavaScript and Ruby.`,
       landingPage: "https://nikolalsvk.github.io",
     },
-    description: `A blog by Nikola Đuza that aims to spread knowledge and give practical tips on technology and life in general.`,
+    description: `A blog by Nikola Đuza that aims to spread knowledge and give practical tips on JavaScript and Ruby.`,
     siteUrl: `https://pragmaticpineapple.com/`,
     social: {
       twitter: `nikolalsvk`,
