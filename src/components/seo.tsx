@@ -9,7 +9,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
-import defaultOgImage from "../../content/assets/pineapple-emoji.png"
+import defaultOgImage from "../../content/assets/default-og-image.jpg"
 
 interface Props {
   title: string
