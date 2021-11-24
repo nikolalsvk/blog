@@ -1,5 +1,4 @@
 const admin = require("firebase-admin")
-const { join } = require("path")
 
 admin.initializeApp({
   credential: admin.credential.cert(
