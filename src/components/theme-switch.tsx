@@ -7,24 +7,16 @@ import { useTheme } from "../contexts/theme"
 const ThemeContainer = styled.div`
   display: block;
   cursor: pointer;
-
-  @keyframes sun-movement {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(359deg);
-    }
-  }
+  transition: opacity 0.3s ease-in-out;
 `
 
 const StyledImage = styled(Image)`
   height: 40px;
   width: 40px;
-  transition: opacity 0.3s ease-in-out;
+  transition: transform 2s cubic-bezier(0.4, 0, 0.49, 1);
 
   &:hover {
-    animation: sun-movement 3s cubic-bezier(0.4, 0, 0.49, 1) infinite;
+    transform: rotate(359deg);
   }
 `
 
