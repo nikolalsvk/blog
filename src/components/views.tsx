@@ -34,9 +34,11 @@ function Views({ views }: { views: string }) {
 
   if (!views) return <StyledViews>loading views</StyledViews>
 
-  const formattedViews = `${views} views`
-
-  return <StyledViews highlight={highlight}>{formattedViews}</StyledViews>
+  return (
+    <StyledViews highlight={highlight}>
+      <b>{views}</b> views
+    </StyledViews>
+  )
 }
 
 export default Views
