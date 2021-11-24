@@ -9,6 +9,32 @@ import SubscribeForm from "../components/subscribe-form"
 import { rhythm, scale } from "../utils/typography"
 import ViewCounter from "../components/view-counter"
 import Spacer from "../components/spacer"
+import styled from "styled-components"
+
+const BlogStats = styled.p`
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: ${rhythm(1)};
+  color: #b3b3b3;
+`
+
+interface BlogStatProps {
+  hidden?: boolean
+}
+
+const BlogStat = styled.span<BlogStatProps>`
+  display: ${({ hidden }) => (hidden ? "none" : "revert")}
+
+  &:last-of-type {
+    margin-left: 4px;
+  }
+
+  &:not(:last-of-type) :after {
+    content: "|";
+    padding-left: 4px;
+    margin-right: 4px;
+  }
+`
 
 interface PageContextPage {
   fields: {
@@ -96,32 +122,38 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
           >
             {post.frontmatter.title}
           </h1>
-          <p
+          <BlogStats
             style={{
               ...scale(-1 / 5),
-              display: `block`,
-              marginBottom: rhythm(1),
-              color: `#b3b3b3`,
             }}
           >
-            Published{" "}
-            <b>
-              <time dateTime={publishedAtDateTime} itemProp="datePublished">
-                {publishedAt}
-              </time>
-            </b>{" "}
-            | Last updated{" "}
-            <b>
-              <time dateTime={updatedAtDateTime} itemProp="dateModified">
-                {updatedAt}
-              </time>
-            </b>{" "}
-            | <ViewCounter slug={slug} /> | About{" "}
-            <b>
-              {timeToRead} {timeToRead === 1 ? "minute" : "minutes"}
-            </b>{" "}
-            to read{" "}
-          </p>
+            <BlogStat>
+              Published{" "}
+              <b>
+                <time dateTime={publishedAtDateTime} itemProp="datePublished">
+                  {publishedAt}
+                </time>
+              </b>
+            </BlogStat>
+            <BlogStat>
+              Last updated{" "}
+              <b>
+                <time dateTime={updatedAtDateTime} itemProp="dateModified">
+                  {updatedAt}
+                </time>
+              </b>
+            </BlogStat>
+            <BlogStat>
+              <ViewCounter slug={slug} />
+            </BlogStat>
+            <BlogStat hidden>
+              About{" "}
+              <b>
+                {timeToRead} {timeToRead === 1 ? "minute" : "minutes"}
+              </b>{" "}
+              to read{" "}
+            </BlogStat>
+          </BlogStats>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
 
