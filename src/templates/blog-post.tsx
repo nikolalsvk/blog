@@ -116,8 +116,7 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
                 {updatedAt}
               </time>
             </b>{" "}
-            | <ViewCounter hideText slug={slug} />
-            About{" "}
+            | <ViewCounter slug={slug} /> | About{" "}
             <b>
               {timeToRead} {timeToRead === 1 ? "minute" : "minutes"}
             </b>{" "}

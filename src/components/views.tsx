@@ -11,8 +11,6 @@ const highlightBackgound = keyframes`
 `
 
 const StyledViews = styled.span`
-  text-transform: uppercase;
-
   ${(props: { highlight?: boolean }) =>
     props.highlight &&
     css`
@@ -38,7 +36,7 @@ function Views({ views }: { views: string }) {
 
   const formattedViews = `${views} views`
 
-  return <StyledViews highlight={highlight}>👁 {formattedViews}</StyledViews>
+  return <StyledViews highlight={highlight}>{formattedViews}</StyledViews>
 }
 
 export default Views
