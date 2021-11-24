@@ -34,9 +34,11 @@ function Views({ views }: { views: string }) {
 
   if (!views) return <StyledViews>loading views</StyledViews>
 
+  const formattedViews = parseInt(views, 10).toLocaleString()
+
   return (
     <StyledViews highlight={highlight}>
-      <b>{views}</b> views
+      <b>{formattedViews}</b> views
     </StyledViews>
   )
 }
