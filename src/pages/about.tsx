@@ -12,6 +12,7 @@ interface Props {
     site: {
       siteMetadata: {
         title: string
+        siteUrl: string
       }
     }
   }
@@ -19,10 +20,11 @@ interface Props {
 
 const AboutPage = ({ data }: Props) => {
   const siteTitle = data.site.siteMetadata.title
+  const siteUrl = data.site.siteMetadata.siteUrl
 
   return (
     <Layout title={siteTitle}>
-      <SEO title="About" />
+      <SEO title="About" canonical={`${siteUrl}/about`} />
       <ViewCounter hideText slug="/about" />
       <h1>About Nikola</h1>
       <p>
@@ -99,6 +101,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        siteUrl
       }
     }
   }

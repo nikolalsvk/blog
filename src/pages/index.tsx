@@ -14,6 +14,7 @@ interface Props {
     site: {
       siteMetadata: {
         title: string
+        siteUrl: string
       }
     }
     allMarkdownRemark: {
@@ -36,11 +37,12 @@ interface Props {
 
 const BlogIndex = ({ data }: Props) => {
   const siteTitle = data.site.siteMetadata.title
+  const siteUrl = data.site.siteMetadata.siteUrl
   const posts = data.allMarkdownRemark.edges
 
   return (
     <Layout title={siteTitle} showLargeHeader>
-      <SEO title="Welcome" />
+      <SEO title="Welcome" canonical={siteUrl} />
       <Bio />
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
@@ -86,6 +88,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        siteUrl
       }
     }
     allMarkdownRemark(

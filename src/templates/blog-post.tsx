@@ -50,6 +50,7 @@ interface Props {
     site: {
       siteMetadata: {
         title: string
+        siteUrl: string
       }
     }
     markdownRemark: {
@@ -92,6 +93,7 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
   const updatedAt = post.parent?.fields?.updatedAt
   const updatedAtDateTime = post.parent?.fields?.updatedAtDateTime
   const siteTitle = data.site.siteMetadata.title
+  const siteUrl = data.site.siteMetadata.siteUrl
   const { previous, next } = pageContext
   const {
     canonical,
@@ -101,6 +103,7 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
     slug,
     tags,
   } = post.frontmatter
+  const defaultCanonical = `${siteUrl}/${slug}`
   const { timeToRead } = post
 
   return (
@@ -108,7 +111,7 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
-        canonical={canonical}
+        canonical={canonical || defaultCanonical}
         blogOgImage={post.frontmatter.blogOgImage?.publicURL}
         coverImage={post.frontmatter.coverImage?.publicURL}
       />
@@ -238,6 +241,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        siteUrl
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
