@@ -103,7 +103,7 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
     slug,
     tags,
   } = post.frontmatter
-  const defaultCanonical = `${siteUrl}/${slug}`
+  const defaultCanonical = `${siteUrl}/${slug}/`
   const { timeToRead } = post
 
   return (
