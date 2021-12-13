@@ -52,7 +52,7 @@ const ThemeSwitch = () => {
     >
       <StyledImage
         fluid={data.sun.childImageSharp.fluid}
-        alt={"sun"}
+        alt={"Theme switch button"}
         style={{
           zIndex: `${theme === "purple" ? 1 : 2}`,
           position: "absolute",
@@ -61,7 +61,7 @@ const ThemeSwitch = () => {
       />
       <StyledImage
         fluid={data.moon.childImageSharp.fluid}
-        alt={"moon"}
+        alt={"Theme switch button"}
         style={{
           zIndex: `${theme === "purple" ? 2 : 1}`,
           opacity: `${theme === "purple" ? 1 : 0}`,
