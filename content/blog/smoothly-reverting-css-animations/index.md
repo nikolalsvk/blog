@@ -200,4 +200,6 @@ But I hope this blog post is helpful to those with this kind of problem. It was 
 
 If you like what you read and you think others will benefit from it, consider sharing it on Twitter blow:
 
+Also, I made my blog code open source, you can check it out on [GitHub here](https://github.com/nikolalsvk/blog)
+
 Thanks for tuning it. Catch you in the next one. Cheers.

@@ -125,7 +125,7 @@ as it may seem, so let us break it down:
 Awesome, now that we added a `gitAuthorTime` field to our Node, we can simply query for it in our blog post template:
 
 ```graphql
-query($slug: String!) {
+query ($slug: String!) {
   markdownRemark(fields: { slug: { eq: $slug } }) {
     # ...
     fields {
@@ -169,7 +169,7 @@ for a blog post.
 Luckily, that is not a big problem, because `File` is a parent of `MarkdownRemark` node. What that means is we can extract those new fields from the plugin like so:
 
 ```graphql
-query($slug: String!) {
+query ($slug: String!) {
   markdownRemark(fields: { slug: { eq: $slug } }) {
     # ...
     parent {
