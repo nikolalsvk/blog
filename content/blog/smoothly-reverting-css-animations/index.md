@@ -2,14 +2,21 @@
 title: Smoothly Reverting CSS Animations
 description: Figure out how to revert a CSS transition when hover is over.
 slug: smoothly-reverting-css-animations
-date: 2021-12-22
-coverImage: TODO
-blogOgImage: TODO
+date: 2021-12-20
+coverImage: ./cover.jpg
+blogOgImage: ./og-image.jpg
 published: true
 tags:
   - CSS
   - Animations
 ---
+
+</figure>
+  <img alt="Smooth rocks" src="/cover.jpg" />
+  <figcaption class='photo-caption'>
+  Photo by <a href="https://unsplash.com/@drew_beamer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Drew Beamer</a> on <a href="https://unsplash.com/photos/GKy0l2uoMTY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  </figcaption>
+</figure>
 
 Hey there, you probably tried to animate some HTML elements in your time using transitions, transforms, and animations in the CSS. I tried the same, but one problem occurred when I animated something on hover.
 
