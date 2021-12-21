@@ -142,8 +142,8 @@ Smooth, again
 This will be the HTML part:
 
 ```html
-<div class='sun-container'>
-  <img class="sun-icon" src="sun.png"></img>
+<div class="sun-container">
+  <img class="sun-icon" src="sun.png" />
 </div>
 ```
 
@@ -202,6 +202,6 @@ If you like what you read and you think others will benefit from it, consider sh
 
 <blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">Had troubles with reverting a CSS animation? Don&#39;t worry, I got you<a href="https://t.co/uRn6dvSMGF">https://t.co/uRn6dvSMGF</a></p>&mdash; Nikola Đuza (@nikolalsvk) <a href="https://twitter.com/nikolalsvk/status/1473008111728439307?ref_src=twsrc%5Etfw">December 20, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-Also, I made my blog code open source, you can check it out on [GitHub here](https://github.com/nikolalsvk/blog)
+Also, I made my blog code open source, you can check it out on [GitHub here](https://github.com/nikolalsvk/blog).
 
 Thanks for tuning it. Catch you in the next one. Cheers.
