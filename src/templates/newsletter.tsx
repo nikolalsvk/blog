@@ -7,6 +7,7 @@ import Bio from "../components/bio"
 import SubscribeForm from "../components/subscribe-form"
 import ViewCounter from "../components/view-counter"
 import { rhythm } from "../utils/typography"
+import styled from "styled-components"
 
 interface Props {
   data: {
@@ -32,6 +33,15 @@ interface Props {
   }
 }
 
+const Article = styled.article`
+  a {
+    box-shadow: none;
+  }
+  h3 {
+    margin-bottom: 1rem;
+  }
+`
+
 const NewsletterTemplate = ({ data }: Props) => {
   const issue = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
@@ -44,7 +54,9 @@ const NewsletterTemplate = ({ data }: Props) => {
         description={issue.frontmatter.description}
       />
       <ViewCounter hideText slug={`/newsletter${slug}`} />
-      <section dangerouslySetInnerHTML={{ __html: issue.html }} />
+      <Article>
+        <section dangerouslySetInnerHTML={{ __html: issue.html }} />
+      </Article>
 
       <footer style={{ marginBottom: rhythm(1) }}>
         <Bio />
