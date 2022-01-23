@@ -1,9 +1,9 @@
 ---
-title: Adding a Custom Sign Up Form To Your Website
-description: TODO
-slug: TODO
+title: Add Newsletter Subscription Form to React Website
+description: Create a simple React newsletter component to grow your mailing list using ConverKit.
+slug: add-newsletter-subscription-form-to-react-website
 date: 2022-01-24
-coverImage: TODO
+coverImage: ./cover.jpg
 blogOgImage: TODO
 published: true
 tags:
