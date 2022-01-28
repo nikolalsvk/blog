@@ -4,7 +4,7 @@ description: Create a simple React newsletter component to grow your mailing lis
 slug: add-newsletter-subscription-form-to-react-website
 date: 2022-01-23
 coverImage: ./cover.jpg
-blogOgImage: TODO
+blogOgImage: ./og-image.jpg
 published: true
 tags:
   - React
