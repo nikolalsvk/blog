@@ -73,7 +73,7 @@ the [render_async Discord server](https://discord.gg/SPfbeRm) and get a response
 ## Hey, you, stop. OK, now start.
 
 With `render_async`, you can easily do
-[HTML polling without having to write JavaScript](/rails-html-polling-without-writing-javascript).
+[HTML polling without having to write JavaScript](/rails-html-polling-without-javascript).
 You can do this by writing this in your view:
 
 ```erb
