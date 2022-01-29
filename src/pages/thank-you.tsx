@@ -19,7 +19,7 @@ const ThankYouPage = ({ data }: Props) => {
 
   return (
     <Layout title={siteTitle} showLargeHeader>
-      <SEO title="Thank you for subscribing" />
+      <SEO title="Confirm subscription" />
 
       <article>
         <h2>

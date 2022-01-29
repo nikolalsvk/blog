@@ -108,7 +108,7 @@ That's it, and it is looking pretty good. Only thing I dislike about using `:GFi
 that it won't include your new files unless you add them to the Git index with
 `git add`. Also, I'd like some syntax highlighting to be there out of the box
 when previewing files, but we will cover that in another blog post. In the
-meantime, consider subscribing to the [newsletter](./newsletter) to get similar
+meantime, consider subscribing to the [newsletter](/newsletter) to get similar
 posts like this.
 
 To sum up, fzf is useful and quick as a flash when searching for files. And, as

@@ -41,7 +41,10 @@ const Tag = ({ pageContext, data }: Props) => {
   } tagged as ${tag}`
   return (
     <Layout title={data.site.siteMetadata.title}>
-      <SEO title={`${tag} posts`} />
+      <SEO
+        title={`${tag} posts`}
+        description={`All Pragmatic Pineapple blog posts related to the ${tag} topic`}
+      />
       <h1>{tagHeader}</h1>
       <ul>
         {edges.map(({ node }) => {
@@ -92,7 +95,7 @@ Tag.propTypes = {
 export default Tag
 
 export const pageQuery = graphql`
-  query($tag: String) {
+  query ($tag: String) {
     site {
       siteMetadata {
         title

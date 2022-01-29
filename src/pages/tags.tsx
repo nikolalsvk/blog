@@ -33,7 +33,10 @@ const TagsPage = ({
   },
 }: Props) => (
   <Layout title={title}>
-    <SEO title="Blog Tags" />
+    <SEO
+      title="Blog Tags"
+      description="All the blog post topics on Pragmatic Pineapple blog by Nikola Đuza"
+    />
     <div>
       <h1>Tags</h1>
       <p>

@@ -21,7 +21,7 @@ debugging them? Spoiler alert - it is not with `console.log()`.
 ![Insects](./cover.jpg)
 
 <div class='photo-caption'>
-Photo by <a href="https://unsplash.com/@nikolalsvk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Nikola Đuza</a> on <a href="/s/photos/bugs?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+Photo by <a href="https://unsplash.com/@nikolalsvk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Nikola Đuza</a> on <a href="https://unsplash.com/@nikolalsvk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 </div>
 
 ## 1. The Standard Way
