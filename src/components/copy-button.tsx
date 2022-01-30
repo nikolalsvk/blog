@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import styled from "styled-components"
+import { isBrowser } from "../utils/is-browser"
 
 const CopyButton = ({
   children,
@@ -19,7 +20,7 @@ const CopyButton = ({
     })
   }
 
-  if (window?.navigator?.clipboard) {
+  if (isBrowser() && window?.navigator?.clipboard) {
     return (
       <Button onClick={() => copyToClipboard(postUrl)}>
         {children}
