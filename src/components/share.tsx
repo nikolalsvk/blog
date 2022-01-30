@@ -121,7 +121,7 @@ const SocialLink = styled.a`
   margin-right: 8px;
 
   &:last-of-type {
-    margin-right: 12px;
+    margin-right: 10px;
   }
 `
 
