@@ -98,21 +98,18 @@ const SVG = styled.svg`
   fill: var(--color-text);
 `
 
-const HackerNewsSVG = styled(SVG)`
-  transform: translate(0, 0px);
-  margin-right: 2px;
-`
+const HackerNewsSVG = styled(SVG)``
 
 const TwitterSVG = styled(SVG)`
   transform: translate(0, 0px);
 `
 
 const LinkedInSVG = styled(SVG)`
-  margin-left: 4px;
   transform: translate(0, -2px);
 `
 
 const FacebookSVG = styled(SVG)`
+  margin-left: -4px;
   margin-right: 0;
 `
 
