@@ -31,7 +31,7 @@ const BlogStat = styled.span<BlogStatProps>`
   }
 
   &:not(:last-of-type) :after {
-    content: "|";
+    content: "•";
     padding-left: 4px;
     margin-right: 4px;
   }
@@ -150,6 +150,8 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
             <BlogStat>
               <ViewCounter slug={slug} />
             </BlogStat>
+            {/**
+            Comment out for now until I figure out where to show it.
             <BlogStat hidden>
               About{" "}
               <b>
@@ -157,6 +159,7 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
               </b>{" "}
               to read{" "}
             </BlogStat>
+            */}
           </BlogStats>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
