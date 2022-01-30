@@ -19,7 +19,7 @@ const CopyButton = ({
     })
   }
 
-  if (navigator?.clipboard) {
+  if (window?.navigator?.clipboard) {
     return (
       <Button onClick={() => copyToClipboard(postUrl)}>
         {children}
