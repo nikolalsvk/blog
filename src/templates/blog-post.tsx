@@ -10,6 +10,7 @@ import { rhythm, scale } from "../utils/typography"
 import ViewCounter from "../components/view-counter"
 import Spacer from "../components/spacer"
 import styled from "styled-components"
+import Share from "../components/share"
 
 const BlogStats = styled.p`
   display: flex;
@@ -35,7 +36,6 @@ const BlogStat = styled.span<BlogStatProps>`
     margin-right: 4px;
   }
 `
-
 interface PageContextPage {
   fields: {
     slug: string
@@ -96,6 +96,7 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
   const siteUrl = data.site.siteMetadata.siteUrl
   const { previous, next } = pageContext
   const {
+    title,
     canonical,
     canonicalName,
     publishedAt,
@@ -109,7 +110,7 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
   return (
     <Layout title={siteTitle}>
       <SEO
-        title={post.frontmatter.title}
+        title={title}
         description={post.frontmatter.description || post.excerpt}
         canonical={canonical || defaultCanonical}
         blogOgImage={post.frontmatter.blogOgImage?.publicURL}
@@ -177,11 +178,14 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
             </section>
           </>
         )}
+
         <hr
           style={{
             marginBottom: rhythm(1),
           }}
         />
+
+        <Share slug={slug} title={title} />
 
         <p
           className="tags"
