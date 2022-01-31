@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.pragmaticpineapple.com/">
-    🍍
+    <img alt="Blog cover image" src='https://github.com/nikolalsvk/blog/raw/master/content/assets/default-og-image.jpg' />
   </a>
 </p>
 <h1 align="center">

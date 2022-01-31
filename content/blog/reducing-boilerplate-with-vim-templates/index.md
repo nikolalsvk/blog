@@ -75,7 +75,7 @@ Help yourself there and use what you like. I will also share them below.
 
 The most common template people suggest is the one for Bash scripts. It can look like this:
 
-```sh
+```bash
 #!/usr/bin/env bash
 
 set -eou pipefail
