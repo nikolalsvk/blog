@@ -1,13 +1,12 @@
-const admin = require("firebase-admin")
+const { initializeApp, cert } = require("firebase-admin/app")
+const { getDatabase } = require("firebase-admin/database")
 
-admin.initializeApp({
-  credential: admin.credential.cert(
-    JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT)
-  ),
+const app = initializeApp({
+  credential: cert(JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT)),
   databaseURL: `https://${process.env.FIREBASE_DB}.firebaseio.com`,
   databaseAuthVariableOverride: {
     uid: "view-counter-function",
   },
 })
 
-module.exports = admin.database()
+module.exports = getDatabase(app)

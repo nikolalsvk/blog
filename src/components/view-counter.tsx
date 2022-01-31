@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react"
 
+import { ref, Database, onValue } from "firebase/database"
+
 import loadDb from "../utils/firebase-db"
 
 import Views from "./views"
@@ -14,21 +16,21 @@ function ViewCounter({ slug, hideText }: Props) {
 
   // Subscribe to view count updates
   useEffect(() => {
-    const onViews = (newViews: { val: () => string }) =>
+    const onViews = (newViews: { val: () => string }) => {
       setViews(newViews.val())
+    }
 
-    let db: firebase.database.Reference
+    let db: Database
 
     const fetchData = async () => {
       db = await loadDb()
-      db.child(slug).on("value", onViews)
+
+      const slugRef = ref(db, `views/${slug}`)
+
+      onValue(slugRef, onViews)
     }
 
     fetchData()
-
-    return function cleanup() {
-      db.child(slug).off("value", onViews)
-    }
   }, [slug])
 
   // Asynchronously log a view
