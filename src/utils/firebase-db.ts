@@ -1,12 +1,14 @@
-export default async function loadDb() {
-  const firebase = await import("firebase/app")
+import { Database } from "firebase/database"
 
-  await import("firebase/database")
+export default async function loadDb(): Promise<Database> {
+  const { initializeApp } = await import("firebase/app")
+
+  const { getDatabase } = await import("firebase/database")
 
   const firebaseConfig = JSON.parse(process.env.GATSBY_FIREBASE_CONFIG || "{}")
 
   try {
-    firebase.initializeApp(firebaseConfig)
+    initializeApp(firebaseConfig)
   } catch (error) {
     /*
      * We skip the "already exists" message which is
@@ -17,5 +19,5 @@ export default async function loadDb() {
     }
   }
 
-  return firebase.database().ref("views")
+  return getDatabase()
 }
