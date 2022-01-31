@@ -22,7 +22,7 @@ const CopyButton = ({
 
   if (isBrowser() && window?.navigator?.clipboard) {
     return (
-      <Button onClick={() => copyToClipboard(postUrl)}>
+      <Button id="copy-link" onClick={() => copyToClipboard(postUrl)}>
         {children}
         {copied ? "Copied, thanks ❤️" : "Copy link"}
       </Button>

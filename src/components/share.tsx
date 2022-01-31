@@ -10,6 +10,7 @@ const Share = ({ slug, title }: { slug: string; title: string }) => {
   return (
     <Wrapper>
       <SocialLink
+        id="hackernews-share-link"
         target="_blank"
         rel="noreferrer"
         href={`https://news.ycombinator.com/submitlink?u=${postUrl}&t=${title}`}
@@ -30,6 +31,7 @@ const Share = ({ slug, title }: { slug: string; title: string }) => {
         </VisuallyHidden>
       </SocialLink>
       <SocialLink
+        id="twitter-share-link"
         target="_blank"
         rel="noreferrer"
         href={`https://twitter.com/intent/tweet/?text=${title}&url=${postUrl}%2F&via=nikolalsvk`}
@@ -47,6 +49,7 @@ const Share = ({ slug, title }: { slug: string; title: string }) => {
         </VisuallyHidden>
       </SocialLink>
       <SocialLink
+        id="linkedin-share-link"
         target="_blank"
         rel="noreferrer"
         href={`https://www.linkedin.com/shareArticle?mini=true&url=${postUrl}`}
@@ -64,6 +67,7 @@ const Share = ({ slug, title }: { slug: string; title: string }) => {
         </VisuallyHidden>
       </SocialLink>
       <SocialLink
+        id="facebook-share-link"
         target="_blank"
         rel="noreferrer"
         href={`https://www.facebook.com/sharer/sharer.php?u=${postUrl}`}
