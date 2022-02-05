@@ -33,6 +33,8 @@ The problem with the share buttons bothered me for a while in my head, and I dec
 
 ![Share buttons below each blog post](./share-buttons.png)
 
+Give 'em a click or two. Also, try hovering over them. There's a cool animation.
+
 ## 📚 Useful Resources
 
 To not clog you with links, I will share just one, but very valuable to me.
