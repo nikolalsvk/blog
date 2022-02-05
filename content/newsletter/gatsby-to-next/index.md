@@ -1,6 +1,6 @@
 ---
 title: "Gatsby to Next | Pragmatic Pineapple Newsletter 🍍"
-description: Pros and cons of Gatsby and Next with a guide on how to migrate from one to another. Also, recent updates on the blog.
+description: Check out the pros and cons of Gatsby and Next with a guide on migrating from one to another. Also, recent updates on the blog and helpful resources for y'all.
 date: 2022-02-08
 newsletter: true
 ---
