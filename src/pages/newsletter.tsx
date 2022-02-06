@@ -60,7 +60,10 @@ const NewsletterPage = ({
 
   return (
     <Layout title={title}>
-      <SEO title="💌 Pragmatic Pineapple Newsletter 🍍" />
+      <SEO
+        title="💌 Pragmatic Pineapple Newsletter 🍍"
+        description="A newsletter by Nikola Đuza that aims to spread knowledge and practical tips on JavaScript and Ruby."
+      />
 
       <div>
         <h1>Get Blog Updates</h1>
