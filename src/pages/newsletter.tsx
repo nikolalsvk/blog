@@ -140,7 +140,9 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { newsletter: { eq: true } } }
+      filter: {
+        frontmatter: { newsletter: { eq: true }, published: { eq: true } }
+      }
     ) {
       edges {
         node {

@@ -3,6 +3,7 @@ title: "Gatsby to Next | Pragmatic Pineapple Newsletter 🍍"
 description: Check out the pros and cons of Gatsby and Next with a guide on migrating from one to another. Also, recent updates on the blog and helpful resources for y'all.
 date: 2022-02-08
 newsletter: true
+published: false
 ---
 
 # Gatsby to Next
@@ -17,11 +18,11 @@ Let's start with what is new on the blog.
 
 ## ✨ New on the blog
 
-### How to Migrate Your Blog from Gatsby to Next.js
+### [How to Migrate Your Blog from Gatsby to Next.js](https://pragmaticpineapple.com/how-to-migrate-your-blog-from-gatsby-to-nextjs/)
 
 The piece I wrote for AppSignal last year, but it got published this year. In any case, it is a good read, and it might help you decide which framework out of these two to use. I put great time and effort into it, and I hope it is helpful to some of y’all.
 
-### Add Newsletter Subscription Form to React Website
+### [Add Newsletter Subscription Form to React Website](https://pragmaticpineapple.com/add-newsletter-subscription-form-to-react-website/)
 
 I don’t like to put 3rd party code on my website. Most of the time, it is mangled. You don’t know what it does, and it is just not uncomfortable for me. Because of that, I decided to build and share with you how you can build a custom sign-up form for your own newsletter in React. The approach favors React, but it is easily customizable to any other React, but it is easily customizable to any other library/framework you are using.
 

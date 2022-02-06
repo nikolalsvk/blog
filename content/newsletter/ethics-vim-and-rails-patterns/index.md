@@ -3,6 +3,7 @@ title: "Ethics, Vim, and Rails Patterns | Pragmatic Pineapple Newsletter #3 🍍
 description: Is it worth it to be ethical? Also, new blog posts about Rails patterns and Vim and fzf.
 date: 2020-12-16
 newsletter: true
+published: true
 ---
 
 # Newsletter #3 🍍

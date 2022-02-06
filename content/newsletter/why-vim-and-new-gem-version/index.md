@@ -3,6 +3,7 @@ title: "Why Vim and New Gem Version | Pragmatic Pineapple Newsletter #2 🍍"
 description: Why use Vim in 2020 and new render_async version.
 date: 2020-08-12
 newsletter: true
+published: true
 ---
 
 # Newsletter #2 🍍
