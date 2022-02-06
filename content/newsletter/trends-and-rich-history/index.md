@@ -3,6 +3,7 @@ title: "Trends and Rich History | Newsletter #1 🍍"
 description: How to deal with the hype, and from where do modern editors draw roots?
 date: 2020-07-07
 newsletter: true
+published: true
 ---
 
 # Newsletter #1 🍍

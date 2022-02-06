@@ -3,6 +3,7 @@ title: "Welcome Back | Pragmatic Pineapple Newsletter 🍍"
 description: Almost a year-in-review newsletter issue
 date: 2021-12-23
 newsletter: true
+published: true
 ---
 
 # Welcome Back 🍍
