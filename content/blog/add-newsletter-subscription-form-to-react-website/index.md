@@ -248,6 +248,6 @@ I want to do a similar blog post, creating a custom showing of tweets. Usually, 
 
 All in all, thanks for tuning in and following this blog post. Share it with your friends and coworkers on Twitter if you find it useful:
 
-TODO
+<blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">New post on how you can build a custom email sign up form for your React website 👇<a href="https://t.co/cuCpq4kZS1">https://t.co/cuCpq4kZS1</a></p>&mdash; Nikola Đuza (@nikolalsvk) <a href="https://twitter.com/nikolalsvk/status/1491346819930288131?ref_src=twsrc%5Etfw">February 9, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Until the next one, cheers.
