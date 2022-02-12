@@ -4,7 +4,6 @@ import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import IceCream from "../../content/assets/ice-cream.svg"
 
 interface Props {
   data: {
@@ -27,7 +26,7 @@ const NotFoundPage = ({ data }: Props) => {
         You just hit a route that doesn't exist... the sadness. Try going to the{" "}
         <Link to="/">home page</Link>.
       </p>
-      <StaticImage src={IceCream} alt="Ice cream" />
+      <StaticImage src="../../content/assets/ice-cream.svg" alt="Ice cream" />
     </Layout>
   )
 }
