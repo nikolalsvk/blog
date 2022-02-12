@@ -16,23 +16,6 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        serialize: ({ site, allSitePage }) =>
-          allSitePage.edges.map(({ node }) => {
-            const sitemapObject = {
-              url: `${site.siteMetadata.siteUrl}${node.path}`,
-              changefreq: `daily`,
-              priority: 1.0,
-            }
-
-            if (node.path === "/") sitemapObject.priority = 0.9
-
-            if (node.path.includes("/tags/")) sitemapObject.priority = 0.6
-
-            if (["/thank-you/", "/confirm-subscription/"].includes(node.path))
-              sitemapObject.priority = 0.5
-
-            return sitemapObject
-          }),
         excludes: [`/newsletter/*`],
       },
     },
