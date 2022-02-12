@@ -1,6 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import { useTheme } from "../contexts/theme"
 
@@ -10,7 +10,7 @@ const ThemeContainer = styled.div`
   transition: opacity 0.3s ease-in-out;
 `
 
-const StyledImage = styled(Image)`
+const StyledImage = styled(GatsbyImage)`
   height: 40px;
   width: 40px;
   transition: transform 2s cubic-bezier(0.4, 0, 0.49, 1);
@@ -25,16 +25,12 @@ const ThemeSwitch = () => {
     query ThemeIconsQuery {
       sun: file(absolutePath: { regex: "/sun.png/" }) {
         childImageSharp {
-          fluid(maxWidth: 200, maxHeight: 200) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(width: 200, height: 200, layout: CONSTRAINED)
         }
       }
       moon: file(absolutePath: { regex: "/moon.png/" }) {
         childImageSharp {
-          fluid(maxWidth: 200, maxHeight: 200) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(width: 200, height: 200, layout: CONSTRAINED)
         }
       }
     }
@@ -51,7 +47,7 @@ const ThemeSwitch = () => {
       }}
     >
       <StyledImage
-        fluid={data.sun.childImageSharp.fluid}
+        image={data.sun.childImageSharp.gatsbyImageData}
         alt={"Theme switch button"}
         style={{
           zIndex: `${theme === "purple" ? 1 : 2}`,
@@ -60,7 +56,7 @@ const ThemeSwitch = () => {
         }}
       />
       <StyledImage
-        fluid={data.moon.childImageSharp.fluid}
+        image={data.moon.childImageSharp.gatsbyImageData}
         alt={"Theme switch button"}
         style={{
           zIndex: `${theme === "purple" ? 2 : 1}`,

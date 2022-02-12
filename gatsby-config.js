@@ -33,7 +33,7 @@ module.exports = {
 
             return sitemapObject
           }),
-        exclude: [`/newsletter/*`],
+        excludes: [`/newsletter/*`],
       },
     },
     {
@@ -60,12 +60,13 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        pedantic: false,
         plugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 590,
+              withWebp: true,
+              quality: 100,
             },
           },
           {
@@ -86,6 +87,7 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

@@ -7,7 +7,7 @@
 
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
+import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 
 import { rhythm } from "../utils/typography"
@@ -34,13 +34,6 @@ const ImageContainer = styled.div`
 const Bio = () => {
   const data = useStaticQuery(graphql`
     query BioQuery {
-      avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
-        childImageSharp {
-          fluid(maxWidth: 200, maxHeight: 200) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
       site {
         siteMetadata {
           author {
@@ -60,8 +53,8 @@ const Bio = () => {
   return (
     <BioContainer>
       <ImageContainer>
-        <Image
-          fluid={data.avatar.childImageSharp.fluid}
+        <StaticImage
+          src="../../content/assets/profile-pic.jpg"
           alt={author.name}
           style={{
             height: 90,
