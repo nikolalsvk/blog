@@ -7,17 +7,21 @@ import { useTheme } from "../contexts/theme"
 const ThemeContainer = styled.div`
   display: block;
   cursor: pointer;
+`
+
+const ImageWrapper = styled.div`
   transition: opacity 0.3s ease-in-out;
+
+  &:hover,
+  &:active {
+    transform: rotate(359deg);
+  }
 `
 
 const StyledImage = styled(GatsbyImage)`
   height: 40px;
   width: 40px;
   transition: transform 2s cubic-bezier(0.4, 0, 0.49, 1);
-
-  &:hover {
-    transform: rotate(359deg);
-  }
 `
 
 const ThemeSwitch = () => {
@@ -46,23 +50,29 @@ const ThemeSwitch = () => {
         setTimeout(() => document.body.classList.remove("animate-switch"), 500)
       }}
     >
-      <StyledImage
-        image={data.sun.childImageSharp.gatsbyImageData}
-        alt={"Theme switch button"}
+      <ImageWrapper
         style={{
-          zIndex: `${theme === "purple" ? 1 : 2}`,
+          zIndex: theme === "purple" ? 1 : 2,
           position: "absolute",
           opacity: `${theme === "purple" ? 0 : 1}`,
         }}
-      />
-      <StyledImage
-        image={data.moon.childImageSharp.gatsbyImageData}
-        alt={"Theme switch button"}
+      >
+        <StyledImage
+          image={data.sun.childImageSharp.gatsbyImageData}
+          alt={"Light theme switch button"}
+        />
+      </ImageWrapper>
+      <ImageWrapper
         style={{
-          zIndex: `${theme === "purple" ? 2 : 1}`,
+          zIndex: theme === "purple" ? 2 : 1,
           opacity: `${theme === "purple" ? 1 : 0}`,
         }}
-      />
+      >
+        <StyledImage
+          image={data.moon.childImageSharp.gatsbyImageData}
+          alt={"Dark theme switch button"}
+        />
+      </ImageWrapper>
     </ThemeContainer>
   )
 }
