@@ -1,11 +1,11 @@
 {
   "name": "pragmatic-pineapple-blog",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "A blog by Nikola Đuza that aims to spread knowledge and give practical tips on JavaScript and Ruby.",
   "version": "0.1.0",
   "author": "Nikola Đuza <nikolaseap@gmail.com>",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/nikolalsvk/blog/issues"
   },
   "dependencies": {
     "@fontsource/josefin-sans": "^4.5.4",
@@ -54,16 +54,12 @@
     "prettier": "^2.5.1",
     "typescript": "^4.5.5"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://pragmaticpineapple.com/",
   "keywords": [
     "gatsby"
   ],
   "license": "MIT",
   "main": "n/a",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
-  },
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
@@ -71,7 +67,6 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "build-view-counter": "cd functions/view-counter && npm install",
     "type-check": "tsc --noEmit"
   },
