@@ -16,7 +16,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        excludes: [`/newsletter/*`],
+        excludes: [`/newsletter/*`, `/thank-you/`],
       },
     },
     {
