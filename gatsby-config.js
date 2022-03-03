@@ -16,24 +16,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        serialize: ({ site, allSitePage }) =>
-          allSitePage.edges.map(({ node }) => {
-            const sitemapObject = {
-              url: `${site.siteMetadata.siteUrl}${node.path}`,
-              changefreq: `daily`,
-              priority: 1.0,
-            }
-
-            if (node.path === "/") sitemapObject.priority = 0.9
-
-            if (node.path.includes("/tags/")) sitemapObject.priority = 0.6
-
-            if (["/thank-you/", "/confirm-subscription/"].includes(node.path))
-              sitemapObject.priority = 0.5
-
-            return sitemapObject
-          }),
-        exclude: [`/newsletter/*`],
+        excludes: [`/newsletter/*`, `/thank-you/`],
       },
     },
     {
@@ -60,12 +43,13 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        pedantic: false,
         plugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 590,
+              withWebp: true,
+              quality: 100,
             },
           },
           {
@@ -86,8 +70,16 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          placeholder: `blurred`,
+        },
+      },
+    },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-google-tagmanager`,
       options: {
