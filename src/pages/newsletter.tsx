@@ -78,9 +78,10 @@ const NewsletterPage = ({
         </p>
 
         <p>
-          At most, it will be a couple of emails a year. Can your mailbox
-          undergo that many emails? If the answer is yes, subscribe and let us
-          keep in touch. You can always unsubscribe later!
+          Since 2022. my goal is to send one issue per month. The issues will
+          contain any updates on the blog and also include a couple of useful
+          links I found. Sounds good? If so, sign up below and let's keep in
+          touch.
         </p>
 
         <p>
@@ -90,7 +91,7 @@ const NewsletterPage = ({
             </SeeMoreButton>
           ) : (
             <SeeMoreButton role="button" onClick={() => setShowIssues(true)}>
-              You can see previous issues by clicking here.
+              Still not ready? You can see previous issues by clicking here.
             </SeeMoreButton>
           )}
         </p>
