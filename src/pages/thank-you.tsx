@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -19,16 +19,26 @@ const ThankYouPage = ({ data }: Props) => {
 
   return (
     <Layout title={siteTitle} showLargeHeader>
-      <SEO title="Confirm subscription" />
+      <SEO title="Thank you for confirming the subscription" />
 
       <article>
         <h2>
-          Thank you for subscribing!{" "}
-          <span role="img" aria-label="bow">
-            🙇
+          Subscription confirmed{" "}
+          <span role="img" aria-label="tada">
+            🎉
           </span>
         </h2>
-        <h3>Please check your inbox to confirm the subscription.</h3>
+
+        <h3>
+          You are officially on the list! I will send you any new content as
+          soon as it gets released.
+        </h3>
+
+        <p>
+          Glad to have you onboard. You can{" "}
+          <Link to="/">head back to the blog</Link> or check out the{" "}
+          <Link to="/about">about page</Link>.
+        </p>
       </article>
     </Layout>
   )
