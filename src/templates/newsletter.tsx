@@ -6,6 +6,7 @@ import SEO from "../components/seo"
 import Bio from "../components/bio"
 import SubscribeForm from "../components/subscribe-form"
 import ViewCounter from "../components/view-counter"
+import Spacer from "../components/spacer"
 import { rhythm } from "../utils/typography"
 import styled from "styled-components"
 
@@ -63,6 +64,7 @@ const NewsletterTemplate = ({ data }: Props) => {
       </footer>
 
       <SubscribeForm />
+      <Spacer />
     </Layout>
   )
 }
