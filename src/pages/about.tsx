@@ -70,7 +70,19 @@ const AboutPage = ({ data }: Props) => {
           Semaphore
         </a>
         . I've also been featured on newsletters like Ruby Weekly, JavaScript
-        Weekly, and Node Weekly.
+        Weekly, and Node Weekly. I republish my posts on{" "}
+        <a target="_blank" rel="noreferrer" href="https://dev.to/nikolalsvk">
+          dev.to
+        </a>{" "}
+        and{" "}
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://medium.com/@nikolalsvk"
+        >
+          Medium
+        </a>
+        .
       </p>
 
       <p>
