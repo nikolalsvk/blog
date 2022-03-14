@@ -1,5 +1,5 @@
 ---
-title: DevOps JavaScript - Intro to writing scripts with zx
+title: DevOps Javascript - Intro to Writing Scripts With zx
 description: Become a JavaScript DevOps engineers by writing scripts using zx.js.
 slug: devops-javascript-intro-to-writing-scripts-with-zx
 date: 2022-03-15
