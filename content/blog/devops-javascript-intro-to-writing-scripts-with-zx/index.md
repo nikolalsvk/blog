@@ -1,10 +1,10 @@
 ---
-title: DevOps Javascript - Intro to Writing Scripts With zx
+title: DevOps JavaScript - Intro to Writing Scripts With zx
 description: Become a JavaScript DevOps engineers by writing scripts using zx.js.
 slug: devops-javascript-intro-to-writing-scripts-with-zx
 date: 2022-03-15
-coverImage: TODO
-blogOgImage: TODO
+coverImage: ./cover.jpeg
+blogOgImage: ./og-image.jpg
 published: true
 tags:
   - JavaScript
@@ -14,6 +14,13 @@ tags:
 So you just read DevOps and JavaScript in the same sentence. Are you mad or madly curious? In any case, you don't put these two together very often. JavaScript was used to add a bit of sprinkle to the web pages back in the day. No way it has its place in DevOps, right? Oh, yes, it does.
 
 JavaScript (and now TypeScript) has poured down into every pore of software engineering. First, it was a frontend thingy. Then, it became a backend thingy (with Node.js). Then internet of things thingy. And now, finally, we arrived at the DevOps train station with our JS luggage. Get off the frickin' train and unpack your bags. You're going to be one step closer to becoming a JavaScript DevOps engineer after you read this post.
+
+</figure>
+  <img alt="Old typewriter cover image" src="/cover.jpeg" />
+  <figcaption class='photo-caption'>
+Photo by <a href="https://unsplash.com/@markuswinkler?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Markus Winkler</a> on <a href="https://unsplash.com/s/photos/script?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  </figcaption>
+</figure>
 
 ## Introducing zx
 
