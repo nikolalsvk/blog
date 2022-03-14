@@ -76,6 +76,6 @@
     }
   },
   "lint-staged": {
-    "**/*{js,jsx,json,md}": "npm run format"
+    "**/*{js,jsx,ts,tsx,json,md}": "npm run format"
   }
 }
