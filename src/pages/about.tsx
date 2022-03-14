@@ -82,7 +82,7 @@ const AboutPage = ({ data }: Props) => {
         >
           Medium
         </a>
-        .
+        , so you can follow me there if you use those platforms.
       </p>
 
       <p>
