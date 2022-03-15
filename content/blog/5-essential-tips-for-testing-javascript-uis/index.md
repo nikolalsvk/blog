@@ -67,19 +67,19 @@ Often, you face the same problem — the creation of particular data objects in 
 
 One library that can help us with generating objects is the [Fishery](https://github.com/thoughtbot/fishery) library. If you’re using TypeScript, these two can fit in perfectly. Let’s say we want to generate a user in our test. One way to do it is like this:
 
-```javascript
+```typescript
 // factories/user.ts
+
 import { Factory } from "fishery"
 import { User } from "../my-types"
 import postFactory from "./post"
-export default Factory.define <
-  User >
-  (({ sequence }) => ({
-    id: sequence,
-    name: "Rosa",
-    address: { city: "Austin", state: "TX", country: "USA" },
-    posts: postFactory.buildList(2),
-  }))
+
+export const userFactory = Factory.define<User>(({ sequence }) => ({
+  id: sequence,
+  name: "Rosa",
+  address: { city: "Austin", state: "TX", country: "USA" },
+  posts: postFactory.buildList(2),
+}))
 ```
 
 Then, we can create the user without too much fuss like so:
