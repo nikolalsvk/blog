@@ -376,7 +376,7 @@ You can find the script I converted from Ruby to JavaScript in [my dotfiles on G
 
 Consider sharing the blog post with your friends and colleagues. Maybe someone is just waiting for this type of content. Here's a quick way to do it on Twitter:
 
-TODO
+<blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">Did you know you can go beyond Full Stack JavaScript and potentially become a DevOps JS dev?<br><br>Here&#39;s the first step 👇<a href="https://t.co/lRYKJf4SWc">https://t.co/lRYKJf4SWc</a></p>&mdash; Nikola Đuza (@nikolalsvk) <a href="https://twitter.com/nikolalsvk/status/1503664442097250309?ref_src=twsrc%5Etfw">March 15, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 That's all I have for you today. Catch you in the next one.
 
