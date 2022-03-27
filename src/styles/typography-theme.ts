@@ -224,7 +224,7 @@ export const TypographyTheme = `
   html {
     font: 100%/1.75 'Merriweather', 'Georgia', serif;
     box-sizing: border-box;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 
   * {
