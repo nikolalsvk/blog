@@ -48,8 +48,11 @@ const AboutPage = ({ data }: Props) => {
       </p>
 
       <p>
-        My articles have appeared on the first page of HackerNews, and blogs
-        like{" "}
+        My articles have appeared on the first page of{" "}
+        <ExternalLink href="https://news.ycombinator.com/submitted?id=nikolalsvk">
+          HackerNews
+        </ExternalLink>
+        , and blogs like{" "}
         <ExternalLink href="https://blog.logrocket.com/author/nikola-duza/">
           LogRocket
         </ExternalLink>
@@ -61,8 +64,14 @@ const AboutPage = ({ data }: Props) => {
         <ExternalLink href="https://semaphoreci.com/author/nikola">
           Semaphore
         </ExternalLink>
-        . I've also been featured on newsletters like Ruby Weekly, JavaScript
-        Weekly, and Node Weekly. I republish my posts on{" "}
+        . I've also been featured on newsletters like{" "}
+        <ExternalLink href="https://rubyweekly.com/">Ruby Weekly</ExternalLink>,{" "}
+        <ExternalLink href="https://javascriptweekly.com/">
+          JavaScript Weekly
+        </ExternalLink>
+        , and{" "}
+        <ExternalLink href="https://nodeweekly.com/">Node Weekly</ExternalLink>.
+        I republish my posts on{" "}
         <ExternalLink href="https://dev.to/nikolalsvk">dev.to</ExternalLink> and{" "}
         <ExternalLink href="https://medium.com/@nikolalsvk">
           Medium
@@ -150,6 +159,11 @@ const AboutPage = ({ data }: Props) => {
             <li>
               <ExternalLink href="https://calendly.com/nikolalsvk">
                 Calendly
+              </ExternalLink>
+            </li>
+            <li>
+              <ExternalLink href="https://convertkit.com?lmref=EVgZiQ">
+                ConvertKit
               </ExternalLink>
             </li>
           </ul>
