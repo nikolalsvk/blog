@@ -23,11 +23,15 @@ function ViewCounter({ slug, hideText }: Props) {
     let db: Database
 
     const fetchData = async () => {
-      db = await loadDb()
+      try {
+        db = await loadDb()
 
-      const slugRef = ref(db, `views/${slug}`)
+        const slugRef = ref(db, `views/${slug}`)
 
-      onValue(slugRef, onViews)
+        onValue(slugRef, onViews)
+      } catch (error) {
+        console.error(error)
+      }
     }
 
     fetchData()
