@@ -65,7 +65,7 @@ rails server
 
 And visiting http://localhost:3000. You should see “Yay! You’re on Rails!” page. Pretty nice, let’s move on.
 
-Yay, we have Rails and Svelte installed together in our project. Let's actually use it.
+Yay, we have Rails and Svelte installed together in our project. Let's actually use them.
 
 ## Rendering of simple Svelte app
 
