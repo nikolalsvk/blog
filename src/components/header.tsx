@@ -16,13 +16,18 @@ const BigHeader = {
 
     a {
       box-shadow: none;
-      color: inherit;
+      color: var(--color-primary);
     }
   `,
   TopPart: styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    a {
+      box-shadow: none;
+      color: var(--color-text);
+    }
 
     @media (max-width: 768px) {
       display: none;
@@ -57,7 +62,7 @@ const SmallHeader = {
 
     a {
       box-shadow: none;
-      color: inherit;
+      color: var(--color-primary);
     }
 
     @media (max-width: 768px) {
@@ -67,6 +72,11 @@ const SmallHeader = {
   RightPart: styled.div`
     display: flex;
     align-items: center;
+
+    a {
+      box-shadow: none;
+      color: var(--color-text);
+    }
 
     @media (max-width: 768px) {
       display: none;
