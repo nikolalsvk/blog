@@ -53,7 +53,7 @@ OK, now that you’ve installed everything that’s needed, we can go ahead and 
 We will use Rails’ command to generate our app that will use Svelte.
 
 ```bash
-rails new rails-6-svelte
+rails new rails-6-svelte --webpack=svelte
 cd rails-6-svelte
 ```
 
@@ -65,26 +65,7 @@ rails server
 
 And visiting http://localhost:3000. You should see “Yay! You’re on Rails!” page. Pretty nice, let’s move on.
 
-## Installing Svelte into Rails app
-
-Now we need to install Svelte into our fresh Rails application. An easy way to do this is to use webpacker gem which is already installed in our Gemfile. At the time this post was written, support for Svelte is not yet published, but it’s available on the gem’s GitHub repo here https://github.com/rails/webpacker.
-
-In order to have these changes in our project right now, we need to install the gem from GitHub repo directly. To do this, you can open up your Gemfile in file editor and swap this line:
-
-```ruby
-g̵e̵m̵ ̵'̵w̵e̵b̵p̵a̵c̵k̵e̵r̵'̵,̵ ̵'̵~̵>̵ ̵4̵.̵0̵'̵
-gem 'webpacker', git: 'https://github.com/rails/webpacker'
-```
-
-Then run `bundle install`, wait for the command to finish, and we’re ready for our next step.
-
-In order to install all the needed dependencies and files to run Svelte in our Rails project, we can use webpacker’s task that will do this for us. Run
-
-```bash
-rails webpacker:install:svelte
-```
-
-Awesome! Now our project has Svelte! Let’s actually use it.
+Yay, we have Rails and Svelte installed together in our project. Let's actually use it.
 
 ## Rendering of simple Svelte app
 
