@@ -31,4 +31,6 @@ them, you are supporting and helping me in a way.
   - To let people schedule a call with me, I use [Calendly](https://calendly.com/nikolalsvk).
   - To manage my newsletter - [ConvertKit](https://convertkit.com?lmref=EVgZiQ) is awesome.
 
-Thanks for reading, especially if you clicked some of the links. If you feel something is missing or you'd like to know more, send me an email or [ping me on Twitter](https://twitter.com/nikolalsvk), and I will add it.
+Thanks for reading, especially if you clicked some of the links. If you feel something is missing or you'd like to know more, [send me an email](mailto:nikola@pragmaticpineapple.com) or [ping me on Twitter](https://twitter.com/nikolalsvk), and I will add it.
+
+In the meantime, you can head back to the [homepage from here](/).

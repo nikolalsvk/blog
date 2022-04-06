@@ -57,3 +57,5 @@ I've given a couple of talks throughout my career. Unfortunately, not all of the
 ## 🤝 Let's connect
 
 Thanks for visiting this page. If you want to connect further, feel free to reach out on [Twitter](https://twitter.com/nikolalsvk) or just [send me an email](mailto:nikola@pragmaticpineapple.com).
+
+In the meantime, you can head back to the [homepage from here](/).
