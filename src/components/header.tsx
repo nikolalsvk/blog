@@ -89,7 +89,7 @@ const Navigation = styled.nav`
   align-items: center;
 
   a {
-    margin-right: 20px;
+    margin-right: 18px;
     box-shadow: none;
   }
 
@@ -144,6 +144,7 @@ const MobileMenu = ({ open }: MobileMenuProps) => {
     <Mobile.Wrapper open={open}>
       <Mobile.Navigation>
         <Link to="/about">About</Link>
+        <Link to="/uses">Uses</Link>
         <Link to="/newsletter">Newsletter</Link>
         <Link to="/tags">Tags</Link>
       </Mobile.Navigation>
@@ -168,6 +169,7 @@ const Header = ({ title, showLargeHeader }: Props) => {
         <BigHeader.TopPart>
           <Navigation>
             <Link to="/about">About</Link>
+            <Link to="/uses">Uses</Link>
             <Link to="/newsletter">Newsletter</Link>
             <Link to="/tags">Tags</Link>
           </Navigation>
@@ -197,6 +199,7 @@ const Header = ({ title, showLargeHeader }: Props) => {
       <SmallHeader.RightPart>
         <Navigation>
           <Link to="/about">About</Link>
+          <Link to="/uses">Uses</Link>
           <Link to="/newsletter">Newsletter</Link>
           <Link to="/tags">Tags</Link>
         </Navigation>

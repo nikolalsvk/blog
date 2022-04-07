@@ -8,6 +8,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const blogPost = path.resolve(`./src/templates/blog-post.tsx`)
   const tagTemplate = path.resolve(`./src/templates/tag.tsx`)
   const newsletterTemplate = path.resolve(`./src/templates/newsletter.tsx`)
+  const rootPagesTemplate = path.resolve(`./src/templates/root.tsx`)
 
   const result = await graphql(
     `
@@ -39,6 +40,23 @@ exports.createPages = async ({ graphql, actions }) => {
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
           filter: { frontmatter: { newsletter: { eq: true } } }
+        ) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+              frontmatter {
+                title
+                tags
+                published
+              }
+            }
+          }
+        }
+        rootPages: allMarkdownRemark(
+          limit: 1000
+          filter: { fileAbsolutePath: { regex: "/(root)/" } }
         ) {
           edges {
             node {
@@ -119,6 +137,21 @@ exports.createPages = async ({ graphql, actions }) => {
       component: newsletterTemplate,
       context: {
         slug: issue.node.fields.slug,
+      },
+    })
+  })
+
+  // Set root pages written in Markdown
+  const rootPages = result.data.rootPages.edges
+
+  rootPages.forEach((root) => {
+    console.log(root.node.fields.slug)
+
+    createPage({
+      path: root.node.fields.slug,
+      component: rootPagesTemplate,
+      context: {
+        slug: root.node.fields.slug,
       },
     })
   })
