@@ -38,12 +38,13 @@ You can read more about it on the [uses](/uses) page.
 I got invited to a couple of podcasts. Here's where you can listen to me jabber about things:
 
 - [Podkast IT Tipa 7: Ruby (gost: Nikola Đuza) - in Serbian language - March 18th, 2022](https://www.youtube.com/watch?v=IS5MeOj4Hc8)
-- [Rode NT-USB Mini Why Write Rails View Tests with Nikola Đuza - RUBY 496 - May 5th, 2021](https://rubyrogues.com/518)
+- [Why Write Rails View Tests with Nikola Đuza - RUBY 496 - May 5th, 2021](https://rubyrogues.com/518)
 
 ## 🗣 My talks
 
 I've given a couple of talks throughout my career. Unfortunately, not all of them got recorded. You can see the slides I have at [slides.com here](https://slides.com/nikolalsvk) for all of them. Here's the full list of talks I've given:
 
+- [How to get a job in the IT industry - Kako najbrže do posla u IT industriji 2021](https://youtu.be/zLcjifY0biI?t=10112)
 - Effective End-to-End and Integration Testing with Cypress - Telenor IT Dev Talks 2020
 - [How Did Vim Become So Popular - VimConf 2020](https://www.youtube.com/watch?v=FVgp0VrNo2w)
 - [Speeding up Initial Rendering of Rails Pages with render_async - Ruby Russia 2019](https://www.youtube.com/watch?v=_lCSSaurjYQ)
@@ -52,7 +53,7 @@ I've given a couple of talks throughout my career. Unfortunately, not all of the
 - [Kako Optimizovati React Aplikaciju (How to optimize a React app) - NS JS Meeetup #1 (2018)](https://www.youtube.com/watch?v=Sjuh2VpZ_s4)
 - Docker Images - Docker Meetup Novi Sad (2017)
 - AWS Elastic Beanstalk and Semaphore CI - AWS User Group Serbia (2015)
-- Test-Driven Ruby [CTRL + FLOW](http://renderedtext.com/ctrlflow/) (2015)
+- Test-Driven Ruby - [CTRL + FLOW](http://renderedtext.com/ctrlflow/) (2015)
 
 ## 🤝 Let's connect
 
