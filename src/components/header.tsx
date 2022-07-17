@@ -6,6 +6,20 @@ import ThemeSwitch from "./theme-switch"
 import styled from "styled-components"
 import Burger from "./burger"
 
+const Navigation = styled.nav`
+  display: flex;
+  align-items: center;
+
+  a {
+    margin-right: 18px;
+    box-shadow: none;
+  }
+
+  a:hover {
+    box-shadow: 0 1px 0 0 currentColor;
+  }
+`
+
 const BigHeader = {
   Wrapper: styled.header`
     margin-bottom: ${rhythm(1)};
@@ -46,6 +60,10 @@ const BigHeader = {
       margin-top: ${rhythm(1)};
     }
   `,
+  Navigation: styled(Navigation)`
+    justify-content: space-between;
+    width: 100%;
+  `,
 }
 
 const SmallHeader = {
@@ -84,20 +102,6 @@ const SmallHeader = {
   `,
 }
 
-const Navigation = styled.nav`
-  display: flex;
-  align-items: center;
-
-  a {
-    margin-right: 18px;
-    box-shadow: none;
-  }
-
-  a:hover {
-    box-shadow: 0 1px 0 0 currentColor;
-  }
-`
-
 const Mobile = {
   Wrapper: styled.div<MobileMenuProps>`
     display: none;
@@ -135,6 +139,10 @@ const Mobile = {
   `,
 }
 
+const FlexBox = styled.div`
+  display: flex;
+`
+
 interface MobileMenuProps {
   open: boolean
 }
@@ -147,8 +155,9 @@ const MobileMenu = ({ open }: MobileMenuProps) => {
         <Link to="/uses">Uses</Link>
         <Link to="/newsletter">Newsletter</Link>
         <Link to="/tags">Tags</Link>
+
+        <ThemeSwitch />
       </Mobile.Navigation>
-      <ThemeSwitch />
     </Mobile.Wrapper>
   )
 }
@@ -167,13 +176,18 @@ const Header = ({ title, showLargeHeader }: Props) => {
     return (
       <BigHeader.Wrapper>
         <BigHeader.TopPart>
-          <Navigation>
-            <Link to="/about">About</Link>
-            <Link to="/uses">Uses</Link>
-            <Link to="/newsletter">Newsletter</Link>
-            <Link to="/tags">Tags</Link>
-          </Navigation>
-          <ThemeSwitch />
+          <BigHeader.Navigation>
+            <FlexBox>
+              <Link to="/about">About</Link>
+              <Link to="/uses">Uses</Link>
+              <Link to="/newsletter">Newsletter</Link>
+              <Link to="/tags">Tags</Link>
+            </FlexBox>
+
+            <FlexBox>
+              <ThemeSwitch />
+            </FlexBox>
+          </BigHeader.Navigation>
         </BigHeader.TopPart>
 
         <MobileMenu open={open} />
@@ -202,9 +216,9 @@ const Header = ({ title, showLargeHeader }: Props) => {
           <Link to="/uses">Uses</Link>
           <Link to="/newsletter">Newsletter</Link>
           <Link to="/tags">Tags</Link>
-        </Navigation>
 
-        <ThemeSwitch />
+          <ThemeSwitch />
+        </Navigation>
       </SmallHeader.RightPart>
     </SmallHeader.Wrapper>
   )

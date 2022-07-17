@@ -4,13 +4,22 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import { useTheme } from "../contexts/theme"
 
-const ThemeContainer = styled.div`
-  display: block;
+const ThemeContainer = styled.button`
+  height: 40px;
+  width: 40px;
+  padding: 0;
+  border: 0;
+  background: inherit;
   cursor: pointer;
+  position: relative;
 `
 
 const ImageWrapper = styled.div`
-  transition: opacity 0.3s ease-in-out;
+  position: absolute;
+  top: 0;
+
+  transition: opacity 0.3s ease-in-out,
+    transform 2s cubic-bezier(0.4, 0, 0.49, 1);
 
   &:hover,
   &:active {
@@ -21,7 +30,6 @@ const ImageWrapper = styled.div`
 const StyledImage = styled(GatsbyImage)`
   height: 40px;
   width: 40px;
-  transition: transform 2s cubic-bezier(0.4, 0, 0.49, 1);
 `
 
 const ThemeSwitch = () => {
@@ -53,7 +61,6 @@ const ThemeSwitch = () => {
       <ImageWrapper
         style={{
           zIndex: theme === "purple" ? 1 : 2,
-          position: "absolute",
           opacity: `${theme === "purple" ? 0 : 1}`,
         }}
       >
