@@ -6,6 +6,20 @@ import ThemeSwitch from "./theme-switch"
 import styled from "styled-components"
 import Burger from "./burger"
 
+const Navigation = styled.nav`
+  display: flex;
+  align-items: center;
+
+  a {
+    margin-right: 18px;
+    box-shadow: none;
+  }
+
+  a:hover {
+    box-shadow: 0 1px 0 0 currentColor;
+  }
+`
+
 const BigHeader = {
   Wrapper: styled.header`
     margin-bottom: ${rhythm(1)};
@@ -19,20 +33,6 @@ const BigHeader = {
       color: var(--color-primary);
     }
   `,
-  TopPart: styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    a {
-      box-shadow: none;
-      color: var(--color-text);
-    }
-
-    @media (max-width: 768px) {
-      display: none;
-    }
-  `,
   Text: styled.h1`
     margin-top: ${rhythm(1.5)};
     font-size: ${rhythm(2.8)};
@@ -44,6 +44,19 @@ const BigHeader = {
 
       font-size: ${rhythm(1.8)};
       margin-top: ${rhythm(1)};
+    }
+  `,
+  Navigation: styled(Navigation)`
+    justify-content: space-between;
+    width: 100%;
+
+    a {
+      box-shadow: none;
+      color: var(--color-text);
+    }
+
+    @media (max-width: 768px) {
+      display: none;
     }
   `,
 }
@@ -84,20 +97,6 @@ const SmallHeader = {
   `,
 }
 
-const Navigation = styled.nav`
-  display: flex;
-  align-items: center;
-
-  a {
-    margin-right: 18px;
-    box-shadow: none;
-  }
-
-  a:hover {
-    box-shadow: 0 1px 0 0 currentColor;
-  }
-`
-
 const Mobile = {
   Wrapper: styled.div<MobileMenuProps>`
     display: none;
@@ -135,6 +134,10 @@ const Mobile = {
   `,
 }
 
+const FlexBox = styled.div`
+  display: flex;
+`
+
 interface MobileMenuProps {
   open: boolean
 }
@@ -147,8 +150,9 @@ const MobileMenu = ({ open }: MobileMenuProps) => {
         <Link to="/uses">Uses</Link>
         <Link to="/newsletter">Newsletter</Link>
         <Link to="/tags">Tags</Link>
+
+        <ThemeSwitch />
       </Mobile.Navigation>
-      <ThemeSwitch />
     </Mobile.Wrapper>
   )
 }
@@ -166,15 +170,18 @@ const Header = ({ title, showLargeHeader }: Props) => {
   if (showLargeHeader) {
     return (
       <BigHeader.Wrapper>
-        <BigHeader.TopPart>
-          <Navigation>
+        <BigHeader.Navigation>
+          <FlexBox>
             <Link to="/about">About</Link>
             <Link to="/uses">Uses</Link>
             <Link to="/newsletter">Newsletter</Link>
             <Link to="/tags">Tags</Link>
-          </Navigation>
-          <ThemeSwitch />
-        </BigHeader.TopPart>
+          </FlexBox>
+
+          <FlexBox>
+            <ThemeSwitch />
+          </FlexBox>
+        </BigHeader.Navigation>
 
         <MobileMenu open={open} />
 
@@ -202,9 +209,9 @@ const Header = ({ title, showLargeHeader }: Props) => {
           <Link to="/uses">Uses</Link>
           <Link to="/newsletter">Newsletter</Link>
           <Link to="/tags">Tags</Link>
-        </Navigation>
 
-        <ThemeSwitch />
+          <ThemeSwitch />
+        </Navigation>
       </SmallHeader.RightPart>
     </SmallHeader.Wrapper>
   )
