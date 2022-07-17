@@ -33,20 +33,6 @@ const BigHeader = {
       color: var(--color-primary);
     }
   `,
-  TopPart: styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    a {
-      box-shadow: none;
-      color: var(--color-text);
-    }
-
-    @media (max-width: 768px) {
-      display: none;
-    }
-  `,
   Text: styled.h1`
     margin-top: ${rhythm(1.5)};
     font-size: ${rhythm(2.8)};
@@ -63,6 +49,15 @@ const BigHeader = {
   Navigation: styled(Navigation)`
     justify-content: space-between;
     width: 100%;
+
+    a {
+      box-shadow: none;
+      color: var(--color-text);
+    }
+
+    @media (max-width: 768px) {
+      display: none;
+    }
   `,
 }
 
@@ -175,20 +170,18 @@ const Header = ({ title, showLargeHeader }: Props) => {
   if (showLargeHeader) {
     return (
       <BigHeader.Wrapper>
-        <BigHeader.TopPart>
-          <BigHeader.Navigation>
-            <FlexBox>
-              <Link to="/about">About</Link>
-              <Link to="/uses">Uses</Link>
-              <Link to="/newsletter">Newsletter</Link>
-              <Link to="/tags">Tags</Link>
-            </FlexBox>
+        <BigHeader.Navigation>
+          <FlexBox>
+            <Link to="/about">About</Link>
+            <Link to="/uses">Uses</Link>
+            <Link to="/newsletter">Newsletter</Link>
+            <Link to="/tags">Tags</Link>
+          </FlexBox>
 
-            <FlexBox>
-              <ThemeSwitch />
-            </FlexBox>
-          </BigHeader.Navigation>
-        </BigHeader.TopPart>
+          <FlexBox>
+            <ThemeSwitch />
+          </FlexBox>
+        </BigHeader.Navigation>
 
         <MobileMenu open={open} />
 
