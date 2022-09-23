@@ -96,7 +96,6 @@ export default createGlobalStyle`
   .language-css .token.string,
   .style .token.string {
     color: #9a6e3a;
-    background: hsla(0, 0%, 100%, .5);
   }
 
   .token.atrule,
