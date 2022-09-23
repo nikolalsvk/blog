@@ -13,7 +13,7 @@ tags:
   - Cloudflare Workers
 ---
 
-![Cloudflare Logo](https://blog.logrocket.com/wp-content/uploads/2022/08/creating-url-shortener-cloudflare-workers-nocdn.png)
+![Cloudflare Logo](./cover.png)
 
 Have you ever used tools like [Bitly](https://bitly.com) or [TinyURL](https://tinyurl.com/app) to shorten long links? Or, have you wondered how these services work? Maybe you wanted to build a URL shortener but never found the time or the proper tools to do so. In any case, if you are interested in this topic, this article is perfect for you.
 
@@ -147,7 +147,7 @@ $ wrangler dev --local
 This should run our Worker on [http://localhost:8787/](http://localhost:8787/). If we visit localhost, we should see a simple “Hello World!” message:
 
 <figure>
-  <img alt="Hello World Message" src="./hello-world-message.png" />
+  <img alt="Hello World Message" src="./hello-world-message.avif" />
   <figcaption class='photo-caption'>
   Generated Worker is displaying a “Hello World!” message.
   </figcaption>
@@ -276,7 +276,7 @@ export default {
 Now, if we visit [http://localhost:8787](http://localhost:8787) we will get an updated message: “Hello World from our awesome Worker!”, as shown below:
 
 <figure>
-  <img alt="Hello World From Awesome Worker" src="./hello-world-from-awesome-worker.png" />
+  <img alt="Hello World From Awesome Worker" src="./hello-world-from-awesome-worker.avif" />
   <figcaption class='photo-caption'>
   Worker displaying an updated “Hello world” message.
   </figcaption>
@@ -389,7 +389,7 @@ $ wrangler whoami
 Getting User settings...
 👋 You are logged in with an OAuth Token, associated with the email 'nikolaseap@gmail.com'!
 ┌──────────────────────┬──────────────────────────────────┐
-│ Account Name │ Account ID │
+│ Account Name         │ Account ID                       │
 ├──────────────────────┼──────────────────────────────────┤
 │ Nikola Đuza Personal │ 98a16dfefca0e2ee27e1e79ba590d973 │
 └──────────────────────┴──────────────────────────────────┘
