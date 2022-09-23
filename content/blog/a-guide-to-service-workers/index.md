@@ -1,6 +1,6 @@
 ---
 title: A Guide to Service Workers
-description: TODO
+description: The ins and outs of Service Workers
 slug: TODO
 date: 2022-09-14
 canonical: TODO
@@ -16,13 +16,13 @@ Web developers or anyone involved in web development can tell you they know of "
 
 That is why today, we will dive into the Service Workers, see why you'd want to use them, what they are, how they work and explain the difference between Service Workers and other Workers in the browser.
 
-But, before we start, let's dive in and see what the Workers are in general.
+But, before we start, let's dive in and see what the Web Workers are in general.
 
-## What are Workers?
+## What are Web Workers?
 
-A [Worker](https://developer.mozilla.org/en-US/docs/Web/API/Worker) is a background task defined via script - a JavaScript file. They can communicate back and forth with their creator. To see how their work and get a small introduction to the world of workers, let us go through a simple example.
+A [Web Worker](https://developer.mozilla.org/en-US/docs/Web/API/Worker) is a background task defined via script - a JavaScript file. They can communicate back and forth with their creator. A Web Worker runs in a separate thread from the main JavaScript thread. To see how their work and get a small introduction to the world of web workers, let us go through a simple example.
 
-You can create a Worker in the application code like so:
+You can create a Web Worker in the application code like so:
 
 ```js
 const myAwesomeWorker = new Worker("/path/to/worker.js")
@@ -34,7 +34,7 @@ Then, you can communicate with the worker:
 myAwesomeWorker.postMessage("Hi there, love you")
 ```
 
-Inside the worker, you can accept the message and respond back to the caller:
+Inside the web worker, you can accept the message and respond back to the caller:
 
 ```js
 // /path/to/worker.js
@@ -46,7 +46,7 @@ onmessage = function (e) {
 }
 ```
 
-Then, the caller can listen to the messages from the worker:
+Then, the caller can listen to the messages from the web worker:
 
 ```js
 myAwesomeWorker.onmessage = function (e) {
@@ -55,7 +55,7 @@ myAwesomeWorker.onmessage = function (e) {
 }
 ```
 
-Above is a trivial example of how Workers work, but it should be a great start to our topic where we will explore a specialized worker - Service Worker. To summarize, a Worker is a JavaScript file we reference in our application code. We can communicate with it back and forth, and it can be a great helper when we want to delegate work away from the main thread of our application.
+Above is a trivial example of how Web Workers work, but it should be a great start to our topic where we will explore a specialized worker - Service Worker. To summarize, a Web Worker is a JavaScript file that runs in a different thread, but still can communicate with our application code. We can communicate with it back and forth, and it can be a great helper when we want to delegate work away from the main thread of our application.
 
 Now that we got over the basics let's see what Service Workers are.
 
@@ -69,8 +69,12 @@ You can also envision a service worker as a middleware for your site. Any reques
 
 All this makes a perfect scenario if you're planning to add exceptional offline support to your website. A service worker can decide if it should serve the resource from the cache or the network, as it would happen without a service worker. But, it is important to note that not all browsers support service workers. We should make service workers an enhancement rather than a requirement for our website.
 
+One more use case can be the ability to use [Push API](https://developer.mozilla.org/en-US/docs/Web/API/Push_API) to receive messages from the server. It can open up developers to deliver asynchronous notifications and updates to users who opt in, resulting in better engagement with timely new content. For example, you can build a service worker that will update users when a new app is available.
+
 OK, now that we understand the concept of Service Workers, let's see what a typical lifecycle of a service worker is.
-The Service Worker Lifecycle
+
+## The Service Worker Lifecycle
+
 To fully understand how service workers behave, we must understand the different states they can exist. To use a service worker, we have to register it on the client. Here's how we can do it:
 
 ```js
@@ -111,17 +115,26 @@ So when the service worker is updated, this is how its lifecycle looks:
 
 We talked about how to register a service worker and how browsers later activate it. But how does a lifespan of a service worker end? It's important to note that service workers don't live indefinitely. While exact timings differ between browsers, service workers will be terminated if they've been idle for a few seconds or if they've been busy for too long. If a service worker has been terminated and an event occurs that would start it up, it will restart back up.
 
-OK, now that we got through the basics on how to register a Service Worker and its whole lifecycle in the browser, let's go on and see it work on an example. We're going to create a Service Worker that caches our requests.
-Using Service Worker to cache requests
-One of the most common use cases for Service Workers is that they are used to cache assets and requests on your website. They are a fundamental part if you're looking into making a [Progressive Web App (PWA)](https://web.dev/progressive-web-apps/). As we mentioned before, when registered, the service worker acts as a layer between your website and the network. It intercepts every request from your website out to the world.
+All in all, the service worker lifecycle can be shown in one diagram:
 
-One more use case can be the ability to use [Push API](https://developer.mozilla.org/en-US/docs/Web/API/Push_API) to receive messages from the server. It can open up developers to deliver asynchronous notifications and updates to users who opt in, resulting in better engagement with timely new content. For example, you can build a service worker that will update users when a new app is available.
+<figure>
+  <img alt="Service Worker lifecycle" src="./service-worker-lifecycle.png">
+  <figcaption class='photo-caption'>
+  The Service Worker lifecycle
+  </figcaption>
+</figure>
+
+OK, now that we got through the basics on how to register a Service Worker and its whole lifecycle in the browser, let's go on and see it work on an example. We're going to create a Service Worker that caches our requests.
+
+## Using Service Worker to cache requests
+
+One of the most common use cases for Service Workers is that they are used to cache assets and requests on your website. They are a fundamental part if you're looking into making a [Progressive Web App (PWA)](https://web.dev/progressive-web-apps/). As we mentioned before, when registered, the service worker acts as a layer between your website and the network. It intercepts every request from your website out to the world.
 
 In addition to being a middleware between your website and the world, a service worker can utilize the [Cache Storage API](https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage). In this example, we will use just that - a simple service worker that caches requests in the browser's cache. This API works similarly to the browser's standard cache, but it is specific to your domain. You have full control over it, meaning you can control when the keys expire and add new keys. It's important to say that the service worker's storage is independent of the browser HTTP cache to ensure we don't mix the two.
 
 Without further due, let us go into how we can cache our resources with service workers.
 
-### Caching assets on worker's installation
+### Caching assets on service worker's installation
 
 Before we start writing our service worker, we need to register it on our page. We will use a similar code we used in the lifecycle section:
 
@@ -130,13 +143,7 @@ const registerWorker = async () => {
   if ("serviceWorker" in navigator) {
     try {
       const registration = await navigator.serviceWorker.register("/worker.js")
-      if (registration.installing) {
-        console.log("Service worker installing")
-      } else if (registration.waiting) {
-        console.log("Service worker installed")
-      } else if (registration.active) {
-        console.log("Service worker active")
-      }
+      console.log("Service worker registration succeeded:", registration)
     } catch (error) {
       console.error(`Registration failed with ${error}`)
     }
@@ -146,9 +153,23 @@ const registerWorker = async () => {
 registerWorker()
 ```
 
-First, we will check whether service workers are supported in the context where our code runs with `if ('serviceWorker' in navigator)`. After that, we'll do `const registration = await navigator.serviceWorker.register("/worker.js");` which will register the `worker.js` file as our service worker. After that, we'll write to the browser console to ensure everything gets set up correctly. If there were an error somewhere, our `try/catch` block would take care of that. Also, note that only one service worker can be registered on the page.
+First, we will check whether service workers are supported in the context where our code runs with `if ('serviceWorker' in navigator)`. After that, we'll do `const registration = await navigator.serviceWorker.register("/worker.js");` which will register the `worker.js` file as our service worker. After that, we'll write to the browser console to ensure everything gets set up correctly. If there were an error somewhere, our `try/catch` block would take care of that.
 
-Great, we registered our service worker. Now, we have to define it in the new file `worker.js`. Here's how it will look:
+Also, it is good to note that a service worker has a configurable scope. You can set scope when registering a script to be a service worker like so:
+
+```js
+navigator.serviceWorker.register("worker.js", { scope: "/some-scope" })
+```
+
+If you omit scope, it will use the default value. The default value of the scope depends on where the service worker got registered. If you register service worker under `your-website.com/index.html`, the worker will control `your-website.com/index.html` and all pages underneath. If you change the scope to something else like below:
+
+```js
+navigator.serviceWorker.register("worker.js", { scope: "/blog/" })
+```
+
+And, if you register the service worker in the `your-website.com/index.html`, then it will control only the `your-website.com/blog/` portion of it.
+
+Great, now that we registered our service worker and understand the concept of a worker's scope - let us define some logic the service worker file `worker.js`. Here's how it will look:
 
 ```js
 const version = "v1"
@@ -228,8 +249,8 @@ With the new `cacheFirst` function, we are sure that a request that is not in th
 const putInCache = async (request, response) => {
   const cache = await caches.open(version)
 
-  if (request.method === "POST") {
-    console.log("Cannot cache POST requests")
+  if (request.method !== "GET") {
+    console.log("Cannot cache non-GET requests")
     return
   }
 
@@ -262,7 +283,7 @@ We implemented here a cache-first approach where we first try to serve a request
 
 ### Network-First
 
-You can try and implement a network-first approach where we normally send out the request to the network and cache it. Then, when the request can't be made (the site lost connectivity, for example). Then we serve the failed request from the cache.
+You can try and implement a network-first approach where we normally send out the request to the network and cache it. Then, when the request can't be made (the site lost connectivity, for example) - we serve the failed request from the cache.
 
 ### Stale-While-Revalidate
 
@@ -272,22 +293,25 @@ We could also go on and make sure that a user gets some fallback response in cas
 
 ## Service Workers versus other workers
 
-Now that we got an understanding of Service Workers, we can look over other types of Workers and how they differ from each other. Let's start with how similar Workers and Service Workers are.
+Now that we got an understanding of Service Workers, we can look over other types of Web Workers and how they differ from each other. Let's start with how similar Web Workers and Service Workers are.
 
-Workers and service workers are two different types of workers available to websites in the browser. They have some things in common:
+Web Workers and Service Workers are two different types of background scripts available to websites in the browser. They have some things in common:
 
-- They both run in a secondary thread without blocking the main JavaScript thread and the user interface.
+- They both run in a different thread without blocking the main JavaScript thread and the user interface.
 - They can't interact with the DOM directly, and they have limited access to browser APIs.
-- You can think of Service Workers as a specialized version of a classic Worker.
+- They both are Web Workers. But Service Workers are just a specialized version of Web Workers.
 
 And the differences between them:
 
 - As we mentioned before, service workers allow you to intercept network requests (via the [fetch](https://developer.mozilla.org/docs/Web/API/FetchEvent) event) and to listen for Push API events in the background (via the [push](https://developer.mozilla.org/docs/Web/API/PushEvent) event). Web Workers can't do that.
 - A page can spawn multiple web workers, but only one service worker controls all the active tabs under the scope it was registered with.
 - The lifespan of the web worker is tightly coupled to the tab it belongs to, while the service worker's lifecycle is independent of it. When you close the tab where a web worker is running will terminate it. A service worker can continue running in the background, even when the site that registered it doesn't have any active tabs open.
-- Service workers only run over HTTPS for security reasons. Being able to modify network requests, they are wide open to man-in-the-middle attacks, which is why they are only allowed on secure connections. In Firefox, Service Worker APIs are also hidden and cannot be used when the user is in private browsing mode.
+- Service workers only run over HTTPS for security reasons. Being able to modify network requests, they are wide open to man-in-the-middle attacks, which is why they are only allowed on secure connections. In Firefox, Service Worker APIs are also hidden and cannot be used when the user is in private browsing mode. There's an [open bug](mozilla.org/show_bug.cgi?id=1320796) for that if you want to track it.
 
 There are also [Shared Workers](https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker). They are workers that can be utilized by multiple scripts running in different windows, IFrames, and similar, as long as they are in the same domain as the worker. The scripts must communicate via an active port, so they are more complex than the standard workers or service workers.
+
+Besides these, you can also utilize [Worklets](https://developer.mozilla.org/en-US/docs/Web/API/Worklet). A Worklet interface is a lightweight version of Web Workers and gives developers access to low-level parts of the rendering pipeline.
+They can be used to run JavaScript and WebAssembly code to do graphics rendering or audio processing where high performance is required.
 
 ## Summing up
 
@@ -300,7 +324,7 @@ Phew, what a ride. We learned the basics of Service Workers, but let's go over i
 5. Service workers only run over HTTPS for security reasons.
 6. One of the main use cases for a service worker is to cache resources.
 
-As far as (Web) Workers are concerned, they are mostly used to delegate work from the main thread while the page is open. As soon as the page is closed, the classic worker is terminated as well.
+As far as Web Workers are concerned, they are mostly used to delegate work from the main thread while the page is open. As soon as the page is closed, the classic worker is terminated as well.
 
 If you're interested in the code from this blog post, I pushed it to [a repository on GitHub](https://github.com/nikolalsvk/service-worker-jungle). You can check it out there, it has a small `index.html` page that showcases how you can cache resources.
 
