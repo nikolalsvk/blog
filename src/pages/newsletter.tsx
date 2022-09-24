@@ -17,6 +17,10 @@ interface NewsletterIssuesProps {
 }
 
 const NewsletterIssues = styled.div<NewsletterIssuesProps>`
+  opacity: ${(props) => (props.open ? "1" : "0")};
+  height: ${(props) => (props.open ? "100%" : "0")};
+  transition: all 0.5s linear;
+
   h3 {
     margin-top: ${rhythm(1.5)};
     margin-bottom: ${rhythm(1 / 4)};
@@ -97,33 +101,32 @@ const NewsletterPage = ({
         </p>
 
         <NewsletterIssues open={showIssues}>
-          {showIssues &&
-            issues.map(({ node }) => {
-              const title = node.frontmatter.title || node.fields.slug
+          {issues.map(({ node }) => {
+            const title = node.frontmatter.title || node.fields.slug
 
-              return (
-                <article key={node.fields.slug}>
-                  <header>
-                    <h3>
-                      <Link
-                        style={{ boxShadow: `none` }}
-                        to={`/newsletter${node.fields.slug}`}
-                      >
-                        {title}
-                      </Link>
-                    </h3>
-                    <small>{node.frontmatter.date}</small>
-                  </header>
-                  <section>
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: node.frontmatter.description || node.excerpt,
-                      }}
-                    />
-                  </section>
-                </article>
-              )
-            })}
+            return (
+              <article key={node.fields.slug}>
+                <header>
+                  <h3>
+                    <Link
+                      style={{ boxShadow: `none` }}
+                      to={`/newsletter${node.fields.slug}`}
+                    >
+                      {title}
+                    </Link>
+                  </h3>
+                  <small>{node.frontmatter.date}</small>
+                </header>
+                <section>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: node.frontmatter.description || node.excerpt,
+                    }}
+                  />
+                </section>
+              </article>
+            )
+          })}
         </NewsletterIssues>
 
         <SubscribeForm />
