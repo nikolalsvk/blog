@@ -4,6 +4,7 @@ import Header from "./header"
 
 import "@fontsource/josefin-sans/700.css"
 import "@fontsource/roboto/400.css"
+import "@fontsource/roboto/700.css"
 
 import { rhythm } from "../utils/typography"
 import { useTheme } from "../contexts/theme"
