@@ -19,7 +19,12 @@ interface NewsletterIssuesProps {
 const NewsletterIssues = styled.div<NewsletterIssuesProps>`
   opacity: ${(props) => (props.open ? "1" : "0")};
   height: ${(props) => (props.open ? "100%" : "0")};
-  transition: all 0.5s linear;
+  transition: all ${(props) => (props.open ? "0.5s" : "0.2s")} linear;
+
+  article {
+    height: ${(props) => (props.open ? "100%" : "0")};
+    transition: all 0.5s linear;
+  }
 
   h3 {
     margin-top: ${rhythm(1.5)};
