@@ -27,6 +27,12 @@ This solution was used over and over in the past. However, this solution was of
 
 Here’s a small codepen example of how you can tap into the scroll listener and get the data about the desired element:
 
+<iframe height="600" style="width: 100%;" scrolling="no" title="getBoundingClientRect to get scrolling data" src="https://codepen.io/nikolalsvk/embed/WNzpJZz?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/nikolalsvk/pen/WNzpJZz">
+  getBoundingClientRect to get scrolling data</a> by Nikola Đuza (<a href="https://codepen.io/nikolalsvk">@nikolalsvk</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+
 For this exact reason, the Intersection Observer API was introduced in Chrome 51. What makes this API better than the approach with the `getBoundingClientRect`, is that it provides a way to asynchronously observe changes in the intersection of a target element with another element. That way, when you use Intersection Observer, you’re not stressing the browser and the page, as much as you are with the `getBoundingClientRect` approach.
 
 Awesome, now that we went through the backstory of how Intersection Observer came to be, let’s dive in and see how we can use it properly.
@@ -137,12 +143,11 @@ Now, if the video’s `intersectionRatio` is 1, we fall into the else branch 
 
 This is a cool trick you can try out on your project. It doesn’t require a lot of code, and can be a good user experience. But remember to not autoplay videos by default — it can be annoying to users. Here’s a demo you can play around with:
 
-<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="NWYgMJa" data-user="nikolalsvk" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-  <span>See the Pen <a href="https://codepen.io/nikolalsvk/pen/NWYgMJa">
+<iframe height="600" style="width: 100%;" scrolling="no" title="Play &amp; pause a video based on scrolling" src="https://codepen.io/nikolalsvk/embed/NWYgMJa?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/nikolalsvk/pen/NWYgMJa">
   Play &amp; pause a video based on scrolling</a> by Nikola Đuza (<a href="https://codepen.io/nikolalsvk">@nikolalsvk</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
 
 ## Summing up
 
