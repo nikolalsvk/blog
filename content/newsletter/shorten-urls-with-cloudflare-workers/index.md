@@ -26,7 +26,7 @@ And, as always, I have some interesting links for you.
 
 ## 📚 Useful resources
 
-[Maybe you should do less 'work'](https://www.johnwhiles.com/posts/work)
+### [Maybe you should do less 'work'](https://www.johnwhiles.com/posts/work)
 
 There's been a lot of hush around:
 
