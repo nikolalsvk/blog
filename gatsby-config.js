@@ -16,7 +16,77 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        excludes: [`/newsletter/*`, `/thank-you/`],
+        output: "/",
+        query: `
+          {
+            site {
+              siteMetadata {
+                siteUrl
+              }
+            }
+            allSitePage {
+              nodes {
+                path
+              }
+            }
+            allMarkdownRemark(
+              sort: { fields: [frontmatter___date], order: DESC }
+              filter: {
+                frontmatter: { published: { eq: true }, newsletter: { ne: true } }
+              }
+            ) {
+              edges {
+                node {
+                  fields {
+                    slug
+                  }
+                  parent {
+                    ... on File {
+                      fields {
+                        updatedAt: gitLogLatestDate(formatString: "MMMM DD, YYYY")
+                        updatedAtDateTime: gitLogLatestDate(formatString: "YYYY-MM-DD")
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        `,
+        resolvePages: ({ allSitePage, allMarkdownRemark }) => {
+          const allMarkdownRemarkMap = allMarkdownRemark.edges.reduce(
+            (acc, edge) => {
+              const { node } = edge
+              const {
+                fields: { slug },
+              } = node
+              acc[slug] = node
+
+              return acc
+            },
+            {}
+          )
+
+          return allSitePage.nodes.map((page) => {
+            return { ...page, ...allMarkdownRemarkMap[page.path] }
+          })
+        },
+        serialize: ({ path, parent }) => {
+          if (parent) {
+            return {
+              url: path,
+              lastmod: parent.fields.updatedAt,
+              priority: 1,
+            }
+          }
+
+          if (path.includes("/tags/")) {
+            return { url: path, priority: 0.5 }
+          }
+
+          return { url: path, priority: 0.9 }
+        },
+        excludes: [`/newsletter/*`, `/thank-you/`, `/confirm-subscription/`],
       },
     },
     {
