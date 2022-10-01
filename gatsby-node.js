@@ -145,8 +145,6 @@ exports.createPages = async ({ graphql, actions }) => {
   const rootPages = result.data.rootPages.edges
 
   rootPages.forEach((root) => {
-    console.log(root.node.fields.slug)
-
     createPage({
       path: root.node.fields.slug,
       component: rootPagesTemplate,
