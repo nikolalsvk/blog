@@ -57,8 +57,10 @@ const Bio = () => {
           src="../../content/assets/profile-pic.jpg"
           alt={author.name}
           style={{
-            height: 90,
-            width: 90,
+            height: 100,
+            width: 100,
+          }}
+          imgStyle={{
             borderRadius: `100%`,
           }}
         />
