@@ -68,7 +68,7 @@ To follow along with this article, you’ll need the following:
 
 I use the [asdf tool](https://asdf-vm.com/) to manage my local dependencies, but you can use any version manager you prefer. At the time of writing, here’s my Node and npm version:
 
-```sh
+```bash
 $ node --version
 v18.5.0
 $ npm --version
@@ -77,7 +77,7 @@ $ npm --version
 
 Wrangler is a command-line tool for building, and recently, it got its 2.0 version. For the purpose of this post, Wrangler will fulfill all our needs. In the future, we might use [Miniflare, a more robust and feature-rich sibling of Wrangler](https://blog.logrocket.com/ditch-wrangler-cli-miniflare/). But, for now, let’s install Wrangler globally via npm:
 
-```sh
+```bash
 $ npm install -g wrangler@2.0.21
 ```
 
@@ -91,14 +91,13 @@ The Wrangler CLI tool will prove very helpful here.
 
 To start, let’s run a command to initiate and set up our project properly:
 
-```sh
+```bash
 $ wrangler init short-it
 ```
 
 This command will ask a couple of questions. For now, we are going to answer yes (by typing **y**) for all of them:
 
-```sh
-
+```bash
 $ wrangler init short-it
  ⛅️ wrangler 2.0.21
 --------------------
@@ -139,7 +138,7 @@ Awesome. Let’s see if this thing works!
 
 Let’s `cd` into the `short-it` directory and start Wrangler in local development mode:
 
-```sh
+```bash
 $ cd short-it
 $ wrangler dev --local
 ```
@@ -361,7 +360,7 @@ Before we actually create the KV for our project, we first need to log into Clou
 
 To log into Cloudflare, use the following command:
 
-```sh
+```bash
 $ wrangler login
 ```
 
@@ -382,7 +381,7 @@ Awesome! Now that you are signed up and logged in, let’s check whether everyth
 
 Use the following command:
 
-```sh
+```bash
 $ wrangler whoami
  ⛅️ wrangler 2.0.21
 --------------------
@@ -403,7 +402,7 @@ A KV namespace can be thought of it as an instance of KV up on the Cloudflare ne
 
 We’ll create our KV namespaces via Wrangler with the following commands:
 
-```sh
+```bash
 $ wrangler kv:namespace create SHORT_URLS
 🌀 Creating namespace with title "short-it-SHORT_URLS"
 ✨ Success!
@@ -445,7 +444,7 @@ The `wrangler.toml` file is a configuration file that tells `wrangler` certain i
 
 Our next step is to seed the data to the KV. Remember, we have two namespaces so we’ll have to run two commands to have the data in both places. Let’s add the `/blog` entry to the KV:
 
-```sh
+```bash
 $ wrangler kv:key put --binding SHORT_URLS "/blog" "https://pragmaticpineapple.com/" --preview false
  ⛅️ wrangler 2.0.21
 --------------------
@@ -516,7 +515,7 @@ But, if we now try to visit any of the other URLs we hardcoded, we’ll get a me
 
 Let’s quickly add the Twitter shortened URL to the KV using these commands:
 
-```sh
+```bash
 $ wrangler kv:key put --binding SHORT_URLS "/twitter" "https://twitter.com/nikolalsvk" --preview false
 ⛅️ wrangler 2.0.21
 --------------------
@@ -543,7 +542,7 @@ Awesome, now we have two short URLs: `/blog` and `/twitter`. Let’s try to depl
 
 The Cloudflare Workers deployment step is fairly easy. We’ll utilize `wrangler publish`, like so:
 
-```sh
+```bash
 $ wrangler publish
  ⛅️ wrangler 2.0.21
 --------------------
