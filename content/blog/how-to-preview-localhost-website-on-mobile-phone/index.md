@@ -50,7 +50,7 @@ Your computer has a public IP and a local IP address. We need a **local IP addre
 
 Great, now that we got our computer's local IP address, we need to run our app.
 
-## Step 3. Get the port number
+## Step 3: Get the port number
 
 If you're running a Rails app, the port is usually 3000, and you can access your app in the `http://localhost:3000`.
 
