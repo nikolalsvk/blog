@@ -4,7 +4,7 @@ description: Learn how to set up continuous deployment for your Node.js applicat
 slug: how-to-deploy-a-node-js-application-to-elastic-beanstalk-with-semaphore
 date: 2015-12-09
 canonical: https://semaphoreci.com/community/tutorials/how-to-deploy-a-node-js-application-to-elastic-beanstalk-with-semaphore
-canonicalName: Semaphore Blog
+canonicalName: Semaphore
 coverImage: ./cover.png
 blogOgImage: ./cover.png
 published: true

@@ -4,7 +4,7 @@ description: Should you be concerned about Rails concerns?
 slug: rails-concers-to-concern-or-not-to-concern
 date: 2020-09-16
 canonical: https://blog.appsignal.com/2020/09/16/rails-concers-to-concern-or-not-to-concern.html
-canonicalName: AppSignal Blog
+canonicalName: AppSignal
 coverImage: ./cover.jpg
 blogOgImage: ./cover.jpg
 published: true

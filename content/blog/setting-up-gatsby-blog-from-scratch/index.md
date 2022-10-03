@@ -6,7 +6,7 @@ date: 2020-08-14
 coverImage: ./cover.jpg
 blogOgImage: ./cover.jpg
 canonical: https://blog.logrocket.com/creating-a-gatsby-blog-from-scratch/
-canonicalName: LogRocket Blog
+canonicalName: LogRocket
 published: true
 tags:
   - JavaScript

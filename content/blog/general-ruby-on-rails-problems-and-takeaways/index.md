@@ -4,7 +4,7 @@ description: In this last part of the Rails Patterns and Anti-patterns series, I
 slug: general-ruby-on-rails-problems-and-takeaways
 date: 2021-07-07
 canonical: https://blog.appsignal.com/2021/07/07/general-ruby-on-rails-problems-and-takeaways.html
-canonicalName: AppSignal Blog
+canonicalName: AppSignal
 coverImage: ./cover.jpg
 blogOgImage: ./cover.jpg
 published: true

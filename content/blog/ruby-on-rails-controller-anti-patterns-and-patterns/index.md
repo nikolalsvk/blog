@@ -6,7 +6,7 @@ date: 2021-04-14
 coverImage: ./cover.jpg
 blogOgImage: ./cover.jpg
 canonical: https://blog.appsignal.com/2021/04/14/ruby-on-rails-controller-patterns-and-anti-patterns.html
-canonicalName: AppSignal Blog
+canonicalName: AppSignal
 published: true
 tags:
   - Rails
