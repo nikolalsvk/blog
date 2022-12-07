@@ -59,6 +59,7 @@ const Bio = () => {
           style={{
             height: 100,
             width: 100,
+            borderRadius: `100%`,
           }}
           imgStyle={{
             borderRadius: `100%`,
