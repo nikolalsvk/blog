@@ -51,7 +51,7 @@ export const GlobalStyles = `
     font-size: 0.9rem;
   }
   .language-text {
-    font-size: 0.9rem !important;
+    font-size: 0.9rem;
   }
   .token.operator {
     background: inherit;

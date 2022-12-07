@@ -6,7 +6,7 @@ export default createGlobalStyle`
 		color: #fff5f0;
 		background: #24242e;
 		font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
-		font-size: 0.975em;
+		font-size: 0.9em;
 		line-height: 1.375;
 		direction: ltr;
 		text-align: left;
