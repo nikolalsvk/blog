@@ -51,8 +51,11 @@ export const GlobalStyles = `
     font-size: 0.9rem;
   }
   .language-text {
-    font-size: 0.9rem;
+    font-size: 1em;
   }
+	pre > code[class*="language-"] {
+		font-size: 1em;
+	}
   .token.operator {
     background: inherit;
   }

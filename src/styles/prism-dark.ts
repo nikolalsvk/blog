@@ -25,10 +25,6 @@ export default createGlobalStyle`
 		hyphens: none;
 	}
 
-	pre > code[class*="language-"] {
-		font-size: 1em;
-	}
-
 	pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
 	code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
 		text-shadow: none;
