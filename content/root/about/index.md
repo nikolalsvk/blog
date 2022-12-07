@@ -21,8 +21,8 @@ You can check out the equipment and tools I use on a day-to-day basis. Note that
   - [Dell UltraSharp U2720Q 27 Inch 4K UHD](https://amzn.to/34GWhTy)
   - [PowerCube 4 Outlet - Socket multiplier](https://amzn.to/383KkbP)
 - Software:
-  - [Vim](https://www.vim.org/)
-  - [iTerm2](https://iterm2.com/)
+  - [Neovim](https://neovim.io/)
+  - [iTerm2](https://iterm2.com/) or [Warp](https://www.warp.dev/)
   - [zsh](https://www.zsh.org/)
   - [oh-my-zsh](https://ohmyz.sh/)
   - [fig](https://fig.io/)
@@ -51,6 +51,7 @@ I've given a couple of talks throughout my career. Unfortunately, not all of the
 - [Cypress Tales: Effective E2E Testing - Armada JS 2019](https://www.youtube.com/watch?v=Lc4ArfGpdC8)
 - [There and Back Again: e2e Testing React with Cypress - GrowIT 2018](https://www.youtube.com/watch?v=I3WJhutZovw)
 - [Kako Optimizovati React Aplikaciju (How to optimize a React app) - NS JS Meeetup #1 (2018)](https://www.youtube.com/watch?v=Sjuh2VpZ_s4)
+- Praksa u R:T (Internship at R:T) - KONTEH 2017
 - Docker Images - Docker Meetup Novi Sad (2017)
 - AWS Elastic Beanstalk and Semaphore CI - AWS User Group Serbia (2015)
 - Test-Driven Ruby - [CTRL + FLOW](http://renderedtext.com/ctrlflow/) (2015)
