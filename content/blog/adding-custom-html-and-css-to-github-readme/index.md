@@ -2,7 +2,7 @@
 title: Adding custom HTML and CSS to GitHub README
 description: Pimp your GitHub profile README to include custom styles
 slug: adding-custom-html-and-css-to-github-readme
-date: 2022-11-14
+date: 2022-12-13
 coverImage: TODO
 blogOgImage: TODO
 published: true
