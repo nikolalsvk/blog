@@ -28,7 +28,7 @@
         }
 
         .hi {
-          animation: hi 3s linear -0.5s infinite;
+          animation: hi 1.5s linear -0.5s infinite;
           display: inline-block;
           transform-origin: 70% 70%;
         }

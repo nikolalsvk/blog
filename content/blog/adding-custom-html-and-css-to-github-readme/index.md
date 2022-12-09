@@ -99,7 +99,7 @@ further.
         }
 
         .hi {
-          animation: hi 3s linear -0.5s infinite;
+          animation: hi 1.5s linear -0.5s infinite;
           display: inline-block;
           transform-origin: 70% 70%;
         }
@@ -117,7 +117,7 @@ Here's how it should look:
 
 ![Complex hello inside an SVG](./hello-complex.svg)
 
-The new changes add a bit of style to the whole image. The text is centered and the font changed. Let's make it fancier.
+The new changes add a bit of style to the whole image. The text is centered and the font changed. Also, the emoji hand is waving to us. Let's make it fancier.
 
 ```svg
 <svg fill="none" viewBox="0 0 600 300" width="600" height="300" xmlns="http://www.w3.org/2000/svg">
@@ -164,7 +164,7 @@ The new changes add a bit of style to the whole image. The text is centered and 
         }
 
         .hi {
-          animation: hi 3s linear -0.5s infinite;
+          animation: hi 1.5s linear -0.5s infinite;
           display: inline-block;
           transform-origin: 70% 70%;
         }
@@ -182,7 +182,7 @@ Let's see what we did:
 
 ![Fancy animation](./hello-animated.svg)
 
-Now, the image has its background animated and the hand emoji is waving to anyone looking at it. Almost ready to be showcased on a GitHub README. Let's take it a step further. We are going to use the [`prefers-color-scheme` CSS rule](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) to support light and dark modes. This is how to do it:
+Now, the image has its background animated. Almost ready to be showcased on a GitHub README. Let's take it a step further. We are going to use the [`prefers-color-scheme` CSS rule](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) to support light and dark modes. This is how to do it:
 
 ```svg
 <svg fill="none" viewBox="0 0 600 300" width="600" height="300" xmlns="http://www.w3.org/2000/svg">
@@ -234,7 +234,7 @@ Now, the image has its background animated and the hand emoji is waving to anyon
         }
 
         .hi {
-          animation: hi 3s linear -0.5s infinite;
+          animation: hi 1.5s linear -0.5s infinite;
           display: inline-block;
           transform-origin: 70% 70%;
         }
