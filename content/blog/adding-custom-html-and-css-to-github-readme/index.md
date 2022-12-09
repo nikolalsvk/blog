@@ -1,7 +1,7 @@
 ---
 title: Adding custom HTML and CSS to GitHub README
-description: TODO
-slug: TODO
+description: Pimp your GitHub profile README to include custom styles
+slug: adding-custom-html-and-css-to-github-readme
 date: 2022-11-14
 coverImage: TODO
 blogOgImage: TODO
@@ -12,9 +12,9 @@ tags:
 
 Are you tired of the same old, same old personal GitHub profile README? Or are you just looking for inspiration on what to do with your own? Great, you find a perfect post that will show how you can go above and beyond to what's offered when styling your personal README.
 
-Before we start, what is a GitHub profile README at all?
-
 ## GitHub Profile README
+
+Before we start, what is a GitHub profile README at all?
 
 As of July 2020, GitHub allows you to create a repository with the same name as your username and use its README to add some personality to your page.
 
@@ -45,6 +45,8 @@ First, create SVG file in your favorite editor like `hello.svg`:
     <div xmlns="http://www.w3.org/1999/xhtml">
       <style>
         .container {
+          display: flex;
+          width: 100%;
           height: 300px;
           background-color: black;
           color: white;
@@ -64,7 +66,7 @@ Awesome, if you open it, it should look like this:
 ![An SVG file with basic styles](./hello-basic.svg)
 
 Pretty basic, nothing too fancy. What's important to note here is that it's
-possible to add CSS and HTML inside an SVG, and it will work nicely. Notice the
+possible to add CSS and HTML inside an SVG, and it will work nicely. Also, notice the
 `style` block. Right now, it only sets the background color. But, let's push it
 further.
 
@@ -263,16 +265,16 @@ Here's the final version:
 
 And here's how it changes depending on the color scheme:
 
-![SVG changing color when color scheme changes](./svg-based-on-color-scheme.gif)
+![SVG changing color when color scheme changes](./svg-animated-based-on-color-scheme.gif)
 
 What we did is the following:
 
 ```css
 .container {
-  --color-main: #5452ee;
-  --color-primary: #e73c7e;
-  --color-secondary: #23a6d5;
-  --color-tertiary: #ffff;
+  --color-main: #ef476f;
+  --color-primary: #ffd166;
+  --color-secondary: #06d6a0;
+  --color-tertiary: #118ab2;
 
   background: linear-gradient(
     -45deg,
@@ -287,21 +289,29 @@ What we did is the following:
 
 @media (prefers-color-scheme: light) {
   .container {
-    --color-main: #f15bb5;
-    --color-primary: #24b0ef;
-    --color-secondary: #4526f6;
-    --color-tertiary: #f6f645;
+    --color-main: #ffc8dd;
+    --color-primary: #ffafcc;
+    --color-secondary: #bde0fe;
+    --color-tertiary: #a2d2ff;
   }
 }
 ```
 
 Now, when a user has a light variant of a color scheme, another set of color will get applied to the gradient.
 
+To show this image on a README on GitHub, you can render the SVG image in the `.md` (Markdown) files like so:
+
+```markdown
+<div style="width: 100%;">
+  <img src="animated.svg" style="width: 100%;" alt="Click to see the source">
+</div>
+```
+
 I did a similar thing to my GitHub profile, you can check out below:
 
 ![nikolalsvk's GitHub profile README](./nikolalsvk-github-profile-readme.gif)
 
-Here's my [GitHub profile repo](https://github.com/nikolalsvk/nikolalsvk) and the actual [SVG file](https://github.com/nikolalsvk/nikolalsvk/blame/main/welcome.svg).
+Here's my [GitHub profile repo](https://github.com/nikolalsvk/nikolalsvk) and the actual [SVG file](https://github.com/nikolalsvk/nikolalsvk/blame/main/welcome.svg) that is rendered there.
 
 ## Sum up
 
