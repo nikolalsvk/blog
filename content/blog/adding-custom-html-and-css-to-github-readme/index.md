@@ -259,7 +259,7 @@ Now, the image has its background animated. Almost ready to be showcased on a Gi
 </svgg
 ```
 
-Here's the final version:
+Here's the final version (pro tip: toggle your system's color scheme to see the gradient change):
 
 ![Animated SVG changing color based on color scheme](./hello-animated-color-scheme.svg)
 
@@ -297,7 +297,7 @@ What we did is the following:
 }
 ```
 
-Now, when a user has a light variant of a color scheme, another set of color will get applied to the gradient.
+Now, when a user has a light variant of a color scheme, another set of colors will get applied to the gradient.
 
 To show this image on a README on GitHub, you can render the SVG image in the `.md` (Markdown) files like so:
 
@@ -315,6 +315,8 @@ Here's my [GitHub profile repo](https://github.com/nikolalsvk/nikolalsvk) and th
 
 ## Sum up
 
-We went through how to create a simple HTML and CSS inside SVG, to fully animate and change CSS rules based on the color scheme of the user. Thanks for reading and I hope this helps and/or inspires you to create something.
+We went through how to create a simple HTML and CSS inside SVG, to fully animate and change CSS rules based on the user's color scheme. We also saw how to render the SVG file properly in the Markdown file on GitHub. You are now ready to pimp out your GitHub READMEs. Go crazy!
+
+Thanks for joining and reading. I hope this helps and/or inspires you to create something.
 
 Until the next one, cheers.
