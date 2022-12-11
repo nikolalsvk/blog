@@ -29,9 +29,9 @@ You've probably seen a lot of these with a lot of data in them. Some of them are
 
 But today, I will show you something else.
 
-I will show you how to add any HTML page you want and "embed" it inside the README. Let's see how to do it.
+I will show you how to add any HTML page you want and "embed" it inside the README. We'll achieve this by adding custom HTML and CSS inside an SVG file.
 
-## HTML in README
+## Custom CSS and HTML in an SVG
 
 GitHub supports adding HTML in Markdown, but it is pretty aggressive when removing HTML that can be potentially dangerous to users. Things like scripts, iframes, and similar will get removed or "silenced" to avoid malicious content from being served to users.
 
@@ -105,6 +105,12 @@ further.
           display: inline-block;
           transform-origin: 70% 70%;
         }
+
+        @media (prefers-reduced-motion) {
+          .hi {
+            animation: none;
+          }
+        }
       </style>
 
       <div class="container">
@@ -119,7 +125,9 @@ Here's how it should look:
 
 ![Complex hello inside an SVG](./hello-complex.svg)
 
-The new changes add a bit of style to the whole image. The text is centered and the font changed. Also, the emoji hand is waving to us. Let's make it fancier.
+The new changes add a bit of style to the whole image. The text is centered and the font changed. Also, the emoji hand is waving to us. We also used the `prefers-reduced-motion` CSS rule to turn off animations in case users prefer it that way. So, if do not see the animations inside images, make sure your accessibility options allow motion or animations. Here's [a guide on how to toggle motion/animations on a system level](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion#user_preferences).
+
+Great, let's make our SVG even fancier.
 
 ```svg
 <svg fill="none" viewBox="0 0 600 300" width="600" height="300" xmlns="http://www.w3.org/2000/svg">
@@ -169,6 +177,16 @@ The new changes add a bit of style to the whole image. The text is centered and 
           animation: hi 1.5s linear -0.5s infinite;
           display: inline-block;
           transform-origin: 70% 70%;
+        }
+
+        @media (prefers-reduced-motion) {
+          .container {
+            animation: none;
+          }
+
+          .hi {
+            animation: none;
+          }
         }
       </style>
 
@@ -249,6 +267,16 @@ Now, the image has its background animated. Almost ready to be showcased on a Gi
             --color-tertiary: #f6f645;
           }
         }
+
+        @media (prefers-reduced-motion) {
+          .container {
+            animation: none;
+          }
+
+          .hi {
+            animation: none;
+          }
+        }
       </style>
 
       <div class="container">
@@ -299,7 +327,13 @@ What we did is the following:
 
 Now, when a user has a light variant of a color scheme, another set of colors will get applied to the gradient.
 
-To show this image on a README on GitHub, you can render the SVG image in the `.md` (Markdown) files like so:
+You must be asking now - how do I render the newly created SVG? Glad you asked - let's jump into the next section where we will learn that.
+
+## Render SVG inside GitHub README
+
+You can use the standard Markdown syntax for rendering an image like `![Image alt text](hello-animated.svg)`.
+
+To show an SVG image in full width of a README on GitHub, you can render it like so:
 
 ```markdown
 <div style="width: 100%;">
@@ -307,11 +341,31 @@ To show this image on a README on GitHub, you can render the SVG image in the `.
 </div>
 ```
 
-I did a similar thing to my GitHub profile, you can check out below:
+This makes sure that the width of an SVG is 100% of the width of the Markdown file so it shows up nicely.
+
+### Render local README files before pushing to GitHub
+
+To be sure everything is working properly before you push to GitHub, you can use a cool tool called `grip`. [The `grip`](https://github.com/joeyespo/grip) is a CLI tool written in Python and it uses the GitHub API to render your Markdown files. I installed it quickly with `brew install grip` and you can run it by just typing `grip` inside the repo with `.md` files and then pressing enter. It will then run a server with your Markdown files.
+
+I decided to use `grip` because I wanted to test these SVGs on my mobile phone on the local network. If you want to do that or you're just interested in how to do it, I wrote a blog post on [how to preview a localhost website on a mobile phone](https://pragmaticpineapple.com/how-to-preview-localhost-website-on-mobile-phone/).
+
+To be able to preview the README file on your mobile, I ran `grip` like so:
+
+```
+grip . 0.0.0.0
+```
+
+Now that we know how to preview README files without pushing them to GitHub, let's see a breathing and living example in the wild (on GitHub, actually).
+
+## Real-world example
+
+I pimped out my GitHub profile in the same way we went through in the above sections. You can check it out below:
 
 ![nikolalsvk's GitHub profile README](./nikolalsvk-github-profile-readme.gif)
 
-Here's my [GitHub profile repo](https://github.com/nikolalsvk/nikolalsvk) and the actual [SVG file](https://github.com/nikolalsvk/nikolalsvk/blame/main/welcome.svg) that is rendered there.
+Here's the link to my [GitHub profile repo](https://github.com/nikolalsvk/nikolalsvk) and the actual [SVG file](https://github.com/nikolalsvk/nikolalsvk/blame/main/welcome.svg) that is rendered there.
+
+I also created another repo with all the SVGs that we built today, [take a look here](https://github.com/nikolalsvk/custom-readme-styles).
 
 ## Sum up
 

@@ -32,6 +32,12 @@
           display: inline-block;
           transform-origin: 70% 70%;
         }
+
+        @media (prefers-reduced-motion) {
+          .hi {
+            animation: none;
+          }
+        }
       </style>
 
       <div class="container">

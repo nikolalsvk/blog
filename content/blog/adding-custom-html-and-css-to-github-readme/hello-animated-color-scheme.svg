@@ -66,6 +66,16 @@
             --color-tertiary: #a2d2ff;
           }
         }
+
+        @media (prefers-reduced-motion) {
+          .container {
+            animation: none;
+          }
+
+          .hi {
+            animation: none;
+          }
+        }
       </style>
 
       <div class="container">
