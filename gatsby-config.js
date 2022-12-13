@@ -75,7 +75,7 @@ module.exports = {
           if (parent) {
             return {
               url: path,
-              lastmod: parent.fields.updatedAt,
+              lastmod: parent.fields?.updatedAt,
               priority: 1,
             }
           }
