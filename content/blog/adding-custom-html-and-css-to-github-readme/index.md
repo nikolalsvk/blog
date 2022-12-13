@@ -3,12 +3,19 @@ title: Adding custom HTML and CSS to GitHub README
 description: Pimp your GitHub profile README to include custom styles
 slug: adding-custom-html-and-css-to-github-readme
 date: 2022-12-13
-coverImage: TODO
-blogOgImage: TODO
+coverImage: ./cover.jpeg
+blogOgImage: ./og-image.jpg
 published: true
 tags:
   - GitHub
 ---
+
+<figure>
+  <img alt="Abstract art" src="./cover.jpeg" />
+  <figcaption class='photo-caption'
+  Photo by <a href="https://unsplash.com/@aznbokchoy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Lucas Kapla</a> on <a href="https://unsplash.com/s/photos/abstract?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  </figcaption>
+</figure>
 
 Are you tired of the same old, same old personal GitHub profile README? Or are you just looking for inspiration on what to do with your own? Great, you find a perfect post that will show how you can go above and beyond to what's offered when styling your personal README.
 
