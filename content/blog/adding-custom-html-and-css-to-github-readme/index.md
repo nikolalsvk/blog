@@ -35,7 +35,7 @@ I will show you how to add any HTML page you want and "embed" it inside the READ
 
 GitHub supports adding HTML in Markdown, but it is pretty aggressive when removing HTML that can be potentially dangerous to users. Things like scripts, iframes, and similar will get removed or "silenced" to avoid malicious content from being served to users.
 
-But, there's one way to sneak in some HTML (or a web page) inside the README. You can do it via SVG and `foreignObject` SVG element. Let's see how to do it.
+Luckily, there's one way to sneak in some HTML (or a web page) inside the README. You can do it via SVG and `foreignObject` SVG element. Let's see how to do it.
 
 First, create SVG file in your favorite editor like `hello.svg`:
 
@@ -67,7 +67,7 @@ Awesome, if you open it, it should look like this:
 
 Pretty basic, nothing too fancy. What's important to note here is that it's
 possible to add CSS and HTML inside an SVG, and it will work nicely. Also, notice the
-`style` block. Right now, it only sets the background color. But, let's push it
+`style` block. Right now, it only sets the background color. Come on, let's push it
 further.
 
 ```svg
@@ -355,7 +355,7 @@ To be able to preview the README file on your mobile, I ran `grip` like so:
 grip . 0.0.0.0
 ```
 
-Now that we know how to preview README files without pushing them to GitHub, let's see a breathing and living example in the wild (on GitHub, actually).
+Now that we know how to preview README files without pushing them to GitHub, let's see a breathing and living example in the wild.
 
 ## Real-world example
 
