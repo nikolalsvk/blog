@@ -18,6 +18,9 @@ export const GlobalStyles = `
   a {
     color: var(--color-secondary);
   }
+  .text-primary {
+    color: var(--color-text);
+  }
   h1, h2, h3, h1 > a, h2 > a, h3 > a {
     font-family: 'Josefin Sans', sans-serif;
     color: var(--color-primary);

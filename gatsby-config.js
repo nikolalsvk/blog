@@ -13,6 +13,7 @@ module.exports = {
     },
   },
   plugins: [
+    "gatsby-plugin-postcss",
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
