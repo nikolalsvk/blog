@@ -8,7 +8,7 @@ const handler: Handler = async (
   // your server-side functionality
   // Logic to fetch subscriber count from ConvertKit API
   const response = await fetch(
-    `https://api.convertkit.com/v3/subscribers?api_secret=${process.env.GATSBY_CONVERTKIT_API_SECRET}`
+    `https://api.convertkit.com/v3/subscribers?api_secret=${process.env.CONVERTKIT_API_SECRET}`
   )
   const data = await response.json()
   const subscriberCount = data.total_subscribers

@@ -184,13 +184,25 @@ const Dashboard = ({ data }: Props) => {
     return acc
   }, {} as Record<number, Post[]>) as Record<number, Post[]>
 
+  const topPosts = Object.keys(views)
+    .sort((a, b) => views[b] - views[a])
+    .map((slug) => ({
+      ...postsBySlug[slug],
+      views: views[slug].toLocaleString(),
+    }))
+    .filter((post) => post.frontmatter !== undefined)
+    .slice(0, 6)
+
   return (
     <Layout title={siteTitle}>
       <SEO title="Dashboard" canonical={siteUrl} />
       <h1>Dashboard</h1>
 
       <section className="grid grid-cols-4 gap-4">
-        <CardWithStat title="total views" stat={totalViews.toLocaleString()}>
+        <CardWithStat
+          title="total views"
+          stat={totalViews ? totalViews.toLocaleString() : "..."}
+        >
           <span className="absolute bottom-2 right-4 text-xl">👀</span>
         </CardWithStat>
         <CardWithStat title="posts" stat={posts.length}>
@@ -209,31 +221,49 @@ const Dashboard = ({ data }: Props) => {
           <h2>Most popular blog posts</h2>
         </header>
         <section className="grid grid-cols-2 gap-4">
-          {Object.keys(views)
-            .sort((a, b) => views[b] - views[a])
-            .map((slug) => ({
-              ...postsBySlug[slug],
-              views: views[slug].toLocaleString(),
-            }))
-            .filter((post) => post.frontmatter !== undefined)
-            .slice(0, 6)
-            .map((postWithViews) => {
-              return (
-                <Link
-                  to={postWithViews.fields.slug}
-                  key={postWithViews.fields.slug}
-                  className="p-5 border shadow-xl hover:shadow-xl rounded-lg hover:rotate-1 hover:skew-y-1 transition-all"
-                >
-                  <h3 className="m-0">{postWithViews.frontmatter.title}</h3>
-                  <p className="m-0 pt-1 text-xs text-primary">
-                    {postWithViews.frontmatter.date}
-                  </p>
+          {!topPosts.length &&
+            [...Array(6)].map((_, i) => (
+              <section
+                key={i}
+                className="h-36 animate-pulse p-5 border shadow-xl hover:shadow-xl rounded-lg hover:rotate-1 hover:skew-y-1 transition-all"
+              >
+                <div className="flex flex-col justify-between h-full">
+                  <section>
+                    <div className="h-3 mb-2 mr-3 bg-slate-200 dark:bg-slate-700 rounded"></div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="h-3 bg-slate-200 dark:bg-slate-700 rounded col-span-1"></div>
+                    </div>
+                    <div className="grid mt-3 grid-cols-3 gap-4">
+                      <div className="h-2 bg-slate-200 dark:bg-slate-700 rounded col-span-1"></div>
+                    </div>
+                  </section>
+                  <div className="grid grid-cols-3 gap-4">
+                    <div className="h-2 bg-slate-200 dark:bg-slate-700 rounded col-span-1"></div>
+                  </div>
+                </div>
+              </section>
+            ))}
+          {topPosts.map((postWithViews) => {
+            return (
+              <Link
+                to={postWithViews.fields.slug}
+                key={postWithViews.fields.slug}
+                className="h-36 p-5 border shadow-xl hover:shadow-xl rounded-lg hover:rotate-1 hover:skew-y-1 transition-all"
+              >
+                <div className="flex flex-col justify-between h-full">
+                  <section>
+                    <h3 className="m-0">{postWithViews.frontmatter.title}</h3>
+                    <p className="m-0 pt-1 text-xs text-primary">
+                      {postWithViews.frontmatter.date}
+                    </p>
+                  </section>
                   <p className="m-0 pt-4 text-sm text-primary">
                     <b>{postWithViews.views.toString()}</b> views
                   </p>
-                </Link>
-              )
-            })}
+                </div>
+              </Link>
+            )
+          })}
         </section>
       </article>
 
