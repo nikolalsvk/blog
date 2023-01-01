@@ -54,14 +54,14 @@ const ThemeSwitch = () => {
     <ThemeContainer
       onClick={() => {
         document.body.classList.add("animate-switch")
-        setTheme(theme === "white" ? "purple" : "white")
+        setTheme(theme === "light" ? "dark" : "light")
         setTimeout(() => document.body.classList.remove("animate-switch"), 500)
       }}
     >
       <ImageWrapper
         style={{
-          zIndex: theme === "purple" ? 1 : 2,
-          opacity: `${theme === "purple" ? 0 : 1}`,
+          zIndex: theme === "dark" ? 1 : 2,
+          opacity: `${theme === "dark" ? 0 : 1}`,
         }}
       >
         <StyledImage
@@ -71,8 +71,8 @@ const ThemeSwitch = () => {
       </ImageWrapper>
       <ImageWrapper
         style={{
-          zIndex: theme === "purple" ? 2 : 1,
-          opacity: `${theme === "purple" ? 1 : 0}`,
+          zIndex: theme === "dark" ? 2 : 1,
+          opacity: `${theme === "dark" ? 1 : 0}`,
         }}
       >
         <StyledImage

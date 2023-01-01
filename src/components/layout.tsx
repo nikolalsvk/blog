@@ -20,7 +20,7 @@ const AllStyles = ({ theme }: { theme: string }) => {
   return (
     <>
       <Styles />
-      {theme === "white" ? <PrismLight /> : <PrismDark />}
+      {theme === "light" ? <PrismLight /> : <PrismDark />}
     </>
   )
 }
