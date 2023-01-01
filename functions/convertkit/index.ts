@@ -13,6 +13,7 @@ const handler: Handler = async (
   const data = await response.json()
   const subscriberCount = data.total_subscribers
 
+  console.log(`Data: ${JSON.stringify(data)}`)
   console.log(`Total subscribers: ${subscriberCount}`)
 
   return {
