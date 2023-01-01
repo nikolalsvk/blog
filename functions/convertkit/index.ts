@@ -13,6 +13,8 @@ const handler: Handler = async (
   const data = await response.json()
   const subscriberCount = data.total_subscribers
 
+  console.log(`Total subscribers: ${subscriberCount}`)
+
   return {
     statusCode: 200,
     body: JSON.stringify({ subscriberCount }),
