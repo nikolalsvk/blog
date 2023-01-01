@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useEffect, useState } from "react"
+import React, { PropsWithChildren, ReactNode, useEffect, useState } from "react"
 import { graphql, Link } from "gatsby"
 import { ref, Database, onValue } from "firebase/database"
 import { Chart as ChartJS } from "chart.js"
@@ -11,6 +11,7 @@ import Spacer from "../components/spacer"
 
 import { COLORS, useTheme } from "../contexts/theme"
 import { LineChart, BarChart } from "../components/charts"
+import { Subscribers } from "../components/subscribers"
 
 interface Post {
   excerpt: string
@@ -125,12 +126,18 @@ const Dashboard = ({ data }: Props) => {
           theme === "light" ? COLORS.light.primary : COLORS.dark.primary,
         backgroundColor:
           theme === "light" ? COLORS.light.secondary : COLORS.dark.secondary,
+
+        tension: 0.2,
       },
     ],
   }
 
   const postsByCanonical = posts.reduce((acc, { node }) => {
-    const guestBlog = node.frontmatter.canonicalName ?? "Here"
+    if (!node.frontmatter.canonical) {
+      return acc
+    }
+
+    const guestBlog = node.frontmatter.canonicalName
 
     const existingGuest = acc.find((guest) => guest.name === guestBlog)
     if (existingGuest) {
@@ -159,11 +166,12 @@ const Dashboard = ({ data }: Props) => {
       {
         label: "Posts",
         data: guestPosts.map((guest) => guest.posts.length),
-        borderColor:
-          theme === "light" ? COLORS.light.primary : COLORS.dark.primary,
         backgroundColor:
           theme === "light" ? COLORS.light.secondary : COLORS.dark.secondary,
+        borderColor:
+          theme === "light" ? COLORS.light.primary : COLORS.dark.primary,
         borderRadius: 8,
+        borderWidth: 3,
       },
     ],
   }
@@ -191,7 +199,7 @@ const Dashboard = ({ data }: Props) => {
         <CardWithStat title="newsletters" stat={newsletters.length}>
           <span className="absolute bottom-2 right-4 text-xl">💌</span>
         </CardWithStat>
-        <CardWithStat title="subscribers" stat={232}>
+        <CardWithStat title="subscribers" stat={<Subscribers />}>
           <span className="absolute bottom-2 right-4 text-xl">⛷</span>
         </CardWithStat>
       </section>
@@ -317,7 +325,7 @@ export const pageQuery = graphql`
 
 interface CardWithStatProps {
   title: string
-  stat: string
+  stat: ReactNode
 }
 
 const CardWithStat = ({
