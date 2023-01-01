@@ -198,7 +198,7 @@ const Dashboard = ({ data }: Props) => {
       <SEO title="Dashboard" canonical={siteUrl} />
       <h1>Dashboard</h1>
 
-      <section className="grid grid-cols-4 gap-4">
+      <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <CardWithStat
           title="total views"
           stat={totalViews ? totalViews.toLocaleString() : "..."}
@@ -225,20 +225,20 @@ const Dashboard = ({ data }: Props) => {
             [...Array(6)].map((_, i) => (
               <section
                 key={i}
-                className="h-36 animate-pulse p-5 border shadow-xl hover:shadow-xl rounded-lg hover:rotate-1 hover:skew-y-1 transition-all"
+                className="animate-pulse p-5 border shadow-xl hover:shadow-xl rounded-lg hover:rotate-1 hover:skew-y-1 transition-all"
               >
                 <div className="flex flex-col justify-between h-full">
                   <section>
-                    <div className="h-3 mb-2 mr-3 bg-slate-200 dark:bg-slate-700 rounded"></div>
+                    <div className="h-4 mb-2 mr-3 bg-slate-200 dark:bg-slate-700 rounded"></div>
                     <div className="grid grid-cols-2 gap-4">
-                      <div className="h-3 bg-slate-200 dark:bg-slate-700 rounded col-span-1"></div>
+                      <div className="h-4 bg-slate-200 dark:bg-slate-700 rounded col-span-1"></div>
                     </div>
-                    <div className="grid mt-3 grid-cols-3 gap-4">
+                    <div className="grid mt-4 grid-cols-3 gap-4">
                       <div className="h-2 bg-slate-200 dark:bg-slate-700 rounded col-span-1"></div>
                     </div>
                   </section>
-                  <div className="grid grid-cols-3 gap-4">
-                    <div className="h-2 bg-slate-200 dark:bg-slate-700 rounded col-span-1"></div>
+                  <div className="grid grid-cols-3 mt-8 gap-4">
+                    <div className="h-3 bg-slate-200 dark:bg-slate-700 rounded col-span-1"></div>
                   </div>
                 </div>
               </section>
@@ -248,7 +248,7 @@ const Dashboard = ({ data }: Props) => {
               <Link
                 to={postWithViews.fields.slug}
                 key={postWithViews.fields.slug}
-                className="h-36 p-5 border shadow-xl hover:shadow-xl rounded-lg hover:rotate-1 hover:skew-y-1 transition-all"
+                className="p-5 border shadow-xl hover:shadow-xl rounded-lg hover:rotate-1 hover:skew-y-1 transition-all"
               >
                 <div className="flex flex-col justify-between h-full">
                   <section>
