@@ -105,7 +105,7 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
     tags,
   } = post.frontmatter
   const defaultCanonical = `${siteUrl}/${slug}/`
-  const { timeToRead } = post
+  // const { timeToRead } = post
 
   return (
     <Layout title={siteTitle}>

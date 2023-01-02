@@ -23,18 +23,21 @@ ChartJS.register(
   BarElement
 )
 
-interface Props {
+interface BarProps {
   data: {
     labels: string[]
     datasets: {
       data: number[]
       label: string
+      borderColor?: string
+      backgroundColor?: string
+      tension?: number
     }[]
   }
   color: string
 }
 
-export const BarChart = ({ data, color }: Props) => (
+export const BarChart = ({ data, color }: BarProps) => (
   <Bar
     options={{
       scales: {
@@ -46,7 +49,21 @@ export const BarChart = ({ data, color }: Props) => (
   />
 )
 
-export const LineChart = ({ color, data }: Props) => (
+interface LineProps {
+  data: {
+    labels: number[]
+    datasets: {
+      data: number[]
+      label: string
+      borderColor?: string
+      backgroundColor?: string
+      tension?: number
+    }[]
+  }
+  color: string
+}
+
+export const LineChart = ({ color, data }: LineProps) => (
   <Line
     options={{
       scales: {
