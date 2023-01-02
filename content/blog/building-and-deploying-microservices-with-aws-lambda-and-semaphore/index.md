@@ -4,7 +4,7 @@ description: AWS Lambda is an AWS service that runs code in response to events o
 slug: building-and-deploying-microservices-with-aws-lambda-and-semaphore
 date: 2015-12-22
 canonical: https://semaphoreci.com/community/tutorials/building-and-deploying-microservices-with-aws-lambda-and-semaphore
-canonicalName: Semaphore Blog
+canonicalName: Semaphore
 coverImage: ./cover.png
 blogOgImage: ./cover.png
 published: true

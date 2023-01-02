@@ -4,7 +4,7 @@ description: Adding new code to Rails controllers can slow your pages down. Here
 slug: speeding-up-rails-pages-with-render-async
 date: 2017-06-08
 canonical: https://semaphoreci.com/blog/2017/06/08/speeding-up-rails-pages-with-render-async.html
-canonicalName: Semaphore Blog
+canonicalName: Semaphore
 coverImage: ./cover.png
 blogOgImage: ./cover.png
 published: true

@@ -6,7 +6,7 @@ date: 2020-11-18
 coverImage: ./cover.jpeg
 blogOgImage: ./cover.jpeg
 canonical: https://blog.appsignal.com/2020/11/18/rails-model-patterns-and-anti-patterns.html
-canonicalName: AppSignal Blog
+canonicalName: AppSignal
 published: true
 tags:
   - Rails

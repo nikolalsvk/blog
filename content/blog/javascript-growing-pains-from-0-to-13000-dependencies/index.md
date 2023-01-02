@@ -4,7 +4,7 @@ description: Find out how your project can go from 0 to 13,000 dependencies in j
 slug: javascript-growing-pains-from-0-to-13000-dependencies
 date: 2020-05-14
 canonical: https://blog.appsignal.com/2020/05/14/javascript-growing-pains-from-0-to-13000-dependencies.html
-canonicalName: AppSignal Blog
+canonicalName: AppSignal
 coverImage: ./cover.jpg
 blogOgImage: ./cover.jpg
 published: true

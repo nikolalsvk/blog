@@ -4,7 +4,7 @@ description: Dig into the basics of design patterns and anti-patterns.
 slug: introduction-to-ruby-on-rails-patterns-and-anti-patterns/
 date: 2020-08-05
 canonical: https://blog.appsignal.com/2020/08/05/introduction-to-ruby-on-rails-patterns-and-anti-patterns.html
-canonicalName: AppSignal Blog
+canonicalName: AppSignal
 coverImage: ./cover.jpg
 blogOgImage: ./cover.jpg
 published: true

@@ -10,12 +10,20 @@ export default async function loadDb(): Promise<Database> {
   try {
     initializeApp(firebaseConfig)
   } catch (error) {
+    let message, stack
+    if (error instanceof Error) {
+      message = error.message
+    } else {
+      message = String(error)
+      stack = message
+    }
+
     /*
      * We skip the "already exists" message which is
      * not an actual error when we're hot-reloading.
      */
-    if (!/already exists/.test(error.message)) {
-      console.error("Firebase initialization error", error.stack)
+    if (!/already exists/.test(message)) {
+      console.error("Firebase initialization error", stack)
     }
   }
 

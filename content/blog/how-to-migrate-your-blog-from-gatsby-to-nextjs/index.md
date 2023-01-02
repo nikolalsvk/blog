@@ -4,7 +4,7 @@ description: Next.js is fast becoming the go-to choice for developer blogs. Find
 slug: how-to-migrate-your-blog-from-gatsby-to-nextjs
 date: 2022-01-12
 canonical: https://blog.appsignal.com/2022/01/12/how-to-migrate-your-blog-from-gatsby-to-nextjs.html
-canonicalName: AppSignal Blog
+canonicalName: AppSignal
 coverImage: ./cover.webp
 blogOgImage: ./cover.webp
 published: true

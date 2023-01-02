@@ -1,13 +1,13 @@
 import React, { createContext, useContext, useState, useEffect } from "react"
 
 export const COLORS = {
-  purple: {
+  dark: {
     primary: "hsl(28, 96%, 38%, 1)",
     secondary: "hsl(309, 17%, 85%, 1)",
     text: "hsla(0, 0%, 100%, 1)",
     background: "hsla(251, 52%, 13%, 1)",
   },
-  normal: {
+  light: {
     primary: "hsla(35, 100%, 35%, 1)",
     secondary: "hsla(28, 96%, 38%, 1)",
     text: "hsla(251, 52%, 13%, 1)",
@@ -16,7 +16,7 @@ export const COLORS = {
 }
 
 const ThemeContext = createContext({
-  theme: "white",
+  theme: "light",
   setTheme: (_: string) => {},
 })
 
@@ -35,12 +35,12 @@ export const getInitialColorMode = () => {
   const mql = window.matchMedia("(prefers-color-scheme: dark)")
   const hasMediaQueryPreference = typeof mql.matches === "boolean"
   if (hasMediaQueryPreference) {
-    return mql.matches ? "purple" : "normal"
+    return mql.matches ? "dark" : "light"
   }
 
   // If they are using a browser/OS that doesn't support
   // color themes, let's default to 'light'.
-  return "normal"
+  return "light"
 }
 
 export const useTheme = () => {
@@ -54,7 +54,7 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-  const [theme, setTheme] = useState<string>("white")
+  const [theme, setTheme] = useState<string>("light")
 
   const saveToLocalStorage = (value: string) => {
     const root = window.document.documentElement
@@ -65,25 +65,23 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
     // 3. Update each color
     root.style.setProperty(
       "--color-primary",
-      value === "purple"
-        ? `${COLORS.purple.primary}`
-        : `${COLORS.normal.primary}`
+      value === "dark" ? `${COLORS.dark.primary}` : `${COLORS.light.primary}`
     )
     root.style.setProperty(
       "--color-secondary",
-      value === "purple"
-        ? `${COLORS.purple.secondary}`
-        : `${COLORS.normal.secondary}`
+      value === "dark"
+        ? `${COLORS.dark.secondary}`
+        : `${COLORS.light.secondary}`
     )
     root.style.setProperty(
       "--color-text",
-      value === "purple" ? `${COLORS.purple.text}` : `${COLORS.normal.text}`
+      value === "dark" ? `${COLORS.dark.text}` : `${COLORS.light.text}`
     )
     root.style.setProperty(
       "--color-background",
-      value === "purple"
-        ? `${COLORS.purple.background}`
-        : `${COLORS.normal.background}`
+      value === "dark"
+        ? `${COLORS.dark.background}`
+        : `${COLORS.light.background}`
     )
   }
 
@@ -96,6 +94,16 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
 
     setTheme(initialColorValue)
   }, [])
+
+  const root = window.document.documentElement
+
+  if (theme === "light") {
+    root.classList.remove("dark")
+  }
+
+  if (theme === "dark") {
+    root.classList.add("dark")
+  }
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme: saveToLocalStorage }}>

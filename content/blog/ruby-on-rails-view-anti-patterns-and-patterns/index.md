@@ -6,7 +6,7 @@ date: 2021-02-10
 coverImage: ./cover.jpg
 blogOgImage: ./cover.jpg
 canonical: https://blog.appsignal.com/2021/02/10/ruby-on-rails-view-patterns-and-anti-patterns.html
-canonicalName: AppSignal Blog
+canonicalName: AppSignal
 published: true
 tags:
   - Rails

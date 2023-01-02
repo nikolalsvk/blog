@@ -20,7 +20,7 @@ const AllStyles = ({ theme }: { theme: string }) => {
   return (
     <>
       <Styles />
-      {theme === "white" ? <PrismLight /> : <PrismDark />}
+      {theme === "light" ? <PrismLight /> : <PrismDark />}
     </>
   )
 }
@@ -35,7 +35,7 @@ const Container = styled.div`
   flex-direction: column;
 `
 
-const Main = styled.div`
+const Main = styled.main`
   flex: 1 0 auto;
 `
 

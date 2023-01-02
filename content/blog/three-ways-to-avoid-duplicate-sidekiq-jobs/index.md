@@ -6,7 +6,7 @@ date: 2021-05-12
 coverImage: ./cover.jpg
 blogOgImage: ./cover.jpg
 canonical: https://blog.appsignal.com/2021/05/12/three-ways-to-avoid-duplicate-sidekiq-jobs.html
-canonicalName: AppSignal Blog
+canonicalName: AppSignal
 published: true
 tags:
   - Rails
