@@ -3,18 +3,19 @@ import { graphql } from "gatsby"
 import { ref, Database, onValue } from "firebase/database"
 import { Chart as ChartJS } from "chart.js"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
 import loadDb from "../utils/firebase-db"
-import SubscribeForm from "../components/subscribe-form"
-import Spacer from "../components/spacer"
 
 import { COLORS, useTheme } from "../contexts/theme"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+import SubscribeForm from "../components/subscribe-form"
+import Spacer from "../components/spacer"
 import { Subscribers } from "../components/subscribers"
 import { TopPostsSection } from "../components/top-posts-section"
 import { PostsByYearSection } from "../components/posts-by-year-section"
 import { GuestPostsSection } from "../components/guest-posts-section"
 import { CardWithStat } from "../components/card-with-stat"
+import ViewCounter from "../components/view-counter"
 
 export interface Post {
   excerpt: string
@@ -114,6 +115,9 @@ const Dashboard = ({ data }: Props) => {
   return (
     <Layout title={siteTitle}>
       <SEO title="Dashboard" canonical={siteUrl} />
+
+      <ViewCounter hideText slug={`/dashboard`} />
+
       <h1>Dashboard</h1>
 
       <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
