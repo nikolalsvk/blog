@@ -29,6 +29,10 @@ export const GlobalStyles = `
     // Use Roboto font everywhere except in code inserts
     font-family: 'Roboto', sans-serif;
   }
+  input {
+    font-family: 'Roboto', sans-serif;
+    color: var(--color-primary);
+  }
   hr {
     border: 1px solid var(--color-primary);
   }

@@ -4,6 +4,8 @@ import styled from "styled-components"
 import Spacer from "../components/spacer"
 
 const Container = styled.div`
+  position: relative;
+  z-index: 5;
   width: 100%;
   display: flex;
   justify-content: center;
