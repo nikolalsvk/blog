@@ -55,11 +55,11 @@ Netlify was founded in 2014 and it focused from the start on hosting static webs
 #### How to use
 
 1.  Ideally, you’ll register or sign in with GitHub. This makes sure you can access the repositories on your profile and deploy them quickly.
-2.  Once logged in, click “Add new site” and choose “Import an existing project.”![Add a new site on Netlify](./netlify/1-add-new-site.png)
-3.  Then click GitHub as your provider.![Choose a provider on Netlify](./netlify/2-choose-provider.png)
-4.  Pick the “bank-website” or whatever your project name is.![Choose a repo on Netlify](./netlify/3-choose-repo.png)
-5.  Fine-tune the deployment settings (in the case of our website, the defaults work perfectly), then click “Deploy site.”![Find tune build settings on Netlify](./netlify/4-build-settings.png)
-6.  Once deployed, you can view it on a public URL which you can share with the world. Yay!![Website deployed via Netlify](./netlify/5-website-deployed.png)
+2.  Once logged in, click “Add new site” and choose “Import an existing project.” ![Add a new site on Netlify](./netlify/1-add-new-site.png)
+3.  Then click GitHub as your provider. ![Choose a provider on Netlify](./netlify/2-choose-provider.png)
+4.  Pick the “bank-website” or whatever your project name is. ![Choose a repo on Netlify](./netlify/3-choose-repo.png)
+5.  Fine-tune the deployment settings (in the case of our website, the defaults work perfectly), then click “Deploy site.” ![Find tune build settings on Netlify](./netlify/4-build-settings.png)
+6.  Once deployed, you can view it on a public URL which you can share with the world. Yay! ![Website deployed via Netlify](./netlify/5-website-deployed.png)
 
 [Here’s](https://merry-clafoutis-b89a38.netlify.app/) the live app deployed on Netlify.
 
