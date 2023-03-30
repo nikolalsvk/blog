@@ -21,7 +21,7 @@ export const GlobalStyles = `
   .text-primary {
     color: var(--color-text);
   }
-  h1, h2, h3, h1 > a, h2 > a, h3 > a {
+  h1, h2, h3, h4, h1 > a, h2 > a, h3 > a, h4 > a {
     font-family: 'Josefin Sans', sans-serif;
     color: var(--color-primary);
   }

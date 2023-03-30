@@ -168,7 +168,7 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
           <>
             <hr
               style={{
-                marginBottom: rhythm(1),
+                marginBottom: "1.75rem",
               }}
             />
             <section style={{ marginLeft: rhythm(1) }}>
