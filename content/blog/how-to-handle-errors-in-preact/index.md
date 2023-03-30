@@ -264,7 +264,70 @@ When we interact with the button, it will throw an error after 1000 milliseconds
 
 ![Handling errors in setTimeout call](./set-timeout-error.gif)
 
-That's nice and dandy, our app is catching errors and showing messages and retry buttons to our users instead of blank screens.
+That's nice and dandy, our app is catching errors and showing messages and retry buttons to our users instead of blank screens. There's also one way to handle errors, by using AppSignal's Preact integration. Read more about it in the section below.
+
+## Tracking Errors in Preact with AppSignal
+
+AppSignal has a `@appsignal/preact` package that requires Preact 10.0.0 or higher. You can add it to you project with these commands:
+
+```
+yarn add @appsignal/javascript @appsignal/preact
+npm install --save @appsignal/javascript @appsignal/preact
+```
+
+Then, in the code, you can use the `ErrorBoundary` provided by the `@appsignal/preact` like so:
+
+```jsx
+import { h, Component } from "preact"
+import Appsignal from "@appsignal/javascript"
+
+import { ErrorBoundary } from "@appsignal/preact"
+
+export const appsignal = new Appsignal({
+  key: "YOUR FRONTEND API KEY",
+})
+
+const FallbackComponent = ({ error }) => (
+  <>
+    <p>Uh oh! There was an error caught by AppSignal's ErrorBoundary :(</p>
+    <p>Here's the error: {error.message}</p>
+  </>
+)
+
+class AppSignalCatcher extends Component {
+  render(props) {
+    return (
+      <ErrorBoundary
+        instance={appsignal}
+        tags={{ tag: "value" }}
+        fallback={(error) => <FallbackComponent error={error} />}
+      >
+        {props.children}
+      </ErrorBoundary>
+    )
+  }
+}
+
+export default AppSignalCatcher
+```
+
+To make sure errors are caught, we need to wrap the child components with the new component we made:
+
+```jsx
+<AppSignalCatcher>
+  <CrashableComponent />
+</AppSignalCatcher>
+```
+
+Then, we will should see the fallback errors message in our app like so:
+
+![AppSignal's ErrorBoundary caught an error](./handling-errors-in-preact/app-signal-error.png)
+
+Using `ErrorBoundary` provided by AppSignal is great because you are:
+
+- catching rendering errors,
+- showing fallback UI for users,
+- and you're reporting all mishaps to AppSignal so they can be tracked.
 
 ## Conclusion
 
