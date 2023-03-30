@@ -4,8 +4,8 @@ description: We explore the advantages and disadvantages of building websites wi
 date: 2023-02-13
 canonical: https://fatcatcoders.com/blog/building-websites-with-jamstack-a-look-at-the-benefits-and-limitations
 canonicalName: FatCat Coders
-coverImage: TODO
-blogOgImage: TODO
+coverImage: ./og-image.png
+blogOgImage: ./og-image.png
 published: true
 tags:
   - JavaScript
@@ -13,6 +13,8 @@ tags:
 ---
 
 For some time now, Jamstack has asserted itself in the space for creating modern websites. The name Jamstack comes from the "JAMstack," where "JAM" stands for Javascript, APIs, and Markdown. In practice, you can build a website that can easily combine all your content channels and serve it as a lightning-fast website that visitors will enjoy. But there's more to it. Let's dive in and find out more.
+
+![Cover](./og-image.png)
 
 ## What is Jamstack?
 
