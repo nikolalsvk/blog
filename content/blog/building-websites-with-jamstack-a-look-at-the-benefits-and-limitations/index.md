@@ -2,6 +2,7 @@
 title: "Building Websites with JamStack: A Look at the Benefits and Limitations"
 description: We explore the advantages and disadvantages of building websites with JamStack technology, helping you make an informed decision about whether to use it for your next website.
 date: 2023-02-13
+slug: building-websites-with-jamstack-a-look-at-the-benefits-and-limitations
 canonical: https://fatcatcoders.com/blog/building-websites-with-jamstack-a-look-at-the-benefits-and-limitations
 canonicalName: FatCat Coders
 coverImage: ./og-image.png
