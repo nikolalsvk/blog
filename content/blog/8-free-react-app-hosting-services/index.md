@@ -55,11 +55,11 @@ Netlify was founded in 2014 and it focused from the start on hosting static webs
 #### How to use
 
 1.  Ideally, you’ll register or sign in with GitHub. This makes sure you can access the repositories on your profile and deploy them quickly.
-2.  Once logged in, click “Add new site” and choose “Import an existing project.”![](./netlify/1-add-new-site.png)
-3.  Then click GitHub as your provider.![](./netlify/2-choose-provider.png)
-4.  Pick the “bank-website” or whatever your project name is.![](./netlify/3-choose-repo.png)
-5.  Fine-tune the deployment settings (in the case of our website, the defaults work perfectly), then click “Deploy site.”![](./netlify/4-build-settings.png)
-6.  Once deployed, you can view it on a public URL which you can share with the world. Yay!![](./netlify/5-website-deployed.png)
+2.  Once logged in, click “Add new site” and choose “Import an existing project.”![Add a new site on Netlify](./netlify/1-add-new-site.png)
+3.  Then click GitHub as your provider.![Choose a provider on Netlify](./netlify/2-choose-provider.png)
+4.  Pick the “bank-website” or whatever your project name is.![Choose a repo on Netlify](./netlify/3-choose-repo.png)
+5.  Fine-tune the deployment settings (in the case of our website, the defaults work perfectly), then click “Deploy site.”![Find tune build settings on Netlify](./netlify/4-build-settings.png)
+6.  Once deployed, you can view it on a public URL which you can share with the world. Yay!![Website deployed via Netlify](./netlify/5-website-deployed.png)
 
 [Here’s](https://merry-clafoutis-b89a38.netlify.app/) the live app deployed on Netlify.
 
@@ -75,12 +75,12 @@ Vercel (originally known as Zeit) was founded in 2015 and quickly rose to fame. 
 
 #### How to use
 
-1.  Sign in or register with GitHub.![](./vercel/1-log-in.png)
-2.  Click on the “Add New…” dropdown and select “Project.”                                                              ![](./vercel/2-add-new-project.png)
-3.  Choose the “bank-website” or your favorite React project.![](./vercel/3-choose-repo.png)
-4.  We went with the defaults for deployment settings and then clicked “Deploy.”![](./vercel/4-build-settings.png)
+1.  Sign in or register with GitHub. ![Log in to Vercel](./vercel/1-log-in.png)
+2.  Click on the “Add New…” dropdown and select “Project.” ![Add new project in Vercel](./vercel/2-add-new-project.png)
+3.  Choose the “bank-website” or your favorite React project. ![Choose a repo in Vercel](./vercel/3-choose-repo.png)
+4.  We went with the defaults for deployment settings and then clicked “Deploy.” ![Confirm build settings in Vercel](./vercel/4-build-settings.png)
 
-5.  After some time, we got the website deployed.![](./vercel/5-website-deployed.png)
+5.  After some time, we got the website deployed. ![Website deployed via Vercel](./vercel/5-website-deployed.png)
 
 [Here’s](https://bank-website-chi.vercel.app/) the live URL.
 
@@ -97,11 +97,12 @@ AWS is a massive collection of cloud products, and Amplify is advertised as an e
 #### How to use
 
 1.  Sign up or log into AWS, then search for AWS Amplify and click “Get Started.”
-2.  Choose GitHub and authorize it (I only allowed it for the “bank-website” repo).![](./aws-amplify/1-choose-provider.png)
-3.  Select the repo in the “Recently updated repositories” section. ![](./aws-amplify/2-add-repo.png)
-    3.1. In the build setting, we’ll have to change the `baseDirectory` for our app to be `dist` like so: ![](./aws-amplify/3-set-base-directory.png)Then, the build settings should look like this:![](./aws-amplify/4-build-settings.png)
-4.  In the next step, click “Save and deploy.”![](./aws-amplify/5-save-and-deploy.png)
-5.  After some time, the website will be deployed and ready to use.![](./aws-amplify/6-website-deployed.png)
+2.  Choose GitHub and authorize it (I only allowed it for the “bank-website” repo). ![Choose git provider on AWS Amplify](./aws-amplify/1-choose-provider.png)
+3.  Select the repo in the “Recently updated repositories” section. ![Add git repo in AWS Amplify](./aws-amplify/2-add-repo.png)
+    3.1. In the build setting, we’ll have to change the `baseDirectory` for our app to be `dist` like so: ![Set base directory in AWS Amplify](./aws-amplify/3-set-base-directory.png)
+    Then, the build settings should look like this: ![Confirm build setting in AWS Amplify](./aws-amplify/4-build-settings.png)
+4.  In the next step, click “Save and deploy.” ![Save settings and deploy via AWS Amplify](./aws-amplify/5-save-and-deploy.png)
+5.  After some time, the website will be deployed and ready to use. ![Website deployed via AWS Amplify](./aws-amplify/6-website-deployed.png)
 
 And we’re live! [Here’s](https://main.d6docw6y29xiw.amplifyapp.com/) the URL.
 
@@ -118,7 +119,7 @@ Firebase is a Google service that’s best known as a real-time storage platform
 #### How to use
 
 1.  Install `firebase-tools` with `npm install -g firebase-tools`.
-2.  Log into Firebase with `firebase login`. Once you log in, you should see a message like this one:![](./firebase/1-login-successful.png)
+2.  Log into Firebase with `firebase login`. Once you log in, you should see a message like this one: ![Successful login to Firebase](./firebase/1-login-successful.png)
 3.  Move into the project directory and run `firebase init`, you should see something like this:
 
 ```bash
@@ -240,7 +241,7 @@ npm install --save gh-pages
 
 3.  Then, we simply run `npm run deploy`. It will trigger `npm run build` and it will use `gh-pages` to publish the contents of dist to a separate branch on GitHub called `gh-pages`.
 
-4.  Finally, check whether the `gh-pages` is used for GitHub Pages like below:![](./github-pages/1-check-settings.png)
+4.  Finally, check whether the `gh-pages` is used for GitHub Pages like below: ![Check settings in GitHub Pages](./github-pages/1-check-settings.png)
 
 [Here’s](https://nikolalsvk.github.io/bank-website/) the live URL.
 
@@ -285,13 +286,19 @@ export default App
 
 We have to change the `basename` because GitLab pages will deploy the website to a URL of this form: **https://gitlab-pages_USERNAME.gitlab.io/REPOSITORY_NAME**. The website won’t function properly without the basename set for the `react-router-dom`.
 
-3. Once you’ve edited and pushed the project to GitLab, go to Settings > Pages and you will be greeted with a four-step wizard to deploy the repo to GitLab Pages.  ![](./gitlab-pages/1-visit-pages.png)
+3. Once you’ve edited and pushed the project to GitLab, go to Settings > Pages and you will be greeted with a four-step wizard to deploy the repo to GitLab Pages. ![Visit Pages in project's settings in GitLab Pages](./gitlab-pages/1-visit-pages.png)
 
-4. The first step in the wizard is to enter the build image. We’ll use the Node.js LTS.![](./gitlab-pages/2-choose-docker-image.png)
+4. The first step in the wizard is to enter the build image. We’ll use the Node.js LTS. ![Choose Docker image](./gitlab-pages/2-choose-docker-image.png)
 
-5. Next, we’ll enter the pre-build command. The `npm ci` will suffice here.![](./gitlab-pages/3-pre-build-command.png)
+5. Next, we’ll enter the pre-build command. The `npm ci` will suffice here. ![Set pre-build command in GitLab Pages](./gitlab-pages/3-pre-build-command.png)
 
-6. Now for the build step. We need to pass `— –dist-dir public` because GitLab Pages expect to have the website built in the `public` directory. You can’t get away with any other directory, sorry.![](./gitlab-pages/4-build-command.png) 7. Commit the newly generated `.gitlab-ci.yml` file that tells GitLab how to deploy your website.![](./gitlab-pages/5-commit-file.png) 8. Now, go to CI/CD -> Pipelines section of the repo and observe the newly added pipeline performing.![](./gitlab-pages/6-deployment-running.png) 9. After some time, the pipeline job will finish and the website will be deployed on GitLab Pages.
+6. Now for the build step. We need to pass `— –dist-dir public` because GitLab Pages expect to have the website built in the `public` directory. You can’t get away with any other directory, sorry. ![Set build step in GitLab Pages](./gitlab-pages/4-build-command.png)
+
+7. Commit the newly generated `.gitlab-ci.yml` file that tells GitLab how to deploy your website. ![Commit the .gitlab-ci.yml file](./gitlab-pages/5-commit-file.png)
+
+8. Now, go to CI/CD -> Pipelines section of the repo and observe the newly added pipeline performing. ![The deployment is running in GitLab Pages](./gitlab-pages/6-deployment-running.png)
+
+9. After some time, the pipeline job will finish and the website will be deployed on GitLab Pages.
 
 [Here’s](https://nikolalsvk.gitlab.io/bank-website/) the result.
 
@@ -308,10 +315,10 @@ Render is a new kid on the block being launched in 2019. It is trying to disrupt
 #### How to use
 
 1.  Sign up or log in to Render.
-2.  Create a new static website by pressing the “New” button and selecting “Static Site.”![](./render/1-add-static-website.png)
-3.  Choose the repo you want to deploy.![](./render/2-choose-repo.png)
-4.  Keep the `yarn; yarn build` build command in the build setting. Unfortunately, it does not work with `npm ci; npm run build` like other services do. Change the “Publish directory” to `dist` and click “Create Static Site.”![](./render/3-build-settings.png)
-5.  After some time, Render will deploy the code.![](./render/4-website-deployed.png)
+2.  Create a new static website by pressing the “New” button and selecting “Static Site.” ![Add static website in Render](./render/1-add-static-website.png)
+3.  Choose the repo you want to deploy. ![Choose a repo in Render](./render/2-choose-repo.png)
+4.  Keep the `yarn; yarn build` build command in the build setting. Unfortunately, it does not work with `npm ci; npm run build` like other services do. Change the “Publish directory” to `dist` and click “Create Static Site.” ![Confirm build settings in Render](./render/3-build-settings.png)
+5.  After some time, Render will deploy the code. ![Website deployed via Render](./render/4-website-deployed.png)
 
 [Here’s](https://bank-website-ytgx.onrender.com/) the live URL from Render.
 
@@ -361,7 +368,7 @@ It’s fast and simple and doesn’t require you to adopt a separate interface�
 
 ## Time to deploy for each hosting service
 
-![](./8-free-react-app-hosting-services-table.png)
+![A table comparing 8 free React hosting services](./8-free-react-app-hosting-services-table.png)
 
 ## Our favorite free React app hosting services
 
