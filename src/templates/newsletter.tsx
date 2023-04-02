@@ -7,7 +7,6 @@ import Bio from "../components/bio"
 import SubscribeForm from "../components/subscribe-form"
 import ViewCounter from "../components/view-counter"
 import Spacer from "../components/spacer"
-import { rhythm } from "../utils/typography"
 import styled from "styled-components"
 
 interface Props {
@@ -59,9 +58,9 @@ const NewsletterTemplate = ({ data }: Props) => {
         <section dangerouslySetInnerHTML={{ __html: issue.html }} />
       </Article>
 
-      <footer style={{ marginBottom: rhythm(1) }}>
+      <section className="mb-6">
         <Bio />
-      </footer>
+      </section>
 
       <SubscribeForm />
       <Spacer />

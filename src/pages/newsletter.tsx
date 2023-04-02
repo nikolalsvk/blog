@@ -1,36 +1,9 @@
-import React, { useState } from "react"
+import React from "react"
 import { Link, graphql } from "gatsby"
-import styled from "styled-components"
 import Layout from "../components/layout"
 import SubscribeForm from "../components/subscribe-form"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
 import Spacer from "../components/spacer"
-
-const SeeMoreButton = styled.span`
-  box-shadow: 0 1px 0 0 currentColor;
-  cursor: pointer;
-`
-
-interface NewsletterIssuesProps {
-  open: boolean
-}
-
-const NewsletterIssues = styled.div<NewsletterIssuesProps>`
-  opacity: ${(props) => (props.open ? "1" : "0")};
-  height: ${(props) => (props.open ? "100%" : "0")};
-  transition: all ${(props) => (props.open ? "0.5s" : "0.2s")} linear;
-
-  article {
-    height: ${(props) => (props.open ? "100%" : "0")};
-    transition: all 0.5s linear;
-  }
-
-  h3 {
-    margin-top: ${rhythm(1.5)};
-    margin-bottom: ${rhythm(1 / 4)};
-  }
-`
 
 interface Props {
   data: {
@@ -65,8 +38,6 @@ const NewsletterPage = ({
     allMarkdownRemark: { edges: issues },
   },
 }: Props) => {
-  const [showIssues, setShowIssues] = useState(false)
-
   return (
     <Layout title={title}>
       <SEO
@@ -87,34 +58,26 @@ const NewsletterPage = ({
         </p>
 
         <p>
-          Since 2022. my goal is to send one issue per month. The issues will
+          Since 2022 my goal is to send one issue per month. The issues will
           contain any updates on the blog and also include a couple of useful
           links I found. Sounds good? If so, sign up below and let's keep in
           touch.
         </p>
 
-        <p>
-          {showIssues ? (
-            <SeeMoreButton role="button" onClick={() => setShowIssues(false)}>
-              Hide previous issues.
-            </SeeMoreButton>
-          ) : (
-            <SeeMoreButton role="button" onClick={() => setShowIssues(true)}>
-              Still not ready? You can see previous issues by clicking here.
-            </SeeMoreButton>
-          )}
-        </p>
+        <SubscribeForm />
 
-        <NewsletterIssues open={showIssues}>
+        <section>
+          <h2>📜 Newsletter Archive</h2>
+
           {issues.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
 
             return (
               <article key={node.fields.slug}>
                 <header>
-                  <h3>
+                  <h3 className="mt-4 mb-1">
                     <Link
-                      style={{ boxShadow: `none` }}
+                      className="shadow-none"
                       to={`/newsletter${node.fields.slug}`}
                     >
                       {title}
@@ -132,9 +95,7 @@ const NewsletterPage = ({
               </article>
             )
           })}
-        </NewsletterIssues>
-
-        <SubscribeForm />
+        </section>
       </div>
       <Spacer />
     </Layout>

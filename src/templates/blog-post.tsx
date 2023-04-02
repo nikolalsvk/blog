@@ -6,7 +6,6 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import SubscribeForm from "../components/subscribe-form"
-import { rhythm, scale } from "../utils/typography"
 import ViewCounter from "../components/view-counter"
 import Spacer from "../components/spacer"
 import styled from "styled-components"
@@ -15,7 +14,6 @@ import Share from "../components/share"
 const BlogStats = styled.p`
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: ${rhythm(1)};
   color: #b3b3b3;
 `
 
@@ -118,19 +116,8 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
       />
       <article>
         <header>
-          <h1
-            style={{
-              marginTop: rhythm(1),
-              marginBottom: 0,
-            }}
-          >
-            {post.frontmatter.title}
-          </h1>
-          <BlogStats
-            style={{
-              ...scale(-1 / 5),
-            }}
-          >
+          <h1 className="mb-0 mt-4">{post.frontmatter.title}</h1>
+          <BlogStats className="text-sm mt-2 mb-6">
             <BlogStat>
               Published{" "}
               <b>
@@ -166,12 +153,8 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
 
         {canonical && (
           <>
-            <hr
-              style={{
-                marginBottom: "1.75rem",
-              }}
-            />
-            <section style={{ marginLeft: rhythm(1) }}>
+            <hr className="mb-7" />
+            <section className="ml-6">
               <p>
                 <i>
                   This article was originally posted on{" "}
@@ -182,27 +165,23 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
           </>
         )}
 
-        <hr
-          style={{
-            marginBottom: rhythm(1),
-          }}
-        />
+        <hr className="mb-6" />
 
         <Share slug={slug} title={title} />
 
-        <p
-          className="tags"
-          style={{ display: `block`, marginBottom: rhythm(1) }}
-        >
+        <p className="block mb-6">
           Tagged as:{" "}
           {tags.map((tag) => (
-            <span key={tag}>
+            <span
+              className="after:content-['_|_'] last:after:content-none"
+              key={tag}
+            >
               <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
             </span>
           ))}
         </p>
 
-        <footer style={{ marginBottom: rhythm(1) }}>
+        <footer className="mb-6">
           <Bio />
         </footer>
 

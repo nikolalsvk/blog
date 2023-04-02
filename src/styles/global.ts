@@ -1,5 +1,3 @@
-import { rhythm } from "../utils/typography"
-
 export const GlobalStyles = `
   html {
     height: 100%;
@@ -54,7 +52,7 @@ export const GlobalStyles = `
 
   // Code theme fixes
   .gatsby-highlight {
-    margin-bottom: ${rhythm(1)};
+    margin-bottom: 1.5rem;
     font-size: 0.9rem;
   }
   .language-text {
@@ -71,10 +69,6 @@ export const GlobalStyles = `
     border-left-color: var(--color-primary);
     font-style: normal;
     color: var(--color-text);
-  }
-
-  .tags > span:not(:last-child)::after {
-    content: ' | ';
   }
 
   .markdown-header-link {

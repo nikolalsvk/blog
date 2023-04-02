@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
-import { rhythm } from "../utils/typography"
 import ThemeSwitch from "./theme-switch"
 
 import styled from "styled-components"
@@ -22,7 +21,6 @@ const Navigation = styled.nav`
 
 const BigHeader = {
   Wrapper: styled.header`
-    margin-bottom: ${rhythm(1)};
     margin-top: 0;
     display: flex;
     justify-content: space-between;
@@ -34,16 +32,10 @@ const BigHeader = {
     }
   `,
   Text: styled.h1`
-    margin-top: ${rhythm(1.5)};
-    font-size: ${rhythm(2.8)};
-
     @media (max-width: 768px) {
       display: flex;
       align-items: center;
       justify-content: space-between;
-
-      font-size: ${rhythm(1.8)};
-      margin-top: ${rhythm(1)};
     }
   `,
   Navigation: styled(Navigation)`
@@ -63,7 +55,6 @@ const BigHeader = {
 
 const SmallHeader = {
   Wrapper: styled.header`
-    margin-top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -76,10 +67,6 @@ const SmallHeader = {
     a {
       box-shadow: none;
       color: var(--color-primary);
-    }
-
-    @media (max-width: 768px) {
-      margin-top: ${rhythm(1)};
     }
   `,
   RightPart: styled.div`
@@ -125,9 +112,7 @@ const Mobile = {
     justify-content: center;
 
     a {
-      font-size: ${rhythm(1)};
       margin-right: 0px;
-      margin-bottom: ${rhythm(0.5)};
 
       box-shadow: none;
     }
@@ -146,11 +131,21 @@ const MobileMenu = ({ open }: MobileMenuProps) => {
   return (
     <Mobile.Wrapper open={open}>
       <Mobile.Navigation>
-        <Link to="/about">About</Link>
-        <Link to="/uses">Uses</Link>
-        <Link to="/dashboard">Dashboard</Link>
-        <Link to="/newsletter">Newsletter</Link>
-        <Link to="/tags">Tags</Link>
+        <Link className="text-2xl mb-4" to="/about">
+          About
+        </Link>
+        <Link className="text-2xl mb-4" to="/uses">
+          Uses
+        </Link>
+        <Link className="text-2xl mb-4" to="/dashboard">
+          Dashboard
+        </Link>
+        <Link className="text-2xl mb-4" to="/newsletter">
+          Newsletter
+        </Link>
+        <Link className="text-2xl mb-4" to="/tags">
+          Tags
+        </Link>
 
         <ThemeSwitch />
       </Mobile.Navigation>
@@ -170,7 +165,7 @@ const Header = ({ title, showLargeHeader }: Props) => {
 
   if (showLargeHeader) {
     return (
-      <BigHeader.Wrapper>
+      <BigHeader.Wrapper className="mb-4">
         <BigHeader.Navigation>
           <FlexBox>
             <Link to="/about">About</Link>
@@ -187,7 +182,7 @@ const Header = ({ title, showLargeHeader }: Props) => {
 
         <MobileMenu open={open} />
 
-        <BigHeader.Text>
+        <BigHeader.Text className="mt-8 text-[4.1rem]">
           <Link to={`/`}>{title}</Link>
           <Burger open={open} handleClick={toggleMobileMenu} />
         </BigHeader.Text>
@@ -196,10 +191,10 @@ const Header = ({ title, showLargeHeader }: Props) => {
   }
 
   return (
-    <SmallHeader.Wrapper>
-      <h3>
+    <SmallHeader.Wrapper className="mt-4 md:mt-0">
+      <h1 className="text-xl my-0">
         <Link to={`/`}>{title}</Link>
-      </h3>
+      </h1>
 
       <MobileMenu open={open} />
 

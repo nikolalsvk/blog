@@ -4,7 +4,6 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
 import ViewCounter from "../components/view-counter"
 import SubscribeForm from "../components/subscribe-form"
 import Spacer from "../components/spacer"
@@ -49,11 +48,7 @@ const BlogIndex = ({ data }: Props) => {
         return (
           <article key={node.fields.slug}>
             <header>
-              <h2
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
+              <h2 className="mb-1">
                 <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
                   {title}
                 </Link>

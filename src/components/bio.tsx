@@ -10,8 +10,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 
-import { rhythm } from "../utils/typography"
-
 const BioContainer = styled.div`
   display: flex;
   align-items: center;
@@ -19,15 +17,6 @@ const BioContainer = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
     text-align: center;
-  }
-`
-
-const ImageContainer = styled.div`
-  margin-right: ${rhythm(1 / 2)};
-
-  @media (max-width: 768px) {
-    margin-right: 0;
-    margin-bottom: ${rhythm(1 / 2)};
   }
 `
 
@@ -52,7 +41,7 @@ const Bio = () => {
   const { author, social } = data.site.siteMetadata
   return (
     <BioContainer>
-      <ImageContainer>
+      <div className="mr-0 mb-3 md:mr-3 md:mb-0">
         <StaticImage
           src="../../content/assets/profile-pic.jpg"
           alt={author.name}
@@ -65,7 +54,7 @@ const Bio = () => {
             borderRadius: `100%`,
           }}
         />
-      </ImageContainer>
+      </div>
       <p style={{ marginBottom: 0 }}>
         Written by{" "}
         <strong>
