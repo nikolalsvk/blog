@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import { rhythm } from "../utils/typography"
 import styled from "styled-components"
 import Spacer from "../components/spacer"
 
@@ -14,14 +13,12 @@ const Container = styled.div`
   background-color: hsla(19, 76%, 97%, 1);
   border-radius: 5px;
   border: 1px solid var(--color-primary);
-  padding: ${rhythm(1.9)} ${rhythm(1.3)};
 
   h2 {
     margin: 0;
   }
 
   p {
-    margin-top: ${rhythm(0.5)};
     color: hsla(0, 0%, 33%, 1);
     width: 70%;
     text-align: center;
@@ -39,7 +36,6 @@ const Container = styled.div`
 
   input {
     width: 100%;
-    margin-bottom: ${rhythm(0.5)};
     padding: 10px;
     border-radius: 3px;
     border: 1px solid var(--color-primary);
@@ -128,7 +124,7 @@ const SubscribeForm = () => {
   }
 
   return (
-    <Container>
+    <Container className="py-11 px-8">
       {status === "SUCCESS" && (
         <>
           <h2>
@@ -155,7 +151,7 @@ const SubscribeForm = () => {
         <>
           <Intro>
             <h2>Join the newsletter!</h2>
-            <p>
+            <p className="mt-2">
               Subscribe to get latest content by email and to become a fellow
               pineapple{" "}
               <span role="img" aria-label="Pineapple">
@@ -166,6 +162,7 @@ const SubscribeForm = () => {
 
           <form onSubmit={handleSubmit}>
             <input
+              className="mb-2"
               aria-label="Your first name"
               name="fields[first_name]"
               placeholder="Your first name"
@@ -174,6 +171,7 @@ const SubscribeForm = () => {
               value={name}
             />
             <input
+              className="mb-2"
               aria-label="Your email address"
               name="email_address"
               placeholder="Your email address"

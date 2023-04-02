@@ -6,7 +6,6 @@ import "@fontsource/josefin-sans/700.css"
 import "@fontsource/roboto/400.css"
 import "@fontsource/roboto/700.css"
 
-import { rhythm } from "../utils/typography"
 import { useTheme } from "../contexts/theme"
 
 import { GlobalStyles, PrismDark, PrismLight, TypographyTheme } from "../styles"
@@ -24,16 +23,6 @@ const AllStyles = ({ theme }: { theme: string }) => {
     </>
   )
 }
-
-const Container = styled.div`
-  min-height: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: ${rhythm(28.5)};
-  padding: ${rhythm(0.5)} ${rhythm(3 / 4)} ${rhythm(1.5)} ${rhythm(3 / 4)};
-  display: flex;
-  flex-direction: column;
-`
 
 const Main = styled.main`
   flex: 1 0 auto;
@@ -53,14 +42,14 @@ const Layout = ({ title, showLargeHeader, children }: Props) => {
   const { theme } = useTheme()
 
   return (
-    <Container>
+    <div className="flex flex-col mx-auto px-3 py-4 max-w-2xl min-h-full">
       <AllStyles theme={theme} />
       <Main>
         <Header title={title} showLargeHeader={showLargeHeader} />
         {children}
       </Main>
       <Footer>© {new Date().getFullYear()} Nikola Đuza</Footer>
-    </Container>
+    </div>
   )
 }
 
