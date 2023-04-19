@@ -116,7 +116,7 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
       />
       <article>
         <header>
-          <h1 className="mb-0 mt-4">{post.frontmatter.title}</h1>
+          <h1 className="mb-0">{post.frontmatter.title}</h1>
           <BlogStats className="text-sm mt-2 mb-6">
             <BlogStat>
               Published{" "}
