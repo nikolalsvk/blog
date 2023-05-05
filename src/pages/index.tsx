@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -7,6 +7,7 @@ import SEO from "../components/seo"
 import ViewCounter from "../components/view-counter"
 import SubscribeForm from "../components/subscribe-form"
 import Spacer from "../components/spacer"
+import Post from "../components/post"
 
 interface Props {
   data: {
@@ -38,35 +39,36 @@ const BlogIndex = ({ data }: Props) => {
   const siteTitle = data.site.siteMetadata.title
   const siteUrl = data.site.siteMetadata.siteUrl
   const posts = data.allMarkdownRemark.edges
+  const firstTwoPosts = posts.slice(0, 2)
+  const restOfPosts = posts.slice(2)
 
   return (
     <Layout title={siteTitle} showLargeHeader>
       <SEO title="Welcome" canonical={siteUrl} />
       <Bio />
-      {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
-        return (
-          <article key={node.fields.slug}>
-            <header>
-              <h2 className="mb-1">
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h2>
-              <small>
-                <time>{node.frontmatter.date}</time>
-              </small>
-            </header>
-            <section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
-            </section>
-          </article>
-        )
-      })}
+
+      {firstTwoPosts.map(({ node: { fields, frontmatter, excerpt } }) => (
+        <Post
+          slug={fields.slug}
+          title={frontmatter.title}
+          date={frontmatter.date}
+          description={frontmatter.description}
+          excerpt={excerpt}
+        />
+      ))}
+
+      <SubscribeForm />
+
+      {restOfPosts.map(({ node: { fields, frontmatter, excerpt } }) => (
+        <Post
+          slug={fields.slug}
+          title={frontmatter.title}
+          date={frontmatter.date}
+          description={frontmatter.description}
+          excerpt={excerpt}
+        />
+      ))}
+
       <ViewCounter slug="home" hideText />
 
       <SubscribeForm />
