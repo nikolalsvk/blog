@@ -6,7 +6,6 @@
  */
 
 import React from "react"
-import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 import defaultOgImage from "../../content/assets/default-og-image.jpg"
@@ -14,11 +13,7 @@ import defaultOgImage from "../../content/assets/default-og-image.jpg"
 interface Props {
   title: string
   description?: string
-  lang: string
-  meta: {
-    name: string
-    content: string
-  }
+  lang?: string
   canonical?: string
   blogOgImage?: string
   coverImage?: string
@@ -26,9 +21,8 @@ interface Props {
 
 const SEO = ({
   title,
-  description,
-  lang,
-  meta,
+  description = "",
+  lang = "en",
   canonical,
   blogOgImage,
   coverImage,
@@ -102,24 +96,11 @@ const SEO = ({
           name: `twitter:image`,
           content: ogImageUrl,
         },
-      ].concat(meta)}
+      ]}
     >
       {canonical && <link rel="canonical" href={canonical} />}
     </Helmet>
   )
-}
-
-SEO.defaultProps = {
-  lang: `en`,
-  meta: [],
-  description: ``,
-}
-
-SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
 }
 
 export default SEO
