@@ -404,63 +404,221 @@ But, what if we can make that easier and if we try to use an already-baked solut
 
 ## Uploading files in React with Uploadcare React Widget
 
-Uploadcare made a cool React Widget you can use in your project quickly. You need to install it first like so:
+Uploadcare made a brand new uploader that is fully customizable. The new uploader is built with Web Components and part of the Uploadcare Blocks components.
 
-```bash
-npm install @uploadcare/react-widget
+To get started, you need to install the Uploadcare Blocks with the following command:
+
+```
+npm install @uploadcare/blocks
 ```
 
-Then, you'll need to import the `Widget` component in a place where you'll use it (we'll put it in the `src/App.tsx`):
+And add types configuration to `tsconfig.json` in the root of the project:
 
-```tsx
-import { Widget } from "@uploadcare/react-widget"
+```json
+{
+  "compilerOptions": {
+    // ...
+    "types": ["@uploadcare/blocks/types/jsx"]
+    // ...
+  }
+}
 ```
 
-Quickly recover the API key from your Uploadcare project's dashboard and add the following lines:
+Then, we'll create a small component for the Uploadcare File Uploader called `UploadcareUploader` in `src/components`. It will look like this:
 
-```tsx
-import { Widget } from "@uploadcare/react-widget"
+```jsx
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
-function App() {
+import * as LR from "@uploadcare/blocks";
+import { PACKAGE_VERSION } from "@uploadcare/blocks/env";
+
+import "./UploadcareUploader.css";
+
+LR.registerBlocks(LR);
+
+const UploadcareUploader = () => {
+  const dataOutputRef = useRef<LR.DataOutput>();
+  const [files, setFiles] = useState<any[]>([]);
+
+  const handleUploaderEvent = useCallback((e: CustomEvent<any>) => {
+    const { data } = e.detail;
+    setFiles(data);
+  }, []);
+
+  useEffect(() => {
+    const el = dataOutputRef.current;
+
+    el?.addEventListener(
+      "lr-data-output",
+      handleUploaderEvent as EventListenerOrEventListenerObject
+    );
+    return () => {
+      el?.removeEventListener(
+        "lr-data-output",
+        handleUploaderEvent as EventListenerOrEventListenerObject
+      );
+    };
+  }, [handleUploaderEvent]);
+
   return (
-    <>
-      <h1>React File Upload</h1>
+    <section
+      style={
+        {
+          "--uploadcare-pubkey": `"${import.meta.env.VITE_UPLOADCARE_API_KEY}"`,
+        } as React.CSSProperties
+      }
+    >
+      <lr-file-uploader-regular
+        class="uploaderCfg"
+        css-src={`https://unpkg.com/@uploadcare/blocks@${PACKAGE_VERSION}/web/file-uploader-regular.min.css`}
+      >
+        <lr-data-output
+          ref={dataOutputRef}
+          use-event
+          hidden
+          class="uploaderCfg"
+          onEvent={handleUploaderEvent}
+        ></lr-data-output>
+      </lr-file-uploader-regular>
 
-      <Widget publicKey="YOUR_API_KEY" />
-    </>
+      <div className="img-gallery">
+        {files.map((file) => (
+          <img
+            key={file.uuid}
+            src={file.cdnUrl}
+            alt="Preview"
+            className="img-preview"
+          />
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default UploadcareUploader;
+```
+
+There's a lot to unravel from the code above, but don't worry. We will do it gradually. First off, we need to import `LR` from `@uploadcare/blocks` and call `registerBlocks` on it. This is needed so we can register the components that are going to be used in this `UploadcareUploader` React component.
+
+Then, we see this part of the code:
+
+```tsx
+const UploadcareUploader = () => {
+  const dataOutputRef = useRef<LR.DataOutput>()
+  const [files, setFiles] = useState<any[]>([])
+
+  const handleUploaderEvent = useCallback((e: CustomEvent<any>) => {
+    const { data } = e.detail
+    setFiles(data)
+  }, [])
+
+  useEffect(() => {
+    const el = dataOutputRef.current
+
+    el?.addEventListener(
+      "lr-data-output",
+      handleUploaderEvent as EventListenerOrEventListenerObject
+    )
+    return () => {
+      el?.removeEventListener(
+        "lr-data-output",
+        handleUploaderEvent as EventListenerOrEventListenerObject
+      )
+    }
+  }, [handleUploaderEvent])
+
+  // ...
+}
+```
+
+There, we are setting a way to get the files from the Uploadcare File Uploader and set them inside the React component state. We create a ref, state for the files, and register events for when the file is uploaded and removed.
+
+After that, we come to the markup part of the component.
+
+```tsx
+const UploadcareUploader = () => {
+  // ...
+
+  return (
+    <section
+      style={
+        {
+          "--uploadcare-pubkey": `"${import.meta.env.VITE_UPLOADCARE_API_KEY}"`,
+        } as React.CSSProperties
+      }
+    >
+      <lr-file-uploader-regular
+        class="uploaderCfg"
+        css-src={`https://unpkg.com/@uploadcare/blocks@${PACKAGE_VERSION}/web/file-uploader-regular.min.css`}
+      >
+        <lr-data-output
+          ref={dataOutputRef}
+          use-event
+          hidden
+          class="uploaderCfg"
+          onEvent={handleUploaderEvent}
+        ></lr-data-output>
+      </lr-file-uploader-regular>
+
+      <div className="img-gallery">
+        {files.map((file) => (
+          <img
+            key={file.uuid}
+            src={file.cdnUrl}
+            alt="Preview"
+            className="img-preview"
+          />
+        ))}
+      </div>
+    </section>
   )
 }
 
-export default App
+export default UploadcareUploader
 ```
 
-With those couple of lines, you get full support for uploading files directly to Uploadcare, without worrying about the backend or all other things that come with image serving. It also has a feature to do the in-browser image editing. Uploadcare will handle the hosting and even optimizing assets if you need that. Here's how the upload flow looks:
+Now we get to the fun part. First off, we wrap everything into a `section` HTML element (this can be some other element of your choice) and we set a CSS variable with our Uploadcare project API key. You can retrieve the key easily from the Uploadcare project dashboard. We used an environment variable `VITE_UPLOADCARE_API_KEY` to store it, but you can use your own solution for that. This step is important because later, we will configure the Uploadcare File Uploader through CSS 🤯
 
-![Uploadcare single file React upload](./uploadcare-single-file-react-upload.gif)
-
-You could also pass the `multiple` option:
+Then, we put two components provided by Uploadcare Blocks:
 
 ```tsx
-import { Widget } from "@uploadcare/react-widget"
-
-function App() {
-  return (
-    <>
-      <h1>React File Upload</h1>
-
-      <Widget publicKey="YOUR_API_KEY" multiple />
-    </>
-  )
-}
-
-export default App
+<lr-file-uploader-regular
+  class="uploaderCfg"
+  css-src={`https://unpkg.com/@uploadcare/blocks@${PACKAGE_VERSION}/web/file-uploader-regular.min.css`}
+>
+  <lr-data-output
+    ref={dataOutputRef}
+    use-event
+    hidden
+    class="uploaderCfg"
+    onEvent={handleUploaderEvent}
+  ></lr-data-output>
+</lr-file-uploader-regular>
 ```
 
-Here's how the uploading of multiple files looks with Uploadcare's React widget:
+The `lr-file-uploader-regular` and `lr-data-output`. The `lr-file-uploader-regular` provides the actual UI for uploading files, and `lr-data-output` is there so we can track what gets uploaded and taken down by the user in the UI.
 
-![Uploadcare multiple files React upload](./uploadcare-multiple-files-react-upload.gif)
+As you can notice, both of these elements have the `class` attribute and the "uploaderCfg" value. This is because Uploadcare Blocks are customized via CSS. We put the CSS in `UploadcareUploader.css` and imported it at the top. Here's how the CSS looks:
 
-The widget is highly customizable, and you can view all the options and the documentation at the [GitHub repository here](https://github.com/uploadcare/react-widget/tree/master).
+```css
+.uploaderCfg {
+  --ctx-name: "uploader";
+
+  --cfg-pubkey: var(--uploadcare-pubkey);
+}
+```
+
+The `--ctx-name` is to make sure both `lr-file-uploader-regular` and `lr-data-output` are connected. Both elements need to have the same `--ctx-name`. Then, the `--cfg-pubkey` is the place where we put the Uploadcare project API key. You can hardcode it there, but we added it through a environment variables so it is not showing in the code. Vite supports `.env` files so there's an entry there like this `VITE_UPLOADCARE_API_KEY=my_key`. Then, in the code, we set it as a CSS variable `--uploadcare-pubkey` in the parent element and then read it as `var(--uploadcare-pubkey)` in CSS and set it for `--cfg-pubkey` so Uploadcare File Uploader can pick it up.
+
+After that, we show the uploaded files from the `files` in the React component state. All files (in this case, images) are rendered in the gallery below the uploader.
+
+To get a better idea of it all, let's see how it works below:
+
+![Uploadcare File Uploader](./uploadcare-file-uploader.gif)
+
+And that's it, Uploadcare will take care of the uploading for you and make it faster with its uploading network (it works like CDN). You also get the tracking of uploading of each file and the option to choose where you'd like to upload files from (from the device, from a link, local camera, Dropbox, Google Drive etc.)
+
+You can checkout the [official docs on File Uploader here](https://uploadcare.github.io/blocks/solutions/file-uploader/) and see how you can configure it and tailer it for your needs.
 
 ## Conclusion
 
@@ -470,7 +628,7 @@ In this blog post, we went through a few things related to uploading files in Re
 - how to work with [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) interface and `fetch` to upload one or multiple files,
 - how to show a simple upload indicator in the UI,
 - how to iterate over `FileList` with a neat trick,
-- and how to efficiently use Uploadcare React Widget to upload data without writing much code.
+- and how to efficiently use Uploadcare File Uploader to upload data without writing much code.
 
 I hope you enjoyed and learned something from this post. All the code you've seen here is at the [GitHub repository here](https://github.com/nikolalsvk/react-file-upload/) and there's a [live playground here](https://codesandbox.io/p/github/nikolalsvk/react-file-upload/main).
 
