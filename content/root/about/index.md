@@ -37,6 +37,7 @@ You can read more about it on the [uses](/uses) page.
 
 I got invited to a couple of podcasts. Here's where you can listen to me jabber about things:
 
+- [Podkast IT Tipa 10: Edge Computing (gost: Nikola Đuza) - in Serbian language - May 25th, 2023](https://youtu.be/ZGy4en-ndN4)
 - [Podkast IT Tipa 7: Ruby (gost: Nikola Đuza) - in Serbian language - March 18th, 2022](https://www.youtube.com/watch?v=IS5MeOj4Hc8)
 - [Why Write Rails View Tests with Nikola Đuza - RUBY 496 - May 5th, 2021](https://rubyrogues.com/518)
 
