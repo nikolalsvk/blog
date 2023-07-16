@@ -5,13 +5,20 @@ slug: how-to-upload-files-in-angular
 date: 2023-07-07
 canonical: https://uploadcare.com/blog/how-to-upload-files-in-angular/
 canonicalName: Uploadcare
-coverImage: TODO
-blogOgImage: TODO
+coverImage: ./cover.jpg
+blogOgImage: ./og-image.jpg
 published: true
 tags:
   - Angular
   - File Upload
 ---
+
+<figure>
+<img alt="Cover image" src="./cover.jpg" />
+<figcaption class="photo-caption">
+Photo by <a href="https://unsplash.com/es/@thalia_s_ruiz?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Thalia Ruiz</a> on <a href="https://unsplash.com/s/photos/stamp?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+</figcaption>
+</figure>
 
 In today's interconnected digital landscape, file uploads have become essential to creating web applications. Whether you're building a social media platform, an e-commerce site, or a collaborative document editing tool, enabling users to upload files seamlessly is crucial.
 
