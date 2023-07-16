@@ -1,15 +1,22 @@
 ---
 title: How to Upload File in React
-description: TODO
+description: In this article you will learn how to write a file-uploading logic in React.
 slug: how-to-upload-file-in-react
-date: 2023-05-04
-coverImage: TODO
-blogOgImage: TODO
+date: 2023-06-02
+coverImage: ./cover.jpg
+blogOgImage: ./og-image.jpg
 published: true
 tags:
   - React
   - File Upload
 ---
+
+<figure>
+<img alt="Cover image" src="./cover.jpg" />
+<figcaption class="photo-caption">
+Photo by <a href="https://unsplash.com/@epicantus?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Daria Nepriakhina</a> on <a href="https://unsplash.com/photos/guiQYiRxkZY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+</figcaption>
+</figure>
 
 React is one of the popular tools for building user interfaces and is a skill worth knowing. If you're building something with React, you will face the challenge of uploading files sooner or later. Do not worry; writing a file-uploading logic in React is straightforward, and this post will show you exactly how to do it.
 
