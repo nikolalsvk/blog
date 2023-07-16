@@ -1,6 +1,6 @@
 ---
 title: A Guide to Handling Errors in Preact
-description: TODO
+description: Let's explore the methods you can use to handle Preact errors.
 slug: a-guide-to-handling-errors-in-preact
 date: 2023-05-03
 canonical: https://blog.appsignal.com/2023/05/03/a-guide-to-handling-errors-in-preact.html
