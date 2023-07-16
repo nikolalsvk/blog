@@ -3,6 +3,8 @@ title: How to Upload File in React
 description: In this article you will learn how to write a file-uploading logic in React.
 slug: how-to-upload-file-in-react
 date: 2023-06-02
+canonical: https://uploadcare.com/blog/how-to-upload-file-in-react/
+canonicalName: Uploadcare
 coverImage: ./cover.jpg
 blogOgImage: ./og-image.jpg
 published: true
