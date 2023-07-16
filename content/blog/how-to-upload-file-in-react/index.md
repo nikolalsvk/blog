@@ -197,7 +197,7 @@ We select a file, view its details and click "Upload a file" button. Then, after
 
 We can make the result indicator based on state of the uploading. I created four states:
 
-- Initial - the upload hasn't started yet ✅
+- Initial - the upload hasn't started yet
 - Uploading - the upload started
 - Success - the upload finished properly
 - Failure - the upload, unfortunately, failed
@@ -400,7 +400,7 @@ Awesome, we set up everything, and now this is how multi-file upload works in Re
 
 ![Multiple files upload in React with status indicator](./multiple-files-upload-in-react-with-status-indicator.gif)
 
-But, what if we can make that easier and if we try to use an already-baked solution? Let's try out Uploadcare's React Widget for file upload in the next section.
+But, what if we can make that easier and if we try to use an already-baked solution? Let's try out Uploadcare's File Uploader for file upload in the next section.
 
 ## Uploading files in React with Uploadcare React Widget
 
@@ -618,7 +618,7 @@ To get a better idea of it all, let's see how it works below:
 
 And that's it, Uploadcare will take care of the uploading for you and make it faster with its uploading network (it works like CDN). You also get the tracking of uploading of each file and the option to choose where you'd like to upload files from (from the device, from a link, local camera, Dropbox, Google Drive etc.)
 
-You can checkout the [official docs on File Uploader here](https://uploadcare.github.io/blocks/solutions/file-uploader/) and see how you can configure it and tailer it for your needs.
+You can checkout the [official docs on File Uploader here](https://uploadcare.github.io/blocks/solutions/file-uploader/) and see how you can configure it and tailor it for your needs.
 
 ## Conclusion
 
