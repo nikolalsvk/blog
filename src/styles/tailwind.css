@@ -6,4 +6,8 @@
   ol {
     @apply list-decimal;
   }
+
+  figure img {
+    display: initial;
+  }
 }
