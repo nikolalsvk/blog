@@ -81,11 +81,19 @@ For me, this is how the output looks:
 
 ![Overmind start command starts processes from Procfile](./overmind-start.png)
 
+<figcaption class="photo-caption">
+"overmind start" command starts processes from Procfile
+</figcaption>
+
 Right there, you can see all the output nicely rendered, with the famous Sidekiq ASCII art printed out.
 
 If we quickly compare that to an output `foreman` does with `foreman start`, we'll see a different output:
 
 ![Foreman start command starts processes from Procfile](./foreman-start.png)
+
+<figcaption class="photo-caption">
+"foreman start" command starts processes from Procfile
+</figcaption>
 
 The output is not as nice as with Overmind.
 
@@ -112,6 +120,10 @@ Here's what I got:
 
 ![Overmind connect launches a tmux session with running processes](./overmind-connect.png)
 
+<figcaption class="photo-caption">
+"overmind connect" launches a tmux session with running processes
+</figcaption>
+
 I got launched into the first process defined in `Procfile` - the `web` process. The connect feature is very powerful because it allows you to see the logs of all processes split into tabs in tmux. You can easily switch tabs with `Ctrl + b` and the number of a tab. For example:
 
 1. `Ctrl + b` and then 1, switches you to the `web` process,
@@ -132,6 +144,10 @@ And when I visit the home page, my `web` process stops until I interact with the
 
 ![Overmind connect Rails debugger](./overmind-connect-debugger.png)
 
+<figcaption class="photo-caption">
+Rails debugger and Overmind
+</figcaption>
+
 And now, to gently exit the session without killing processes, use the `Ctrl + b` and then `d`. Congrats, you just learned how to switch windows in tmux and how to exit a tmux session 👏.
 
 But what if you're a tmux user already and all you do in the terminal is inside tmux? What if you do `overmind connect` inside a tmux session? Let's find out
@@ -142,9 +158,17 @@ Let's say you're already using tmux for your day-to-day endeavors and you ran `o
 
 ![Overmind inside tmux](./overmind-in-tmux.png)
 
+<figcaption class="photo-caption">
+Overmind inside tmux
+</figcaption>
+
 At the top, you can see I have the `overmind` window open in tmux. Then, below it, you see three windows with `web`, `css`, and `worker` open. The trick here is to do the double `Ctrl + b` and then `d`. So do `Ctrl + b` `Ctrl + b` and then `d`. This will tell the second instance of tmux (the one ran by Overmind) to detach from the session. Now, you should be back to the tmux window you were before running `overmind connect` like so:
 
 ![Regular tmux session](./regular-tmux-session.png)
+
+<figcaption class="photo-caption">
+Regular tmux session
+</figcaption>
 
 OK, but what else can I do in Overmind? Glad you asked - I'll show you a couple of more features.
 
@@ -197,6 +221,10 @@ GO111MODULE=on go get -u -f github.com/DarthSim/hivemind
 After that, you can run `hivemind` and that's it. Of course, that's all you get, there are no extra features like in Overmind. Here's how the output looks:
 
 ![Hivemind output](./hivemind.png)
+
+<figcaption class="photo-caption">
+Hivemind output
+</figcaption>
 
 ## Wrapping Up
 
