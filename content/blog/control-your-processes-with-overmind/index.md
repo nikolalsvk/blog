@@ -197,9 +197,9 @@ Thanks for reading this far, you've just got introduced to a couple of concepts:
 
 - `Procfile`- a file to define processes needed to run your project
 - `foreman`- a tool to run those processes quickly
-- Overmind - a tool that better prints out logs and has advanced features to help you easily manage processes
-- Hivemind - a smaller sibling of Overmind
-- tmux - a terminal multiplexer that can increase your productivity locally and/or remote servers
+- [Overmind](https://github.com/DarthSim/overmind) - a tool that better prints out logs and has advanced features to help you easily manage processes
+- [Hivemind](https://github.com/DarthSim/hivemind) - a smaller sibling of Overmind
+- [tmux](https://github.com/tmux/tmux) - a terminal multiplexer that can increase your productivity locally and/or remote servers
 
 So I hope you had a good time reading. And remember, these are tools made to make you feel and be more productive. Try them out, or don't, but I know, if you're a true terminal junkie, you're always on the lookout to saw a keystroke or two.
 
