@@ -1,15 +1,22 @@
 ---
-title: Control Your Processes with Overmind
+title: Control Your Dev Processes with Overmind
 description: Easily run processes withing your project and forget about Foreman.
-slug: TODO
+slug: control-your-dev-processes-with-overmind
 date: 2023-07-18
-coverImage: TODO
-blogOgImage: TODO
+coverImage: ./cover.jpg
+blogOgImage: ./og-image.jpg
 published: true
 tags:
   - tmux
   - Overmind
 ---
+
+<figure>
+<img src="./cover.jpg" alt="Helicopter flying over a city" />
+<figcaption class="photo-caption">
+Photo by <a href="https://unsplash.com/@arstyy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Austin Neill</a> on <a href="https://unsplash.com/s/photos/control?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+</figcaption>
+</figure>
 
 If you're wondering how to run multiple processes in your project, look no further. You came to the perfect place where you'll learn how to quickly and effectively run all the services your project needs.
 
