@@ -152,7 +152,7 @@ First off, there was a "problem" in our example where multiple requests were mad
   eventSource.addEventListener("error", (event) => {
     console.log(event)
 
-    if (event.eventPhase == EventSource.CLOSED) {
+    if (event.eventPhase === EventSource.CLOSED) {
       eventSource.close()
       console.log("Event Source Closed")
     }
@@ -180,7 +180,7 @@ Cool, now that we got that out of the way and cleared it out, let's make our exa
   })
 
   eventSource.addEventListener("error", (event) => {
-    if (event.eventPhase == EventSource.CLOSED) {
+    if (event.eventPhase === EventSource.CLOSED) {
       eventSource.close()
       console.log("Event Source Closed")
     }
@@ -251,7 +251,7 @@ Let's add three buttons - Start, Stop, and Clear. We'll start with the view part
     })
 
     eventSource.addEventListener("error", (event) => {
-      if (event.eventPhase == EventSource.CLOSED) {
+      if (event.eventPhase === EventSource.CLOSED) {
         eventSource.close()
         console.log("Event Source Closed")
       }
@@ -265,7 +265,7 @@ Let's add three buttons - Start, Stop, and Clear. We'll start with the view part
   })
 
   document.getElementById("start").addEventListener("click", (e) => {
-    if (eventSource.readyState == EventSource.CLOSED) {
+    if (eventSource.readyState === EventSource.CLOSED) {
       start()
     }
   })
@@ -329,7 +329,7 @@ In JavaScript:
 eventSource = new EventSource("/events")
 
 eventSource.addEventListener("error", (event) => {
-  if (event.eventPhase == EventSource.CLOSED) {
+  if (event.eventPhase === EventSource.CLOSED) {
     eventSource.close()
   }
 })
