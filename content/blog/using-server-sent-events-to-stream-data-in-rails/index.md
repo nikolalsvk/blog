@@ -3,14 +3,20 @@ title: Using Server-Sent Events (SSE) to Stream Data in Rails
 description: Learn what Server-Sent Events are and how to use them with Ruby on Rails and a bit of JavaScript.
 slug: using-server-sent-events-to-stream-data-in-rails
 date: 2023-07-25
-coverImage: TODO
-blogOgImage: TODO
+coverImage: ./cover.jpg
+blogOgImage: ./og-image.jpg
 published: true
 tags:
   - Ruby
   - Rails
   - Server-Sent Events
 ---
+
+![Abstract patterns](./cover.jpg)
+
+<figcaption class="photo-caption">
+Photo by <a href="https://unsplash.com/@pawel_czerwinski?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Pawel Czerwinski</a> on <a href="https://unsplash.com/wallpapers/cool/abstract?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+</figcaption>
 
 Usually, a page sends a request to the server to receive new data. That is how most of us develop the web nowadays. What if I told you there is another way to get the data to the page? With server-sent events, a server can send new data to a web page at any time by pushing messages to the web page.
 
