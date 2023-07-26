@@ -15,7 +15,7 @@ export const TopPostsSection = ({
     }
 
     const postsBySlug = posts.reduce((acc, { node }) => {
-      const slug = node.frontmatter.slug
+      const slug = node.fields.slug.replace(/\//g, "")
 
       acc[slug] ??= node
 
