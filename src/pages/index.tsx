@@ -49,6 +49,7 @@ const BlogIndex = ({ data }: Props) => {
 
       {firstTwoPosts.map(({ node: { fields, frontmatter, excerpt } }) => (
         <Post
+          key={fields.slug}
           slug={fields.slug}
           title={frontmatter.title}
           date={frontmatter.date}
@@ -61,6 +62,7 @@ const BlogIndex = ({ data }: Props) => {
 
       {restOfPosts.map(({ node: { fields, frontmatter, excerpt } }) => (
         <Post
+          key={fields.slug}
           slug={fields.slug}
           title={frontmatter.title}
           date={frontmatter.date}
