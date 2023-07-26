@@ -354,7 +354,7 @@ Here's what Server-Sent Events are in short:
 - `EventSource` is supported in the majority of browsers - [caniuse.com reference](https://caniuse.com/eventsource)
 - easy to get going, especially with Ruby on Rails and `ActionController::Live`
 
-Hope you learned a thing or two and that the post helped you make an informed decision on how to proceed with your task.
+Hope you learned a thing or two and that the post helped you make an informed decision on how to proceed with your task. You can find the working solution and the code in [the GitHub repo here](https://github.com/nikolalsvk/rails-sse).
 
 In the next post, we can cover how to build a retry mechanism if the connection or something else fails when using SSE. If you liked the post, share it with your friends and/or coworkers.
 
