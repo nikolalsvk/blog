@@ -16,6 +16,8 @@ export const StyledBurger = styled.button<StyledBurgerProps>`
   cursor: pointer;
   padding: 0;
   z-index: 21;
+  position: ${({ open }) => (open ? "fixed" : "initial")};
+  right: 0.75rem;
 
   &:focus {
     outline: none;
