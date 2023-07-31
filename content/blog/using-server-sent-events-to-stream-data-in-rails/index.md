@@ -27,7 +27,7 @@ We are all used to the classic way of how HTTP works:
 
 ![Regular HTTP communication diagram](./regular-http-communication.png)
 
-Today, we wile show how to use server-sent events (SSE for short) to establish a different type of communication between the client and the server. Here's how SSE works in brief:
+Today, we will show how to use server-sent events (SSE for short) to establish a different type of communication between the client and the server. Here's how SSE works in brief:
 
 1. A client requests a webpage from a server using the regular HTTP we showed before.
 2. The client then receives the requested page and executes the JavaScript on the page, which opens a connection to the server.
