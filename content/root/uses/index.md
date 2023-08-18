@@ -1,5 +1,6 @@
 ---
 title: Uses
+description: Here you can find equipment and tools Nikola Đuza uses.
 ---
 
 ## 🛠 What I use
@@ -26,7 +27,7 @@ them, you are supporting and helping me in a way.
   - [zsh](https://www.zsh.org/)
   - [oh-my-zsh](https://ohmyz.sh/)
   - [fig](https://fig.io/)
-  - [Brave Browser](https://brave.com/) has been good to me. I like that it blocks ads out of the box.
+  - [Arc](https://arc.net/) has been good to me for some time now. Check it out.
   - Sometimes, you have to test some APIs or make WebSocket connections. Right about then, I roll out [Postman](https://www.postman.com/) to do it.
   - To let people schedule a call with me, I use [Calendly](https://calendly.com/nikolalsvk).
   - To manage my newsletter - [ConvertKit](https://convertkit.com?lmref=EVgZiQ) is awesome.
