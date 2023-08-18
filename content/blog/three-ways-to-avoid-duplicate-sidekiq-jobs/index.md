@@ -10,6 +10,7 @@ canonicalName: AppSignal
 published: true
 tags:
   - Rails
+  - Ruby
   - Sidekiq
 ---
 
