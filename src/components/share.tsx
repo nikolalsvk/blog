@@ -4,7 +4,7 @@ import VisuallyHidden from "./visually-hidden"
 import CopyButton from "./copy-button"
 
 const Share = ({ slug, title }: { slug: string; title: string }) => {
-  const postUrl = `https://pragmaticpineapple.com/${slug}`
+  const postUrl = `https://pragmaticpineapple.com${slug}`
 
   return (
     <Wrapper className="mb-6">
@@ -33,7 +33,7 @@ const Share = ({ slug, title }: { slug: string; title: string }) => {
         id="twitter-share-link"
         target="_blank"
         rel="noreferrer"
-        href={`https://twitter.com/intent/tweet/?text=${title}&url=${postUrl}%2F&via=nikolalsvk`}
+        href={`https://twitter.com/intent/tweet/?text=${title}&url=${postUrl}&via=nikolalsvk`}
       >
         <TwitterSVG
           xmlns="http://www.w3.org/2000/svg"

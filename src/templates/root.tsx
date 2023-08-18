@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ViewCounter from "../components/view-counter"
 import Spacer from "../components/spacer"
+import Share from "../components/share"
 import SubscribeForm from "../components/subscribe-form"
 
 interface Props {
@@ -53,6 +54,20 @@ const NewComponent = ({ data }: Props) => {
         </h1>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
       </article>
+
+      <hr className="mb-6" />
+
+      <div className="flex justify-between">
+        <Share slug={slug} title={title} />
+
+        <p className="block">
+          <a
+            href={`https://github.com/nikolalsvk/blog/blob/master/content/root/${slug}/index.md`}
+          >
+            Edit this page on GitHub
+          </a>
+        </p>
+      </div>
 
       <SubscribeForm />
 

@@ -55,6 +55,9 @@ interface Props {
       id: string
       excerpt: string
       html: string
+      fields: {
+        slug: string
+      }
       frontmatter: {
         title: string
         publishedAt: string
@@ -92,6 +95,7 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
   const updatedAtDateTime = post.parent?.fields?.updatedAtDateTime
   const siteTitle = data.site.siteMetadata.title
   const siteUrl = data.site.siteMetadata.siteUrl
+  const slug = post.fields.slug
   const { previous, next } = pageContext
   const {
     title,
@@ -99,10 +103,9 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
     canonicalName,
     publishedAt,
     publishedAtDateTime,
-    slug,
     tags,
   } = post.frontmatter
-  const defaultCanonical = `${siteUrl}/${slug}/`
+  const defaultCanonical = `${siteUrl}${slug}`
   // const { timeToRead } = post
 
   return (
@@ -169,17 +172,27 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
 
         <Share slug={slug} title={title} />
 
-        <p className="block mb-6">
-          Tagged as:{" "}
-          {tags.map((tag) => (
-            <span
-              className="after:content-['_|_'] last:after:content-none"
-              key={tag}
+        <div className="flex justify-between">
+          <p className="block mb-6">
+            Tagged as:{" "}
+            {tags.map((tag) => (
+              <span
+                className="after:content-['_|_'] last:after:content-none"
+                key={tag}
+              >
+                <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+              </span>
+            ))}
+          </p>
+
+          <p className="block">
+            <a
+              href={`https://github.com/nikolalsvk/blog/blob/master/content/blog/${slug}/index.md`}
             >
-              <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-            </span>
-          ))}
-        </p>
+              Edit this page on GitHub
+            </a>
+          </p>
+        </div>
 
         <footer className="mb-6">
           <Bio />
@@ -234,6 +247,9 @@ export const pageQuery = graphql`
       id
       excerpt(pruneLength: 160)
       html
+      fields {
+        slug
+      }
       frontmatter {
         title
         publishedAt: date(formatString: "MMMM DD, YYYY")
