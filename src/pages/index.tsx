@@ -71,7 +71,7 @@ const BlogIndex = ({ data }: Props) => {
         />
       ))}
 
-      <ViewCounter slug="home" hideText />
+      <ViewCounter slug="/home" hideText />
 
       <SubscribeForm />
 

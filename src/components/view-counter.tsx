@@ -26,7 +26,7 @@ function ViewCounter({ slug, hideText }: Props) {
       try {
         db = await loadDb()
 
-        const slugRef = ref(db, `views/${slug}`)
+        const slugRef = ref(db, `views${slug}`)
 
         onValue(slugRef, onViews)
       } catch (error) {
