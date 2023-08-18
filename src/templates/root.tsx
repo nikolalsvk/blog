@@ -62,7 +62,7 @@ const NewComponent = ({ data }: Props) => {
 
         <p className="block">
           <a
-            href={`https://github.com/nikolalsvk/blog/blob/master/content/root/${slug}/index.md`}
+            href={`https://github.com/nikolalsvk/blog/blob/master/content/root${slug}index.md`}
           >
             Edit this page on GitHub
           </a>

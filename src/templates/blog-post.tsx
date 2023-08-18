@@ -187,7 +187,7 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
 
           <p className="block">
             <a
-              href={`https://github.com/nikolalsvk/blog/blob/master/content/blog/${slug}/index.md`}
+              href={`https://github.com/nikolalsvk/blog/blob/master/content/blog${slug}index.md`}
             >
               Edit this page on GitHub
             </a>
