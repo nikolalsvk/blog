@@ -1,9 +1,6 @@
 {
   "ci": {
     "collect": {
-      "settings": {
-        "chromeFlags": "--no-sandbox"
-      },
       "url": ["http://localhost:9000"],
       "numberOfRuns": 5,
       "startServerCommand": "npm run serve"
