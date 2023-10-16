@@ -25,7 +25,6 @@
     "upload": {
       "target": "lhci",
       "serverBaseUrl": "https://lighthouse-server-production-51ca.up.railway.app"
-    },
-    "headful": false
+    }
   }
 }
