@@ -1,0 +1,30 @@
+{
+  "ci": {
+    "collect": {
+      "url": ["http://localhost:9000"],
+      "numberOfRuns": 5,
+      "startServerCommand": "npm run serve"
+    },
+    "assert": {
+      "preset": "lighthouse:no-pwa",
+      "assertions": {
+        "valid-source-maps": "warn",
+        "uses-text-compression": "warn",
+        "uses-responsive-images": "warn",
+        "uses-rel-preconnect": "warn",
+        "unused-javascript": "warn",
+        "unused-css-rules": "warn",
+        "unminified-javascript": "warn",
+        "tap-targets": "warn",
+        "errors-in-console": "warn",
+        "csp-xss": "warn",
+        "color-contrast": "warn",
+        "bf-cache": "warn"
+      }
+    },
+    "upload": {
+      "target": "lhci",
+      "serverBaseUrl": "https://lighthouse-server-production-51ca.up.railway.app"
+    }
+  }
+}
