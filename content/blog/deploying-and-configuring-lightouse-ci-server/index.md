@@ -3,17 +3,19 @@ title: Deploying and Configuring Lighthouse CI Server
 description: Learn how to deploy and configure a LHCI server to Railway
 slug: deploying-and-configuring-lighthouse-ci-server
 date: 2023-10-18
-coverImage: TODO
-blogOgImage: TODO
+coverImage: ./cover.jpg
+blogOgImage: ./og-image.jpg
 published: true
 tags:
   - Lighthouse
   - Performance
 ---
 
-If you are into web development, you must have come across the term "Lighthouse score". It is a unanymous way of measuring how well the website performs in the wild. To measure the Lighthouse score, you can use Lighthouse. Lighthouse is an open source tool that allows you to monitor and measure your website's performance, quality, and correctness.
+![Lighthouse on a rocky beach](./cover.jpg)
 
-Lighthouse allows you to start quickly and measure your website directly in the browsers. Some teams and companies run Lighthouse on each change / push. That is where Lighthouse CI (LHCI) steps in. LHCI helps you run Lightouse in continuous integration (CI) environments.
+If you are into web development, you must have come across the term "Lighthouse score". It is a unanimous way of measuring how well the website performs in the wild. To measure the Lighthouse score, you can use Lighthouse. Lighthouse is an open-source tool that monitors and measures your website's performance, quality, and correctness.
+
+Lighthouse lets you to start quickly and measure your website directly in the browsers. Some teams and companies run Lighthouse on each change/push. That is where Lighthouse CI (LHCI) steps in. LHCI helps you run Lighthouse in continuous integration (CI) environments.
 
 After LHCI runs, it can upload results to a temporary storage provided by Google, or, it can upload results to a server somewhere. Today, we are going to learn how to deploy and then configure the Lighthouse CI Server so that we can collect Lighthouse scores and compare them over time.
 
@@ -166,7 +168,7 @@ Once you click "Add", the redeploy will get scheduled.
 After a couple of mins, our deployment is successful, yay! But how do we view our Lighthouse server?
 Great question, let's answer it in the next section.
 
-## Step 4 - Add a domain
+## Step 4 - Add a Domain on Railway
 
 Now, we need to add a domain for our `lighthouse-server` project. Go into the `lighthouse-server` Settings tab like so:
 
@@ -176,7 +178,7 @@ There, you will see "Generate domain" button. Click it and you should see the ne
 
 ![Domain generated](./domain-generated.png)
 
-Now, if we visit https://lighthouse-server-production-51ca.up.railway.app/app/projects, we will see a welcome message and instructions to start configuration of the LHCI server:
+Now, if we visit https://lighthouse-server-production-51ca.up.railway.app/app/projects, we will see a welcome message and instructions to start the configuration of the LHCI server:
 
 ![Welcome to Lighthouse CI](./welcome.png)
 
@@ -211,9 +213,9 @@ I'll move into the root of the project and create a `lighthouserc.json` file to 
 
 This `lighthouserc.json` specifies from where to collect, what to assert, and where to upload Lighthouse results. In this case:
 
-- We're collecting from the http://localhost:9000 after 5 runs of Lighthouse, and we are running the blog server with `npm run serve`.
-- We're asserting against the `lighthouse:no-pwa` set of assertions. (I had to fine tune the assertions because some of them were breaking my build. I'll fix them one day 🤞).
-- And, we're uploading to a custom LHCI server located at the URL we previously generated with Railway https://lighthouse-server-production-51ca.up.railway.app.
+- We're collecting from the http://localhost:9000 after 5 runs of Lighthouse, and we are running the blog server with `npm run serve`. We're doing 5 runs to get a better mean value, just in case.
+- We're asserting against the `lighthouse:no-pwa` set of assertions. That is a set of assertions from Lighthouse containing recommended thresholds for various measurements. (I had to fine-tune the assertions because some of them were breaking my build. I'll fix them one day 🤞).
+- And, we're uploading to a custom LHCI server located at the URL we previously deployed with Railway https://lighthouse-server-production-51ca.up.railway.app.
 
 The important entry in this JSON file is the `serverBaseUrl` that tells where our LHCI server is located. Now, we can run the LHCI wizard with `lhci wizard`:
 
@@ -229,6 +231,9 @@ Created project pragmaticpineapple (xxxx-xxxx-xxxx-xxxx-xxxx)!
 Use build token xxxx-xxxx-xxxx-xxxx-xxxx to add data.
 Use admin token xxxx to manage data. KEEP THIS SECRET!
 ```
+
+The wizard configured the remote LHCI server and returned two tokens - build and admin token. Write down both somewhere and keep them safe.
+We are going to need the build token later in this blog post.
 
 Now, if we go to https://lighthouse-server-production-51ca.up.railway.app, there's a new project generated:
 
@@ -247,9 +252,14 @@ You'd be tempted to run the Lighthouse CI locally, but let's hold our horses and
 
 LHCI is meant to be run, well, in the CI environment. My blog is hosted on GitHub, so let's configure a GitHub Action that runs the LHCI and uploads it to our freshly deployed LHCI server.
 
-First, let's create `.github` directory, `.github/workflows`, and add `lighthouse-ci.yaml` in it.
+First, let's create `.github` and `.github/workflows` directories.
 
-The `lighthouse-ci.yaml` should look like this:
+```
+mkdir .github
+mkdir .github/workflows
+```
+
+Then, let's add `.github/workflows/lighthouse-ci.yaml` which should look like this:
 
 ```yaml
 name: Build project and run Lighthouse CI
@@ -288,7 +298,7 @@ This action runs:
 2. `npm run build` to build a production version of my blog, and,
 3. `lhci autorun` that uses `lighthouserc.json` we defined eariler
 
-One important thing, we have to provide the `LHCI_TOKEN` to the GitHub Action. For that, we'll go into the repository Settings > Secrets and variables > Actions and click "New repository secret". It should look something like this:
+One important thing is that we have to provide the `LHCI_TOKEN` to the GitHub Action. For that, we'll go into the repository Settings > Secrets and variables > Actions and click "New repository secret". It should look something like this:
 
 ![New repository secret](./new-secret.png)
 
@@ -316,7 +326,7 @@ What next? I have a bonus step for you!
 
 ## BONUS: Post a GitHub Commit Status Check
 
-We can have LHCI post a status check to our commits as LHCI finishes with running. That's a great way to see how the Ligthouse run went without going into the GitHub Action or opening the LHCI server.Here's an example:
+We can have LHCI post a status check to our commits as LHCI finishes with running. That's a great way to see how the Lighthouse run went without going into the GitHub Action or opening the LHCI server.Here's an example:
 
 ![Lighthouse status check](./lighthouse-status-check.png)
 
@@ -357,8 +367,16 @@ Now, you'll get a new commit status check whenever a Lighthouse runs for that co
 
 ![Lighthouse status check](./lighthouse-status-check.png)
 
-## Conclusion
+## Summing Up
 
-And that's it! Lighthouse CI is now deployed and configured on Railway. Each commit will run Lighthouse, post results, and ensure your sites are fast and accessible.
+And that's it! The Lighthouse CI server is now deployed and configured on Railway together with a database to store your project's runs.
+Each commit will run Lighthouse, post results, and ensure your sites are fast and accessible.
 
-Railway makes it easy to run Lighthouse CI or any other CI/CD tool.
+You can find all the [code for the `lighthouse-server` on GitHub here](https://github.com/nikolalsvk/lighthouse-server).
+And the [PR where I added the Lighthouse workflow](https://github.com/nikolalsvk/blog/pull/122).
+
+Now, all I (and probably you) need to do is to ramp up that Lighthouse score and keep away from the rocks ⛰ 🔦 🚢.
+
+Thanks for reading, and I'll catch you in the next one.
+
+Cheers.
