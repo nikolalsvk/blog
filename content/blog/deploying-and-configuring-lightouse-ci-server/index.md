@@ -39,7 +39,7 @@ First, we will create a new project to host our Lighthouse server code. I named 
 
 I created the directory and went inside it:
 
-```
+```bash
 mkdir lighthouse-server && cd lighthouse-server
 ```
 
@@ -93,7 +93,7 @@ createServer({
 
 Or, if you don't want to copy text as much, run these two commands:
 
-```
+```bash
 curl https://raw.githubusercontent.com/nikolalsvk/lighthouse-server/main/package.json > package.json
 curl https://raw.githubusercontent.com/nikolalsvk/lighthouse-server/main/index.js > index.js
 ```
@@ -107,7 +107,7 @@ After we created a new directory with `package.json` and `index.js`, it's time t
 First, we need to run `railway login` to log in, and then `railway init`.
 Here's how that looked on my machine:
 
-```
+```bash
 $ railway login
 > Open the browser? Yes
 Logged in as Nikola (nikola@myemail.com)
@@ -122,7 +122,7 @@ https://railway.app/project/xxxx-xxxx-xxxx-xxxx
 Then, we'll deploy the actual project with `railway up --detach` (the `--detach` flag is there to make sure we're not listening to logs of the server).
 The command will complete pretty quickly and it will trigger a deployment on Railway. You can follow the build logs returned from the command.
 
-```
+```bash
 $ railway up --detach
 Indexed
 Compressed [====================] 100%
@@ -144,7 +144,7 @@ Ah, we don't have a database for our server. We'll fix this in the next section.
 
 To add a database for our LHCI server to store data, we'll run `railway add`.
 
-```
+```bash
 $ railway add
 > Select plugins to add PostgreSQL
 Created PostgreSQL
@@ -223,7 +223,7 @@ This `lighthouserc.json` specifies from where to collect, what to assert, and wh
 
 The important entry in this JSON file is the `serverBaseUrl` that tells where our LHCI server is located. Now, we can run the LHCI wizard with `lhci wizard`:
 
-```
+```bash
 $ lhci wizard
 
 ? Which wizard do you want to run? new-project
@@ -258,7 +258,7 @@ LHCI is meant to be run, well, in the CI environment. My blog is hosted on GitHu
 
 First, let's create `.github` and `.github/workflows` directories.
 
-```
+```bash
 mkdir .github
 mkdir .github/workflows
 ```
