@@ -130,7 +130,7 @@ Uploaded
 Build Logs: https://railway.app/project/6c35cf2c-d129-4fa4-b224-144a99e96e4b/service/e8f9b583-409a-4109-9604-96e6560bdd25?id=4366fee8-5544-4c0f-a77b-6cb1d969ece9&
 ```
 
-The deployment finished under a minute for me and I got this build log:
+The deployment finished in under a minute for me and I got this build log:
 
 ![Railway Deployment Log](./railway-deployment-complete.png)
 
@@ -169,7 +169,7 @@ Once you click "Add", the redeploy will get scheduled.
 
 ![Redeploy scheduled](./redeploy-scheduled.png)
 
-After a couple of mins, our deployment is successful, yay! But how do we view our Lighthouse server?
+After a couple of minutes, our deployment is successful, yay! But how do we view our Lighthouse server?
 Great question, let's answer it in the next section.
 
 ## Step 4 - Add a Domain on Railway
@@ -300,7 +300,7 @@ This action runs:
 
 1. `npm install`
 2. `npm run build` to build a production version of my blog, and,
-3. `lhci autorun` that uses `lighthouserc.json` we defined eariler
+3. `lhci autorun` that uses `lighthouserc.json` we defined earlier
 
 One important thing is that we have to provide the `LHCI_TOKEN` to the GitHub Action. For that, we'll go into the repository Settings > Secrets and variables > Actions and click "New repository secret". It should look something like this:
 
@@ -309,7 +309,7 @@ One important thing is that we have to provide the `LHCI_TOKEN` to the GitHub Ac
 Click "Add secret" and we're good to make our first push and trigger the LHCI.
 
 Now, whenever there's a push to my blog repo, a GitHub Action will run and report a Lighthouse score to the Lighthouse CI Server we configured in this blog post.
-Depending on the project you are running, you might have a different set up than I have, but the concept is similar:
+Depending on the project you are running, you might have a different setup than I have, but the concept is similar:
 
 1. Prepare your project (install deps)
 2. Generate the production version of the website
@@ -324,13 +324,13 @@ The results are reported to the LHCI server here:
 
 ![Lighthouse CI server first result](./lighthouse-ci-first-result.png)
 
-Awesome, we have our LHCI server running, and GitHub Actions reporting on each push to the server our Lighthouse score. Congrats if you were following and got your first result!
+Awesome, we have our LHCI server running and GitHub Actions reporting on each push to the server our Lighthouse score. Congrats if you were following and got your first result!
 
 What next? I have a bonus step for you!
 
 ## BONUS: Post a GitHub Commit Status Check
 
-We can have LHCI post a status check to our commits as LHCI finishes with running. That's a great way to see how the Lighthouse run went without going into the GitHub Action or opening the LHCI server.Here's an example:
+We can have LHCI post a status check to our commits as LHCI finishes running. That's a great way to see how the Lighthouse run went without going into the GitHub Action or opening the LHCI server.Here's an example:
 
 ![Lighthouse status check](./lighthouse-status-check.png)
 
@@ -375,7 +375,7 @@ Now, you'll get a new commit status check whenever a Lighthouse runs for that co
 
 ## EXTRA BONUS: Deploy lighthouse-server Automatically to Railway
 
-Let's connect `lighthouse-server` to Railway automatically whenever we push to the repo's main branch. This will be straightforward since all we need to do is to connect GitHub repo to a `lighthouse-server` Railway project in their UI.
+Let's connect `lighthouse-server` to Railway automatically whenever we push to the repo's main branch. This will be straightforward since all we need to do is to connect the GitHub repo to a `lighthouse-server` Railway project in their UI.
 
 If you haven't already, now is a good time to publish your LHCI configuration we worked on in step 1. You can also use the one I have over at [`lighthouse-server` repo on GitHub](https://github.com/nikolalsvk/lighthouse-server).
 
@@ -383,7 +383,7 @@ Inside `lighthouse-server` Settings tab in Railway, there's a section for connec
 
 ![Railway connect a repo](./railway-connect-repo.png)
 
-Once clicked, we'll be taken to GitHub to setup the GitHub Railway app. Here, you can allow access to all repos, or just the ones you want. I selected the `lighthouse-server` GitHub repo and installed the app.
+Once clicked, we'll be taken to GitHub to set up the GitHub Railway app. Here, you can allow access to all repos or just the ones you want. I selected the `lighthouse-server` GitHub repo and installed the app.
 
 ![Railway GitHub config](./railway-github-config.png)
 
