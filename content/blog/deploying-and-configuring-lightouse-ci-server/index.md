@@ -2,7 +2,7 @@
 title: Deploying and Configuring Lighthouse CI Server
 description: Learn how to deploy and configure a LHCI server to Railway
 slug: deploying-and-configuring-lighthouse-ci-server
-date: 2023-10-18
+date: 2023-10-17
 coverImage: ./cover.jpg
 blogOgImage: ./og-image.jpg
 published: true
@@ -371,13 +371,37 @@ Now, you'll get a new commit status check whenever a Lighthouse runs for that co
 
 ![Lighthouse status check](./lighthouse-status-check.png)
 
+> Please note, there's an [official Lighthouse GitHub app](https://github.com/apps/lighthouse-ci) that can do a similar thing for you.
+
+## EXTRA BONUS: Deploy lighthouse-server Automatically to Railway
+
+Let's connect `lighthouse-server` to Railway automatically whenever we push to the repo's main branch. This will be straightforward since all we need to do is to connect GitHub repo to a `lighthouse-server` Railway project in their UI.
+
+If you haven't already, now is a good time to publish your LHCI configuration we worked on in step 1. You can also use the one I have over at [`lighthouse-server` repo on GitHub](https://github.com/nikolalsvk/lighthouse-server).
+
+Inside `lighthouse-server` Settings tab in Railway, there's a section for connecting a GitHub repository like so:
+
+![Railway connect a repo](./railway-connect-repo.png)
+
+Once clicked, we'll be taken to GitHub to setup the GitHub Railway app. Here, you can allow access to all repos, or just the ones you want. I selected the `lighthouse-server` GitHub repo and installed the app.
+
+![Railway GitHub config](./railway-github-config.png)
+
+Once installed, return to the Railway `lighthouse-server` Settings tab and click "Connect Repo". Now, you should see the repos you allowed Railway to access. I selected the `lighthouse-server` GitHub repo and now everything is connected.
+
+![Railway and GitHub repo connected](./repo-connected.png)
+
+Now, every time I push to the repo - Railway will deploy the change, yay!
+
+![Railway deploy on change](./railway-deploy-on-change.png)
+
 ## Summing Up
 
 And that's it! The Lighthouse CI server is now deployed and configured on Railway together with a database to store your project's runs.
 Each commit will run Lighthouse, post results, and ensure your sites are fast and accessible.
 
 You can find all the [code for the `lighthouse-server` on GitHub here](https://github.com/nikolalsvk/lighthouse-server).
-And the [PR where I added the Lighthouse workflow](https://github.com/nikolalsvk/blog/pull/122).
+And the [PR where I added the Lighthouse workflow to my blog](https://github.com/nikolalsvk/blog/pull/122).
 
 Now, all I (and probably you) need to do is to ramp up that Lighthouse score and keep away from the rocks ⛰ 🔦 🚢.
 
