@@ -84,29 +84,35 @@ const SubscribeForm = () => {
   const [email, setEmail] = useState("")
   const [name, setName] = useState("")
 
-  const FORM_URL = `https://app.convertkit.com/forms/1275610/subscriptions`
+  const FORM_URL = `https://api.convertkit.com/v3/forms/1275610/subscribe`
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
 
-    const data = new FormData(event.target as HTMLFormElement)
+    const payload = JSON.stringify({
+      email,
+      first_name: name,
+      api_key: process.env.GATSBY_CONVERTKIT_PUBLIC_API_KEY,
+    })
 
     try {
       const response = await fetch(FORM_URL, {
-        method: "post",
-        body: data,
+        method: "POST",
+        body: payload,
         headers: {
-          accept: "application/json",
+          Accept: "application/json; charset=utf-8",
+          "Content-Type": "application/json",
         },
       })
 
-      setEmail("")
       const json = await response.json()
 
-      if (json.status === "success") {
+      if (json?.subscription?.id) {
         setStatus("SUCCESS")
         return
       }
+
+      setStatus("ERROR")
     } catch (err) {
       setStatus("ERROR")
       console.log(err)
