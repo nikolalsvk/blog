@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import Spacer from "../components/spacer"
+import * as Sentry from "@sentry/gatsby"
 
 const Container = styled.div`
   position: relative;
@@ -113,9 +114,13 @@ const SubscribeForm = () => {
       }
 
       setStatus("ERROR")
+      Sentry.captureMessage("Error subscribing to newsletter", {
+        extra: json,
+      })
     } catch (err) {
       setStatus("ERROR")
       console.log(err)
+      Sentry.captureException(err)
     }
   }
 

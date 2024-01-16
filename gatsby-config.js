@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Pragmatic Pineapple 🍍`,
@@ -14,6 +18,12 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-postcss",
+    {
+      resolve: "@sentry/gatsby",
+      options: {
+        dsn: process.env.SENTRY_DSN,
+      },
+    },
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {

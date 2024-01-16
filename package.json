@@ -10,6 +10,7 @@
   "dependencies": {
     "@fontsource/josefin-sans": "^4.5.4",
     "@fontsource/roboto": "^4.5.3",
+    "@sentry/gatsby": "^7.93.0",
     "chart.js": "^4.1.1",
     "firebase": "9.6.5",
     "gatsby": "^4.7.1",
