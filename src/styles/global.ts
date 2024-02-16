@@ -74,5 +74,10 @@ export const GlobalStyles = `
   .markdown-header-link {
     box-shadow: none;
     fill: var(--color-text);
+    transition: all 0.3s ease;
+  }
+
+  details {
+    margin-bottom: 1.5rem;
   }
 `
