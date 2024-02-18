@@ -19,8 +19,7 @@ export const TypographyTheme = `
   main,
   menu,
   nav,
-  section,
-  summary {
+  section {
     display: block
   }
 
