@@ -2,7 +2,7 @@
 title: Ultimate Vim Vue Setup
 description: Configure Vue/Nuxt autocompletion for Vim/Neovim quickly and without a hassle
 slug: ultimate-vim-vue-setup
-date: 2024-02-20
+date: 2024-02-18
 coverImage: ./cover.jpg
 blogOgImage: ./og-image.jpg
 published: true
