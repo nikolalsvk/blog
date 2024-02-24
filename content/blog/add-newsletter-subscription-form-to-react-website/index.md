@@ -134,15 +134,7 @@ Once you have the form created, copy the form ID from [ConvertKit](https://conve
 
 > ConvertKit changed their API so now instead of `https://app.convertkit.com/forms/123456/subscriptions` use `https://api.convertkit.com/v3/forms/123456/subscribe`.
 
-You can also get it from [ConvertKit](https://convertkit.com/?lmref=EVgZiQ) when you try to embed your form. Go to the HTML option to embed, and there you will find something like this:
-
-```html
-<form action="https://app.convertkit.com/forms/123456/subscriptions" ...>
-  ...
-</form>
-```
-
-The `action` value is what you need to snatch and use in the custom form.
+Cool, now we need the API key to make the request to ConvertKit API.
 
 ### Getting the API key
 
@@ -159,6 +151,8 @@ const payload = JSON.stringify({
   api_key: process.env.GATSBY_CONVERTKIT_PUBLIC_API_KEY,
 })
 ```
+
+This key is public, so it is safe to share it on the client side of your website. Do not expose the secret key, though.
 
 Awesome, we got all the things we need:
 
