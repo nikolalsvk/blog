@@ -137,7 +137,7 @@ Once you have the form created, copy the form ID from [ConvertKit](https://conve
 You can also get it from [ConvertKit](https://convertkit.com/?lmref=EVgZiQ) when you try to embed your form. Go to the HTML option to embed, and there you will find something like this:
 
 ```html
-<form action="https://api.convertkit.com/v3/forms/123456/subscribe" ...>
+<form action="https://app.convertkit.com/forms/123456/subscriptions" ...>
   ...
 </form>
 ```
