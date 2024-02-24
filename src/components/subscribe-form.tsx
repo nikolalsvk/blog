@@ -85,7 +85,7 @@ const SubscribeForm = () => {
   const [email, setEmail] = useState("")
   const [name, setName] = useState("")
 
-  const FORM_URL = `https://api.convertkit.com/v3/forms/1275610/subscribe`
+  const SUBSCRIBE_URL = `https://api.convertkit.com/v3/forms/1275610/subscribe`
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
@@ -97,7 +97,7 @@ const SubscribeForm = () => {
     })
 
     try {
-      const response = await fetch(FORM_URL, {
+      const response = await fetch(SUBSCRIBE_URL, {
         method: "POST",
         body: payload,
         headers: {

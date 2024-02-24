@@ -85,7 +85,7 @@ OK, so we got the form rendering, but if you ship this form as is, no user will 
 ```jsx
 const SubscribeForm = () => {
   ...
-  const FORM_URL = `your form URL, we will describe it in a sec`
+  const SUBSCRIBE_URL = `subscribe API URL, we will describe it in a sec`
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
@@ -97,7 +97,7 @@ const SubscribeForm = () => {
     })
 
     try {
-      const response = await fetch(FORM_URL, {
+      const response = await fetch(SUBSCRIBE_URL, {
         method: "POST",
         body: payload,
         headers: {
@@ -128,9 +128,9 @@ const SubscribeForm = () => {
 }
 ```
 
-Cool, we added the logic that makes a POST request to a `FORM_URL` with the form data, and we account for any errors that happen along the way. One thing we are missing here to be a full solution is a proper value for the `FORM_URL`. You can create your own by [creating a form on ConvertKit](https://help.convertkit.com/en/articles/3860348-how-to-create-your-first-form-in-convertkit?lmref=EVgZiQ).
+Cool, we added the logic that makes a POST request to a `SUBSCRIBE_URL` with the form data, and we account for any errors that happen along the way. One thing we are missing here to be a full solution is a proper value for the `SUBSCRIBE_URL`. You can create your own by [creating a form on ConvertKit](https://help.convertkit.com/en/articles/3860348-how-to-create-your-first-form-in-convertkit?lmref=EVgZiQ).
 
-Once you have the form created, copy the form ID from [ConvertKit](https://convertkit.com?lmref=EVgZiQ)'s form editor URL. For example, the URL where you edit your form can be something like this `https://app.convertkit.com/forms/designers/123456/edit`. The `123456` is your form ID. Then, you can tape together the `FORM_URL` to be `https://api.convertkit.com/v3/forms/123456/subscribe`.
+Once you have the form created, copy the form ID from [ConvertKit](https://convertkit.com?lmref=EVgZiQ)'s form editor URL. For example, the URL where you edit your form can be something like this `https://app.convertkit.com/forms/designers/123456/edit`. The `123456` is your form ID. Then, you can tape together the `SUBSCRIBE_URL` to be `https://api.convertkit.com/v3/forms/123456/subscribe`.
 
 > ConvertKit changed their API so now instead of `https://app.convertkit.com/forms/123456/subscriptions` use `https://api.convertkit.com/v3/forms/123456/subscribe`.
 
@@ -176,7 +176,7 @@ const SubscribeForm = () => {
   const [email, setEmail] = useState("")
   const [name, setName] = useState("")
 
-  const FORM_URL = `the URL you created in the previous section`
+  const SUBSCRIBE_URL = `https://api.convertkit.com/v3/forms/<form_id>/subscribe`
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
@@ -188,7 +188,7 @@ const SubscribeForm = () => {
     })
 
     try {
-      const response = await fetch(FORM_URL, {
+      const response = await fetch(SUBSCRIBE_URL, {
         method: "POST",
         body: payload,
         headers: {
