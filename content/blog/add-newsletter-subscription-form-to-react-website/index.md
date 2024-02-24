@@ -10,6 +10,8 @@ tags:
   - React
 ---
 
+> 🥦 This blog post is updated to work with the recent ConvertKit v3 API and is using `https://api.convertkit.com/v3/forms/<form_id>/subscribe` endpoint
+
 If you are a developer and do not like the fact of embedding 3rd party code senselessly into your website, this is a perfect post for you. We will go through the process of building a custom email sign-up form for your website so you can grow your audience. We will use React, but the same principles apply to any library or framework, like Gatsby or Next.js.
 
 If you are someone returning to my blog, you might have noticed a small form on the bottom of pretty much any page. It is a form where you can sign up for my newsletter, and I've changed it a bit over the years. Below is how the form looks at the time of the writing:
@@ -88,23 +90,37 @@ const SubscribeForm = () => {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
 
-    const data = new FormData(event.target as HTMLFormElement)
+    const payload = JSON.stringify({
+      email,
+      first_name: name,
+      api_key: process.env.GATSBY_CONVERTKIT_PUBLIC_API_KEY,
+    })
 
     try {
       const response = await fetch(FORM_URL, {
-        method: "post",
-        body: data,
+        method: "POST",
+        body: payload,
         headers: {
-          accept: "application/json",
+          Accept: "application/json; charset=utf-8",
+          "Content-Type": "application/json",
         },
       })
+
       const json = await response.json()
 
-      if (json.status === "success") {
+      if (json?.subscription?.id) {
+        setStatus("SUCCESS")
         return
       }
+
+      setStatus("ERROR")
+      Sentry.captureMessage("Error subscribing to newsletter", {
+        extra: json,
+      })
     } catch (err) {
-      console.log(err)
+      setStatus("ERROR")
+      console.error(err)
+      Sentry.captureException(err)
     }
   }
 
@@ -114,19 +130,43 @@ const SubscribeForm = () => {
 
 Cool, we added the logic that makes a POST request to a `FORM_URL` with the form data, and we account for any errors that happen along the way. One thing we are missing here to be a full solution is a proper value for the `FORM_URL`. You can create your own by [creating a form on ConvertKit](https://help.convertkit.com/en/articles/3860348-how-to-create-your-first-form-in-convertkit?lmref=EVgZiQ).
 
-Once you have the form created, copy the form ID from [ConvertKit](https://convertkit.com?lmref=EVgZiQ)'s form editor URL. For example, the URL where you edit your form can be something like this `https://app.convertkit.com/forms/designers/123456/edit`. The `123456` is your form ID. Then, you can tape together the `FORM_URL` to be `https://app.convertkit.com/forms/123456/subscriptions`.
+Once you have the form created, copy the form ID from [ConvertKit](https://convertkit.com?lmref=EVgZiQ)'s form editor URL. For example, the URL where you edit your form can be something like this `https://app.convertkit.com/forms/designers/123456/edit`. The `123456` is your form ID. Then, you can tape together the `FORM_URL` to be `https://api.convertkit.com/v3/forms/123456/subscribe`.
+
+> ConvertKit changed their API so now instead of `https://app.convertkit.com/forms/123456/subscriptions` use `https://api.convertkit.com/v3/forms/123456/subscribe`.
 
 You can also get it from [ConvertKit](https://convertkit.com/?lmref=EVgZiQ) when you try to embed your form. Go to the HTML option to embed, and there you will find something like this:
 
 ```html
-<form action="https://app.convertkit.com/forms/123456/subscriptions" ...>
+<form action="https://api.convertkit.com/v3/forms/123456/subscribe" ...>
   ...
 </form>
 ```
 
 The `action` value is what you need to snatch and use in the custom form.
 
-Now, do you remember those input name attributes we mentioned before? I'll remind you - we added the `fields[first_name]` and `email_address` to our input fields. These names will build a proper FormData object that ConvertKit expects. So we just mimicked what the embedded ConvertKit form does for us. Now, when the user clicks the "SUBSCRIBE" button, they will actually show up in [ConvertKit](https://convertkit.com/?lmref=EVgZiQ) as a subscriber. How neat.
+### Getting the API key
+
+Now, we need to get the `api_key` we send in the payload. You can find it in the ConvertKit dashboard when you go to Settings and then Advanced. It should be here:
+
+![ConvertKit API Key in Advanced settings](./convertkit-api-key.png)
+
+Copy that and you can put it an environment variable and then reuse it in the code like we did:
+
+```typescript
+const payload = JSON.stringify({
+  email,
+  first_name: name,
+  api_key: process.env.GATSBY_CONVERTKIT_PUBLIC_API_KEY,
+})
+```
+
+Awesome, we got all the things we need:
+
+1. `api_key` - we got it from ConvertKit's dashboard
+2. `email` - we saved it using `useState` from the form.
+3. `first_name` - also, we saved it using `useState` when the user entered it in the form.
+
+That's all the data we need for the fresh newsletter form we built. Now, when the user clicks the "SUBSCRIBE" button, they will actually show up in [ConvertKit](https://convertkit.com/?lmref=EVgZiQ) as a subscriber. How neat.
 
 We can now upgrade the user experience in the next section. Read on.
 
@@ -147,27 +187,34 @@ const SubscribeForm = () => {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
 
-    const data = new FormData(event.target as HTMLFormElement)
+    const payload = JSON.stringify({
+      email,
+      first_name: name,
+      api_key: process.env.GATSBY_CONVERTKIT_PUBLIC_API_KEY,
+    })
 
     try {
       const response = await fetch(FORM_URL, {
-        method: "post",
-        body: data,
+        method: "POST",
+        body: payload,
         headers: {
-          accept: "application/json",
+          Accept: "application/json; charset=utf-8",
+          "Content-Type": "application/json",
         },
       })
 
-      setEmail("")
       const json = await response.json()
 
-      if (json.status === "success") {
+      if (json?.subscription?.id) {
         setStatus("SUCCESS")
         return
       }
+
+      setStatus("ERROR")
+      console.error('Failed to subscribe')
     } catch (err) {
       setStatus("ERROR")
-      console.log(err)
+      console.error(err)
     }
   }
 

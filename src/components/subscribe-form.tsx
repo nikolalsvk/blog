@@ -119,7 +119,7 @@ const SubscribeForm = () => {
       })
     } catch (err) {
       setStatus("ERROR")
-      console.log(err)
+      console.error(err)
       Sentry.captureException(err)
     }
   }
