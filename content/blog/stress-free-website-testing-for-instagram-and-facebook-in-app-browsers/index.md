@@ -1,10 +1,10 @@
 ---
 title: Stress-Free Website Testing for Instagram and Facebook In-App Browsers
 description: Ensure seamless website performance across Instagram and Facebook in-app browsers with these practical testing tips.
-slug: TODO
+slug: stress-free-website-testing-for-instagram-and-facebook-in-app-browsers
 date: 2024-04-20
-coverImage: TODO
-blogOgImage: TODO
+coverImage: ./cover.jpg
+blogOgImage: ./og-image.jpg
 published: true
 tags:
   - Browsers
@@ -12,6 +12,13 @@ tags:
   - Facebook
   - Meta
 ---
+
+<figure>
+<img alt="Person jumping in air with sun setting in the background" src="./cover.jpg" />
+<figcaption class="photo-caption">
+Photo by <a href="https://unsplash.com/@schmidy?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Austin Schmid</a> on <a href="https://unsplash.com/photos/silhouette-of-person-jumping-during-dawn-hRdVSYpffas?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+</figcaption>
+</figure>
 
 As a web developer, you encounter many challenges during website development. Often, we need to ensure our code works in a bunch of browsers and that the website users are having a great experience. Some of those browsers are straightforward and have excellent documentation, and you can easily open your website with them. Unfortunately, browsers coming from Meta, more specifically Facebook and Instagram in-app browsers, are a mystery to us all.
 
