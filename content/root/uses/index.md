@@ -30,7 +30,7 @@ them, you are supporting and helping me in a way.
   - [Arc](https://arc.net/) has been good to me for some time now. Check it out.
   - Sometimes, you have to test some APIs or make WebSocket connections. Right about then, I roll out [Postman](https://www.postman.com/) to do it.
   - To let people schedule a call with me, I use [Calendly](https://calendly.com/nikolalsvk).
-  - To manage my newsletter - [ConvertKit](https://convertkit.com?lmref=EVgZiQ) is awesome.
+  - To manage my newsletter - [ConvertKit](https://partners.convertkit.com/oqs53bno6l4l) is awesome.
 
 Thanks for reading, especially if you clicked some of the links. If you feel something is missing or you'd like to know more, [send me an email](mailto:nikola@pragmaticpineapple.com) or [ping me on Twitter](https://twitter.com/nikolalsvk), and I will add it.
 
