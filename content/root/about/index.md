@@ -29,7 +29,7 @@ You can check out the equipment and tools I use on a day-to-day basis. Note that
   - [Brave Browser](https://brave.com/)
   - [Postman](https://www.postman.com/)
   - [Calendly](https://calendly.com/nikolalsvk)
-  - [ConvertKit](https://convertkit.com?lmref=EVgZiQ)
+  - [ConvertKit](https://partners.convertkit.com/oqs53bno6l4l)
 
 You can read more about it on the [uses](/uses) page.
 

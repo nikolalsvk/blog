@@ -18,7 +18,7 @@ If you are someone returning to my blog, you might have noticed a small form on 
 
 ![Pragmatic Pineapple newsletter subscription form](./pragmatic-pineapple-newsletter-form.png)
 
-At first, I used some out-of-the-box solutions given by various providers. I was most happy with [ConvertKit](https://convertkit.com?lmref=EVgZiQ), and its form looks, so I went with it for a while. I designed the form in [ConvertKit](https://convertkit.com?lmref=EVgZiQ)'s UI and embedded its HTML on my blog. Here's how it looked in the early days:
+At first, I used some out-of-the-box solutions given by various providers. I was most happy with [ConvertKit](https://partners.convertkit.com/oqs53bno6l4l), and its form looks, so I went with it for a while. I designed the form in [ConvertKit](https://partners.convertkit.com/oqs53bno6l4l)'s UI and embedded its HTML on my blog. Here's how it looked in the early days:
 
 ![Pragmatic Pineapple ConvertKit newsletter subscription form](./old-pragmatic-pineapple-newsletter-form.png)
 
@@ -76,11 +76,11 @@ const SubscribeForm = () => {
 }
 ```
 
-Congrats, you just saw a classic HTML form in React's implementation. A `form` tag, tied together by two `input`s and one `button`. But, let's not just jump over it. There's important info that will later help us when we submit data to [ConvertKit](https://convertkit.com?lmref=EVgZiQ). Please go back a look at two input fields and their names. The `fields[first_name]` and `email_address` will prove valuable in a second.
+Congrats, you just saw a classic HTML form in React's implementation. A `form` tag, tied together by two `input`s and one `button`. But, let's not just jump over it. There's important info that will later help us when we submit data to [ConvertKit](https://partners.convertkit.com/oqs53bno6l4l). Please go back a look at two input fields and their names. The `fields[first_name]` and `email_address` will prove valuable in a second.
 
 ## Sending the data
 
-OK, so we got the form rendering, but if you ship this form as is, no user will be able to subscribe and show up in the [ConvertKit](https://convertkit.com?lmref=EVgZiQ). To allow users to subscribe, we need to send data to [ConvertKit](https://convertkit.com/?lmref=EVgZiQ) by ourselves. Here's how we can do it in our `handleSubmit` function:
+OK, so we got the form rendering, but if you ship this form as is, no user will be able to subscribe and show up in the [ConvertKit](https://partners.convertkit.com/oqs53bno6l4l). To allow users to subscribe, we need to send data to [ConvertKit](https://partners.convertkit.com/oqs53bno6l4l) by ourselves. Here's how we can do it in our `handleSubmit` function:
 
 ```jsx
 const SubscribeForm = () => {
@@ -128,9 +128,9 @@ const SubscribeForm = () => {
 }
 ```
 
-Cool, we added the logic that makes a POST request to a `SUBSCRIBE_URL` with the form data, and we account for any errors that happen along the way. One thing we are missing here to be a full solution is a proper value for the `SUBSCRIBE_URL`. You can create your own by [creating a form on ConvertKit](https://help.convertkit.com/en/articles/3860348-how-to-create-your-first-form-in-convertkit?lmref=EVgZiQ).
+Cool, we added the logic that makes a POST request to a `SUBSCRIBE_URL` with the form data, and we account for any errors that happen along the way. One thing we are missing here to be a full solution is a proper value for the `SUBSCRIBE_URL`. You can create your own by [creating a form on ConvertKit](https://help.convertkit.com/en/articles/3860348-how-to-create-your-first-form-in-convertkit).
 
-Once you have the form created, copy the form ID from [ConvertKit](https://convertkit.com?lmref=EVgZiQ)'s form editor URL. For example, the URL where you edit your form can be something like this `https://app.convertkit.com/forms/designers/123456/edit`. The `123456` is your form ID. Then, you can tape together the `SUBSCRIBE_URL` to be `https://api.convertkit.com/v3/forms/123456/subscribe`.
+Once you have the form created, copy the form ID from [ConvertKit](https://partners.convertkit.com/oqs53bno6l4l)'s form editor URL. For example, the URL where you edit your form can be something like this `https://app.convertkit.com/forms/designers/123456/edit`. The `123456` is your form ID. Then, you can tape together the `SUBSCRIBE_URL` to be `https://api.convertkit.com/v3/forms/123456/subscribe`.
 
 > ConvertKit changed their API so now instead of `https://app.convertkit.com/forms/123456/subscriptions` use `https://api.convertkit.com/v3/forms/123456/subscribe`.
 
@@ -160,7 +160,7 @@ Awesome, we got all the things we need:
 2. `email` - we saved it using `useState` from the form.
 3. `first_name` - also, we saved it using `useState` when the user entered it in the form.
 
-That's all the data we need for the fresh newsletter form we built. Now, when the user clicks the "SUBSCRIBE" button, they will actually show up in [ConvertKit](https://convertkit.com/?lmref=EVgZiQ) as a subscriber. How neat.
+That's all the data we need for the fresh newsletter form we built. Now, when the user clicks the "SUBSCRIBE" button, they will actually show up in [ConvertKit](https://partners.convertkit.com/oqs53bno6l4l) as a subscriber. How neat.
 
 We can now upgrade the user experience in the next section. Read on.
 
