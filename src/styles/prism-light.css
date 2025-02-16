@@ -1,14 +1,15 @@
-import { createGlobalStyle } from "styled-components"
-
-export default createGlobalStyle`
+.prism-light {
   code[class*="language-"],
   pre[class*="language-"] {
     color: black;
     background: none;
-		font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
-		font-size: 0.9em;
-		line-height: 1.375;
-		direction: ltr;
+    font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono",
+      "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono",
+      "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L",
+      "Courier New", Courier, monospace;
+    font-size: 1em;
+    line-height: 1.375;
+    direction: ltr;
     text-align: left;
     white-space: pre;
     word-spacing: normal;
@@ -25,14 +26,18 @@ export default createGlobalStyle`
     hyphens: none;
   }
 
-  pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
-  code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+  pre[class*="language-"]::-moz-selection,
+  pre[class*="language-"] ::-moz-selection,
+  code[class*="language-"]::-moz-selection,
+  code[class*="language-"] ::-moz-selection {
     text-shadow: none;
     background: #b3d4fc;
   }
 
-  pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
-  code[class*="language-"]::selection, code[class*="language-"] ::selection {
+  pre[class*="language-"]::selection,
+  pre[class*="language-"] ::selection,
+  code[class*="language-"]::selection,
+  code[class*="language-"] ::selection {
     text-shadow: none;
     background: #b3d4fc;
   }
@@ -40,7 +45,7 @@ export default createGlobalStyle`
   /* Code blocks */
   pre[class*="language-"] {
     padding: 1em;
-    margin: .5em 0;
+    margin: 0.5em 0;
     overflow: auto;
   }
 
@@ -51,8 +56,8 @@ export default createGlobalStyle`
 
   /* Inline code */
   :not(pre) > code[class*="language-"] {
-    padding: .1em;
-    border-radius: .3em;
+    padding: 0.1em;
+    border-radius: 0.3em;
     white-space: normal;
   }
 
@@ -68,7 +73,7 @@ export default createGlobalStyle`
   }
 
   .token.namespace {
-    opacity: .7;
+    opacity: 0.7;
   }
 
   .token.property,
@@ -106,7 +111,7 @@ export default createGlobalStyle`
 
   .token.function,
   .token.class-name {
-    color: #DD4A68;
+    color: #dd4a68;
   }
 
   .token.regex,
@@ -126,4 +131,4 @@ export default createGlobalStyle`
   .token.entity {
     cursor: help;
   }
-`
+}
