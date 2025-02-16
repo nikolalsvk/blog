@@ -68,7 +68,7 @@ const Header = ({ title, showLargeHeader }: Props) => {
     return (
       <header className="mt-0 flex justify-between flex-col mb-4">
         <nav className="justify-between w-full hidden md:flex">
-          <div className="flex">
+          <div className="flex items-center">
             <Link to="/about" className={navLinkClasses}>
               About
             </Link>
