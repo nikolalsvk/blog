@@ -1,36 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
-import styled from "styled-components"
 import { useTheme } from "../contexts/theme"
-
-const ThemeContainer = styled.button`
-  height: 40px;
-  width: 40px;
-  padding: 0;
-  border: 0;
-  background: inherit;
-  cursor: pointer;
-  position: relative;
-`
-
-const ImageWrapper = styled.div`
-  position: absolute;
-  top: 0;
-
-  transition: opacity 0.3s ease-in-out,
-    transform 2s cubic-bezier(0.4, 0, 0.49, 1);
-
-  &:hover,
-  &:active {
-    transform: rotate(359deg);
-  }
-`
-
-const StyledImage = styled(GatsbyImage)`
-  height: 40px;
-  width: 40px;
-`
 
 const ThemeSwitch = () => {
   const data = useStaticQuery(graphql`
@@ -51,36 +22,43 @@ const ThemeSwitch = () => {
   const { theme, setTheme } = useTheme()
 
   return (
-    <ThemeContainer
+    <button
+      className="h-10 w-10 p-0 border-0 bg-inherit cursor-pointer relative"
       onClick={() => {
         document.body.classList.add("animate-switch")
         setTheme(theme === "light" ? "dark" : "light")
         setTimeout(() => document.body.classList.remove("animate-switch"), 500)
       }}
     >
-      <ImageWrapper
+      <div
+        className="absolute top-0 transition-[opacity,transform] duration-300 ease-in-out hover:rotate-[359deg] active:rotate-[359deg]"
         style={{
           zIndex: theme === "dark" ? 1 : 2,
           opacity: `${theme === "dark" ? 0 : 1}`,
+          transitionDuration: "0.3s, 2s",
         }}
       >
-        <StyledImage
+        <GatsbyImage
+          className="h-10 w-10"
           image={data.sun.childImageSharp.gatsbyImageData}
-          alt={"Light theme switch button"}
+          alt="Light theme switch button"
         />
-      </ImageWrapper>
-      <ImageWrapper
+      </div>
+      <div
+        className="absolute top-0 transition-[opacity,transform] duration-300 ease-in-out hover:rotate-[359deg] active:rotate-[359deg]"
         style={{
           zIndex: theme === "dark" ? 2 : 1,
           opacity: `${theme === "dark" ? 1 : 0}`,
+          transitionDuration: "0.3s, 2s",
         }}
       >
-        <StyledImage
+        <GatsbyImage
+          className="h-10 w-10"
           image={data.moon.childImageSharp.gatsbyImageData}
-          alt={"Dark theme switch button"}
+          alt="Dark theme switch button"
         />
-      </ImageWrapper>
-    </ThemeContainer>
+      </div>
+    </button>
   )
 }
 

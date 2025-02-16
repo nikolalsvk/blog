@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import styled from "styled-components"
 import { isBrowser } from "../utils/is-browser"
 
 const CopyButton = ({
@@ -22,10 +21,14 @@ const CopyButton = ({
 
   if (isBrowser() && window?.navigator?.clipboard) {
     return (
-      <Button id="copy-link" onClick={() => copyToClipboard(postUrl)}>
+      <button
+        id="copy-link"
+        onClick={() => copyToClipboard(postUrl)}
+        className="border-0 p-0 bg-none text-[var(--color-text)] flex items-center cursor-pointer h-6"
+      >
         {children}
         {copied ? "Copied, thanks ❤️" : "Copy link"}
-      </Button>
+      </button>
     )
   }
 
@@ -33,14 +36,3 @@ const CopyButton = ({
 }
 
 export default CopyButton
-
-const Button = styled.button`
-  border: 0;
-  padding: 0;
-  background: none;
-  color: var(--color-text);
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  height: 24px;
-`

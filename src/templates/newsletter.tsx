@@ -7,7 +7,7 @@ import Bio from "../components/bio"
 import SubscribeForm from "../components/subscribe-form"
 import ViewCounter from "../components/view-counter"
 import Spacer from "../components/spacer"
-import styled from "styled-components"
+import * as styles from "./newsletter.module.css"
 
 interface Props {
   data: {
@@ -33,15 +33,6 @@ interface Props {
   }
 }
 
-const Article = styled.article`
-  a {
-    box-shadow: none;
-  }
-  h3 {
-    margin-bottom: 1rem;
-  }
-`
-
 const NewsletterTemplate = ({ data }: Props) => {
   const issue = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
@@ -54,9 +45,9 @@ const NewsletterTemplate = ({ data }: Props) => {
         description={issue.frontmatter.description}
       />
       <ViewCounter hideText slug={`/newsletter${slug}`} />
-      <Article>
+      <article className={styles.article}>
         <section dangerouslySetInnerHTML={{ __html: issue.html }} />
-      </Article>
+      </article>
 
       <section className="mb-6">
         <Bio />
