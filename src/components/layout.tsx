@@ -1,5 +1,5 @@
 import React from "react"
-import styled, { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from "styled-components"
 import Header from "./header"
 
 import "@fontsource/josefin-sans/700.css"
@@ -24,14 +24,6 @@ const AllStyles = ({ theme }: { theme: string }) => {
   )
 }
 
-const Main = styled.main`
-  flex: 1 0 auto;
-`
-
-const Footer = styled.footer`
-  flex-shrink: 0;
-`
-
 interface Props {
   title: string
   showLargeHeader?: boolean
@@ -44,11 +36,13 @@ const Layout = ({ title, showLargeHeader, children }: Props) => {
   return (
     <div className="flex flex-col mx-auto px-3 py-4 max-w-2xl min-h-full">
       <AllStyles theme={theme} />
-      <Main>
+      <main className="flex-1 flex-shrink-0 flex-grow-0">
         <Header title={title} showLargeHeader={showLargeHeader} />
         {children}
-      </Main>
-      <Footer>© {new Date().getFullYear()} Nikola Đuza</Footer>
+      </main>
+      <footer className="shrink-0 text-center md:text-left">
+        © {new Date().getFullYear()} Nikola Đuza
+      </footer>
     </div>
   )
 }

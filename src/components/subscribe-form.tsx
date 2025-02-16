@@ -1,84 +1,6 @@
 import React, { useState } from "react"
-import styled from "styled-components"
-import Spacer from "../components/spacer"
 import * as Sentry from "@sentry/gatsby"
-
-const Container = styled.div`
-  position: relative;
-  z-index: 5;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-
-  background-color: hsla(19, 76%, 97%, 1);
-  border-radius: 5px;
-  border: 1px solid var(--color-primary);
-
-  h2 {
-    margin: 0;
-  }
-
-  p {
-    color: hsla(0, 0%, 33%, 1);
-    width: 70%;
-    text-align: center;
-    line-height: 1.4;
-  }
-
-  form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0;
-  }
-
-  input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 3px;
-    border: 1px solid var(--color-primary);
-  }
-`
-
-const Submit = styled.button`
-  margin: 0;
-  width: 100%;
-  color: rgb(255, 255, 255);
-  background-image: linear-gradient(
-    to top right,
-    rgb(224, 109, 6),
-    rgb(255, 167, 0)
-  );
-  border-radius: 3px;
-  font-weight: 700;
-  border: none;
-  padding: 12px;
-  cursor: pointer;
-  transition: 0.5s;
-  background-size: 200% auto;
-
-  &:hover {
-    background-position: right center;
-  }
-`
-
-const TryAgain = styled.button`
-  background: none !important;
-  border: none;
-  padding: 0 !important;
-  cursor: pointer;
-  box-shadow: 0 1px 0 0 currentColor;
-  color: inherit;
-`
-
-const Intro = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`
+import Spacer from "../components/spacer"
 
 const SubscribeForm = () => {
   const [status, setStatus] = useState<string | null>(null)
@@ -135,45 +57,55 @@ const SubscribeForm = () => {
   }
 
   return (
-    <Container className="py-11 px-8">
+    <div className="relative z-5 w-full flex justify-center flex-col bg-[hsl(19,76%,97%)] rounded-md border border-[var(--color-primary)] py-11 px-8">
       {status === "SUCCESS" && (
         <>
-          <h2>
+          <h2 className="m-0">
             Welcome aboard{name ? `, ${name}` : ""}{" "}
             <span role="img" aria-label="Ship">
               🚢
             </span>
           </h2>
           <Spacer />
-          <h2> Please check your inbox to confirm the subscription!</h2>
+          <h2 className="m-0">
+            Please check your inbox to confirm the subscription!
+          </h2>
         </>
       )}
       {status === "ERROR" && (
         <>
-          <h2>Oops, something went wrong...</h2>
+          <h2 className="m-0">Oops, something went wrong...</h2>
           <Spacer />
-          <h2>
+          <h2 className="m-0">
             Please,{" "}
-            <TryAgain onClick={() => setStatus(null)}>try again.</TryAgain>
+            <button
+              onClick={() => setStatus(null)}
+              className="bg-transparent border-none p-0 cursor-pointer shadow-[0_1px_0_0_currentColor] text-inherit"
+            >
+              try again.
+            </button>
           </h2>
         </>
       )}
       {status === null && (
         <>
-          <Intro>
-            <h2>Join the newsletter!</h2>
-            <p className="mt-2">
+          <div className="flex flex-col items-center">
+            <h2 className="m-0">Join the newsletter!</h2>
+            <p className="text-[hsl(0,0%,33%)] w-[70%] text-center leading-[1.4] mt-2">
               Subscribe to get latest content by email and to become a fellow
               pineapple{" "}
               <span role="img" aria-label="Pineapple">
                 🍍
               </span>
             </p>
-          </Intro>
+          </div>
 
-          <form onSubmit={handleSubmit}>
+          <form
+            onSubmit={handleSubmit}
+            className="w-full flex flex-col justify-between items-center m-0"
+          >
             <input
-              className="mb-2"
+              className="w-full p-2.5 rounded border border-[var(--color-primary)] mb-2"
               aria-label="Your first name"
               name="fields[first_name]"
               placeholder="Your first name"
@@ -182,7 +114,7 @@ const SubscribeForm = () => {
               value={name}
             />
             <input
-              className="mb-2"
+              className="w-full p-2.5 rounded border border-[var(--color-primary)] mb-2"
               aria-label="Your email address"
               name="email_address"
               placeholder="Your email address"
@@ -191,11 +123,13 @@ const SubscribeForm = () => {
               onChange={handleEmailChange}
               value={email}
             />
-            <Submit>SUBSCRIBE</Submit>
+            <button className="w-full text-white bg-gradient-to-tr from-orange-600 to-orange-400 rounded font-bold border-none py-3 cursor-pointer transition-all duration-500 bg-[length:200%_auto] hover:bg-[position:right_center]">
+              SUBSCRIBE
+            </button>
           </form>
         </>
       )}
-    </Container>
+    </div>
   )
 }
 
