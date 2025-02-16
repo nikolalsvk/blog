@@ -8,32 +8,8 @@ import SEO from "../components/seo"
 import SubscribeForm from "../components/subscribe-form"
 import ViewCounter from "../components/view-counter"
 import Spacer from "../components/spacer"
-import styled from "styled-components"
 import Share from "../components/share"
 
-const BlogStats = styled.p`
-  display: flex;
-  flex-wrap: wrap;
-  color: #b3b3b3;
-`
-
-interface BlogStatProps {
-  hidden?: boolean
-}
-
-const BlogStat = styled.span<BlogStatProps>`
-  display: ${({ hidden }) => (hidden ? "none" : "revert")}
-
-  &:last-of-type {
-    margin-left: 4px;
-  }
-
-  &:not(:last-of-type) :after {
-    content: "•";
-    padding-left: 4px;
-    margin-right: 4px;
-  }
-`
 interface PageContextPage {
   fields: {
     slug: string
@@ -120,37 +96,27 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
       <article>
         <header>
           <h1 className="mb-0">{post.frontmatter.title}</h1>
-          <BlogStats className="text-sm mt-2 mb-6">
-            <BlogStat>
+          <p className="flex flex-wrap text-neutral-400 text-sm mt-2 mb-6">
+            <span className="after:content-['•'] after:px-1 last:after:content-none">
               Published{" "}
               <b>
                 <time dateTime={publishedAtDateTime} itemProp="datePublished">
                   {publishedAt}
                 </time>
               </b>
-            </BlogStat>
-            <BlogStat>
+            </span>
+            <span className="after:content-['•'] after:px-1 last:after:content-none">
               Last updated{" "}
               <b>
                 <time dateTime={updatedAtDateTime} itemProp="dateModified">
                   {updatedAt}
                 </time>
               </b>
-            </BlogStat>
-            <BlogStat>
+            </span>
+            <span className="after:content-['•'] after:px-1 last:after:content-none">
               <ViewCounter slug={slug} />
-            </BlogStat>
-            {/**
-            Comment out for now until I figure out where to show it.
-            <BlogStat hidden>
-              About{" "}
-              <b>
-                {timeToRead} {timeToRead === 1 ? "minute" : "minutes"}
-              </b>{" "}
-              to read{" "}
-            </BlogStat>
-            */}
-          </BlogStats>
+            </span>
+          </p>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
 
@@ -204,15 +170,7 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
       <Spacer />
 
       <nav>
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
+        <ul className="flex flex-wrap justify-between list-none p-0">
           <li>
             {previous && (
               <Link to={previous.fields.slug} rel="prev">

@@ -8,17 +8,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import styled from "styled-components"
-
-const BioContainer = styled.div`
-  display: flex;
-  align-items: center;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    text-align: center;
-  }
-`
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -40,22 +29,16 @@ const Bio = () => {
 
   const { author, social } = data.site.siteMetadata
   return (
-    <BioContainer>
+    <div className="flex items-center md:flex-row flex-col text-center md:text-left">
       <div className="mr-0 mb-3 md:mr-3 md:mb-0">
         <StaticImage
           src="../../content/assets/profile-pic.jpg"
           alt={author.name}
-          style={{
-            height: 100,
-            width: 100,
-            borderRadius: `100%`,
-          }}
-          imgStyle={{
-            borderRadius: `100%`,
-          }}
+          className="h-[100px] w-[100px] rounded-full"
+          imgClassName="rounded-full"
         />
       </div>
-      <p style={{ marginBottom: 0 }}>
+      <p className="mb-0">
         Written by{" "}
         <strong>
           <a href={author.landingPage}>{author.name}</a>
@@ -67,7 +50,7 @@ const Bio = () => {
         </a>
         .
       </p>
-    </BioContainer>
+    </div>
   )
 }
 

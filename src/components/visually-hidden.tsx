@@ -1,5 +1,4 @@
 import React from "react"
-import styled from "styled-components/macro"
 
 const VisuallyHidden = ({
   children,
@@ -26,7 +25,7 @@ const VisuallyHidden = ({
 
       return () => {
         window.removeEventListener("keydown", handleKeyDown)
-        window.removeEventListener("keydown", handleKeyUp)
+        window.removeEventListener("keyup", handleKeyUp)
       }
     }
   }, [])
@@ -35,18 +34,14 @@ const VisuallyHidden = ({
     return <>{children}</>
   }
 
-  return <Wrapper {...delegated}>{children}</Wrapper>
+  return (
+    <div
+      className="absolute overflow-hidden h-[1px] w-[1px] m-[-1px] p-0 border-0 [clip:rect(0_0_0_0)]"
+      {...delegated}
+    >
+      {children}
+    </div>
+  )
 }
-
-const Wrapper = styled.div`
-  position: absolute;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
-`
 
 export default VisuallyHidden
