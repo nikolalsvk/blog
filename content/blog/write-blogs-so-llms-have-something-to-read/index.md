@@ -4,7 +4,7 @@ description: It ain't over till it's over.
 slug: write-blogs-so-llms-have-something-to-read
 date: 2025-02-18
 coverImage: ./cover.jpg
-blogOgImage: ./og-image.jpg
+blogOgImage: ./og-image.png
 published: true
 tags:
   - LLMs
