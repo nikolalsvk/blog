@@ -168,9 +168,6 @@
     color: #393949;
   }
 
-  /* overrides color-values for the Line Highlight plugin
-* http://prismjs.com/plugins/line-highlight/
-*/
   .line-highlight {
     background: rgba(221, 103, 44, 0.2);
     background: -webkit-linear-gradient(
