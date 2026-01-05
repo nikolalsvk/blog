@@ -163,7 +163,7 @@ const Dashboard = ({ data }: Props) => {
 export default Dashboard
 
 export const pageQuery = graphql`
-  query {
+  {
     site {
       siteMetadata {
         title
@@ -171,7 +171,7 @@ export const pageQuery = graphql`
       }
     }
     posts: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { frontmatter: { date: DESC } }
       filter: {
         frontmatter: { published: { eq: true }, newsletter: { ne: true } }
       }
@@ -195,7 +195,7 @@ export const pageQuery = graphql`
       }
     }
     newsletters: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { frontmatter: { date: DESC } }
       filter: {
         frontmatter: { published: { eq: true }, newsletter: { eq: true } }
       }

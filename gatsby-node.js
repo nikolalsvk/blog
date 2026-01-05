@@ -1,5 +1,6 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const { execSync } = require("child_process")
 const kebabCase = require("lodash").kebabCase
 
 exports.createPages = async ({ graphql, actions }) => {
@@ -14,7 +15,7 @@ exports.createPages = async ({ graphql, actions }) => {
     `
       {
         posts: allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: DESC }
+          sort: { frontmatter: { date: DESC } }
           limit: 1000
           filter: { frontmatter: { newsletter: { ne: true } } }
         ) {
@@ -32,12 +33,12 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
         tagsGroup: allMarkdownRemark(limit: 2000) {
-          group(field: frontmatter___tags) {
+          group(field: { frontmatter: { tags: SELECT } }) {
             fieldValue
           }
         }
         issues: allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: DESC }
+          sort: { frontmatter: { date: DESC } }
           limit: 1000
           filter: { frontmatter: { newsletter: { eq: true } } }
         ) {
@@ -164,6 +165,15 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       name: `slug`,
       node,
       value,
+    })
+
+    const gitAuthorTime = execSync(
+      `git log -1 --pretty=format:%aI ${node.fileAbsolutePath}`
+    ).toString()
+    createNodeField({
+      node,
+      name: "gitAuthorTime",
+      value: gitAuthorTime,
     })
   }
 }
