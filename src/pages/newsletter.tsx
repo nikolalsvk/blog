@@ -105,14 +105,14 @@ const NewsletterPage = ({
 export default NewsletterPage
 
 export const pageQuery = graphql`
-  query {
+  {
     site {
       siteMetadata {
         title
       }
     }
     allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { frontmatter: { date: DESC } }
       filter: {
         frontmatter: { newsletter: { eq: true }, published: { eq: true } }
       }

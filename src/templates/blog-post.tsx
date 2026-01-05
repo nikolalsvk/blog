@@ -33,6 +33,9 @@ interface Props {
       html: string
       fields: {
         slug: string
+        gitAuthorTime: string
+        updatedAt: string
+        updatedAtDateTime: string
       }
       frontmatter: {
         title: string
@@ -51,12 +54,6 @@ interface Props {
         tags: string[]
       }
       timeToRead: number
-      parent?: {
-        fields: {
-          updatedAt: string
-          updatedAtDateTime: string
-        }
-      }
     }
   }
   pageContext: {
@@ -67,8 +64,8 @@ interface Props {
 
 const BlogPostTemplate = ({ data, pageContext }: Props) => {
   const post = data.markdownRemark
-  const updatedAt = post.parent?.fields?.updatedAt
-  const updatedAtDateTime = post.parent?.fields?.updatedAtDateTime
+  const updatedAt = post.fields?.updatedAt
+  const updatedAtDateTime = post.fields?.updatedAtDateTime
   const siteTitle = data.site.siteMetadata.title
   const siteUrl = data.site.siteMetadata.siteUrl
   const slug = post.fields.slug
@@ -225,13 +222,10 @@ export const pageQuery = graphql`
         tags
       }
       timeToRead
-      parent {
-        ... on File {
-          fields {
-            updatedAt: gitLogLatestDate(formatString: "MMMM DD, YYYY")
-            updatedAtDateTime: gitLogLatestDate(formatString: "YYYY-MM-DD")
-          }
-        }
+      fields {
+        gitAuthorTime
+        updatedAt: gitAuthorTime(formatString: "MMMM DD, YYYY")
+        updatedAtDateTime: gitAuthorTime(formatString: "YYYY-MM-DD")
       }
     }
   }

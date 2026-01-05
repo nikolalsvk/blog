@@ -28,42 +28,32 @@ module.exports = {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         output: "/",
-        query: `
-          {
-            site {
-              siteMetadata {
-                siteUrl
-              }
-            }
-            allSitePage {
-              nodes {
-                path
-              }
-            }
-            allMarkdownRemark(
-              sort: { fields: [frontmatter___date], order: DESC }
-              filter: {
-                frontmatter: { published: { eq: true }, newsletter: { ne: true } }
-              }
-            ) {
-              edges {
-                node {
-                  fields {
-                    slug
-                  }
-                  parent {
-                    ... on File {
-                      fields {
-                        updatedAt: gitLogLatestDate(formatString: "MMMM DD, YYYY")
-                        updatedAtDateTime: gitLogLatestDate(formatString: "YYYY-MM-DD")
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        `,
+        query: `{
+  site {
+    siteMetadata {
+      siteUrl
+    }
+  }
+  allSitePage {
+    nodes {
+      path
+    }
+  }
+  allMarkdownRemark(
+    sort: {frontmatter: {date: DESC}}
+    filter: {frontmatter: {published: {eq: true}, newsletter: {ne: true}}}
+  ) {
+    edges {
+      node {
+        fields {
+          slug
+          updatedAt: gitAuthorTime(formatString: "MMMM DD, YYYY")
+          updatedAtDateTime: gitAuthorTime(formatString: "YYYY-MM-DD")
+        }
+      }
+    }
+  }
+}`,
         resolvePages: ({ allSitePage, allMarkdownRemark }) => {
           const allMarkdownRemarkMap = allMarkdownRemark.edges.reduce(
             (acc, edge) => {
@@ -82,11 +72,11 @@ module.exports = {
             return { ...page, ...allMarkdownRemarkMap[page.path] }
           })
         },
-        serialize: ({ path, parent }) => {
-          if (parent) {
+        serialize: ({ path, fields }) => {
+          if (fields && fields.updatedAtDateTime) {
             return {
               url: path,
-              lastmod: parent.fields?.updatedAt,
+              lastmod: fields.updatedAtDateTime,
               priority: 1,
             }
           }
@@ -196,37 +186,27 @@ module.exports = {
                 })
               })
             },
-            query: `
-              {
-                allMarkdownRemark(
-                  limit: 1000,
-                  sort: {
-                    order: DESC,
-                    fields: [frontmatter___date]
-                  },
-                  filter: {
-                    frontmatter: {
-                      newsletter: { ne: true },
-                      published: { eq: true }
-                    }
-                  }
-                ) {
-                  edges {
-                    node {
-                      frontmatter {
-                        title
-                        date
-                      }
-                      fields {
-                        slug
-                      }
-                      excerpt
-                      html
-                    }
-                  }
-                }
-              }
-            `,
+            query: `{
+  allMarkdownRemark(
+    limit: 1000
+    sort: {frontmatter: {date: DESC}}
+    filter: {frontmatter: {newsletter: {ne: true}, published: {eq: true}}}
+  ) {
+    edges {
+      node {
+        frontmatter {
+          title
+          date
+        }
+        fields {
+          slug
+        }
+        excerpt
+        html
+      }
+    }
+  }
+}`,
             output: `rss.xml`,
 
             title: `Pragmatic Pineapple RSS feed`,
@@ -300,7 +280,6 @@ module.exports = {
         devMode: false,
       },
     },
-    `gatsby-transformer-gitinfo`,
     `gatsby-plugin-typescript`,
   ],
 }
