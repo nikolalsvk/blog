@@ -1,21 +1,68 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import * as Sentry from "@sentry/gatsby"
 import Spacer from "../components/spacer"
+
+declare global {
+  interface Window {
+    onTurnstileSuccess?: (token: string) => void
+    onTurnstileExpired?: () => void
+  }
+}
 
 const SubscribeForm = () => {
   const [status, setStatus] = useState<string | null>(null)
   const [email, setEmail] = useState("")
   const [name, setName] = useState("")
+  const [honeypot, setHoneypot] = useState("")
+  const [startedAt, setStartedAt] = useState<number>(() => Date.now())
+  const [turnstileToken, setTurnstileToken] = useState("")
 
-  const SUBSCRIBE_URL = `https://api.convertkit.com/v3/forms/1275610/subscribe`
+  const SUBSCRIBE_URL = `${
+    process.env.GATSBY_FUNCTION_HOST || ""
+  }/.netlify/functions/subscribe`
+  const turnstileSiteKey = process.env.GATSBY_TURNSTILE_SITE_KEY?.trim()
+
+  useEffect(() => {
+    window.onTurnstileSuccess = (token) => {
+      setTurnstileToken(token)
+    }
+
+    window.onTurnstileExpired = () => {
+      setTurnstileToken("")
+    }
+
+    const existingScript = document.querySelector(
+      'script[src="https://challenges.cloudflare.com/turnstile/v0/api.js"]'
+    )
+
+    if (!existingScript) {
+      const script = document.createElement("script")
+      script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js"
+      script.async = true
+      script.defer = true
+      document.head.appendChild(script)
+    }
+
+    return () => {
+      delete window.onTurnstileSuccess
+      delete window.onTurnstileExpired
+    }
+  }, [])
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
 
+    if (turnstileSiteKey && !turnstileToken) {
+      setStatus("ERROR")
+      return
+    }
+
     const payload = JSON.stringify({
       email,
       first_name: name,
-      api_key: process.env.GATSBY_CONVERTKIT_PUBLIC_API_KEY,
+      website: honeypot,
+      startedAt,
+      turnstileToken,
     })
 
     try {
@@ -79,7 +126,11 @@ const SubscribeForm = () => {
           <h2 className="m-0">
             Please,{" "}
             <button
-              onClick={() => setStatus(null)}
+              onClick={() => {
+                setStatus(null)
+                setStartedAt(Date.now())
+                setTurnstileToken("")
+              }}
               className="bg-transparent border-none p-0 cursor-pointer shadow-[0_1px_0_0_currentColor] text-inherit"
             >
               try again.
@@ -105,6 +156,16 @@ const SubscribeForm = () => {
             className="w-full flex flex-col justify-between items-center m-0"
           >
             <input
+              type="text"
+              autoComplete="off"
+              tabIndex={-1}
+              aria-hidden="true"
+              value={honeypot}
+              onChange={(event) => setHoneypot(event.target.value)}
+              name="website"
+              className="hidden"
+            />
+            <input
               className="w-full p-2.5 rounded border border-[var(--color-primary)] mb-2"
               aria-label="Your first name"
               name="fields[first_name]"
@@ -123,6 +184,14 @@ const SubscribeForm = () => {
               onChange={handleEmailChange}
               value={email}
             />
+            {turnstileSiteKey ? (
+              <div
+                className="cf-turnstile mb-2"
+                data-sitekey={turnstileSiteKey}
+                data-callback="onTurnstileSuccess"
+                data-expired-callback="onTurnstileExpired"
+              />
+            ) : null}
             <button className="w-full text-white bg-gradient-to-tr from-orange-600 to-orange-400 rounded font-bold border-none py-3 cursor-pointer transition-all duration-500 bg-[length:200%_auto] hover:bg-[position:right_center]">
               SUBSCRIBE
             </button>
