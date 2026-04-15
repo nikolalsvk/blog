@@ -69,6 +69,10 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
   const siteTitle = data.site.siteMetadata.title
   const siteUrl = data.site.siteMetadata.siteUrl
   const slug = post.fields.slug
+  const hideSubscribeFormOnSlugs = new Set([
+    "/add-newsletter-subscription-form-to-react-website/",
+  ])
+  const shouldShowSubscribeForm = !hideSubscribeFormOnSlugs.has(slug)
   const { previous, next } = pageContext
   const {
     title,
@@ -161,7 +165,7 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
           <Bio />
         </footer>
 
-        <SubscribeForm />
+        {shouldShowSubscribeForm && <SubscribeForm />}
       </article>
 
       <Spacer />
