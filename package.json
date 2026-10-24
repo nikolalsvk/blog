@@ -48,6 +48,7 @@
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.32",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.2",
+    "opentype.js": "^2.0.0",
     "postcss": "^8.5.3",
     "postcss-nested": "^7.0.2",
     "prettier": "^2.5.1",
@@ -68,7 +69,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "build-view-counter": "cd functions/view-counter && npm install",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "og-image": "node scripts/og-image.js"
   },
   "husky": {
     "hooks": {
