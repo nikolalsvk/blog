@@ -25,7 +25,7 @@ Do not duplicate. Keep one source of truth when the tool will let you. That is t
 
 The markdown lives in one folder, `.agents`. Cursor and Claude open that same file through a symlink. Codex, ZCode, and Antigravity do not expand an import, so the always-on sentence is also written in `AGENTS.md`. Kiro will not follow a symlink in `.kiro/steering`, so that folder is a real copy until [kirodotdev/Kiro#2921](https://github.com/kirodotdev/Kiro/issues/2921) is fixed. Everywhere else, a second body is a miss. There is no generator.
 
-Here is the layout I ended up with, and how that one folder reaches Cursor, Claude Code, Codex, and Kiro. ZCode is in here too. That is the editor Z.ai ships for GLM. I have run this on Cursor, Claude, Kiro, and Kiro Crew, and in the ZCode, ChatGPT, and Antigravity desktop apps. The always-on check was yes in those three. I also ran it in the Copilot CLI. The Copilot desktop app is the one that said no.
+Here is the layout I ended up with, and how that one folder reaches Cursor, Claude Code, Codex, and Kiro. ZCode is in here too. That is the editor Z.ai ships for GLM. I have run this on Cursor, Claude, Kiro, Kiro Crew, and in the ZCode, ChatGPT, and Antigravity desktop apps, plus the Copilot CLI. The Copilot desktop app does not load these shared files.
 
 ## What each tool actually opens
 
@@ -147,7 +147,7 @@ fileMatchPattern:
 ---
 ```
 
-The GitHub Copilot desktop app is the one I would not use for this layout right now. Its docs describe `.github/copilot-instructions.md` for repo-wide instructions, and a `*.instructions.md` file with `applyTo` for a path. I added both. The app listed the `gatsby-post-check` skill from `.agents/skills` and still said no to the always-on sentence. The skill list is not the instruction set. The sentence was already in `AGENTS.md` and in `.github/copilot-instructions.md`, and the app read neither. It also has a Settings box per repository. Pasting the sentence there would make the test say yes without the app reading a file, so I left the box empty and deleted both files. I ran the same prompt in the Copilot CLI. That client reads `AGENTS.md`. The desktop app is the session that said no.
+The GitHub Copilot desktop app is the one I would not use for this layout right now. Its docs describe `.github/copilot-instructions.md` for repo-wide instructions, and a `*.instructions.md` file with `applyTo` for a path. I added both. The app listed the `gatsby-post-check` skill from `.agents/skills` and did not load `AGENTS.md` or that instruction file. The skill list is not the instruction set. It also has a Settings box per repository. Pasting the sentence there would not mean the app had read a file, so I left the box empty and deleted both files. The Copilot CLI does read `AGENTS.md`.
 
 ## Three kinds of rule, and Claude only wants two of them linked
 
@@ -155,7 +155,7 @@ This is the part that makes a blanket symlink wrong.
 
 **Always on.** Coding habits, "use the Ruby that is already installed", anything that should be in every session. Cursor expresses that with `alwaysApply: true`. Claude expresses it by leaving `paths` out. A real file in `.claude/rules` with no `paths` loads at startup, next to `CLAUDE.md`.
 
-A symlink with no `paths` did not. I watched Claude Code skip it. The session started, the rule was not there, and a question that only that rule could answer came back no. Import it from `CLAUDE.md` instead. The `./` is required. A bare `@.agents/...` was left in the file as text and never expanded.
+A symlink with no `paths` did not load. I watched Claude Code skip it. The rule was not in the session. Import it from `CLAUDE.md` instead. The `./` is required. A bare `@.agents/...` was left in the file as text and never expanded.
 
 ```markdown
 See @./.agents/rules/agent-execution-habits.md
@@ -174,6 +174,8 @@ Do not also symlink those two into `.claude/rules`. The day a Claude release sta
 
 Codex will not crawl `.cursor/rules` on its own. If the rule matters, `AGENTS.md` has to name the file, or you put a nested `AGENTS.md` next to the code. Nested files are a good fit for a big monorepo. They are a poor fit for one rule that matches fifteen paths spread across `app/models` and `app/jobs`. That rule stays in `.agents/rules` and gets a `fileMatchPattern`.
 
+[ZCode](https://zcode.z.ai/en/docs/agents) reads `~/.zcode/AGENTS.md`, then appends the workspace `AGENTS.md`. It does not expand an `@` import, and it does not attach a rule because a path matched. It already looks in `.agents/skills`. A `.zcode/skills` folder of the same name would win, so I did not add one.
+
 Kiro loads a root `AGENTS.md` automatically, and it also loads `AGENTS.md` files nested next to the code they describe. An `AGENTS.md` is always on for Kiro. It does not support inclusion modes. If you want the path scoping, use a steering file.
 
 Kiro's docs also let a steering file pull another file in without copying it:
@@ -187,11 +189,11 @@ fileMatchPattern: "app/models/device.rb"
 #[[file:.agents/rules/devices-api.md]]
 ```
 
-That file reference is what the docs offer. I tried it, and I tried a symlink in `.kiro/steering` first. Both came back no. The `#[[file:]]` line stayed as text. The symlink is a bug in the steering loader. Kiro only opens a normal file in that folder. A relative link, an absolute link, and a link to the whole directory are all skipped, so the rule never reaches the session. This used to work. A maintainer reproduced the break, and it is still open: [kirodotdev/Kiro#2921](https://github.com/kirodotdev/Kiro/issues/2921). Until that lands, `.kiro/steering` has to be a second copy of the rule body. Same for Kiro Crew. Cursor and Claude still share the file in `.agents` through a symlink. Kiro does not, so an edit in `.agents/rules` stays there. The always-on copy has already drifted by one sentence.
+That file reference is what the docs offer. I tried it, and I tried a symlink in `.kiro/steering` first. Kiro did not load the rule from either one. The `#[[file:]]` line stayed as text. The symlink is a bug in the steering loader. Kiro only opens a normal file in that folder. A relative link, an absolute link, and a link to the whole directory are all skipped, so the rule never reaches the session. This used to work. A maintainer reproduced the break, and it is still open: [kirodotdev/Kiro#2921](https://github.com/kirodotdev/Kiro/issues/2921). Until that lands, `.kiro/steering` has to be a second copy of the rule body. Same for Kiro Crew. Cursor and Claude still share the file in `.agents` through a symlink. Kiro does not, so an edit in `.agents/rules` stays there. The always-on copy has already drifted by one sentence.
 
-Kiro IDE then did the path scope. With `inclusion: fileMatch`, the template rule was there after I opened the matching file, and it should stay out for a file that matches nothing. Kiro Crew said no on that second check. Crew loads steering when the session starts, and it does not attach a `fileMatch` file later. The always-on file worked because `inclusion: always` is already loaded at the start.
+Kiro IDE does the path scope. With `inclusion: fileMatch`, the template rule is there after the matching file is open, and it stays out for a file that matches nothing. Crew loads steering when the session starts, and it does not attach a `fileMatch` file later. The always-on file is there because `inclusion: always` is already loaded at the start.
 
-Both apps read the same `.kiro/steering` folder. Marking the template rule `always` would make Crew say yes, and it would also make the IDE load that rule on every file. I left it as `fileMatch`. Kiro keeps the scope. Crew only gets the always-on rule.
+Both apps read the same `.kiro/steering` folder. Marking the template rule `always` would put it in every Crew session, and it would also load that rule on every file in the IDE. I left it as `fileMatch`. Kiro keeps the scope. Crew only gets the always-on rule.
 
 Current Claude Code, 2.1.277 and later, will read `AGENTS.md` on its own when the repo has no `CLAUDE.md`. I still keep `CLAUDE.md`. Once that file exists, Claude reads it and leaves `AGENTS.md` alone, unless you change the project-instructions setting or import the file. Importing is what I actually watched work. Older builds, including the 2.0.9 I had on my `PATH`, do not have this.
 
@@ -225,25 +227,13 @@ Claude Code exposes the same folder as `/rspec-focused-runs`, and `/skills` list
 
 ## What each app said
 
-I ran this on the repo, one fresh session per app. Cursor and Claude were here and in the Claude desktop app. ZCode, ChatGPT, Antigravity, Kiro, and Kiro Crew were desktop apps too. Copilot was both the desktop app and the CLI.
+I ran one fresh session per app. Cursor was this editor. Claude, ZCode, ChatGPT, Antigravity, Kiro, and Kiro Crew were desktop apps. Copilot was both the desktop app and the CLI. Each session got the same three prompts. The first one says not to read any files.
 
-The prompt was the same. Do not read any files. Does the session contain `pineapple-sandbox-cache`? Then open `src/templates/blog-post.tsx` and ask about `Cover Image Pair Required`. Then ask that again on `src/pages/404.tsx`.
+- Do your instructions contain `pineapple-sandbox-cache`?
+- Open `src/templates/blog-post.tsx`. Do your instructions contain `Cover Image Pair Required`?
+- Open `src/pages/404.tsx`. Do your instructions contain `Cover Image Pair Required`?
 
-Yes, then no, is what you want for a path-scoped rule. Yes, then yes, means the rule is always on. No, then no, means the tool never opened the file. Pick a sentence that appears in one rule and nowhere else. "Do you have the blog context?" is a useless test. The model will say yes.
-
-**Cursor.** Yes on the always-on sentence. Yes on the template file. No on `src/pages/404.tsx`.
-
-**Claude.** Yes, once `CLAUDE.md` imported the rule. While that rule was only a symlink, the answer was no. Yes on the template file. No on `src/pages/404.tsx`.
-
-**Codex, in the ChatGPT app.** Yes. The sentence is written in `AGENTS.md`. I did not get a path-scoped yes. Codex does not attach `.agents/rules` because a glob matched.
-
-**ZCode.** Yes. [ZCode](https://zcode.z.ai/en/docs/agents) reads `~/.zcode/AGENTS.md`, then appends the workspace `AGENTS.md`, and the workspace file wins. It does not expand an `@` import, and it does not attach a rule because a path matched, so the yes is the sentence in `AGENTS.md`. I did not ask the path-scoped sentence. It already looks in `.agents/skills`. A `.zcode/skills` folder of the same name would win, so I did not add one.
-
-**Antigravity.** Yes on the always-on sentence. That sentence is in `AGENTS.md`. Antigravity also reads `GEMINI.md` as plain markdown, and this `GEMINI.md` does not import anything. It tried to load `blog-post-template.md` and failed while `globs` was a YAML list. After that key became one string, with `trigger: glob`, I did not ask the path-scoped sentence again. I skipped the Gemini CLI. A private Google account would not sign in, so that CLI is not part of this comparison.
-
-**Kiro and Kiro Crew.** Both said yes once `.kiro/steering` held the rule body. A symlink and a `#[[file:]]` line had both said no. The path-scoped sentence was yes in Kiro after the matching file was open. Kiro Crew stayed no. Crew does not apply `fileMatch` after the session has started. A custom agent in the IDE also skips steering unless its config lists `file://.kiro/steering/**/*.md`.
-
-**GitHub Copilot.** The desktop app listed `gatsby-post-check` and said no. I ran the same prompt in the Copilot CLI, in this repo. The CLI reads `AGENTS.md`. The desktop app does not, and that is the session that said no. The desktop app is not a good fit for these shared files.
+Cursor and Claude had the first sentence, had the cover sentence on the template file, and did not have it on the 404 page. Claude only had the first sentence after `CLAUDE.md` imported the rule. ChatGPT, ZCode, and Antigravity had the first sentence from `AGENTS.md`, and a matching path did not pull in the cover sentence. Kiro and Kiro Crew had the first sentence once the steering file contained the rule body. Kiro had the cover sentence on the template file. Kiro Crew did not. The Copilot desktop app listed `gatsby-post-check` and did not have the first sentence. The Copilot CLI did, because it reads `AGENTS.md`. A private Google account would not sign in to the Gemini CLI, so that one is not in this list.
 
 ## What I would skip
 
