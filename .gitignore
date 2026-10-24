@@ -78,3 +78,12 @@ yarn-error.log
 
 # Lighthouse CI
 .lighthouseci
+
+# Kiro app state stays local. The steering copies and the skill link are shared.
+!.kiro/
+!.kiro/steering/
+!.kiro/steering/**
+!.kiro/skills/
+!.kiro/skills/**
+.kiro/settings/
+.kiro/agents/
