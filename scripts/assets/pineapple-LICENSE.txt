@@ -1,0 +1,5 @@
+Pineapple icon (U+1F34D) from Twemoji
+https://github.com/jdecked/twemoji
+
+Licensed under CC-BY 4.0
+https://creativecommons.org/licenses/by/4.0/
