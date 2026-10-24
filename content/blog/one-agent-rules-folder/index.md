@@ -70,25 +70,82 @@ On Windows, Git will write a symlink as a tiny text file unless `core.symlinks` 
 
 ## One frontmatter block, several keys
 
-Each tool ignores the keys it does not know. Put the lists next to each other and keep them identical.
+Each tool ignores the keys it does not know. The path lists have to be the same paths. These are the files in this repo. The prose under the frontmatter is the rule. The keys are the part that changes per tool.
+
+**A path-scoped rule.** `.agents/rules/blog-post-template.md`. Cursor, Claude, and Kiro can all read this file. Antigravity can too, because `trigger` is set.
 
 ```markdown
 ---
-description: Devices API freshness, gzip, and how a device gets pinned to an event
+description: Blog post template, the SEO component, and the cover plus OG image pair.
 alwaysApply: false
 trigger: glob
-globs: app/models/device.rb,app/controllers/api/v1/**
+globs: src/templates/blog-post.tsx,src/components/seo.tsx
 paths:
-  - app/models/device.rb
-  - app/controllers/api/v1/**
+  - src/templates/blog-post.tsx
+  - src/components/seo.tsx
 inclusion: fileMatch
 fileMatchPattern:
-  - app/models/device.rb
-  - app/controllers/api/v1/**
+  - src/templates/blog-post.tsx
+  - src/components/seo.tsx
 ---
 ```
 
-Cursor uses `globs` and `alwaysApply`. Claude uses `paths`. Kiro uses `inclusion` and `fileMatchPattern`. Antigravity uses `trigger: glob` and reads `globs` as one string. A YAML list there fails to parse, which is the error I got: `cannot unmarshal !!seq into string`. The paths inside that string are the same list as `paths` and `fileMatchPattern`. A CI check that those three are the same paths is the whole sync script. There is nothing to regenerate.
+| Key                | Who reads it                                     | What it decides                                                                                                                        |
+| ------------------ | ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `description`      | Cursor                                           | When an on-demand rule is relevant. On this file it is only a label, because the paths decide.                                         |
+| `alwaysApply`      | Cursor                                           | `false` waits for `globs`. `true` puts the rule in every chat.                                                                         |
+| `globs`            | Cursor, and Antigravity when `trigger` is `glob` | One comma-separated string. A YAML list is the error I got: `cannot unmarshal !!seq into string`.                                      |
+| `paths`            | Claude                                           | Attach the rule when Claude reads a matching file.                                                                                     |
+| `trigger`          | Antigravity                                      | `glob` here. The other values it accepts are `always_on`, `model_decision`, and `manual`. No `trigger` and Antigravity skips the file. |
+| `inclusion`        | Kiro                                             | `fileMatch` waits for a matching file. `always` loads it at the start. `manual` waits until you ask.                                   |
+| `fileMatchPattern` | Kiro                                             | The paths for `fileMatch`. Same list as `paths` and `globs`.                                                                           |
+
+**An always-on rule.** `.agents/rules/local-node-env.md`.
+
+```markdown
+---
+description: Use the Node install already on the machine, and npm, for this Gatsby blog.
+alwaysApply: true
+inclusion: always
+---
+```
+
+No `paths`, no `globs`, no `trigger`. Cursor loads it in every chat. I do not symlink it into `.claude/rules`. `CLAUDE.md` imports the file instead. Leaving `trigger` off means Antigravity does not load it a second time from `.agents/rules`. The sentence those tools need is already in `AGENTS.md`. Kiro's copy of this file keeps only `inclusion: always`.
+
+**An on-demand rule.** `.agents/rules/accessibility-review.md`.
+
+```markdown
+---
+description: Review the blog UI for accessibility. Use when the user asks for an accessibility review of a page, component, or the theme switch.
+alwaysApply: false
+inclusion: manual
+name: accessibility-review
+---
+```
+
+`alwaysApply: false` and no `globs` is Cursor's on-demand shape. The `description` is what Cursor matches against the task. `inclusion: manual` is Kiro's version of the same idea. `name` is the handle Kiro shows for that manual rule. This file is not linked into `.claude/rules`. A Claude file with no `paths` would be always on.
+
+**A skill.** `.agents/skills/gatsby-post-check/SKILL.md`. A skill is not a rule. Nothing in here is a path.
+
+```markdown
+---
+name: gatsby-post-check
+description: Check a new Markdown post has frontmatter, a cover image, and an OG image before it is published. Use when adding or editing a file under content/blog.
+---
+```
+
+`name` matches the directory. `description` is how the agent decides the skill applies. Cursor shows `Error parsing skill` if this header is missing.
+
+**The Kiro copy** of the path-scoped rule is the same prose with a thinner header. Kiro only needs its own keys, and this file is the duplicate I could not avoid.
+
+```markdown
+---
+inclusion: fileMatch
+fileMatchPattern:
+  - src/templates/blog-post.tsx
+  - src/components/seo.tsx
+---
+```
 
 The GitHub Copilot desktop app is the one I would not use for this layout right now. Its docs describe `.github/copilot-instructions.md` for repo-wide instructions, and a `*.instructions.md` file with `applyTo` for a path. I added both. The app listed the `gatsby-post-check` skill from `.agents/skills` and still said no to the always-on sentence. The skill list is not the instruction set. The sentence was already in `AGENTS.md` and in `.github/copilot-instructions.md`, and the app read neither. It also has a Settings box per repository. Pasting the sentence there would make the test say yes without the app reading a file, so I left the box empty and deleted both files. I ran the same prompt in the Copilot CLI. That client reads `AGENTS.md`. The desktop app is the session that said no.
 
@@ -156,7 +213,7 @@ A few other tools already open a root `AGENTS.md` and need no symlink of their o
 
 ## Skills are the same idea, plus a frontmatter tax
 
-A skill is a folder with a `SKILL.md`. Write it once:
+A skill is a folder with a `SKILL.md`. The one in this repo is `gatsby-post-check`, and its header is above. Write it once:
 
 ```text
 .agents/skills/rspec-focused-runs/SKILL.md
