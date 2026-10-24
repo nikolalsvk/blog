@@ -47,7 +47,7 @@ setSubscriberCount(json.subscriberCount)
 
 `GATSBY_FUNCTION_HOST` is empty in production, so the request stays on the same site. Locally I point it at the Netlify dev server, because `npm start` only runs Gatsby. The function URL exists when you run `netlify dev`. If that command is not running, the subscriber count stays on `...` and the console says so.
 
-There is no earlier post that walks through this function. The closest one is [8 free React app hosting services](/8-free-react-app-hosting-services), which shows how a site gets onto Netlify in the first place. The function above is the same idea as the new subscribe endpoint: browser calls `/.netlify/functions/<name>`, secret stays on the server.
+The function above is the same idea as the new subscribe endpoint: browser calls `/.netlify/functions/<name>`, secret stays on the server.
 
 We will add a second function next to that one, at `functions/subscribe/index.ts`.
 
