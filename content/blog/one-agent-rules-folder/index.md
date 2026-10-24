@@ -25,7 +25,7 @@ Do not duplicate. Keep one source of truth when the tool will let you. That is t
 
 The markdown lives in one folder, `.agents`. Cursor and Claude open that same file through a symlink. Codex, ZCode, and Antigravity do not expand an import, so the always-on sentence is also written in `AGENTS.md`. Kiro will not follow a symlink in `.kiro/steering`, so that folder is a real copy until [kirodotdev/Kiro#2921](https://github.com/kirodotdev/Kiro/issues/2921) is fixed. Everywhere else, a second body is a miss. There is no generator.
 
-Here is the layout I ended up with, and how that one folder reaches Cursor, Claude Code, Codex, and Kiro. ZCode is in here too. That is the editor Z.ai ships for GLM, and its docs say it already reads the same `AGENTS.md`. I have run this on Cursor, Claude, Kiro, and Kiro Crew, and in the ZCode, ChatGPT, and Antigravity desktop apps. The always-on check was yes in those three. I also ran it in the Copilot CLI. The Copilot desktop app is the one that said no. Where a section is still from the docs, I say so.
+Here is the layout I ended up with, and how that one folder reaches Cursor, Claude Code, Codex, and Kiro. ZCode is in here too. That is the editor Z.ai ships for GLM. I have run this on Cursor, Claude, Kiro, and Kiro Crew, and in the ZCode, ChatGPT, and Antigravity desktop apps. The always-on check was yes in those three. I also ran it in the Copilot CLI. The Copilot desktop app is the one that said no.
 
 ## What each tool actually opens
 
@@ -66,7 +66,7 @@ I tried the other direction first. A Claude file named `.md` whose target was th
 
 Keep the link inside the repo. Claude treats a symlink that points outside the working directory as an external import. You have to approve it, and after that it only loads the rules that have no `paths` key. Path-scoped rules have to live in the checkout.
 
-On Windows, Git will write a symlink as a tiny text file unless `core.symlinks` is on. Both tools then read the path string instead of the rule. Fine on a Mac. Say so in the README if the team is not.
+On Windows, Git will write a symlink as a tiny text file unless `core.symlinks` is on. Both tools then read the path string instead of the rule. On a Mac the link stays a link. If someone on the team uses Windows, they need `core.symlinks` on before they clone.
 
 ## One frontmatter block, several keys
 
@@ -195,21 +195,7 @@ Both apps read the same `.kiro/steering` folder. Marking the template rule `alwa
 
 Current Claude Code, 2.1.277 and later, will read `AGENTS.md` on its own when the repo has no `CLAUDE.md`. I still keep `CLAUDE.md`. Once that file exists, Claude reads it and leaves `AGENTS.md` alone, unless you change the project-instructions setting or import the file. Importing is what I actually watched work. Older builds, including the 2.0.9 I had on my `PATH`, do not have this.
 
-### ZCode, if that is the editor you opened
-
-[ZCode](https://zcode.z.ai/en/docs/agents) is Z.ai's own agent, the one aimed at GLM. It is not another copy of Claude's rules folder.
-
-It reads two instruction files: `~/.zcode/AGENTS.md` for you, and `AGENTS.md` in the workspace for the project. The workspace file is appended second, so it wins when they disagree. `CLAUDE.md` is not read on every run. Onboarding can copy a Claude file into `AGENTS.md` once, and after that `AGENTS.md` is the file.
-
-It also does not walk nested `AGENTS.md` files, it does not expand `@` imports, and it does not pick a rule because you opened a matching path. If a rule has to be in the session from the start, the sentence has to be written in the workspace `AGENTS.md`. Naming the path is not enough. Codex and Antigravity are the same. Antigravity will also load `.agents/rules` when the file has a `trigger` key. The template rule has `trigger: glob`. The always-on file does not, so that sentence comes from `AGENTS.md` only.
-
-That does crowd Kiro. Kiro reads `AGENTS.md` and the steering copy, so the always-on rule is in that session twice. I left the steering copy because Kiro Crew did not see the rule until the text was in `.kiro/steering`. Claude does not read `AGENTS.md` while `CLAUDE.md` exists, so Claude still gets the rule once, from the import. Cursor would have loaded it twice too, from `AGENTS.md` and from the always-on `.mdc`, so that `.mdc` is gone.
-
-Skills are the nice part. ZCode already looks in `.agents/skills`, which is the folder you are editing anyway. A `.zcode/skills` copy of the same name wins over that one, so do not add a second copy.
-
-I ran the always-on check in ZCode. It was yes. I have not run the path-scoped checks. The rest of this section is their docs.
-
-A few other tools already open a root `AGENTS.md` and need no symlink of their own: OpenCode, Amp, Zed, Windsurf, Junie, Jules. If the sentence test further down fails in one of them, that tool is reading a different file, and you just found its real front door. I have not installed those either, so they stay out of the table.
+A few other tools already open a root `AGENTS.md` and need no symlink of their own: OpenCode, Amp, Zed, Windsurf, Junie, Jules. I have not installed those, so they stay out of the table.
 
 ## Skills are the same idea, plus a frontmatter tax
 
@@ -237,47 +223,21 @@ description: Run the smallest spec that covers the change, using the Ruby instal
 
 Claude Code exposes the same folder as `/rspec-focused-runs`, and `/skills` lists them. That command exists in current Claude Code. It does not exist in 2.0.9, which is the version `npm install -g` left me on from 2025. Run `claude --version` before you conclude the skills are missing. The copy inside the editor can be a year newer than the `claude` binary on your `PATH`.
 
-## How I checked Cursor and Claude
+## What each app said
 
-Cursor, after a reload:
+I ran this on the repo, one fresh session per app. Cursor and Claude were here and in the Claude desktop app. ZCode, ChatGPT, Antigravity, Kiro, and Kiro Crew were desktop apps too. Copilot was both the desktop app and the CLI.
 
-- The always-on rules showed up as Always Apply.
-- The Devices API rule showed up as Apply to Specific Files, with `app/models/device.rb` in the glob list.
-- A chat with that file open could quote a sentence that exists only in the rule.
-- A chat with `config/routes.rb` open could not. That file matches no glob.
-- All seven skills showed a description, not a parse error.
+The prompt was the same. Do not read any files. Does the session contain `pineapple-sandbox-cache`? Then open `src/templates/blog-post.tsx` and ask about `Cover Image Pair Required`. Then ask that again on `src/pages/404.tsx`.
 
-Claude Code, in a new session, on a current build:
+Yes, then no, is what you want for a path-scoped rule. Yes, then yes, means the rule is always on. No, then no, means the tool never opened the file. Pick a sentence that appears in one rule and nowhere else. "Do you have the blog context?" is a useless test. The model will say yes.
 
-```bash
-claude -p "Do not read any files. Reply yes or no only: do your instructions contain cursor-sandbox-cache?"
-```
+**Cursor.** Yes on the always-on sentence. Yes on the template file. No on `src/pages/404.tsx`.
 
-Yes, once that rule was imported from `CLAUDE.md`. No, while it was only a symlink.
-
-```bash
-claude -p "Read app/models/device.rb. Reply yes or no only: do your instructions contain Event Configuration Required?"
-```
-
-Yes.
-
-```bash
-claude -p "Read config/routes.rb. Reply yes or no only: do your instructions contain Event Configuration Required?"
-```
-
-No.
-
-Pick a sentence that appears in one rule and nowhere else in the repo. "Do you have the Devices API context?" is a useless test. The model will say yes.
-
-## What the other apps said
-
-I ran these on this repo, in the desktop apps, plus the Copilot CLI. Each one was a fresh session. The prompt was the same: do not read any files, and say whether the instructions contain `pineapple-sandbox-cache`.
-
-Yes, then no, is what you want for a path-scoped rule. Yes, then yes, means the rule is always on. No, then no, means the tool never opened the file.
+**Claude.** Yes, once `CLAUDE.md` imported the rule. While that rule was only a symlink, the answer was no. Yes on the template file. No on `src/pages/404.tsx`.
 
 **Codex, in the ChatGPT app.** Yes. The sentence is written in `AGENTS.md`. I did not get a path-scoped yes. Codex does not attach `.agents/rules` because a glob matched.
 
-**ZCode.** Yes. That is the workspace `AGENTS.md`. A yes here does not mean ZCode opened `.agents/rules`. I did not ask the path-scoped sentence.
+**ZCode.** Yes. [ZCode](https://zcode.z.ai/en/docs/agents) reads `~/.zcode/AGENTS.md`, then appends the workspace `AGENTS.md`, and the workspace file wins. It does not expand an `@` import, and it does not attach a rule because a path matched, so the yes is the sentence in `AGENTS.md`. I did not ask the path-scoped sentence. It already looks in `.agents/skills`. A `.zcode/skills` folder of the same name would win, so I did not add one.
 
 **Antigravity.** Yes on the always-on sentence. That sentence is in `AGENTS.md`. Antigravity also reads `GEMINI.md` as plain markdown, and this `GEMINI.md` does not import anything. It tried to load `blog-post-template.md` and failed while `globs` was a YAML list. After that key became one string, with `trigger: glob`, I did not ask the path-scoped sentence again. I skipped the Gemini CLI. A private Google account would not sign in, so that CLI is not part of this comparison.
 
