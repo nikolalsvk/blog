@@ -1,10 +1,10 @@
 ---
-title: One Rules Folder for Cursor, Claude, Codex, and Kiro
+title: One Rules Folder for Your Coding Agents
 description: Do not duplicate. Keep one source of truth when the tool will let you. A generated copy is how the files drift apart.
 slug: one-agent-rules-folder
 date: 2026-10-24
 coverImage: ./cover.jpg
-blogOgImage: ./og-image.png
+blogOgImage: ./og-image.jpg
 published: true
 tags:
   - AI
