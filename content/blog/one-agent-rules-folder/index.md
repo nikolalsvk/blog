@@ -29,15 +29,15 @@ Here is the layout I ended up with, and how that one folder reaches Cursor, Clau
 
 They do not read each other's directories. A rule that lives only in `.cursor/rules` is invisible to Claude. A `CLAUDE.md` is invisible to a tool that only opens `AGENTS.md`.
 
-| Tool                       | Always-on instructions                                           | Scoped instructions                                  | Skills                            |
-| -------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------- | --------------------------------- |
-| Cursor                     | `AGENTS.md`                                                      | `globs` in a `.cursor/rules/*.mdc`                   | `.cursor/skills/<name>/SKILL.md`  |
-| Claude Code                | `CLAUDE.md`, and a `.claude/rules/*.md` that has no `paths` key  | `paths` in that file                                 | `.claude/skills/<name>/SKILL.md`  |
-| Codex                      | `AGENTS.md`                                                      | Nested `AGENTS.md`, or an instruction to read a file | `.agents/skills/<name>/SKILL.md`  |
-| Kiro                       | `AGENTS.md`, or `.kiro/steering/*.md` with `inclusion: always`   | `inclusion: fileMatch` and `fileMatchPattern`        | `.kiro/skills/<name>/SKILL.md`    |
-| GitHub Copilot desktop app | it did not load `AGENTS.md` or `.github/copilot-instructions.md` | it did not load those either                         | `.agents/skills/<name>/SKILL.md`  |
-| Gemini CLI                 | `GEMINI.md`                                                      | imports from that file                               | whatever you point `GEMINI.md` at |
-| ZCode                      | the workspace `AGENTS.md`                                        | it does not scope rules by path                      | `.agents/skills/<name>/SKILL.md`  |
+| Tool                       | Always-on instructions                                           | Scoped instructions                                         | Skills                           |
+| -------------------------- | ---------------------------------------------------------------- | ----------------------------------------------------------- | -------------------------------- |
+| Cursor                     | `AGENTS.md`                                                      | `globs` in a `.cursor/rules/*.mdc`                          | `.cursor/skills/<name>/SKILL.md` |
+| Claude Code                | `CLAUDE.md`, and a `.claude/rules/*.md` that has no `paths` key  | `paths` in that file                                        | `.claude/skills/<name>/SKILL.md` |
+| Codex                      | `AGENTS.md`                                                      | Nested `AGENTS.md`, or an instruction to read a file        | `.agents/skills/<name>/SKILL.md` |
+| Kiro                       | `AGENTS.md`, or `.kiro/steering/*.md` with `inclusion: always`   | `inclusion: fileMatch` and `fileMatchPattern`               | `.kiro/skills/<name>/SKILL.md`   |
+| GitHub Copilot desktop app | it did not load `AGENTS.md` or `.github/copilot-instructions.md` | it did not load those either                                | `.agents/skills/<name>/SKILL.md` |
+| Antigravity                | `AGENTS.md` and `GEMINI.md`                                      | `.agents/rules` with `trigger: glob`, `globs` as one string | not checked                      |
+| ZCode                      | the workspace `AGENTS.md`                                        | it does not scope rules by path                             | `.agents/skills/<name>/SKILL.md` |
 
 Cursor will not load a plain `.md` file dropped in `.cursor/rules`. The file has to be named `.mdc`. Claude Code will not load an `.mdc`. The file has to be named `.md`, and the only frontmatter key it reads is `paths`. Kiro wants `inclusion`. Same prose, different filename.
 
@@ -220,13 +220,11 @@ Yes, then no, is what you want for a path-scoped rule. Yes, then yes, means the 
 
 **ZCode.** Yes. That is the workspace `AGENTS.md`. A yes here does not mean ZCode opened `.agents/rules`. I did not ask the path-scoped sentence.
 
-**Antigravity.** Yes on the always-on sentence. It also tried to load `blog-post-template.md` and failed while `globs` was a YAML list. After that key became one string, with `trigger: glob`, I did not ask the path-scoped sentence again.
+**Antigravity.** Yes on the always-on sentence. That sentence is in `AGENTS.md`. Antigravity also reads `GEMINI.md` as plain markdown, and this `GEMINI.md` does not import anything. It tried to load `blog-post-template.md` and failed while `globs` was a YAML list. After that key became one string, with `trigger: glob`, I did not ask the path-scoped sentence again. I skipped the Gemini CLI. A private Google account would not sign in, so that CLI is not part of this comparison.
 
 **Kiro and Kiro Crew.** Both said yes once `.kiro/steering` held the rule body. A symlink and a `#[[file:]]` line had both said no. The path-scoped sentence was yes in Kiro after the matching file was open. Kiro Crew stayed no. Crew does not apply `fileMatch` after the session has started. A custom agent in the IDE also skips steering unless its config lists `file://.kiro/steering/**/*.md`.
 
 **GitHub Copilot.** The desktop app listed `gatsby-post-check` and said no. I ran the same prompt in the Copilot CLI, in this repo. The CLI reads `AGENTS.md`. The desktop app does not, and that is the session that said no. The desktop app is not a good fit for these shared files.
-
-**Gemini CLI.** This is the one I did not run. Login with my Google account failed. `GEMINI.md` names `AGENTS.md` and does not import it. If the CLI starts, the footer count is the thing to look at first. It has to include `GEMINI.md` before a yes means anything.
 
 ## What I would skip
 
@@ -245,7 +243,7 @@ Trusting one `claude` binary. Check the version in the terminal you actually typ
 ```text
 AGENTS.md                         # Codex, Kiro, Cursor, ZCode, Antigravity
 CLAUDE.md                         # Claude Code, plus @./.agents/rules/<always-on>.md
-GEMINI.md                         # Gemini CLI, import the same files if you use it
+GEMINI.md                         # Antigravity, plain markdown, no import
 .agents/rules/*.md                # the only rules you edit
 .agents/skills/*/SKILL.md         # the only skills you edit
 .cursor/rules/*.mdc               # symlink, name ends in .mdc
