@@ -12,6 +12,8 @@ tags:
   - JavaScript
 ---
 
+![Pink paper curled against a blue background](./cover.jpg)
+
 A while ago I wrote about [building a custom newsletter form in React](/add-newsletter-subscription-form-to-react-website) and sending the signup straight to [ConvertKit](https://partners.convertkit.com/oqs53bno6l4l). That form still works. It is also very easy for a bot to abuse.
 
 The browser posts to a public URL, `https://api.convertkit.com/v3/forms/<form_id>/subscribe`, with a public API key. Anyone who can read the page can replay that request from a script. They do not even need to open the form. I started seeing a pile of junk signups, so I moved the submit behind a small backend check.
