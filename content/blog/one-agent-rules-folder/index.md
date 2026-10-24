@@ -23,7 +23,7 @@ I had a pile of project rules written for Cursor. Claude Code never saw them. Co
 
 So I stopped copying, with one exception. The markdown lives in one folder, `.agents`. Cursor and Claude get a symlink whose name is whatever that tool is willing to open. Same file. Kiro would not follow the symlink, so `.kiro/steering` is a real copy of the rule body. There is no generator.
 
-Here is the layout I ended up with, and how that one folder reaches Cursor, Claude Code, Codex, and Kiro. ZCode is in here too. That is the editor Z.ai ships for GLM, and its docs say it already reads the same `AGENTS.md`. I have run this on Cursor, Claude, Kiro, and Kiro Crew. The always-on check was yes on ZCode, Codex, and Antigravity. The GitHub Copilot desktop app is not a good fit for these shared files yet. Where a section is still from the docs, I say so.
+Here is the layout I ended up with, and how that one folder reaches Cursor, Claude Code, Codex, and Kiro. ZCode is in here too. That is the editor Z.ai ships for GLM, and its docs say it already reads the same `AGENTS.md`. I have run this on Cursor, Claude, Kiro, and Kiro Crew, and in the ZCode, ChatGPT, and Antigravity desktop apps. The always-on check was yes in those three. I also ran it in the Copilot CLI. The Copilot desktop app is the one that said no. Where a section is still from the docs, I say so.
 
 ## What each tool actually opens
 
@@ -88,7 +88,7 @@ fileMatchPattern:
 
 Cursor uses `globs` and `alwaysApply`. Claude uses `paths`. Kiro uses `inclusion` and `fileMatchPattern`. Antigravity uses `trigger: glob` and reads `globs` as one string. A YAML list there fails to parse, which is the error I got: `cannot unmarshal !!seq into string`. The paths inside that string are the same list as `paths` and `fileMatchPattern`. A CI check that those three are the same paths is the whole sync script. There is nothing to regenerate.
 
-The GitHub Copilot desktop app is the one I would not use for this layout right now. Its docs describe `.github/copilot-instructions.md` for repo-wide instructions, and a `*.instructions.md` file with `applyTo` for a path. I added both. The app listed the `gatsby-post-check` skill from `.agents/skills` and still said no to the always-on sentence. The skill list is not the instruction set. The sentence was already in `AGENTS.md` and in `.github/copilot-instructions.md`, and the app read neither. It also has a Settings box per repository. Pasting the sentence there would make the test say yes without the app reading a file, so I left the box empty and deleted both files. The CLI and VS Code docs say those clients do read them. I have not retested that.
+The GitHub Copilot desktop app is the one I would not use for this layout right now. Its docs describe `.github/copilot-instructions.md` for repo-wide instructions, and a `*.instructions.md` file with `applyTo` for a path. I added both. The app listed the `gatsby-post-check` skill from `.agents/skills` and still said no to the always-on sentence. The skill list is not the instruction set. The sentence was already in `AGENTS.md` and in `.github/copilot-instructions.md`, and the app read neither. It also has a Settings box per repository. Pasting the sentence there would make the test say yes without the app reading a file, so I left the box empty and deleted both files. I ran the same prompt in the Copilot CLI. That client reads `AGENTS.md`. The desktop app is the session that said no.
 
 ## Three kinds of rule, and Claude only wants two of them linked
 
@@ -210,49 +210,23 @@ No.
 
 Pick a sentence that appears in one rule and nowhere else in the repo. "Do you have the Devices API context?" is a useless test. The model will say yes.
 
-## How to check the ones I have not run
+## What the other apps said
 
-Same test everywhere. Put a sentence in one rule that appears nowhere else. Ask a fresh session whether its instructions contain that sentence. Then ask again next to a file that should not match.
+I ran these on this repo, in the desktop apps, plus the Copilot CLI. Each one was a fresh session. The prompt was the same: do not read any files, and say whether the instructions contain `pineapple-sandbox-cache`.
 
-Yes, then no, is what you want for a path-scoped rule. Yes, then yes, means the rule is always on. No, then no, means the tool never opened the file. A yes from the model only counts if you can also see the file in that tool's own instruction list.
+Yes, then no, is what you want for a path-scoped rule. Yes, then yes, means the rule is always on. No, then no, means the tool never opened the file.
 
-**Codex.** New session in the repo.
+**Codex, in the ChatGPT app.** Yes. The sentence is written in `AGENTS.md`. I did not get a path-scoped yes. Codex does not attach `.agents/rules` because a glob matched.
 
-```text
-Do not read any files. Reply yes or no only: do your instructions contain cursor-sandbox-cache?
-```
+**ZCode.** Yes. That is the workspace `AGENTS.md`. A yes here does not mean ZCode opened `.agents/rules`. I did not ask the path-scoped sentence.
 
-Yes means the sentence is in `AGENTS.md`, or `AGENTS.md` names a file Codex actually read. Then:
+**Antigravity.** Yes on the always-on sentence. It also tried to load `blog-post-template.md` and failed while `globs` was a YAML list. After that key became one string, with `trigger: glob`, I did not ask the path-scoped sentence again.
 
-```text
-Read app/models/device.rb. Reply yes or no only: do your instructions contain Event Configuration Required?
-```
+**Kiro and Kiro Crew.** Both said yes once `.kiro/steering` held the rule body. A symlink and a `#[[file:]]` line had both said no. The path-scoped sentence was yes in Kiro after the matching file was open. Kiro Crew stayed no. Crew does not apply `fileMatch` after the session has started. A custom agent in the IDE also skips steering unless its config lists `file://.kiro/steering/**/*.md`.
 
-Codex does not attach `.agents/rules` because a glob matched. This stays no until `AGENTS.md` tells it to read that file, or you ask it to. That no is the check. If you expected the glob to fire by itself, it will not.
+**GitHub Copilot.** The desktop app listed `gatsby-post-check` and said no. I ran the same prompt in the Copilot CLI, in this repo. The CLI reads `AGENTS.md`. The desktop app does not, and that is the session that said no. The desktop app is not a good fit for these shared files.
 
-**Kiro.** New chat, default agent, with this repo as the folder. Open Steering and confirm the file body contains the sentence. A symlink or a `#[[file:]]` line is not enough. I had to paste the rule into `.kiro/steering`. The always-on sentence was yes in Kiro and in Kiro Crew. The path-scoped sentence was yes in Kiro after the matching file was open. Kiro Crew stayed no. Crew does not apply `fileMatch` after the session has started. A custom agent in the IDE also skips steering unless its config lists `file://.kiro/steering/**/*.md`.
-
-**GitHub Copilot desktop app.** I tried it with this repo open. It listed `gatsby-post-check` and said no to the always-on sentence. That no is the result. The app is not a good fit for these shared files yet. VS Code has an instruction picker, and the CLI has `/instructions`. Those are the clients the docs describe. I have not run this test there.
-
-**Gemini CLI.** Run `gemini` in the repo. The footer shows how many context files loaded. That number has to include `GEMINI.md` before a yes means anything. Then the same two prompts. An import looks like this:
-
-```markdown
-@./.agents/rules/devices-api.md
-```
-
-A missing file shows up as a failed import. You can also point Gemini at `AGENTS.md` directly and skip the extra file. In `.gemini/settings.json`:
-
-```json
-{
-  "context": {
-    "fileName": ["AGENTS.md", "GEMINI.md"]
-  }
-}
-```
-
-I have not done that. The footer count is the thing I would look at first.
-
-**ZCode.** New task in the repo. Ask the always-on sentence first, with no files attached. ZCode injects the workspace `AGENTS.md`, and `~/.zcode/AGENTS.md` if you have one. A yes means the sentence is in one of those two files. It does not mean ZCode found `.agents/rules`. Then ask it to read `app/models/device.rb` and answer the Devices API sentence. Expect no, unless `AGENTS.md` told it to open that rule. Skills show up under Settings → Skills, after a refresh. Look for `rspec-focused-runs` with `.agents` as the source.
+**Gemini CLI.** This is the one I did not run. Login with my Google account failed. `GEMINI.md` names `AGENTS.md` and does not import it. If the CLI starts, the footer count is the thing to look at first. It has to include `GEMINI.md` before a yes means anything.
 
 ## What I would skip
 
