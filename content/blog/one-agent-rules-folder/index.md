@@ -1,6 +1,6 @@
 ---
 title: One Rules Folder for Cursor, Claude, Codex, and Kiro
-description: Put the instructions in one folder and point each coding agent at them. A generated copy is how the files drift apart.
+description: Do not duplicate. Keep one source of truth when the tool will let you. A generated copy is how the files drift apart.
 slug: one-agent-rules-folder
 date: 2026-10-24
 coverImage: ./cover.jpg
@@ -21,7 +21,9 @@ Photo by <a href="https://unsplash.com/@dying_apricity?utm_content=creditCopyTex
 
 I had a pile of project rules written for Cursor. Claude Code never saw them. Codex only saw them if someone remembered to open the file. The first fix was a script that copied every rule into Claude's folder on commit. The copy worked. It was also the start of two sources of truth.
 
-So I stopped copying, with one exception. The markdown lives in one folder, `.agents`. Cursor and Claude get a symlink whose name is whatever that tool is willing to open. Same file. Kiro would not follow the symlink, so `.kiro/steering` is a real copy of the rule body. There is no generator.
+Do not duplicate. Keep one source of truth when the tool will let you. That is the rule.
+
+The markdown lives in one folder, `.agents`. Cursor and Claude open that same file through a symlink. Codex, ZCode, and Antigravity do not expand an import, so the always-on sentence is also written in `AGENTS.md`. Kiro will not follow a symlink in `.kiro/steering`, so that folder is a real copy until [kirodotdev/Kiro#2921](https://github.com/kirodotdev/Kiro/issues/2921) is fixed. Everywhere else, a second body is a miss. There is no generator.
 
 Here is the layout I ended up with, and how that one folder reaches Cursor, Claude Code, Codex, and Kiro. ZCode is in here too. That is the editor Z.ai ships for GLM, and its docs say it already reads the same `AGENTS.md`. I have run this on Cursor, Claude, Kiro, and Kiro Crew, and in the ZCode, ChatGPT, and Antigravity desktop apps. The always-on check was yes in those three. I also ran it in the Copilot CLI. The Copilot desktop app is the one that said no. Where a section is still from the docs, I say so.
 
@@ -256,4 +258,4 @@ GEMINI.md                         # Antigravity, plain markdown, no import
 
 Add a rule by writing `.agents/rules/<name>.md` and linking it. Add a skill by writing the folder and linking it. The check in CI is "every link resolves, and `globs`, `paths`, and `fileMatchPattern` are the same list."
 
-That is the whole system.
+Do not duplicate. Keep one source of truth when the tool will let you. Edit `.agents`. Link it. The always-on paragraph in `AGENTS.md`, and the files in `.kiro/steering`, are the copies I could not get rid of. A generated copy of every rule is the thing I would not add back.
