@@ -1,7 +1,7 @@
 ---
 title: Stop Bots From Spamming Your ConvertKit Form
 description: Move a React ConvertKit form behind a Netlify Function, then check honeypot, timing, and Cloudflare Turnstile before anyone lands on your list.
-slug: secure-convertkit-subscribe-with-netlify-and-turnstile
+slug: stop-bots-from-spamming-your-convertkit-form
 date: 2026-10-24
 coverImage: ./cover.jpg
 blogOgImage: ./og-image.png
