@@ -4,7 +4,7 @@ description: Move a React ConvertKit form behind a Netlify Function, then check 
 slug: stop-bots-from-spamming-your-convertkit-form
 date: 2026-10-24
 coverImage: ./cover.jpg
-blogOgImage: ./og-image.png
+blogOgImage: ./og-image.jpg
 published: true
 tags:
   - React

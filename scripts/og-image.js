@@ -42,6 +42,7 @@ function printHelp() {
 
 Usage:
   npm run og-image -- <slug-or-directory> [more...]
+  npm run og-image -- my-post --font-size 72
   npm run og-image -- --cover cover.jpg --title "Post title" --out og-image.jpg
 
 The cover is center-cropped to 1200x630. The title is Josefin Sans Bold,
@@ -52,6 +53,8 @@ index.md.
 
 Options:
   --title <text>     Title to draw. Defaults to the post title.
+  --font-size <px>   Lock the title size. Without this, the size is chosen
+                     between 60 and 110 to fit the title.
   --cover <file>     Cover image. Defaults to the post coverImage.
   --out <file>       Output path. Defaults to <post>/og-image.jpg.
   --no-frontmatter   Do not write blogOgImage into index.md.
@@ -63,6 +66,7 @@ function parseArgs(argv) {
   const options = {
     posts: [],
     title: null,
+    fontSize: null,
     cover: null,
     out: null,
     frontmatter: true,
@@ -75,6 +79,8 @@ function parseArgs(argv) {
       options.help = true
     } else if (arg === "--title") {
       options.title = readOption(argv, ++i, "--title")
+    } else if (arg === "--font-size") {
+      options.fontSize = readSize(argv, ++i, "--font-size")
     } else if (arg === "--cover") {
       options.cover = readOption(argv, ++i, "--cover")
     } else if (arg === "--out") {
@@ -97,6 +103,15 @@ function readOption(argv, index, flag) {
     throw new Error(`${flag} needs a value`)
   }
   return value
+}
+
+function readSize(argv, index, flag) {
+  const value = readOption(argv, index, flag)
+  const size = Number(value)
+  if (!Number.isFinite(size) || size <= 0) {
+    throw new Error(`${flag} needs a size in pixels, like 72`)
+  }
+  return size
 }
 
 function resolvePost(input) {
@@ -225,13 +240,13 @@ function leadingShortWords(lines) {
   return count
 }
 
-function bestSplit(font, words, fontSize, lineCount) {
+function bestSplit(font, words, fontSize, lineCount, allowOverflow) {
   let best = null
 
   for (const lines of splitsOf(words, lineCount)) {
     const widths = lines.map((line) => font.getAdvanceWidth(line, fontSize))
     const widest = Math.max(...widths)
-    if (widest > TITLE_MAX_WIDTH) continue
+    if (!allowOverflow && widest > TITLE_MAX_WIDTH) continue
 
     // Opening a line with "so" or "and" reads worse than a slightly
     // less even break. Prepositions are left alone.
@@ -257,8 +272,23 @@ function titleCollides(font, fontSize, lineCount) {
   return blockBottom + TITLE_DOMAIN_GAP > domainTop
 }
 
-function layoutTitle(font, title) {
+function layoutTitle(font, title, fixedSize) {
   const words = titleWords(title)
+
+  if (fixedSize) {
+    const lineLimit = Math.min(MAX_TITLE_LINES, words.length)
+    for (let lineCount = 1; lineCount <= lineLimit; lineCount++) {
+      const split = bestSplit(font, words, fixedSize, lineCount)
+      if (!split) continue
+      return { fontSize: fixedSize, lines: split.lines }
+    }
+
+    const split = bestSplit(font, words, fixedSize, lineLimit, true)
+    return {
+      fontSize: fixedSize,
+      lines: split ? split.lines : [words.join(" ")],
+    }
+  }
 
   for (let lineCount = 1; lineCount <= MAX_TITLE_LINES; lineCount++) {
     const floor = LINE_FLOORS[lineCount - 1]
@@ -375,7 +405,13 @@ async function loadEmoji(fontSize) {
   return { buffer, ascent: fontSize * 0.82, descent: fontSize * 0.18 }
 }
 
-async function renderOgImage({ coverPath, title, outPath, font }) {
+async function renderOgImage({
+  coverPath,
+  title,
+  outPath,
+  font,
+  fontSize: fixedSize,
+}) {
   const missing = missingGlyphs(font, `${title} ${DOMAIN}`)
   if (missing.length) {
     console.warn(
@@ -385,7 +421,20 @@ async function renderOgImage({ coverPath, title, outPath, font }) {
     )
   }
 
-  const { fontSize, lines } = layoutTitle(font, title)
+  const { fontSize, lines } = layoutTitle(font, title, fixedSize)
+  if (fixedSize && titleCollides(font, fontSize, lines.length)) {
+    console.warn(
+      `Title at ${fontSize}px runs into the site link. Try a smaller --font-size.`
+    )
+  }
+  const overflowing = lines.some(
+    (line) => font.getAdvanceWidth(line, fontSize) > TITLE_MAX_WIDTH
+  )
+  if (overflowing) {
+    console.warn(
+      `Title at ${fontSize}px is wider than the image. Try a smaller --font-size.`
+    )
+  }
   const { cap } = fontMetrics(font, fontSize)
   const titleBaseline = TITLE_CAP_TOP + cap
   const domainY = DOMAIN_BASELINE
@@ -472,6 +521,7 @@ async function generateForPost(input, options) {
     title,
     outPath,
     font: options.font,
+    fontSize: options.fontSize,
   })
   const relativeOut = path.relative(ROOT, outPath)
 
@@ -522,6 +572,7 @@ async function generateOneOff(options) {
     title: options.title,
     outPath,
     font: options.font,
+    fontSize: options.fontSize,
   })
 
   console.log(options.title)
