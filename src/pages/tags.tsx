@@ -76,10 +76,7 @@ const TagCloud = ({ tags }: { tags: TagGroup[] }) => {
   )
 
   return (
-    <ul
-      role="list"
-      className="m-0 flex list-none flex-wrap items-baseline gap-x-2 gap-y-1 p-0"
-    >
+    <ul className="m-0 flex list-none flex-wrap items-baseline gap-x-2 gap-y-1 p-0">
       {tags.map((tag) => (
         <li key={tag.fieldValue}>
           <Link
@@ -113,7 +110,7 @@ const FeaturedTags = ({ tags }: { tags: TagGroup[] }) => (
         <li key={tag.fieldValue}>
           <Link
             to={tagPath(tag.fieldValue)}
-            className="flex h-full flex-col rounded-lg border border-[var(--color-primary)] p-4 text-[var(--color-text)] shadow-none no-underline transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary)]"
+            className="flex h-full flex-col rounded-lg border border-gray-200 p-4 text-[var(--color-text)] shadow-xl hover:shadow-xl no-underline transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary)]"
           >
             <div className="flex items-start justify-between gap-3">
               <h3 className="m-0 text-2xl leading-tight">{tag.fieldValue}</h3>
@@ -195,7 +192,7 @@ const TagsPage = ({
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder="JavaScript, Vim, Rails…"
-            className="w-full rounded border border-[var(--color-primary)] bg-transparent p-2.5 text-[var(--color-text)]"
+            className="w-full rounded border border-gray-200 bg-transparent p-2.5 text-[var(--color-text)]"
           />
         </label>
 
