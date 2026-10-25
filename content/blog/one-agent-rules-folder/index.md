@@ -1,5 +1,5 @@
 ---
-title: One Rules Folder for Your Coding Agents
+title: One Rules Folder for All Your Coding Agents
 description: Do not duplicate. Keep one source of truth when the tool will let you. A generated copy is how the files drift apart.
 slug: one-agent-rules-folder
 date: 2026-10-25
