@@ -88,3 +88,156 @@ hr {
     margin-bottom: 1.5rem;
   }
 }
+
+.table-scroll {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0 0 1.75rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline-start: 11.3rem;
+  -webkit-overflow-scrolling: touch;
+  contain: inline-size;
+  container-type: inline-size;
+  border: 1px solid color-mix(in srgb, var(--color-text) 14%, transparent);
+  border-radius: 0.5rem;
+  background: var(--color-background);
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--color-text) 38%, transparent)
+    transparent;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+  }
+
+  &::-webkit-scrollbar {
+    height: 0.55rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--color-text) 38%, transparent);
+    border-radius: 999px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  table {
+    width: max-content;
+    min-width: 100%;
+    margin: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.9375rem;
+    line-height: 1.45;
+  }
+
+  th,
+  td {
+    padding: 0.7rem 0.9rem;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid
+      color-mix(in srgb, var(--color-text) 12%, transparent);
+  }
+
+  th:not(:first-child),
+  td:not(:first-child) {
+    scroll-snap-align: start;
+  }
+
+  thead th {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--color-primary);
+    background: color-mix(
+      in srgb,
+      var(--color-primary) 12%,
+      var(--color-background)
+    );
+    border-bottom: 1px solid
+      color-mix(in srgb, var(--color-primary) 42%, transparent);
+  }
+
+  tbody tr:last-child td {
+    border-bottom: 0;
+  }
+
+  tbody td:first-child {
+    font-weight: 700;
+  }
+
+  th:first-child,
+  td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    padding-left: 0.9rem;
+    background: var(--color-background);
+    box-shadow: inset -1px 0 0 color-mix(in srgb, var(--color-text) 12%, transparent);
+  }
+
+  thead th:first-child {
+    z-index: 2;
+    background: color-mix(
+      in srgb,
+      var(--color-primary) 12%,
+      var(--color-background)
+    );
+  }
+
+  th:first-child .table-cell-inner,
+  td:first-child .table-cell-inner {
+    max-width: 9.5rem;
+  }
+
+  th:not(:first-child) .table-cell-inner,
+  td:not(:first-child) .table-cell-inner {
+    max-width: calc(100cqi - 9.5rem - 4.2rem);
+  }
+
+  .table-cell-inner {
+    overflow-wrap: break-word;
+  }
+
+  code {
+    font-size: 0.86em;
+    line-height: 1.45;
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+}
+
+.prism-light .table-scroll :not(pre) > code[class*="language-"],
+.prism-dark .table-scroll :not(pre) > code[class*="language-"] {
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+@media (hover: hover) {
+  .table-scroll tbody tr:hover td {
+    background: color-mix(
+      in srgb,
+      var(--color-primary) 8%,
+      var(--color-background)
+    );
+  }
+
+  .table-scroll tbody tr:hover td:first-child {
+    background: color-mix(
+      in srgb,
+      var(--color-primary) 8%,
+      var(--color-background)
+    );
+  }
+}

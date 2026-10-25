@@ -22,7 +22,7 @@ const Layout = ({ title, showLargeHeader, children }: Props) => {
     <div
       className={`flex flex-col mx-auto px-3 py-4 max-w-2xl min-h-full ${prismTheme}`}
     >
-      <main className="flex-1 flex-shrink-0 flex-grow-0">
+      <main className="flex-1 flex-shrink-0 flex-grow-0 min-w-0 w-full">
         <Header title={title} showLargeHeader={showLargeHeader} />
         {children}
       </main>
