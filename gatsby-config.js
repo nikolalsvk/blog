@@ -145,7 +145,6 @@ module.exports = {
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
-          require.resolve(`./src/gatsby/remark-wrap-tables`),
         ],
       },
     },
