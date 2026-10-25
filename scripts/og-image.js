@@ -43,6 +43,7 @@ function printHelp() {
 Usage:
   npm run og-image -- <slug-or-directory> [more...]
   npm run og-image -- my-post --font-size 72
+  npm run og-image -- my-post --dim 45
   npm run og-image -- --cover cover.jpg --title "Post title" --out og-image.jpg
 
 The cover is center-cropped to 1200x630. The title is Josefin Sans Bold,
@@ -55,6 +56,8 @@ Options:
   --title <text>     Title to draw. Defaults to the post title.
   --font-size <px>   Lock the title size. Without this, the size is chosen
                      between 60 and 110 to fit the title.
+  --dim <0-100>      Pull down bright areas so white text stays readable.
+                     0 leaves the photo alone. Try 40 on a bright cover.
   --cover <file>     Cover image. Defaults to the post coverImage.
   --out <file>       Output path. Defaults to <post>/og-image.jpg.
   --no-frontmatter   Do not write blogOgImage into index.md.
@@ -67,6 +70,7 @@ function parseArgs(argv) {
     posts: [],
     title: null,
     fontSize: null,
+    dim: null,
     cover: null,
     out: null,
     frontmatter: true,
@@ -81,6 +85,8 @@ function parseArgs(argv) {
       options.title = readOption(argv, ++i, "--title")
     } else if (arg === "--font-size") {
       options.fontSize = readSize(argv, ++i, "--font-size")
+    } else if (arg === "--dim") {
+      options.dim = readPercent(argv, ++i, "--dim")
     } else if (arg === "--cover") {
       options.cover = readOption(argv, ++i, "--cover")
     } else if (arg === "--out") {
@@ -112,6 +118,57 @@ function readSize(argv, index, flag) {
     throw new Error(`${flag} needs a size in pixels, like 72`)
   }
   return size
+}
+
+function readPercent(argv, index, flag) {
+  const value = readOption(argv, index, flag)
+  const amount = Number(value)
+  if (!Number.isFinite(amount) || amount < 0 || amount > 100) {
+    throw new Error(`${flag} needs a number from 0 to 100`)
+  }
+  return amount
+}
+
+function smoothstep(edge0, edge1, value) {
+  const t = Math.min(1, Math.max(0, (value - edge0) / (edge1 - edge0)))
+  return t * t * (3 - 2 * t)
+}
+
+// Bright covers swallow white type. This leaves shadows close to where they
+// are and pulls the highlights down, which is the part that clashes with
+// the title.
+async function toneDown(image, amount) {
+  if (!amount) return image
+
+  const strength = amount / 100
+  const { data, info } = await sharp(image)
+    .ensureAlpha()
+    .raw()
+    .toBuffer({ resolveWithObject: true })
+  const pixels = Buffer.from(data)
+
+  for (let i = 0; i < pixels.length; i += info.channels) {
+    const red = pixels[i]
+    const green = pixels[i + 1]
+    const blue = pixels[i + 2]
+    const luminance = (0.2126 * red + 0.7152 * green + 0.0722 * blue) / 255
+    const highlight = smoothstep(0.4, 1, luminance)
+    const factor = 1 - strength * (0.12 + 0.55 * highlight)
+    pixels[i] = Math.round(red * factor)
+    pixels[i + 1] = Math.round(green * factor)
+    pixels[i + 2] = Math.round(blue * factor)
+  }
+
+  return sharp(pixels, {
+    raw: {
+      width: info.width,
+      height: info.height,
+      channels: info.channels,
+    },
+  })
+    .removeAlpha()
+    .png()
+    .toBuffer()
 }
 
 function resolvePost(input) {
@@ -411,6 +468,7 @@ async function renderOgImage({
   outPath,
   font,
   fontSize: fixedSize,
+  dim,
 }) {
   const missing = missingGlyphs(font, `${title} ${DOMAIN}`)
   if (missing.length) {
@@ -459,9 +517,10 @@ async function renderOgImage({
   const emojiLeft = Math.round(DOMAIN_X + domainWidth)
   const emojiTop = Math.round(domainY - emoji.ascent)
 
-  const background = await sharp(coverPath)
+  const cropped = await sharp(coverPath)
     .resize(WIDTH, HEIGHT, { fit: "cover", position: "centre" })
     .toBuffer()
+  const background = await toneDown(cropped, dim)
 
   const image = sharp(background).composite([
     { input: text, top: 0, left: 0 },
@@ -522,12 +581,14 @@ async function generateForPost(input, options) {
     outPath,
     font: options.font,
     fontSize: options.fontSize,
+    dim: options.dim,
   })
   const relativeOut = path.relative(ROOT, outPath)
 
   console.log(title)
   for (const line of layout.lines) console.log(`  ${line}`)
   console.log(`  ${layout.fontSize}px`)
+  if (options.dim) console.log(`  dim ${options.dim}%`)
   console.log(`wrote ${relativeOut}`)
 
   if (!options.frontmatter) return
@@ -573,11 +634,13 @@ async function generateOneOff(options) {
     outPath,
     font: options.font,
     fontSize: options.fontSize,
+    dim: options.dim,
   })
 
   console.log(options.title)
   for (const line of layout.lines) console.log(`  ${line}`)
   console.log(`  ${layout.fontSize}px`)
+  if (options.dim) console.log(`  dim ${options.dim}%`)
   console.log(`wrote ${path.relative(ROOT, outPath)}`)
 }
 
