@@ -16,7 +16,11 @@ interface Props {
   lang?: string
   canonical?: string
   blogOgImage?: string
+  blogOgImageWidth?: number
+  blogOgImageHeight?: number
   coverImage?: string
+  coverImageWidth?: number
+  coverImageHeight?: number
 }
 
 const SEO = ({
@@ -25,9 +29,13 @@ const SEO = ({
   lang = "en",
   canonical,
   blogOgImage,
+  blogOgImageWidth,
+  blogOgImageHeight,
   coverImage,
+  coverImageWidth,
+  coverImageHeight,
 }: Props) => {
-  const { site } = useStaticQuery(
+  const { site, defaultOgImageFile } = useStaticQuery(
     graphql`
       query {
         site {
@@ -40,6 +48,16 @@ const SEO = ({
             siteUrl
           }
         }
+        defaultOgImageFile: file(
+          absolutePath: { regex: "/content/assets/default-og-image.jpg/" }
+        ) {
+          childImageSharp {
+            original {
+              width
+              height
+            }
+          }
+        }
       }
     `
   )
@@ -47,6 +65,17 @@ const SEO = ({
   const metaDescription = description || site.siteMetadata.description
   const ogImage = blogOgImage || coverImage || defaultOgImage
   const ogImageUrl = `${site.siteMetadata.siteUrl}${ogImage}`
+  const defaultOgOriginal = defaultOgImageFile?.childImageSharp?.original
+  const ogImageWidth = blogOgImage
+    ? blogOgImageWidth
+    : coverImage
+    ? coverImageWidth
+    : defaultOgOriginal?.width
+  const ogImageHeight = blogOgImage
+    ? blogOgImageHeight
+    : coverImage
+    ? coverImageHeight
+    : defaultOgOriginal?.height
 
   return (
     <Helmet
@@ -76,6 +105,18 @@ const SEO = ({
           property: `og:image`,
           content: ogImageUrl,
         },
+        ...(ogImageWidth && ogImageHeight
+          ? [
+              {
+                property: `og:image:width`,
+                content: String(ogImageWidth),
+              },
+              {
+                property: `og:image:height`,
+                content: String(ogImageHeight),
+              },
+            ]
+          : []),
         {
           name: `twitter:card`,
           content: `summary_large_image`,

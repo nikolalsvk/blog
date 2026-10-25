@@ -46,9 +46,21 @@ interface Props {
         canonicalName: string
         coverImage?: {
           publicURL: string
+          childImageSharp?: {
+            original?: {
+              width: number
+              height: number
+            }
+          }
         }
         blogOgImage?: {
           publicURL: string
+          childImageSharp?: {
+            original?: {
+              width: number
+              height: number
+            }
+          }
         }
         slug: string
         tags: string[]
@@ -92,7 +104,19 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
         description={post.frontmatter.description || post.excerpt}
         canonical={canonical || defaultCanonical}
         blogOgImage={post.frontmatter.blogOgImage?.publicURL}
+        blogOgImageWidth={
+          post.frontmatter.blogOgImage?.childImageSharp?.original?.width
+        }
+        blogOgImageHeight={
+          post.frontmatter.blogOgImage?.childImageSharp?.original?.height
+        }
         coverImage={post.frontmatter.coverImage?.publicURL}
+        coverImageWidth={
+          post.frontmatter.coverImage?.childImageSharp?.original?.width
+        }
+        coverImageHeight={
+          post.frontmatter.coverImage?.childImageSharp?.original?.height
+        }
       />
       <article>
         <header>
@@ -218,9 +242,21 @@ export const pageQuery = graphql`
         canonicalName
         coverImage {
           publicURL
+          childImageSharp {
+            original {
+              width
+              height
+            }
+          }
         }
         blogOgImage {
           publicURL
+          childImageSharp {
+            original {
+              width
+              height
+            }
+          }
         }
         slug
         tags
