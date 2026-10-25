@@ -67,7 +67,11 @@ I also keep [double opt-in](https://help.convertkit.com/en/articles/2502655-the-
 
 ## The form still looks the same
 
-The inputs from the [previous post](/add-newsletter-subscription-form-to-react-website) stay: first name and email. We add state for the three checks, and we change where `fetch` goes.
+The inputs from the [previous post](/add-newsletter-subscription-form-to-react-website) stay: first name and email. The new piece a reader sees is the Cloudflare check above the button.
+
+![Newsletter form with a Cloudflare Turnstile check above the subscribe button](./subscribe-form-with-cloudflare-check.png)
+
+We add state for the three checks, and we change where `fetch` goes.
 
 ```jsx
 const [email, setEmail] = useState("")
