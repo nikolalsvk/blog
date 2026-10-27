@@ -11,6 +11,12 @@ tags:
   - Security
 ---
 
+![A wooden door held shut with a bolt and padlock](./cover.jpg)
+
+<div class="photo-caption">
+Photo by <a href="https://unsplash.com/@zoshuacolah?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Zoshua Colah</a> on <a href="https://unsplash.com/photos/a-door-secured-with-a-bolt-and-padlock-2QjkAa5QaqY?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+</div>
+
 Google Analytics is quiet until Saturday 14 March 2026. After that the site picks up a few thousand users a day and stays there. The form checks in [Stop Bots From Spamming Your ConvertKit Form](/stop-bots-from-spamming-your-convertkit-form) came a month later. On 13 April 2026 I shipped them in [pull request 150](https://github.com/nikolalsvk/blog/pull/150). A junk signup had to get past a honeypot, a timer, and [Turnstile](https://developers.cloudflare.com/turnstile/) before [ConvertKit](https://partners.convertkit.com/oqs53bno6l4l) heard about it. The requests kept coming.
 
 They were reading [the blog post about adding a subscription form to a React website](/add-newsletter-subscription-form-to-react-website). That post shows the public ConvertKit URL, so it is an easy page to flag and later hammer. Cloudflare looked at those requests and scored them as people, which indicated those are some high-profile bots. Bot Fight Mode, and the rest of the automatic bot tooling, only acts on traffic Cloudflare has already decided is a bot. A high score means those switches sit there.
