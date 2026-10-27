@@ -4,7 +4,7 @@ description: Cloudflare scored the bots as people. An interactive challenge on o
 slug: how-to-block-bots-from-visiting-your-website
 date: 2026-10-27
 coverImage: ./cover.jpg
-blogOgImage: ./og-image.png
+blogOgImage: ./og-image.jpg
 published: true
 tags:
   - Cloudflare
