@@ -49,7 +49,7 @@ Cloudflare's own form asks you to prefer a [Managed Challenge](https://developer
 
 A JavaScript challenge is the quieter version. It runs in the background and hopes the client executes it. I wanted the visit to stop, so I took the challenge a person can see.
 
-After a person passes, Cloudflare sets a `cf_clearance` cookie. Later requests from that browser skip the challenge until the cookie expires.
+After a person passes, Cloudflare sets a `cf_clearance` cookie. Later requests from that browser skip the challenge until the cookie expires. The expiration can be configured in Cloudflare and default is 30 minutes.
 
 ## Where to click
 

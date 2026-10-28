@@ -392,7 +392,7 @@ Turnstile had no reason to refuse them. The widget asks Cloudflare, and Cloudfla
 
 Two days later, on 15 April 2026, [pull request 151](https://github.com/nikolalsvk/blog/pull/151) stopped rendering the form on the post they were hitting. The checks in this article stayed on the other pages. That one page lost the form because the checks were not enough there.
 
-The thing that stopped them loading the page is a Cloudflare custom rule, in [How to Block Bots from Visiting Your Website](/how-to-block-bots-from-visiting-your-website).
+In the end, the thing that stopped them loading the page is a Cloudflare custom rule, in [How to Block Bots from Visiting Your Website](/how-to-block-bots-from-visiting-your-website).
 
 ## Summing up
 
