@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react"
 import { graphql } from "gatsby"
 import { ref, Database, onValue } from "firebase/database"
-import { Chart as ChartJS } from "chart.js"
 
 import loadDb from "../utils/firebase-db"
 
@@ -63,11 +62,6 @@ const Dashboard = ({ data }: Props) => {
 
   const fontColor = theme === "dark" ? COLORS.dark.text : COLORS.light.text
 
-  useEffect(() => {
-    ChartJS.defaults.color = fontColor
-    ChartJS.defaults.font.family = "Roboto, sans-serif"
-  }, [fontColor])
-
   const [views, setViews] = useState<null | { [key: string]: number }>(null)
 
   // Subscribe to view count updates
@@ -98,18 +92,22 @@ const Dashboard = ({ data }: Props) => {
       return null
     }
 
-    const viewCounts = Object.values(views)
+    const sum = (value: unknown): number => {
+      if (typeof value === "number") {
+        return value
+      }
 
-    return viewCounts.reduce((acc, curr): number => {
-      if (typeof curr !== "number") {
-        return Object.values(curr as number).reduce(
-          (acc, curr) => acc + curr,
+      if (value && typeof value === "object") {
+        return Object.values(value).reduce(
+          (total, child) => total + sum(child),
           0
         )
       }
 
-      return acc + curr
-    }, 0)
+      return 0
+    }
+
+    return sum(views)
   }, [views])
 
   return (
