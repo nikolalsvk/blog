@@ -339,7 +339,7 @@ Only after that do we call ConvertKit. The subscribe endpoint still wants the pu
 
 In [`functions/subscribe/index.ts`](https://github.com/nikolalsvk/blog/blob/master/functions/subscribe/index.ts) those last two `fetch` calls sit in one `try/catch`. A network failure returns 500 with the same "Unable to subscribe right now" message. The checks above it stay as they are here.
 
-One honest limit: the old ConvertKit URL is still on the internet if you shipped the previous form. Bots that already saved `https://api.convertkit.com/v3/forms/<form_id>/subscribe` can keep posting there. The function protects the form on your site. It does not delete a public API. Double opt-in is what catches those leftovers. If the spam is bad enough, rotate the form and stop using the old form id.
+One honest limit: the old ConvertKit URL is still on the internet if you shipped the previous form. Bots that already saved `https://api.convertkit.com/v3/forms/<form_id>/subscribe` can keep posting there. The function protects the form on your site. It does not delete a public API. Double opt-in catches the leftovers that cannot open the inbox. If the spam is bad enough, rotate the form and stop using the old form id.
 
 ## Environment variables
 
@@ -382,13 +382,25 @@ With `netlify dev` running:
 
 Then, in ConvertKit, confirm the form still sends the incentive email. People who never click it can sit there forever, so it is worth a rule that tags or removes unconfirmed subscribers after a few days. The function can only see the request. ConvertKit is the one that knows who clicked.
 
+## What still got through
+
+I turned this on for the live form on 13 April 2026, in [pull request 150](https://github.com/nikolalsvk/blog/pull/150). Signups dropped. They did not stop.
+
+A smaller set still arrived with a Turnstile token that siteverify accepted. The function did what it was written to do, and ConvertKit created the subscriber. Some of those addresses also confirmed the email. Double opt-in only stops a script that cannot open the inbox. An inbox the script can read will click the link. A mail scanner that prefetches every link can confirm it too.
+
+Turnstile had no reason to refuse them. The widget asks Cloudflare, and Cloudflare had already scored these clients as people. [Managed mode](https://developers.cloudflare.com/turnstile/concepts/widget/) shows the checkbox only when Cloudflare is unsure. Non-interactive and invisible never show it. There is no mode that challenges every visitor. A token from a client Cloudflare likes is a successful check.
+
+Two days later, on 15 April 2026, [pull request 151](https://github.com/nikolalsvk/blog/pull/151) stopped rendering the form on the post they were hitting. The checks in this article stayed on the other pages. That one page lost the form because the checks were not enough there.
+
+In the end, the thing that stopped them loading the page is a Cloudflare custom rule, in [How to Block Bots from Visiting Your Website](/how-to-block-bots-from-visiting-your-website).
+
 ## Summing up
 
 The first form was the right place to start. You own the markup, and a reader can subscribe without ConvertKit's embed. The missing piece was a door in front of that public API.
 
 A Netlify Function is that door. This site already had one for the subscriber count. The subscribe function is the same shape: the browser calls `/.netlify/functions/subscribe`, the server checks honeypot, timing, and Turnstile, and ConvertKit only hears about the requests that pass.
 
-It will not stop a determined person. It does make the lazy scripts, which were most of my problem, go bother someone else.
+It will not stop a client Cloudflare has already decided is a person. Those still got a token, and a few confirmed. I took the form off the post they were hammering.
 
 The form and the function are in [the blog repo](https://github.com/nikolalsvk/blog). If you want the version with no backend, the [original newsletter form post](/add-newsletter-subscription-form-to-react-website) is still there.
 
