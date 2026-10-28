@@ -8,54 +8,33 @@ How? I break down complicated and overlooked JS & Ruby problems into actionable 
 
 My articles have appeared on the first page of [HackerNews](https://news.ycombinator.com/submitted?id=nikolalsvk), and blogs like [LogRocket](https://blog.logrocket.com/author/nikola-duza/), [AppSignal](https://blog.appsignal.com/authors/nikola-%C4%91uza.html), [Anima](https://www.animaapp.com/blog/author/nikola/?utm_source=designer-advocate&utm_medium=social&utm_campaign=seo&utm_content=free-react-app-hosting-services), [Uploadcare](https://uploadcare.com/blog/author/nikola-duza/), and [Semaphore](https://semaphoreci.com/author/nikola). I've also been featured on newsletters like [Ruby Weekly](https://rubyweekly.com/), [JavaScript Weekly](https://javascriptweekly.com/), [CSS Weekly](https://css-weekly.com/), and [Node Weekly](https://nodeweekly.com/). I republish my posts on [dev.to](https://dev.to/nikolalsvk) and [Medium](https://medium.com/@nikolalsvk), so you can follow me there if you use those platforms.
 
-## 🛠 What I use
-
-You can check out the equipment and tools I use on a day-to-day basis. Note that some links to these tools/products are affiliate links. By clicking any of them, you are supporting and helping me in a way.
-
-- Hardware:
-  - [Rode NT-USB Mini](https://amzn.to/35SGBx1)
-  - [Audio-Technica ATH-M50X](https://amzn.to/3DJEs3h)
-  - [Nikon Z fc w/NIKKOR Z DX 16-50mm f/3.5-6.3 VR](https://amzn.to/3tHDtx0)
-  - [Logitech POP Keys Mechanical Wireless Keyboard](https://amzn.to/3CEG7X3)
-  - [Logitech MX Master 2S](https://amzn.to/3NkHTlg)
-  - [Dell UltraSharp U2720Q 27 Inch 4K UHD](https://amzn.to/34GWhTy)
-  - [PowerCube 4 Outlet - Socket multiplier](https://amzn.to/383KkbP)
-- Software:
-  - [Neovim](https://neovim.io/)
-  - [iTerm2](https://iterm2.com/) or [Warp](https://www.warp.dev/)
-  - [zsh](https://www.zsh.org/)
-  - [oh-my-zsh](https://ohmyz.sh/)
-  - [fig](https://fig.io/)
-  - [Brave Browser](https://brave.com/)
-  - [Postman](https://www.postman.com/)
-  - [Calendly](https://calendly.com/nikolalsvk)
-  - [ConvertKit](https://partners.convertkit.com/oqs53bno6l4l)
-
-You can read more about it on the [uses](/uses) page.
-
 ## 🎙 Podcasts I appeared in
 
-I got invited to a couple of podcasts. Here's where you can listen to me jabber about things:
+I got invited to a couple of podcasts. Here's where you can listen to me jabber about things. A 🎥 is a video and a 🎙 is a podcast. 🇷🇸 means it was in Serbian, 🇬🇧 means it was in English. The talks below use the same marks.
 
-- [Podkast IT Tipa 10: Edge Computing (gost: Nikola Đuza) - in Serbian language - May 25th, 2023](https://youtu.be/ZGy4en-ndN4)
-- [Podkast IT Tipa 7: Ruby (gost: Nikola Đuza) - in Serbian language - March 18th, 2022](https://www.youtube.com/watch?v=IS5MeOj4Hc8)
-- [Why Write Rails View Tests with Nikola Đuza - RUBY 496 - May 5th, 2021](https://rubyrogues.com/518)
+- 🎥 🇷🇸 [Podkast IT Tipa 10: Edge Computing (gost: Nikola Đuza) - May 25th, 2023](https://youtu.be/ZGy4en-ndN4)
+- 🎥 🇷🇸 [Podkast IT Tipa 7: Ruby (gost: Nikola Đuza) - March 18th, 2022](https://www.youtube.com/watch?v=IS5MeOj4Hc8)
+- 🎙 🇬🇧 [Why Write Rails View Tests with Nikola Đuza - RUBY 496 - May 5th, 2021](https://rubyrogues.com/518)
 
 ## 🗣 My talks
 
 I've given a couple of talks throughout my career. Unfortunately, not all of them got recorded. You can see the slides I have at [slides.com here](https://slides.com/nikolalsvk) for all of them. Here's the full list of talks I've given:
 
-- [How to get a job in the IT industry - Kako najbrže do posla u IT industriji 2021](https://youtu.be/zLcjifY0biI?t=10112)
-- Effective End-to-End and Integration Testing with Cypress - Telenor IT Dev Talks 2020
-- [How Did Vim Become So Popular - VimConf 2020](https://www.youtube.com/watch?v=FVgp0VrNo2w)
-- [Speeding up Initial Rendering of Rails Pages with render_async - Ruby Russia 2019](https://www.youtube.com/watch?v=_lCSSaurjYQ)
-- [Cypress Tales: Effective E2E Testing - Armada JS 2019](https://www.youtube.com/watch?v=Lc4ArfGpdC8)
-- [There and Back Again: e2e Testing React with Cypress - GrowIT 2018](https://www.youtube.com/watch?v=I3WJhutZovw)
-- [Kako Optimizovati React Aplikaciju (How to optimize a React app) - NS JS Meeetup #1 (2018)](https://www.youtube.com/watch?v=Sjuh2VpZ_s4)
-- Praksa u R:T (Internship at R:T) - KONTEH 2017
-- Docker Images - Docker Meetup Novi Sad (2017)
-- AWS Elastic Beanstalk and Semaphore CI - AWS User Group Serbia (2015)
-- Test-Driven Ruby - [CTRL + FLOW](http://renderedtext.com/ctrlflow/) (2015)
+- 🎥 🇷🇸 [How to get a job in the IT industry - Kako najbrže do posla u IT industriji 2021](https://youtu.be/zLcjifY0biI?t=10112)
+- 🇬🇧 Effective End-to-End and Integration Testing with Cypress - Telenor IT Dev Talks 2020
+- 🎥 🇬🇧 [How Did Vim Become So Popular - VimConf 2020](https://www.youtube.com/watch?v=FVgp0VrNo2w)
+- 🎥 🇬🇧 [Speeding up Initial Rendering of Rails Pages with render_async - Ruby Russia 2019](https://www.youtube.com/watch?v=_lCSSaurjYQ)
+- 🎥 🇬🇧 [Cypress Tales: Effective E2E Testing - Armada JS 2019](https://www.youtube.com/watch?v=Lc4ArfGpdC8)
+- 🎥 🇬🇧 [There and Back Again: e2e Testing React with Cypress - GrowIT 2018](https://www.youtube.com/watch?v=I3WJhutZovw)
+- 🎥 🇷🇸 [Kako Optimizovati React Aplikaciju (How to optimize a React app) - NS JS Meeetup #1 (2018)](https://www.youtube.com/watch?v=Sjuh2VpZ_s4)
+- 🇷🇸 Praksa u R:T (Internship at R:T) - KONTEH 2017
+- 🇬🇧 Docker Images - Docker Meetup Novi Sad (2017)
+- 🇬🇧 AWS Elastic Beanstalk and Semaphore CI - AWS User Group Serbia (2015)
+- 🇬🇧 Test-Driven Ruby - [CTRL + FLOW](http://renderedtext.com/ctrlflow/) (2015)
+
+## 🛠 What I use
+
+You can read more about it on the [uses](/uses) page.
 
 ## 🤝 Let's connect
 
