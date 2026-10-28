@@ -1,4 +1,5 @@
 const path = require(`path`)
+const webpack = require("webpack")
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const { execSync } = require("child_process")
 const kebabCase = require("lodash").kebabCase
@@ -176,4 +177,20 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value: gitAuthorTime,
     })
   }
+}
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    plugins: [
+      new webpack.DefinePlugin({
+        __SENTRY_DSN__: JSON.stringify(process.env.SENTRY_DSN || ""),
+        __SENTRY_ENVIRONMENT__: JSON.stringify(process.env.SENTRY_ENV || ""),
+        __SENTRY_DEBUG__: JSON.stringify(false),
+        __SENTRY_TRACING__: JSON.stringify(false),
+        __RRWEB_EXCLUDE_IFRAME__: JSON.stringify(true),
+        __RRWEB_EXCLUDE_SHADOW_DOM__: JSON.stringify(true),
+        __SENTRY_EXCLUDE_REPLAY_WORKER__: JSON.stringify(true),
+      }),
+    ],
+  })
 }

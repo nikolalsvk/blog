@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import * as Sentry from "@sentry/gatsby"
+import { captureException, captureMessage } from "@sentry/browser"
 import Spacer from "../components/spacer"
 
 declare global {
@@ -83,13 +83,13 @@ const SubscribeForm = () => {
       }
 
       setStatus("ERROR")
-      Sentry.captureMessage("Error subscribing to newsletter", {
+      captureMessage("Error subscribing to newsletter", {
         extra: json,
       })
     } catch (err) {
       setStatus("ERROR")
       console.error(err)
-      Sentry.captureException(err)
+      captureException(err)
     }
   }
 
