@@ -19,19 +19,23 @@ jobs:
       - name: Caching Gatsby
         uses: actions/cache@v4
         with:
-          path: .cache
-          key: ${{ runner.os }}-gatsby-cache-${{ github.run_id }}
+          path: |
+            .cache
+            public/page-data
+            public/slice-data
+          key: ${{ runner.os }}-gatsby-bundle-${{ github.run_id }}
           restore-keys: |
-            ${{ runner.os }}-gatsby-cache-
+            ${{ runner.os }}-gatsby-bundle-
       - name: Install dependencies
         run: npm install --legacy-peer-deps
       # Gatsby deletes a restored .cache when public/ is missing, then
-      # reprocesses every image. Keep the directory, but drop its contents so
-      # the size report only includes JavaScript from this build.
+      # reprocesses every image. Page and slice data have to stay too: a warm
+      # cache skips unchanged queries and the HTML build reads those files.
+      # Scripts are removed so the size report only includes this build.
       - name: Prepare build directory
         run: |
           mkdir -p public
-          find public -mindepth 1 -delete
+          find public -type f \( -name '*.js' -o -name '*.mjs' \) -delete
           rm -f .cache/bundle-stats.json
       - name: Build
         run: npm run build
