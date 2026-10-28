@@ -6,6 +6,6 @@
   "scripts": {},
   "author": "Nikola Đuza",
   "dependencies": {
-    "firebase-admin": "^10.0.2"
+    "firebase-admin": "^14.5.0"
   }
 }
