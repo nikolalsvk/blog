@@ -19,14 +19,24 @@ jobs:
       - name: Caching Gatsby
         uses: actions/cache@v4
         with:
-          path: .cache
-          key: ${{ runner.os }}-gatsby-cache-${{ github.run_id }}
+          path: |
+            .cache
+            public
+          key: ${{ runner.os }}-gatsby-site-${{ github.run_id }}
           restore-keys: |
-            ${{ runner.os }}-gatsby-cache-
+            ${{ runner.os }}-gatsby-site-
       - name: Install dependencies
         run: npm install --legacy-peer-deps
-      - name: Clear previous build output
-        run: rm -rf public .cache/bundle-stats.json
+      # public/ must exist or Gatsby deletes .cache and reprocesses every image.
+      # A warm cache also skips HTML, so those files have to stay. Remove only
+      # content-hashed scripts so the report cannot count a chunk from an older build.
+      - name: Prepare build directory
+        run: |
+          mkdir -p public
+          find public -maxdepth 1 -type f -regextype posix-extended \
+            -regex '.*/(app|framework|webpack-runtime|styles|component---).+-[a-f0-9]{8,}\.js' \
+            -delete
+          rm -f .cache/bundle-stats.json
       - name: Build
         run: npm run build
         env:
