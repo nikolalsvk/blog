@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  bundlebuddy:
+    name: BundleBuddy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js 22.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.20.0
+          cache: npm
+      - name: Caching Gatsby
+        uses: actions/cache@v4
+        with:
+          path: .cache
+          key: ${{ runner.os }}-gatsby-cache-${{ github.run_id }}
+          restore-keys: |
+            ${{ runner.os }}-gatsby-cache-
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+      - name: Clear previous build output
+        run: rm -rf public .cache/bundle-stats.json
+      - name: Build
+        run: npm run build
+        env:
+          CI: true
+          BUNDLEBUDDY: true
+      - name: Report bundle sizes
+        run: |
+          args=(--path ./public --stats ./.cache/bundle-stats.json --fail-on-budget)
+          if [ -n "${PR_NUMBER}" ]; then
+            args+=(--pr "${PR_NUMBER}")
+          fi
+          npx --yes @bundlebuddy/cli@0.1.1 report "${args[@]}"
+        env:
+          BUNDLEBUDDY_API_KEY: ${{ secrets.BUNDLEBUDDY_API_KEY }}
+          BUNDLEBUDDY_PROJECT_ID: ${{ vars.BUNDLEBUDDY_PROJECT_ID }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}

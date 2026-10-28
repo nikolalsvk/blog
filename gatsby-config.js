@@ -279,6 +279,21 @@ module.exports = {
       resolve: `gatsby-plugin-webpack-bundle-analyser-v2`,
       options: {
         devMode: false,
+        // GitHub Actions sets BUNDLEBUDDY so the build writes webpack stats
+        // for the CLI without starting the analyzer server.
+        ...(process.env.BUNDLEBUDDY === "true"
+          ? {
+              analyzerMode: "disabled",
+              openAnalyzer: false,
+              generateStatsFile: true,
+              statsFilename: require("path").join(
+                __dirname,
+                ".cache",
+                "bundle-stats.json"
+              ),
+              statsOptions: { source: false },
+            }
+          : {}),
       },
     },
     `gatsby-plugin-typescript`,
