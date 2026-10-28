@@ -61,7 +61,12 @@ export const GuestPostsSection = ({ posts, fontColor }: Props) => {
       </header>
 
       <section className="">
-        <BarChart color={fontColor} data={guestPostsChartData} />
+        <BarChart
+          color={fontColor}
+          title="Posts on other blogs"
+          labelHeader="Blog"
+          data={guestPostsChartData}
+        />
       </section>
     </article>
   )

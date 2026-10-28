@@ -54,7 +54,12 @@ export const PostsByYearSection = ({ posts, fontColor }: Props) => {
         <h2>Posts by year</h2>
       </header>
 
-      <LineChart color={fontColor} data={postsByYearChartData} />
+      <LineChart
+        color={fontColor}
+        title="Posts by year"
+        labelHeader="Year"
+        data={postsByYearChartData}
+      />
     </article>
   )
 }
