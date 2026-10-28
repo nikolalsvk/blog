@@ -25,8 +25,14 @@ jobs:
             ${{ runner.os }}-gatsby-cache-
       - name: Install dependencies
         run: npm install --legacy-peer-deps
-      - name: Clear previous build output
-        run: rm -rf public .cache/bundle-stats.json
+      # Gatsby deletes a restored .cache when public/ is missing, then
+      # reprocesses every image. Keep the directory, but drop its contents so
+      # the size report only includes JavaScript from this build.
+      - name: Prepare build directory
+        run: |
+          mkdir -p public
+          find public -mindepth 1 -delete
+          rm -f .cache/bundle-stats.json
       - name: Build
         run: npm run build
         env:
