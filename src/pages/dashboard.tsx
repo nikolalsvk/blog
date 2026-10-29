@@ -11,6 +11,7 @@ import SubscribeForm from "../components/subscribe-form"
 import Spacer from "../components/spacer"
 import { Subscribers } from "../components/subscribers"
 import { TopPostsSection } from "../components/top-posts-section"
+import { LeastPostsSection } from "../components/least-posts-section"
 import { PostsByYearSection } from "../components/posts-by-year-section"
 import { GuestPostsSection } from "../components/guest-posts-section"
 import { CardWithStat } from "../components/card-with-stat"
@@ -150,6 +151,8 @@ const Dashboard = ({ data }: Props) => {
       <PostsByYearSection posts={posts} fontColor={fontColor} />
 
       <GuestPostsSection posts={posts} fontColor={fontColor} />
+
+      <LeastPostsSection posts={posts} views={views} />
 
       <Spacer />
       <SubscribeForm />
