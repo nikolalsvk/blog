@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { captureException, captureMessage } from "@sentry/browser"
 import Spacer from "../components/spacer"
+import { functionUrl } from "../utils/function-url"
 
 declare global {
   interface Window {
@@ -17,9 +18,7 @@ const SubscribeForm = () => {
   const [startedAt, setStartedAt] = useState<number>(() => Date.now())
   const [turnstileToken, setTurnstileToken] = useState("")
 
-  const SUBSCRIBE_URL = `${
-    process.env.GATSBY_FUNCTION_HOST || ""
-  }/.netlify/functions/subscribe`
+  const SUBSCRIBE_URL = functionUrl("subscribe")
   const turnstileSiteKey = process.env.GATSBY_TURNSTILE_SITE_KEY?.trim()
 
   useEffect(() => {
