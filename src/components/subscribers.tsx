@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react"
 
+import { functionUrl } from "../utils/function-url"
+
 export const Subscribers = () => {
   const [subscriberCount, setSubscriberCount] = useState<null | number>(null)
 
   useEffect(() => {
     const fetchSubscriberCount = async () => {
       try {
-        const data = await fetch(
-          `${process.env.GATSBY_FUNCTION_HOST}/.netlify/functions/convertkit`
-        )
+        const data = await fetch(functionUrl("convertkit"))
 
         const json = await data.json()
 
