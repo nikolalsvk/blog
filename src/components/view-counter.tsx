@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react"
 import { ref, Database, onValue } from "firebase/database"
 
 import loadDb from "../utils/firebase-db"
+import { functionUrl } from "../utils/function-url"
 
 import Views from "./views"
 
@@ -40,13 +41,10 @@ function ViewCounter({ slug, hideText }: Props) {
   // Asynchronously log a view
   useEffect(() => {
     const registerView = () => {
-      return fetch(
-        `${process.env.GATSBY_FUNCTION_HOST}/.netlify/functions/view-counter`,
-        {
-          method: "POST",
-          body: JSON.stringify({ slug: slug }),
-        }
-      ).catch((error) =>
+      return fetch(functionUrl("view-counter"), {
+        method: "POST",
+        body: JSON.stringify({ slug: slug }),
+      }).catch((error) =>
         console.log("Failed to fetch page views with error:", error)
       )
     }
